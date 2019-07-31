@@ -9,7 +9,17 @@ export default class Example extends Component {
         super(props);
         this.state = {
             category_name: '',
+            categories: [],
         };
+    }
+
+    componentDidMount() {
+        this.giveAllCategories();
+    }
+
+    giveAllCategories() {
+        axios.get('api/category')
+            .then(response => this.setState({ categories: response.data.data }));
     }
 
     handlerCategoryName(event) {
@@ -20,10 +30,24 @@ export default class Example extends Component {
         axios.post('api/category', { category_name: this.state.category_name });
     }
 
+    createCategoryOptionsTable() {
+        if (this.state.categories !== []) {
+            return this.state.categories.map(category => (
+                <option key={category.id} value={category.id}>{category.category_name}</option>
+            ));
+        }
+    }
+
     render() {
         return (
             <div className="container">
                 Administracion
+                <div className="form-group">
+                    <label htmlFor="categorySelector">Seleccione una categoria: </label>
+                    <select className="form-control" size="5" id="categorySelector" onChange={() => this.handlerCategorySelected()}>
+                        {this.createCategoryOptionsTable()}
+                    </select>
+                </div>
                 <form>
                     <div className="form-group row">
                         <label htmlFor="createCategory" className="col-md-3 col-form-label">Crear una nueva Categoria:</label>

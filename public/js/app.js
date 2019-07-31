@@ -61880,12 +61880,29 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Example).call(this, props));
     _this.state = {
-      category_name: ''
+      category_name: '',
+      categories: []
     };
     return _this;
   }
 
   _createClass(Example, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.giveAllCategories();
+    }
+  }, {
+    key: "giveAllCategories",
+    value: function giveAllCategories() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('api/category').then(function (response) {
+        return _this2.setState({
+          categories: response.data.data
+        });
+      });
+    }
+  }, {
     key: "handlerCategoryName",
     value: function handlerCategoryName(event) {
       this.setState({
@@ -61900,13 +61917,36 @@ function (_Component) {
       });
     }
   }, {
+    key: "createCategoryOptionsTable",
+    value: function createCategoryOptionsTable() {
+      if (this.state.categories !== []) {
+        return this.state.categories.map(function (category) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+            key: category.id,
+            value: category.id
+          }, category.category_name);
+        });
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
-      }, "Administracion", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Administracion", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "categorySelector"
+      }, "Seleccione una categoria: "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        className: "form-control",
+        size: "5",
+        id: "categorySelector",
+        onChange: function onChange() {
+          return _this3.handlerCategorySelected();
+        }
+      }, this.createCategoryOptionsTable())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "createCategory",
@@ -61919,13 +61959,13 @@ function (_Component) {
         placeholder: "Escriba un nombre para la Categoria",
         id: "createCategory",
         onChange: function onChange(event) {
-          return _this2.handlerCategoryName(event);
+          return _this3.handlerCategoryName(event);
         }
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "reset",
         className: "col-md-3 btn btn-primary",
         onClick: function onClick() {
-          return _this2.createCategory();
+          return _this3.createCategory();
         }
       }, "Crear Categoria"))));
     }
