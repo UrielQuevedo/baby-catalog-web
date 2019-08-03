@@ -61861,9 +61861,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -61885,6 +61885,7 @@ function (_Component) {
     _classCallCheck(this, Example);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Example).call(this, props));
+    _this.abstractHandlerForANewProduct = _this.abstractHandlerForANewProduct.bind(_assertThisInitialized(_this));
     _this.state = {
       category_name: '',
       categories: [],
@@ -61895,7 +61896,7 @@ function (_Component) {
         price: '',
         priority: '',
         waist: '',
-        category: ''
+        category_id: ''
       }
     };
     return _this;
@@ -62102,7 +62103,7 @@ function (_Component) {
         placeholder: "A partir de 0",
         defaultValue: this.state.product.priority,
         onChange: function onChange(event) {
-          return _this7.abstractHandlerForANewProduct('price', event.target.value);
+          return _this7.abstractHandlerForANewProduct('priority', event.target.value);
         }
       })));
     }
@@ -62140,7 +62141,9 @@ function (_Component) {
         className: "form-control",
         defaultValue: 'DEFAULT',
         id: "categorySelector",
-        onChange: this.handlerNuevaCategoria
+        onChange: function onChange() {
+          return _this8.abstractHandlerForANewProduct('category_id', event.target.value);
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         disabled: "disabled",
         value: "DEFAULT"
@@ -62149,7 +62152,9 @@ function (_Component) {
   }, {
     key: "createProduct",
     value: function createProduct() {
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('api/product', this.state.product);
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('api/product', this.state.product)["catch"](function (error) {
+        return console.log(error.response);
+      });
     }
   }, {
     key: "createProductForm",

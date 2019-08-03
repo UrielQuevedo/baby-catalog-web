@@ -7,6 +7,7 @@ export default class Example extends Component {
 
     constructor(props) {
         super(props);
+        this.abstractHandlerForANewProduct = this.abstractHandlerForANewProduct.bind(this);
         this.state = {
             category_name: '',
             categories: [],
@@ -17,7 +18,7 @@ export default class Example extends Component {
                 price: '',
                 priority: '',
                 waist: '',
-                category: '',
+                category_id: '',
             }
         };
     }
@@ -150,7 +151,7 @@ export default class Example extends Component {
                         id="priorityProduct" 
                         placeholder="A partir de 0"
                         defaultValue={this.state.product.priority}
-                        onChange={event => this.abstractHandlerForANewProduct('price', event.target.value)}       
+                        onChange={event => this.abstractHandlerForANewProduct('priority', event.target.value)}       
                     />
                 </div>
             </div>
@@ -172,7 +173,7 @@ export default class Example extends Component {
                 </div>
                 <label htmlFor="productCategory" className="col-3 col-md-2 col-form-label"><p className="float-right">Categoria:</p></label>
                 <div className="col-9 col-md-4">
-                    <select className="form-control" defaultValue={'DEFAULT'} id="categorySelector" onChange={this.handlerNuevaCategoria}>
+                    <select className="form-control" defaultValue={'DEFAULT'} id="categorySelector" onChange={() => this.abstractHandlerForANewProduct('category_id', event.target.value)}>
                         <option disabled="disabled" value="DEFAULT">Elegir</option>
                         {this.createCategoryOptionsTable()}
                     </select>
@@ -182,7 +183,8 @@ export default class Example extends Component {
     }
 
     createProduct() {
-        axios.post('api/product', this.state.product);
+        axios.post('api/product', this.state.product)
+            .catch(error => console.log(error.response));
     }
 
     createProductForm() {
