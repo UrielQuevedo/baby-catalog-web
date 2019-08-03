@@ -62148,7 +62148,9 @@ function (_Component) {
     }
   }, {
     key: "createProduct",
-    value: function createProduct() {}
+    value: function createProduct() {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('api/product', this.state.product);
+    }
   }, {
     key: "createProductForm",
     value: function createProductForm() {

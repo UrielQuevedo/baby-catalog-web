@@ -182,7 +182,7 @@ export default class Example extends Component {
     }
 
     createProduct() {
-        
+        axios.post('api/product', this.state.product);
     }
 
     createProductForm() {

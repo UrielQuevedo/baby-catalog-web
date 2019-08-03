@@ -17,3 +17,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::resource('category','Api\CategoryController', ['only' => ['index', 'store', 'show', 'update', 'destroy']]);
+Route::resource('product','Api\ProductController', ['only' => ['store', 'update', 'destroy', 'show']]);
+
