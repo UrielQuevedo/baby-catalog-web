@@ -61889,6 +61889,7 @@ function (_Component) {
     _this.state = {
       category_name: '',
       categories: [],
+      products: [],
       product: {
         title: '',
         description: '',
@@ -61906,14 +61907,26 @@ function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.giveAllCategories();
+      this.giveAllProducts();
+    }
+  }, {
+    key: "giveAllProducts",
+    value: function giveAllProducts() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('api/product').then(function (response) {
+        return _this2.setState({
+          products: response.data.data
+        });
+      });
     }
   }, {
     key: "giveAllCategories",
     value: function giveAllCategories() {
-      var _this2 = this;
+      var _this3 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('api/category').then(function (response) {
-        return _this2.setState({
+        return _this3.setState({
           categories: response.data.data
         });
       });
@@ -61947,7 +61960,7 @@ function (_Component) {
   }, {
     key: "createCategoryForm",
     value: function createCategoryForm() {
-      var _this3 = this;
+      var _this4 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
@@ -61958,7 +61971,7 @@ function (_Component) {
         size: "5",
         id: "categorySelector",
         onChange: function onChange() {
-          return _this3.handlerCategorySelected();
+          return _this4.handlerCategorySelected();
         }
       }, this.createCategoryOptionsTable())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
@@ -61973,13 +61986,13 @@ function (_Component) {
         placeholder: "Escriba un nombre para la Categoria",
         id: "createCategory",
         onChange: function onChange(event) {
-          return _this3.handlerCategoryName(event);
+          return _this4.handlerCategoryName(event);
         }
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "reset",
         className: "col-md-3 btn btn-primary",
         onClick: function onClick() {
-          return _this3.createCategory();
+          return _this4.createCategory();
         }
       }, "Crear Categoria"))));
     }
@@ -61994,7 +62007,7 @@ function (_Component) {
   }, {
     key: "createTitleInput",
     value: function createTitleInput() {
-      var _this4 = this;
+      var _this5 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
@@ -62012,14 +62025,14 @@ function (_Component) {
         placeholder: "Ingrese un Titulo",
         defaultValue: this.state.product.title,
         onChange: function onChange(event) {
-          return _this4.abstractHandlerForANewProduct('title', event.target.value);
+          return _this5.abstractHandlerForANewProduct('title', event.target.value);
         }
       })));
     }
   }, {
     key: "createDescriptionInput",
     value: function createDescriptionInput() {
-      var _this5 = this;
+      var _this6 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
@@ -62037,14 +62050,14 @@ function (_Component) {
         placeholder: "Agrega una descripcion",
         defaultValue: this.state.product.description,
         onChange: function onChange(event) {
-          return _this5.abstractHandlerForANewProduct('description', event.target.value);
+          return _this6.abstractHandlerForANewProduct('description', event.target.value);
         }
       })));
     }
   }, {
     key: "createCodeInput",
     value: function createCodeInput() {
-      var _this6 = this;
+      var _this7 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
@@ -62062,14 +62075,14 @@ function (_Component) {
         placeholder: "Agrega un codigo",
         defaultValue: this.state.product.code,
         onChange: function onChange(event) {
-          return _this6.abstractHandlerForANewProduct('code', event.target.value);
+          return _this7.abstractHandlerForANewProduct('code', event.target.value);
         }
       })));
     }
   }, {
     key: "createPriceAndPriorityInput",
     value: function createPriceAndPriorityInput() {
-      var _this7 = this;
+      var _this8 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
@@ -62087,7 +62100,7 @@ function (_Component) {
         placeholder: "A partir de 0",
         defaultValue: this.state.product.price,
         onChange: function onChange(event) {
-          return _this7.abstractHandlerForANewProduct('price', event.target.value);
+          return _this8.abstractHandlerForANewProduct('price', event.target.value);
         }
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "priorityProduct",
@@ -62103,14 +62116,14 @@ function (_Component) {
         placeholder: "A partir de 0",
         defaultValue: this.state.product.priority,
         onChange: function onChange(event) {
-          return _this7.abstractHandlerForANewProduct('priority', event.target.value);
+          return _this8.abstractHandlerForANewProduct('priority', event.target.value);
         }
       })));
     }
   }, {
     key: "createCategoryAndWaistInput",
     value: function createCategoryAndWaistInput() {
-      var _this8 = this;
+      var _this9 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
@@ -62128,7 +62141,7 @@ function (_Component) {
         placeholder: "Ingrese los talles",
         defaultValue: this.state.product.waist,
         onChange: function onChange(event) {
-          return _this8.abstractHandlerForANewProduct('waist', event.target.value);
+          return _this9.abstractHandlerForANewProduct('waist', event.target.value);
         }
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "productCategory",
@@ -62142,7 +62155,7 @@ function (_Component) {
         defaultValue: 'DEFAULT',
         id: "categorySelector",
         onChange: function onChange() {
-          return _this8.abstractHandlerForANewProduct('category_id', event.target.value);
+          return _this9.abstractHandlerForANewProduct('category_id', event.target.value);
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         disabled: "disabled",
@@ -62159,7 +62172,7 @@ function (_Component) {
   }, {
     key: "createProductForm",
     value: function createProductForm() {
-      var _this9 = this;
+      var _this10 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         encType: "multipart/form-data"
@@ -62175,16 +62188,62 @@ function (_Component) {
         type: "reset",
         className: "btn btn-primary",
         onClick: function onClick() {
-          return _this9.createProduct();
+          return _this10.createProduct();
         }
       }, "Crear Producto"))));
+    }
+  }, {
+    key: "createProductTableHead",
+    value: function createProductTableHead() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        scope: "col"
+      }, "Titulo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        scope: "col"
+      }, "Code"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        scope: "col"
+      }, "Talle"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        scope: "col"
+      }, "Precio"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        scope: "col"
+      }, "Categoria"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        scope: "col"
+      }, "Prioridad")));
+    }
+  }, {
+    key: "createARowForTheProductTable",
+    value: function createARowForTheProductTable(product, i) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+        key: i
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.code), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.waist), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.price), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.category_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.priority));
+    }
+  }, {
+    key: "createProductTableRows",
+    value: function createProductTableRows() {
+      var _this11 = this;
+
+      return this.state.products.map(function (product, i) {
+        return _this11.createARowForTheProductTable(product, i);
+      });
+    }
+  }, {
+    key: "createProductTable",
+    value: function createProductTable() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "tablaProductos espacioBottom"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+        className: "table table-bordered table-responsive"
+      }, this.createProductTableHead(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.createProductTableRows())))));
     }
   }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
-      }, "Administracion", console.log(this.state.product), this.createCategoryForm(), this.createProductForm());
+      }, "Administracion", console.log(this.state.product), this.createCategoryForm(), this.createProductForm(), this.createProductTable());
     }
   }]);
 

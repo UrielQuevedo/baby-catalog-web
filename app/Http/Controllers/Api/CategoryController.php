@@ -32,8 +32,7 @@ class CategoryController extends Controller
         $newCategory = new Category();
         $newCategory->category_name=$request->input('category_name'); 
         $newCategory->save();
-        $response = Response::make(json_encode(['data'=>$newCategory]), 201)->header('Location', 'http://http://127.0.0.1:8080/api/categoria/'.$request->input('category_name'))->header('Content-Type', 'application/json');
-		return $response;
+        return response()->json(['status'=>'ok','data'=>$newCategory], 200);
     }
 
     /**

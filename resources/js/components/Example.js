@@ -11,6 +11,7 @@ export default class Example extends Component {
         this.state = {
             category_name: '',
             categories: [],
+            products: [],
             product: {
                 title: '',
                 description: '',
@@ -25,6 +26,12 @@ export default class Example extends Component {
 
     componentDidMount() {
         this.giveAllCategories();
+        this.giveAllProducts();
+    }
+
+    giveAllProducts() {
+        axios.get('api/product')
+            .then(response => this.setState({ products: response.data.data }));
     }
 
     giveAllCategories() {
@@ -208,6 +215,57 @@ export default class Example extends Component {
         );
     }
 
+    createProductTableHead() {
+        return (
+            <thead>
+                <tr>
+                    <th scope="col">Titulo</th>
+                    <th scope="col">Code</th>
+                    <th scope="col">Talle</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Prioridad</th>
+                </tr>
+            </thead>
+        );
+    }
+
+    createARowForTheProductTable(product, i) {
+        return (
+            <tr key={i}>
+                <td>{product.title}</td>
+                <td>{product.code}</td>
+                <td>{product.waist}</td>
+                <td>{product.price}</td>
+                <td>{product.category_name}</td>
+                <td>{product.priority}</td>
+            </tr>
+        );
+    }
+
+    createProductTableRows() {
+        return this.state.products.map((product, i) => (
+            this.createARowForTheProductTable(product, i)
+        ));
+    }
+
+    createProductTable() {
+        return(
+            <div className="col-12">
+                <div className="col-12">
+                    <div className="tablaProductos espacioBottom">
+                        <table className="table table-bordered table-responsive">
+                            {this.createProductTableHead()}
+                            <tbody>
+                                {this.createProductTableRows()}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     render() {
         return (
             <div className="container">
@@ -215,6 +273,7 @@ export default class Example extends Component {
                 {console.log(this.state.product)}
                 {this.createCategoryForm()}
                 {this.createProductForm()}
+                {this.createProductTable()}
             </div>
         );
     }

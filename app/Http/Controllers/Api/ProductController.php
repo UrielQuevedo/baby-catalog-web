@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Category;
 use App\Product;
+use DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -16,7 +17,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products=DB::table('products')->select('products.id','priority','title','waist','code','description','price', 'category_name', 'category_id')->join('categories', 'categories.id', '=', 'products.category_id')->get();
+        return response()->json(['status'=>'ok','data'=>$products], 200);
     }
 
     /**
