@@ -19,7 +19,7 @@ export default class AdminRoute extends Component {
                 render={props => (
                 true ?
                 <Component {...props} /> :
-                <Redirect to='/' />
+                <Redirect to='/admin/config/login' />
                 )} 
             />
         );
