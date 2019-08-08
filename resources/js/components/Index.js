@@ -4,6 +4,8 @@ import { Switch, Route } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import Example from '../components/Example';
 import Home from '../components/Home';
+import AdminRoute from '../components/AdminRoute';
+import Login from '../components/Login';
 
 export default class Index extends Component {
     constructor(props) {
@@ -17,8 +19,9 @@ export default class Index extends Component {
         return (
             <BrowserRouter>
                 <Switch>
-                    <Route exact path="/home" render={props => <div> <Home /></div>} />
-                    <Route path="/" render={props => <div> <Example /></div>} />
+                    <Route exact path="/admin/config/login" render={props => <div> <Login /> </div>} />
+                    <AdminRoute path='/admin/config/home' component={Example} />
+                    <Route path="/" render={props => <div> <Home /></div>} />
                 </Switch>
             </BrowserRouter>
         );

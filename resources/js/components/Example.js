@@ -29,12 +29,12 @@ export default class Example extends Component {
     }
 
     giveAllProducts() {
-        axios.get('api/product')
+        axios.get('/api/product')
             .then(response => this.setState({ products: response.data.data }));
     }
 
     giveAllCategories() {
-        axios.get('api/category')
+        axios.get('/api/category')
             .then(response => this.setState({ categories: response.data.data }));
     }
 
@@ -43,7 +43,7 @@ export default class Example extends Component {
     }
 
     createCategory() {
-        axios.post('api/category', { category_name: this.state.category_name });
+        axios.post('/api/category', { category_name: this.state.category_name });
     }
 
     createCategoryOptionsTable() {

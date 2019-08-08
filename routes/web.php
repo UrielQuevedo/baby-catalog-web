@@ -12,4 +12,5 @@
 */
 
 
-Route::view('/{path?}', 'welcome');
+
+Route::get('{reactRoutes}', function () { return view('welcome');})->where('reactRoutes', '^((?!api).)*$');
