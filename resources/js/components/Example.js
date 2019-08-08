@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import { runInThisContext } from 'vm';
 
 export default class Example extends Component {
 

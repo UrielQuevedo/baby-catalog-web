@@ -11,7 +11,7 @@
         <link href="/css/app.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <div id="example"></div>
+        <div id="index"></div>
         <script src="/js/app.js"></script>
     </body>
 </html>
