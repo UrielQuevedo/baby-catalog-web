@@ -269,7 +269,7 @@ export default class Example extends Component {
         return (
             <div className="container">
                 Administracion
-                {console.log(this.state.product)}
+                {console.log(this.props)}
                 {this.createCategoryForm()}
                 {this.createProductForm()}
                 {this.createProductTable()}

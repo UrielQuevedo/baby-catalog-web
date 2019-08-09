@@ -19,9 +19,9 @@ export default class Index extends Component {
         return (
             <BrowserRouter>
                 <Switch>
-                    <Route exact path="/admin/config/login" render={props => <div> <Login /> </div>} />
+                    <Route exact path="/admin/config/login" component={Login} />
                     <AdminRoute path='/admin/config/home' component={Example} />
-                    <Route path="/" render={props => <div> <Home /></div>} />
+                    <Route path="/" component={Home} />
                 </Switch>
             </BrowserRouter>
         );

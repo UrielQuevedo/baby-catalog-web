@@ -4,10 +4,6 @@ import { Switch, Route, Redirect } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 
 export default class AdminRoute extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
 
     componentDidMount() {}
 
@@ -17,7 +13,7 @@ export default class AdminRoute extends Component {
             <Route 
                 {...props} 
                 render={props => (
-                true ?
+                props.location.state !== undefined && props.location.state.login ?
                 <Component {...props} /> :
                 <Redirect to='/admin/config/login' />
                 )} 

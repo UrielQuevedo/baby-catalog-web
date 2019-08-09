@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import { withRouter, Route, Redirect } from 'react-router';
 import '../../../public/css/login.css';
 
-export default class Login extends Component {
+class Login extends Component {
 
     constructor(props) {
         super(props);
@@ -16,7 +17,12 @@ export default class Login extends Component {
     
     logIn() {
         axios.post('/api/auth/login', { email: this.state.email, password: this.state.password })
-        .then()
+        .then(response => this.props.history.push(
+            {
+                pathname:"/admin/config/home",
+                state:{ login: true }
+            }
+        ))
         .catch(() => this.setState({ validInfo: 'Informacion Invalida' }));
     }
     
@@ -105,6 +111,8 @@ export default class Login extends Component {
         );
     }
 }
+
+export default withRouter(Login)
 
 if (document.getElementById('login')) {
     ReactDOM.render(<Login />, document.getElementById('login'));
