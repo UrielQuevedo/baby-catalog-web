@@ -45,7 +45,7 @@ export default class VerticalNavbar extends Component {
                             pathname:'/admin/config/banner',
                             state:this.props.location.state,
                         }}>
-                            Banner
+                            Destacados
                         </Link>
                     </li>
                 </ul>

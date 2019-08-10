@@ -12,6 +12,11 @@ export default class HorizontalNavbar extends Component {
         };
     }
 
+    closeSession() {
+        axios.post('/api/auth/logout', { token: this.props.location.state.token })
+            .then(this.props.history.push('/admin/config/login'))   
+    }
+
     responsiveNavbar() {
         document.getElementById('sidebar').classList.toggle("active");
         this.state.textButton === 'Ocultar Panel' ? this.setState({ textButton: 'Mostrar Panel' }) : this.setState({ textButton: 'Ocultar Panel' });
@@ -24,7 +29,7 @@ export default class HorizontalNavbar extends Component {
                     <button type="button" id="sidebarCollapse" className="btn btn-info" onClick={() => this.responsiveNavbar()}>
                         <i className="fa fa-align-justify"></i> <span>{this.state.textButton}</span>
                     </button> 
-                    <button type="button" className="btn btn-danger">
+                    <button type="button" className="btn btn-danger" onClick={() => this.closeSession()}>
                     <i className="fa fa-align-justify"></i> <span>Cerrar Sesión</span>
                     </button>
                 </div>

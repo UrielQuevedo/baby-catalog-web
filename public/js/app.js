@@ -67264,6 +67264,13 @@ function (_Component) {
   }
 
   _createClass(HorizontalNavbar, [{
+    key: "closeSession",
+    value: function closeSession() {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/api/auth/logout', {
+        token: this.props.location.state.token
+      }).then(this.props.history.push('/admin/config/login'));
+    }
+  }, {
     key: "responsiveNavbar",
     value: function responsiveNavbar() {
       document.getElementById('sidebar').classList.toggle("active");
@@ -67293,7 +67300,10 @@ function (_Component) {
         className: "fa fa-align-justify"
       }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.state.textButton)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "button",
-        className: "btn btn-danger"
+        className: "btn btn-danger",
+        onClick: function onClick() {
+          return _this2.closeSession();
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fa fa-align-justify"
       }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Cerrar Sesi\xF3n"))));
@@ -67721,7 +67731,7 @@ function (_Component) {
           pathname: '/admin/config/banner',
           state: this.props.location.state
         }
-      }, "Banner"))));
+      }, "Destacados"))));
     }
   }]);
 
