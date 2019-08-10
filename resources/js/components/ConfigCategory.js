@@ -86,7 +86,7 @@ export default class ConfigCategory extends Component {
             <form>
                 <div className="form-group row">
                     <label htmlFor="createCategory" className="col-md-3 col-form-label">Crear una nueva Categoria:</label>
-                    <div className="col-md-6">
+                    <div className="col-md-6 mb-3">
                         <input type="text" 
                             className="form-control" 
                             placeholder="Escriba un nombre para la Categoria" 
@@ -128,7 +128,7 @@ export default class ConfigCategory extends Component {
             <form>
                 <div className="form-group row">
                     <label htmlFor="categoryChange" className="col-md-3 col-form-label">Cambiar el nombre:</label>
-                    <div className="col-md-6">
+                    <div className="col-md-6 mb-3">
                         <input type="text" 
                             className="form-control"
                             placeholder="Eliga un nuevo nombre"
@@ -138,7 +138,7 @@ export default class ConfigCategory extends Component {
                     </div>
                     <div className="col-md-3">
                         <button type="reset" className="btn btn-primary col-12" onClick={() => this.changeCategory()}>Aplicar Cambios</button>
-                        <button type="reset" className="btn btn-danger col-12" onClick={() => this.deleteCategory()}>Borrar Categoria</button>
+                        <button type="reset" className="btn btn-danger col-12 mt-2" onClick={() => this.deleteCategory()}>Borrar Categoria</button>
                     </div>
                 </div>
             </form>

@@ -57,7 +57,7 @@ a:focus{
     max-width: 250px;
     background: #7386D5;
     color: #fff;
-    height: 100vh;
+    min-height: 100vh;
     transition: all 0.3s;
 }
 #sidebar.active{

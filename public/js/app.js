@@ -6397,7 +6397,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700);", ""]);
 
 // module
-exports.push([module.i, "body{font-family: 'Poppins', sans-serif;\n    background: #fafafa}\np{font-family: 'Poppins', sans-serif;\n    font-size: 1.1em;\n\tfont-weight: 300;\n\tline-height: 1.7em;\n\tcolor: #999;\n}\n\n.prueb{\n    display: flex;\n    width: 100%;\n    flex-flow: row nowrap;\n    justify-content: space-between;\n}\n\n.title-config {\n    color: black;\n}\n\na,\na:hover,\na:focus{\n\tcolor: inherit;\n\ttext-decoration: none;\n\ttransition: all 0.3s;\n}\n.navbar{\n\tpadding: 15px 10px;\n\tbackground: #fff;\n    border: none;\n\tborder-radius: 0;\n\tmargin-bottom: 40px;\n\tbox-shadow: 1px 1px 3px rgba(0,0,0,0.1);\n}\n\n.navbar-btn{\n\tbox-shadow: none;\n\toutline: none!important;\n\tborder: none;\n}\n\n.line{\n\twidth: 100%;\n\theight: 1px;\n\tborder-bottom: 1px dashed #ddd;\n}\n\n.wrapper {\n    display: flex;\n    width: 100%;\n    align-items: stretch;\n}\n#sidebar {\n    min-width: 250px;\n    max-width: 250px;\n    background: #7386D5;\n    color: #fff;\n    height: 100vh;\n    transition: all 0.3s;\n}\n#sidebar.active{\n\tmargin-left: -250px;\n}\n\n#sidebar .sidebar-header{\n\tpadding: 20px;\n\tbackground: #6d7fcc;\n}\n#sidebar ul.components{\n\tpadding: 20px 0px;\n\tborder-bottom: 1px solid #47748b;\n}\n\n#sidebar ul p{\n\tpadding: 10px;\n\tfont-size: 1.1em;\n\tdisplay: block;\n}\n\n#sidebar ul li a{\n\tpadding: 10px;\n\tfont-size: 1.1em;\n\tdisplay: block;\n}\n#sidebar ul li a:hover {\n    color: #7386D5;\n    background: #fff;\n}\n\n#sidebar ul li.active>a,\na[aria-expanded=\"true\"] {\n    color: #fff;\n    background: #6d7fcc;\n}\na[data-toggle=\"collapse\"] {\n    position: relative;\n}\n.dropdown-toggle::after {\n    display: block;\n    position: absolute;\n    top: 50%;\n    right: 20px;\n    transform: translateY(-50%);\n}\n\nul ul a {\n    font-size: 0.9em !important;\n    padding-left: 30px !important;\n    background: #6d7fcc;\n}\n\nul.CTAs {\n    padding: 20px;\n}\n\nul.CTAs a {\n    text-align: center;\n    font-size: 0.9em !important;\n    display: block;\n    border-radius: 5px;\n    margin-bottom: 5px;\n}\na.download{\n\tbackground: #fff;\n\tcolor: #7386D5;\n}\na.article,\na.article:hover {\n    background: #6d7fcc !important;\n    color: #fff !important;\n}\n\n#content {\n    width: 100%;\n    padding: 20px;\n    min-height: 100vh;\n    transition: all 0.3s;\n}\n\n@media(maz-width:768px){\n\t#sidebar{margin-left: -250px;}\n\t#sidebar.active{\n\t\tmargin-left: 0px;\n\t}\n\t#sidebarCollapse span{\n\t\tdisplay: none;\n\t}\n}\n\n", ""]);
+exports.push([module.i, "body{font-family: 'Poppins', sans-serif;\n    background: #fafafa}\np{font-family: 'Poppins', sans-serif;\n    font-size: 1.1em;\n\tfont-weight: 300;\n\tline-height: 1.7em;\n\tcolor: #999;\n}\n\n.prueb{\n    display: flex;\n    width: 100%;\n    flex-flow: row nowrap;\n    justify-content: space-between;\n}\n\n.title-config {\n    color: black;\n}\n\na,\na:hover,\na:focus{\n\tcolor: inherit;\n\ttext-decoration: none;\n\ttransition: all 0.3s;\n}\n.navbar{\n\tpadding: 15px 10px;\n\tbackground: #fff;\n    border: none;\n\tborder-radius: 0;\n\tmargin-bottom: 40px;\n\tbox-shadow: 1px 1px 3px rgba(0,0,0,0.1);\n}\n\n.navbar-btn{\n\tbox-shadow: none;\n\toutline: none!important;\n\tborder: none;\n}\n\n.line{\n\twidth: 100%;\n\theight: 1px;\n\tborder-bottom: 1px dashed #ddd;\n}\n\n.wrapper {\n    display: flex;\n    width: 100%;\n    align-items: stretch;\n}\n#sidebar {\n    min-width: 250px;\n    max-width: 250px;\n    background: #7386D5;\n    color: #fff;\n    min-height: 100vh;\n    transition: all 0.3s;\n}\n#sidebar.active{\n\tmargin-left: -250px;\n}\n\n#sidebar .sidebar-header{\n\tpadding: 20px;\n\tbackground: #6d7fcc;\n}\n#sidebar ul.components{\n\tpadding: 20px 0px;\n\tborder-bottom: 1px solid #47748b;\n}\n\n#sidebar ul p{\n\tpadding: 10px;\n\tfont-size: 1.1em;\n\tdisplay: block;\n}\n\n#sidebar ul li a{\n\tpadding: 10px;\n\tfont-size: 1.1em;\n\tdisplay: block;\n}\n#sidebar ul li a:hover {\n    color: #7386D5;\n    background: #fff;\n}\n\n#sidebar ul li.active>a,\na[aria-expanded=\"true\"] {\n    color: #fff;\n    background: #6d7fcc;\n}\na[data-toggle=\"collapse\"] {\n    position: relative;\n}\n.dropdown-toggle::after {\n    display: block;\n    position: absolute;\n    top: 50%;\n    right: 20px;\n    transform: translateY(-50%);\n}\n\nul ul a {\n    font-size: 0.9em !important;\n    padding-left: 30px !important;\n    background: #6d7fcc;\n}\n\nul.CTAs {\n    padding: 20px;\n}\n\nul.CTAs a {\n    text-align: center;\n    font-size: 0.9em !important;\n    display: block;\n    border-radius: 5px;\n    margin-bottom: 5px;\n}\na.download{\n\tbackground: #fff;\n\tcolor: #7386D5;\n}\na.article,\na.article:hover {\n    background: #6d7fcc !important;\n    color: #fff !important;\n}\n\n#content {\n    width: 100%;\n    padding: 20px;\n    min-height: 100vh;\n    transition: all 0.3s;\n}\n\n@media(maz-width:768px){\n\t#sidebar{margin-left: -250px;}\n\t#sidebar.active{\n\t\tmargin-left: 0px;\n\t}\n\t#sidebarCollapse span{\n\t\tdisplay: none;\n\t}\n}\n\n", ""]);
 
 // exports
 
@@ -66650,7 +66650,7 @@ function (_Component) {
         htmlFor: "createCategory",
         className: "col-md-3 col-form-label"
       }, "Crear una nueva Categoria:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-md-6"
+        className: "col-md-6 mb-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "form-control",
@@ -66712,7 +66712,7 @@ function (_Component) {
         htmlFor: "categoryChange",
         className: "col-md-3 col-form-label"
       }, "Cambiar el nombre:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-md-6"
+        className: "col-md-6 mb-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "form-control",
@@ -66731,7 +66731,7 @@ function (_Component) {
         }
       }, "Aplicar Cambios"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "reset",
-        className: "btn btn-danger col-12",
+        className: "btn btn-danger col-12 mt-2",
         onClick: function onClick() {
           return _this7.deleteCategory();
         }
