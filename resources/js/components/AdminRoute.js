@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { Switch, Route, Redirect } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
+import VerticalNavbar from '../components/VerticalNavbar';
+import HorizontalNavbar from '../components/HorizontalNavbar';
+import '../../../public/css/navbarAdmin.css';
 
 export default class AdminRoute extends Component {
 
@@ -13,8 +16,16 @@ export default class AdminRoute extends Component {
             <Route 
                 {...props} 
                 render={props => (
-                props.location.state !== undefined && props.location.state.login ?
-                <Component {...props} /> :
+                props.location.state !== undefined && props.location.state.login 
+                    ?
+                    <div className="wrapper">
+                        <VerticalNavbar {...props} />
+                        <div className="container-fluid">
+                            <HorizontalNavbar {...props} />
+                            <Component {...props} />
+                        </div>
+                    </div> 
+                    :
                 <Redirect to='/admin/config/login' />
                 )} 
             />

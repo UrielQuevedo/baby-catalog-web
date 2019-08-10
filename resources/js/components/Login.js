@@ -19,7 +19,7 @@ class Login extends Component {
         axios.post('/api/auth/login', { email: this.state.email, password: this.state.password })
         .then(response => this.props.history.push(
             {
-                pathname:"/admin/config/home",
+                pathname:"/admin/config/product",
                 state:{ login: true, token: response.data.access_token }
             }
         ))
@@ -75,10 +75,6 @@ class Login extends Component {
         if (event.keyCode === 13) {
             this.logIn();
         }
-    }
-    
-    pushToLogIn() {
-        this.props.history.push('/');
     }
     
     render() {
