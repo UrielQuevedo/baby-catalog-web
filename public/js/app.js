@@ -66497,6 +66497,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -66528,9 +66538,12 @@ function (_Component) {
     _classCallCheck(this, ConfigCategory);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ConfigCategory).call(this, props));
-    _this.handlerCategoryName = _this.handlerCategoryName.bind(_assertThisInitialized(_this));
+    _this.abstractHandler = _this.abstractHandler.bind(_assertThisInitialized(_this));
+    _this.handlerCategorySelected = _this.handlerCategorySelected.bind(_assertThisInitialized(_this));
     _this.state = {
+      selected_category: undefined,
       category_name: '',
+      category_edit: '',
       categories: []
     };
     return _this;
@@ -66548,21 +66561,38 @@ function (_Component) {
       });
     }
   }, {
-    key: "handlerCategoryName",
-    value: function handlerCategoryName(value) {
+    key: "abstractHandler",
+    value: function abstractHandler(property, value) {
+      this.setState(_defineProperty({}, property, value));
+    }
+  }, {
+    key: "handlerCategorySelected",
+    value: function handlerCategorySelected(value) {
       this.setState({
-        category_name: value
+        selected_category: value
+      });
+    }
+  }, {
+    key: "addCategory",
+    value: function addCategory(category) {
+      var prevCategories = this.state.categories;
+      this.setState({
+        categories: [].concat(_toConsumableArray(prevCategories), [category])
       });
     }
   }, {
     key: "createCategory",
     value: function createCategory() {
+      var _this3 = this;
+
       axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/api/category', {
         category_name: this.state.category_name
       }, {
         headers: {
           "Authorization": "Bearer ".concat(this.props.location.state.token)
         }
+      }).then(function (response) {
+        return _this3.addCategory(response.data.data);
       })["catch"](function (error) {
         return console.log(error.response.data);
       });
@@ -66582,7 +66612,7 @@ function (_Component) {
   }, {
     key: "createCategoryForm",
     value: function createCategoryForm() {
-      var _this3 = this;
+      var _this4 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
@@ -66592,8 +66622,8 @@ function (_Component) {
         className: "form-control",
         size: "5",
         id: "categorySelector",
-        onChange: function onChange() {
-          return _this3.handlerCategorySelected();
+        onChange: function onChange(event) {
+          return _this4.handlerCategorySelected(event.target.value);
         }
       }, this.createCategoryOptionsTable())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
@@ -66608,22 +66638,79 @@ function (_Component) {
         placeholder: "Escriba un nombre para la Categoria",
         id: "createCategory",
         onChange: function onChange(event) {
-          return _this3.handlerCategoryName(event.target.value);
+          return _this4.abstractHandler('category_name', event.target.value);
         }
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-md-3"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "reset",
-        className: "col-md-3 btn btn-primary",
+        className: "btn btn-primary col-12",
         onClick: function onClick() {
-          return _this3.createCategory();
+          return _this4.createCategory();
         }
-      }, "Crear Categoria"))));
+      }, "Crear Categoria")))));
+    }
+  }, {
+    key: "changeCategory",
+    value: function changeCategory() {
+      var _this5 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.put("/api/category/".concat(this.state.selected_category), {
+        category_name: this.state.category_edit
+      }, {
+        headers: {
+          "Authorization": "Bearer ".concat(this.props.location.state.token)
+        }
+      }).then(function (response) {
+        return _this5.setState({
+          categories: response.data.data
+        });
+      })["catch"](function (error) {
+        return console.log(error.response.data);
+      });
+    }
+  }, {
+    key: "createEditCategoryForm",
+    value: function createEditCategoryForm() {
+      var _this6 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "categoryChange",
+        className: "col-md-3 col-form-label"
+      }, "Cambiar el nombre:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-md-6"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "form-control",
+        placeholder: "Eliga un nuevo nombre",
+        id: "categoryChange",
+        onChange: function onChange(event) {
+          return _this6.abstractHandler('category_edit', event.target.value);
+        }
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-md-3"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "reset",
+        className: "btn btn-primary col-12",
+        onClick: function onClick() {
+          return _this6.changeCategory();
+        }
+      }, "Aplicar Cambios"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "reset",
+        className: "btn btn-danger col-12",
+        onClick: function onClick() {
+          return _this6.borrarCategoria();
+        }
+      }, "Borrar Categoria"))));
     }
   }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
-      }, this.createCategoryForm());
+      }, this.createCategoryForm(), this.createEditCategoryForm());
     }
   }]);
 

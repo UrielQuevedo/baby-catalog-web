@@ -47,18 +47,11 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        $category = Category::find($id);
+        if(!$category) {
+            return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra la Categoria (Seleccione una)'])],404);
+        }
+        return response()->json(['status'=>'ok','data'=>$category],200);
     }
 
     /**
@@ -70,10 +63,19 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (!$request->input('category_name') && $request->input('category_name') === null) {
+			return response()->json(['errors'=>array(['code'=>422,'message'=>'Compruebe que los campos esten escritos'])],422);
+		}
+        $category=Category::find($id);
+        if(!$category) {
+            return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra la categoria (Seleccione una)'])],404);
+        }
+        $category->category_name=$request->input('category_name');
+        $category->save();
+        return response()->json(['status'=>'ok','data'=>Category::all()], 200);
     }
 
-    /**
+    /**Categoria
      * Remove the specified resource from storage.
      *
      * @param  int  $id
