@@ -24,7 +24,12 @@ export default class ConfigCategory extends Component {
 
 
     createCategory() {
-        axios.post('/api/category', { category_name: this.state.category_name });
+        axios.post('/api/category', { category_name: this.state.category_name }, { 
+            headers: {
+                "Authorization" : `Bearer ${this.props.location.state.token}`,
+            } 
+        })
+        .catch(error => console.log(error.response.data));
     }
 
     createCategoryOptionsTable() {

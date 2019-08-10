@@ -66559,6 +66559,12 @@ function (_Component) {
     value: function createCategory() {
       axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/api/category', {
         category_name: this.state.category_name
+      }, {
+        headers: {
+          "Authorization": "Bearer ".concat(this.props.location.state.token)
+        }
+      })["catch"](function (error) {
+        return console.log(error.response.data);
       });
     }
   }, {
