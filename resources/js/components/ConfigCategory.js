@@ -10,6 +10,9 @@ export default class ConfigCategory extends Component {
         this.handlerCategorySelected = this.handlerCategorySelected.bind(this);
         this.state = {
             selected_category: undefined,
+            errorsNewCategory: '',
+            errorsDelete: '',
+            errorsEdit: '',
             category_name: '',
             category_edit: '',
             categories: [],
@@ -44,8 +47,8 @@ export default class ConfigCategory extends Component {
                 "Authorization" : `Bearer ${this.props.location.state.token}`,
             } 
         })
-        .then(response => this.addCategory(response.data.data))
-        .catch(error => console.log(error.response.data));
+        .then(response => this.addCategory(response.data.data), this.abstractHandler('category_name',''), this.abstractHandler('errorsNewCategory',''))
+        .catch(error => this.abstractHandler('errorsNewCategory',error.response.data.error));
     }
 
     createCategoryOptionsTable() {
@@ -54,6 +57,18 @@ export default class ConfigCategory extends Component {
                 <option key={category.id} value={category.id}>{category.category_name}</option>
             ));
         }
+    }
+
+    showErrors(error) {
+        if(error !== '') {
+            return (
+                <div>
+                    <p style={{ color: 'red' }}>
+                        {error}
+                    </p>
+                </div>
+            );
+        }  
     }
 
     createCategoryForm() {
@@ -65,6 +80,9 @@ export default class ConfigCategory extends Component {
                     {this.createCategoryOptionsTable()}
                 </select>
             </div>
+            {this.showErrors(this.state.errorsDelete)}
+            {this.showErrors(this.state.errorsEdit)}
+            {this.showErrors(this.state.errorsNewCategory)}
             <form>
                 <div className="form-group row">
                     <label htmlFor="createCategory" className="col-md-3 col-form-label">Crear una nueva Categoria:</label>
@@ -91,18 +109,18 @@ export default class ConfigCategory extends Component {
                 "Authorization" : `Bearer ${this.props.location.state.token}`,
             } 
         })
-        .then(response => this.setState({ categories: response.data.data }))
-        .catch(error => console.log(error.response.data));
+        .then(response => this.setState({ categories: response.data.data }), this.abstractHandler('category_edit', ''), this.abstractHandler('errorsEdit', ''))
+        .catch(error => this.abstractHandler('errorsEdit',error.response.data.error));
     }
 
     deleteCategory() {
         axios.delete(`/api/category/${this.state.selected_category}`, { 
             headers: {
                 "Authorization" : `Bearer ${this.props.location.state.token}`,
-            } 
+            }
         })
-        .then(this.getAllCategories())
-        .catch(error => console.log(error.response.data));
+        .then(this.getAllCategories(), this.abstractHandler('errorsDelete', ''))
+        .catch(error => this.abstractHandler('errorsDelete', error.response.data.error));
     }
 
     createEditCategoryForm() {

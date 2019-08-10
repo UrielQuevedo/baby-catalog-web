@@ -31,7 +31,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         if (!$request->input('category_name') && $request->input('category_name') === null) {
-			return response()->json(['errors'=>array(['code'=>422,'message'=>'Compruebe que los campos esten escritos'])],422);
+			return response()->json(['error'=>'Compruebe que los campos esten escritos.'],422);
 		}
         $newCategory = new Category();
         $newCategory->category_name=$request->input('category_name'); 
@@ -49,7 +49,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         if(!$category) {
-            return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra la Categoria (Seleccione una)'])],404);
+            return response()->json(['error'=>'No se encuentra la Categoria (Seleccione una).'],404);
         }
         return response()->json(['status'=>'ok','data'=>$category],200);
     }
@@ -64,11 +64,11 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         if (!$request->input('category_name') && $request->input('category_name') === null) {
-			return response()->json(['errors'=>array(['code'=>422,'message'=>'Compruebe que los campos esten escritos'])],422);
+			return response()->json(['error'=>'Compruebe que los campos esten escritos.'],422);
 		}
         $category=Category::find($id);
         if(!$category) {
-            return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra la categoria (Seleccione una)'])],404);
+            return response()->json(['error'=>'No se encuentra la categoria (Seleccione una).'],404);
         }
         $category->category_name=$request->input('category_name');
         $category->save();
@@ -85,11 +85,11 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         if(!$category) {
-            return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra la Categoria (Seleccione una)'])],404);
+            return response()->json(['error'=>'No se encuentra la Categoria (Seleccione una).'],404);
         }
         $productsOfTheCategory = $category->products;
         if(count($productsOfTheCategory) !== 0) {
-            return response()->json(['errors'=>array(['code'=>422,'message'=>'Hay productos ligados a esta categoria'])],422);
+            return response()->json(['error'=>'Hay productos ligados a esta categoria.'],422);
         }
         $category->delete();
         

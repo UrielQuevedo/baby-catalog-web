@@ -66542,6 +66542,9 @@ function (_Component) {
     _this.handlerCategorySelected = _this.handlerCategorySelected.bind(_assertThisInitialized(_this));
     _this.state = {
       selected_category: undefined,
+      errorsNewCategory: '',
+      errorsDelete: '',
+      errorsEdit: '',
       category_name: '',
       category_edit: '',
       categories: []
@@ -66598,8 +66601,8 @@ function (_Component) {
         }
       }).then(function (response) {
         return _this3.addCategory(response.data.data);
-      })["catch"](function (error) {
-        return console.log(error.response.data);
+      }, this.abstractHandler('category_name', ''), this.abstractHandler('errorsNewCategory', ''))["catch"](function (error) {
+        return _this3.abstractHandler('errorsNewCategory', error.response.data.error);
       });
     }
   }, {
@@ -66612,6 +66615,17 @@ function (_Component) {
             value: category.id
           }, category.category_name);
         });
+      }
+    }
+  }, {
+    key: "showErrors",
+    value: function showErrors(error) {
+      if (error !== '') {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          style: {
+            color: 'red'
+          }
+        }, error));
       }
     }
   }, {
@@ -66630,7 +66644,7 @@ function (_Component) {
         onChange: function onChange(event) {
           return _this4.handlerCategorySelected(event.target.value);
         }
-      }, this.createCategoryOptionsTable())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.createCategoryOptionsTable())), this.showErrors(this.state.errorsDelete), this.showErrors(this.state.errorsEdit), this.showErrors(this.state.errorsNewCategory), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "createCategory",
@@ -66670,25 +66684,27 @@ function (_Component) {
         return _this5.setState({
           categories: response.data.data
         });
-      })["catch"](function (error) {
-        return console.log(error.response.data);
+      }, this.abstractHandler('category_edit', ''), this.abstractHandler('errorsEdit', ''))["catch"](function (error) {
+        return _this5.abstractHandler('errorsEdit', error.response.data.error);
       });
     }
   }, {
     key: "deleteCategory",
     value: function deleteCategory() {
+      var _this6 = this;
+
       axios__WEBPACK_IMPORTED_MODULE_2___default.a["delete"]("/api/category/".concat(this.state.selected_category), {
         headers: {
           "Authorization": "Bearer ".concat(this.props.location.state.token)
         }
-      }).then(this.getAllCategories())["catch"](function (error) {
-        return console.log(error.response.data);
+      }).then(this.getAllCategories(), this.abstractHandler('errorsDelete', ''))["catch"](function (error) {
+        return _this6.abstractHandler('errorsDelete', error.response.data.error);
       });
     }
   }, {
     key: "createEditCategoryForm",
     value: function createEditCategoryForm() {
-      var _this6 = this;
+      var _this7 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
@@ -66703,7 +66719,7 @@ function (_Component) {
         placeholder: "Eliga un nuevo nombre",
         id: "categoryChange",
         onChange: function onChange(event) {
-          return _this6.abstractHandler('category_edit', event.target.value);
+          return _this7.abstractHandler('category_edit', event.target.value);
         }
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-md-3"
@@ -66711,13 +66727,13 @@ function (_Component) {
         type: "reset",
         className: "btn btn-primary col-12",
         onClick: function onClick() {
-          return _this6.changeCategory();
+          return _this7.changeCategory();
         }
       }, "Aplicar Cambios"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "reset",
         className: "btn btn-danger col-12",
         onClick: function onClick() {
-          return _this6.deleteCategory();
+          return _this7.deleteCategory();
         }
       }, "Borrar Categoria"))));
     }
