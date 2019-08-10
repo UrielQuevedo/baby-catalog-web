@@ -67685,6 +67685,11 @@ function (_Component) {
   }
 
   _createClass(VerticalNavbar, [{
+    key: "checkPosition",
+    value: function checkPosition(property) {
+      return property === this.props.match.url ? 'active' : '';
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
@@ -67696,18 +67701,22 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "title-config"
       }, "Configuracion"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "active"
+        className: this.checkPosition('/admin/config/product')
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
         to: {
           pathname: '/admin/config/product',
           state: this.props.location.state
         }
-      }, "Producto")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+      }, "Producto")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: this.checkPosition('/admin/config/category')
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
         to: {
           pathname: '/admin/config/category',
           state: this.props.location.state
         }
-      }, "Categoria")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+      }, "Categoria")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: this.checkPosition('/admin/config/banner')
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
         to: {
           pathname: '/admin/config/banner',
           state: this.props.location.state

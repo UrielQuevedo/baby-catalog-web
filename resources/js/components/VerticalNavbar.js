@@ -12,6 +12,10 @@ export default class VerticalNavbar extends Component {
         };
     }
 
+    checkPosition(property) {
+        return property === this.props.match.url ? 'active' :  '';
+    }
+
     render() {
         return (
             <nav id="sidebar">
@@ -20,7 +24,7 @@ export default class VerticalNavbar extends Component {
                 </div> 
                 <ul className="list-unstyled components">
                     <p className="title-config">Configuracion</p>
-                    <li className="active">
+                    <li className={this.checkPosition('/admin/config/product')}>
                         <Link to={{
                             pathname:'/admin/config/product',
                             state:this.props.location.state,
@@ -28,7 +32,7 @@ export default class VerticalNavbar extends Component {
                             Producto
                         </Link>
                     </li>
-                    <li>
+                    <li className={this.checkPosition('/admin/config/category')}>
                         <Link to={{
                             pathname:'/admin/config/category',
                             state:this.props.location.state,
@@ -36,7 +40,7 @@ export default class VerticalNavbar extends Component {
                             Categoria
                         </Link>
                     </li>
-                    <li>
+                    <li className={this.checkPosition('/admin/config/banner')}>
                         <Link to={{
                             pathname:'/admin/config/banner',
                             state:this.props.location.state,
