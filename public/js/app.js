@@ -66552,6 +66552,11 @@ function (_Component) {
   _createClass(ConfigCategory, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      this.getAllCategories();
+    }
+  }, {
+    key: "getAllCategories",
+    value: function getAllCategories() {
       var _this2 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/api/category').then(function (response) {
@@ -66670,6 +66675,17 @@ function (_Component) {
       });
     }
   }, {
+    key: "deleteCategory",
+    value: function deleteCategory() {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a["delete"]("/api/category/".concat(this.state.selected_category), {
+        headers: {
+          "Authorization": "Bearer ".concat(this.props.location.state.token)
+        }
+      }).then(this.getAllCategories())["catch"](function (error) {
+        return console.log(error.response.data);
+      });
+    }
+  }, {
     key: "createEditCategoryForm",
     value: function createEditCategoryForm() {
       var _this6 = this;
@@ -66701,7 +66717,7 @@ function (_Component) {
         type: "reset",
         className: "btn btn-danger col-12",
         onClick: function onClick() {
-          return _this6.borrarCategoria();
+          return _this6.deleteCategory();
         }
       }, "Borrar Categoria"))));
     }

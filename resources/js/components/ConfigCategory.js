@@ -17,6 +17,10 @@ export default class ConfigCategory extends Component {
     }
 
     componentDidMount() {
+        this.getAllCategories();
+    }
+
+    getAllCategories() {
         axios.get('/api/category')
             .then(response => this.setState({ categories: response.data.data }));
     }
@@ -91,6 +95,16 @@ export default class ConfigCategory extends Component {
         .catch(error => console.log(error.response.data));
     }
 
+    deleteCategory() {
+        axios.delete(`/api/category/${this.state.selected_category}`, { 
+            headers: {
+                "Authorization" : `Bearer ${this.props.location.state.token}`,
+            } 
+        })
+        .then(this.getAllCategories())
+        .catch(error => console.log(error.response.data));
+    }
+
     createEditCategoryForm() {
         return (
             <form>
@@ -106,7 +120,7 @@ export default class ConfigCategory extends Component {
                     </div>
                     <div className="col-md-3">
                         <button type="reset" className="btn btn-primary col-12" onClick={() => this.changeCategory()}>Aplicar Cambios</button>
-                        <button type="reset" className="btn btn-danger col-12" onClick={() => this.borrarCategoria()}>Borrar Categoria</button>
+                        <button type="reset" className="btn btn-danger col-12" onClick={() => this.deleteCategory()}>Borrar Categoria</button>
                     </div>
                 </div>
             </form>

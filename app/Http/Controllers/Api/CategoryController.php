@@ -75,7 +75,7 @@ class CategoryController extends Controller
         return response()->json(['status'=>'ok','data'=>Category::all()], 200);
     }
 
-    /**Categoria
+    /**Category
      * Remove the specified resource from storage.
      *
      * @param  int  $id
@@ -83,6 +83,16 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        if(!$category) {
+            return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra la Categoria (Seleccione una)'])],404);
+        }
+        $productsOfTheCategory = $category->products;
+        if(count($productsOfTheCategory) !== 0) {
+            return response()->json(['errors'=>array(['code'=>422,'message'=>'Hay productos ligados a esta categoria'])],422);
+        }
+        $category->delete();
+        
+        return response()->json(['code'=>204,'message'=>'Se ha eliminado el categoria correctamente.'],204);
     }
 }
