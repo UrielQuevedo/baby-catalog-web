@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import '../../../public/css/navbarAdmin.css';
 
 export default class Example extends Component {
 
@@ -265,14 +266,48 @@ export default class Example extends Component {
         );
     }
 
+    responsiveNavbar() {
+        document.getElementById('sidebar').classList.toggle("active");
+    }
+
     render() {
         return (
-            <div className="container">
-                Administracion
-                {console.log(this.props)}
-                {this.createCategoryForm()}
-                {this.createProductForm()}
-                {this.createProductTable()}
+            <div className="wrapper">
+                <nav id="sidebar">
+                    <div class="sidebar-header">
+                        <h3>ADMINISTRACION WEB</h3>
+                    </div> 
+                    <ul class="list-unstyled components">
+                        <p className="title-config">Configuracion</p>
+                        <li className="active">
+                            <a href="#">Producto</a>
+                        </li>
+                        <li>
+                            <a href="#">Categoria</a>
+                        </li>
+                        <li>
+                            <a href="#">Banner</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div className="container-fluid">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div className="prueb">
+                        <button type="button" id="sidebarCollapse" class="btn btn-info" onClick={() => this.responsiveNavbar()}>
+                            <i class="fa fa-align-justify"></i> <span>Mostrar Panel</span>
+                        </button> 
+                        <button type="button" className="btn btn-danger">
+                        <i class="fa fa-align-justify"></i> <span>Cerrar Sesión</span>
+                        </button>
+                    </div>
+                </nav>
+                <div className="container">
+                    {console.log(this.props)}
+                    {this.createCategoryForm()}
+                    {/* {this.createProductForm()}
+                    {this.createProductTable()} */}
+                    </div>
+                </div>
             </div>
         );
     }

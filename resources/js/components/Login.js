@@ -20,7 +20,7 @@ class Login extends Component {
         .then(response => this.props.history.push(
             {
                 pathname:"/admin/config/home",
-                state:{ login: true }
+                state:{ login: true, token: response.data.access_token }
             }
         ))
         .catch(() => this.setState({ validInfo: 'Informacion Invalida' }));

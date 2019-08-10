@@ -6385,6 +6385,25 @@ exports.push([module.i, "input {\n\toutline: none;\n\tborder: none;\n}\n\n.logIn
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./public/css/navbarAdmin.css":
+/*!********************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./public/css/navbarAdmin.css ***!
+  \********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700);", ""]);
+
+// module
+exports.push([module.i, "body{font-family: 'Poppins', sans-serif;\n    background: #fafafa}\np{font-family: 'Poppins', sans-serif;\n    font-size: 1.1em;\n\tfont-weight: 300;\n\tline-height: 1.7em;\n\tcolor: #999;\n}\n\n.prueb{\n    display: flex;\n    width: 100%;\n    flex-flow: row nowrap;\n    justify-content: space-between;\n}\n\n.title-config {\n    color: black;\n}\n\na,\na:hover,\na:focus{\n\tcolor: inherit;\n\ttext-decoration: none;\n\ttransition: all 0.3s;\n}\n.navbar{\n\tpadding: 15px 10px;\n\tbackground: #fff;\n    border: none;\n\tborder-radius: 0;\n\tmargin-bottom: 40px;\n\tbox-shadow: 1px 1px 3px rgba(0,0,0,0.1);\n}\n\n.navbar-btn{\n\tbox-shadow: none;\n\toutline: none!important;\n\tborder: none;\n}\n\n.line{\n\twidth: 100%;\n\theight: 1px;\n\tborder-bottom: 1px dashed #ddd;\n}\n\n.wrapper {\n    display: flex;\n    width: 100%;\n    align-items: stretch;\n}\n#sidebar {\n    min-width: 250px;\n    max-width: 250px;\n    background: #7386D5;\n    color: #fff;\n    height: 100vh;\n    transition: all 0.3s;\n}\n#sidebar.active{\n\tmargin-left: -250px;\n}\n\n#sidebar .sidebar-header{\n\tpadding: 20px;\n\tbackground: #6d7fcc;\n}\n#sidebar ul.components{\n\tpadding: 20px 0px;\n\tborder-bottom: 1px solid #47748b;\n}\n\n#sidebar ul p{\n\tpadding: 10px;\n\tfont-size: 1.1em;\n\tdisplay: block;\n}\n\n#sidebar ul li a{\n\tpadding: 10px;\n\tfont-size: 1.1em;\n\tdisplay: block;\n}\n#sidebar ul li a:hover {\n    color: #7386D5;\n    background: #fff;\n}\n\n#sidebar ul li.active>a,\na[aria-expanded=\"true\"] {\n    color: #fff;\n    background: #6d7fcc;\n}\na[data-toggle=\"collapse\"] {\n    position: relative;\n}\n.dropdown-toggle::after {\n    display: block;\n    position: absolute;\n    top: 50%;\n    right: 20px;\n    transform: translateY(-50%);\n}\n\nul ul a {\n    font-size: 0.9em !important;\n    padding-left: 30px !important;\n    background: #6d7fcc;\n}\n\nul.CTAs {\n    padding: 20px;\n}\n\nul.CTAs a {\n    text-align: center;\n    font-size: 0.9em !important;\n    display: block;\n    border-radius: 5px;\n    margin-bottom: 5px;\n}\na.download{\n\tbackground: #fff;\n\tcolor: #7386D5;\n}\na.article,\na.article:hover {\n    background: #6d7fcc !important;\n    color: #fff !important;\n}\n\n#content {\n    width: 100%;\n    padding: 20px;\n    min-height: 100vh;\n    transition: all 0.3s;\n}\n\n@media(maz-width:768px){\n\t#sidebar{margin-left: -250px;}\n\t#sidebar.active{\n\t\tmargin-left: 0px;\n\t}\n\t#sidebarCollapse span{\n\t\tdisplay: none;\n\t}\n}\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/lib/css-base.js":
 /*!*************************************************!*\
   !*** ./node_modules/css-loader/lib/css-base.js ***!
@@ -66181,6 +66200,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./public/css/navbarAdmin.css":
+/*!************************************!*\
+  !*** ./public/css/navbarAdmin.css ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader??ref--6-1!../../node_modules/postcss-loader/src??ref--6-2!./navbarAdmin.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./public/css/navbarAdmin.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -66362,6 +66411,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _public_css_navbarAdmin_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../public/css/navbarAdmin.css */ "./public/css/navbarAdmin.css");
+/* harmony import */ var _public_css_navbarAdmin_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_public_css_navbarAdmin_css__WEBPACK_IMPORTED_MODULE_3__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -66385,6 +66436,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -66755,11 +66807,56 @@ function (_Component) {
       }, this.createProductTableHead(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.createProductTableRows())))));
     }
   }, {
+    key: "responsiveNavbar",
+    value: function responsiveNavbar() {
+      document.getElementById('sidebar').classList.toggle("active");
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this12 = this;
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "wrapper"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+        id: "sidebar"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "sidebar-header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "ADMINISTRACION WEB")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        "class": "list-unstyled components"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "title-config"
+      }, "Configuracion"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "active"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, "Producto")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, "Categoria")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, "Banner")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container-fluid"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+        "class": "navbar navbar-expand-lg navbar-light bg-light"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "prueb"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        id: "sidebarCollapse",
+        "class": "btn btn-info",
+        onClick: function onClick() {
+          return _this12.responsiveNavbar();
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "fa fa-align-justify"
+      }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Mostrar Panel")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-danger"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "fa fa-align-justify"
+      }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Cerrar Sesi\xF3n")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
-      }, "Administracion", console.log(this.props), this.createCategoryForm(), this.createProductForm(), this.createProductTable());
+      }, console.log(this.props), this.createCategoryForm())));
     }
   }]);
 
@@ -67013,7 +67110,8 @@ function (_Component) {
         return _this2.props.history.push({
           pathname: "/admin/config/home",
           state: {
-            login: true
+            login: true,
+            token: response.data.access_token
           }
         });
       })["catch"](function () {
