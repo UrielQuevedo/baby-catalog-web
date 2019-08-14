@@ -54,14 +54,21 @@ export default class ConfigBanner extends Component {
         if(this.state.banner == '') {
             return (
                 <div>
-                    Eliga un Titulo para su Panel de Destacados:
+                    <div className="mb-2">
+                        <span style={{ fontSize: 17, color: '#2b2424' }}>Eliga un Titulo para su Panel de Destacados:</span>
+                    </div>
                     <form>
-                        <div className="form-row">
-                            <div className="col">
-                            <input type="text" className="form-control" placeholder="Escriba un nombre" onChange={event => this.abstractHandler('newTitle', event.target.value)} />
+                        <div className="form-group row">
+                            <div className="col-md-6 mb-3">
+                                <input 
+                                    type="text" 
+                                    className="form-control" 
+                                    placeholder="Escriba un titulo" 
+                                    onChange={ event => this.abstractHandler('newTitle', event.target.value) }
+                                />
                             </div>
-                            <div className="col">
-                                <button type="reset" className="btn btn-success" onClick={() => this.createANewBanner()}>Crear</button>
+                            <div className="col-md-3">
+                                <button type="reset" className="btn btn-success col-12" onClick={() => this.createANewBanner()}>Crear</button>
                             </div>
                         </div>
                     </form>
@@ -122,9 +129,16 @@ export default class ConfigBanner extends Component {
     }
 
     render() {
+        if(this.state.banner == '') {
+            return (
+                <div className="container">
+                    {this.firstBanner()}
+                    {this.showErrors(this.state.errorEdit)}
+                </div>
+            );
+        }
         return (
             <div className="container">
-                {this.firstBanner()}
                 {this.createEditNameInput()}
                 {this.showErrors(this.state.errorEdit)}
                 {this.createProductTable()}

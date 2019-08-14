@@ -66538,22 +66538,29 @@ function (_Component) {
       var _this5 = this;
 
       if (this.state.banner == '') {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Eliga un Titulo para su Panel de Destacados:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "form-row"
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "mb-2"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          style: {
+            fontSize: 17,
+            color: '#2b2424'
+          }
+        }, "Eliga un Titulo para su Panel de Destacados:")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "form-group row"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col"
+          className: "col-md-6 mb-3"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "text",
           className: "form-control",
-          placeholder: "Escriba un nombre",
+          placeholder: "Escriba un titulo",
           onChange: function onChange(event) {
             return _this5.abstractHandler('newTitle', event.target.value);
           }
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col"
+          className: "col-md-3"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           type: "reset",
-          className: "btn btn-success",
+          className: "btn btn-success col-12",
           onClick: function onClick() {
             return _this5.createANewBanner();
           }
@@ -66624,9 +66631,15 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
+      if (this.state.banner == '') {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "container"
+        }, this.firstBanner(), this.showErrors(this.state.errorEdit));
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
-      }, this.firstBanner(), this.createEditNameInput(), this.showErrors(this.state.errorEdit), this.createProductTable());
+      }, this.createEditNameInput(), this.showErrors(this.state.errorEdit), this.createProductTable());
     }
   }]);
 
