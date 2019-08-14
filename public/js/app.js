@@ -6366,6 +6366,25 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./public/css/configBanner.css":
+/*!*********************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./public/css/configBanner.css ***!
+  \*********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".theadTable {\n    color: #ffffff;\n    background: #6c7ae0;\n}\n\n.cell {\n    font-size: 18px;\n    color: #fff;\n    padding-top: 19px;\n    padding-bottom: 19px;\n}\n\n.wrap-table {\n    border-radius: 5px;\n    border: 1px solid #8080804f;\n}\n\ntr:hover td{\n    background-color: #ececff;\n    cursor: pointer;\n}\n\ntd {\n    font-size: 15px;\n    color: #666666;\n    padding-top: 20px;\n    padding-bottom: 20px;\n    border-bottom: 1px solid #f2f2f2;\n}\n\n.lines-style {\n    display: grid;\n    width: 100%;\n    align-items: center;\n    text-align: center;\n    grid-template-columns: minmax(20px, 1fr) auto minmax(20px, 1fr);\n    grid-gap: 20px;\n}\n\n.lines-style:before,\n.lines-style:after {\n    content: '';\n    border-top: 2px solid;\n}\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./public/css/login.css":
 /*!**************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./public/css/login.css ***!
@@ -6397,7 +6416,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700);", ""]);
 
 // module
-exports.push([module.i, "body{font-family: 'Poppins', sans-serif;\n    background: #fafafa}\np{font-family: 'Poppins', sans-serif;\n    font-size: 1.1em;\n\tfont-weight: 300;\n\tline-height: 1.7em;\n\tcolor: #999;\n}\n\n.prueb{\n    display: flex;\n    width: 100%;\n    flex-flow: row nowrap;\n    justify-content: space-between;\n}\n\n.title-config {\n    color: black;\n}\n\na,\na:hover,\na:focus{\n\tcolor: inherit;\n\ttext-decoration: none;\n\ttransition: all 0.3s;\n}\n.navbar{\n\tpadding: 15px 10px;\n\tbackground: #fff;\n    border: none;\n\tborder-radius: 0;\n\tmargin-bottom: 40px;\n\tbox-shadow: 1px 1px 3px rgba(0,0,0,0.1);\n}\n\n.navbar-btn{\n\tbox-shadow: none;\n\toutline: none!important;\n\tborder: none;\n}\n\n.line{\n\twidth: 100%;\n\theight: 1px;\n\tborder-bottom: 1px dashed #ddd;\n}\n\n.wrapper {\n    display: flex;\n    width: 100%;\n    align-items: stretch;\n}\n#sidebar {\n    min-width: 250px;\n    max-width: 250px;\n    background: #7386D5;\n    color: #fff;\n    min-height: 100vh;\n    transition: all 0.3s;\n}\n#sidebar.active{\n\tmargin-left: -250px;\n}\n\n#sidebar .sidebar-header{\n\tpadding: 20px;\n\tbackground: #6d7fcc;\n}\n#sidebar ul.components{\n\tpadding: 20px 0px;\n\tborder-bottom: 1px solid #47748b;\n}\n\n#sidebar ul p{\n\tpadding: 10px;\n\tfont-size: 1.1em;\n\tdisplay: block;\n}\n\n#sidebar ul li a{\n\tpadding: 10px;\n\tfont-size: 1.1em;\n\tdisplay: block;\n}\n#sidebar ul li a:hover {\n    color: #7386D5;\n    background: #fff;\n}\n\n#sidebar ul li.active>a,\na[aria-expanded=\"true\"] {\n    color: #fff;\n    background: #6d7fcc;\n}\na[data-toggle=\"collapse\"] {\n    position: relative;\n}\n.dropdown-toggle::after {\n    display: block;\n    position: absolute;\n    top: 50%;\n    right: 20px;\n    transform: translateY(-50%);\n}\n\nul ul a {\n    font-size: 0.9em !important;\n    padding-left: 30px !important;\n    background: #6d7fcc;\n}\n\nul.CTAs {\n    padding: 20px;\n}\n\nul.CTAs a {\n    text-align: center;\n    font-size: 0.9em !important;\n    display: block;\n    border-radius: 5px;\n    margin-bottom: 5px;\n}\na.download{\n\tbackground: #fff;\n\tcolor: #7386D5;\n}\na.article,\na.article:hover {\n    background: #6d7fcc !important;\n    color: #fff !important;\n}\n\n#content {\n    width: 100%;\n    padding: 20px;\n    min-height: 100vh;\n    transition: all 0.3s;\n}\n\n@media(maz-width:768px){\n\t#sidebar{margin-left: -250px;}\n\t#sidebar.active{\n\t\tmargin-left: 0px;\n\t}\n\t#sidebarCollapse span{\n\t\tdisplay: none;\n\t}\n}\n\n", ""]);
+exports.push([module.i, "body{\n    background: #fafafa}\np{font-family: 'Poppins', sans-serif;\n    font-size: 1.1em;\n\tfont-weight: 300;\n\tline-height: 1.7em;\n\tcolor: #999;\n}\n\n.prueb{\n    display: flex;\n    width: 100%;\n    flex-flow: row nowrap;\n    justify-content: space-between;\n}\n\n.title-config {\n    color: black;\n}\n\na,\na:hover,\na:focus{\n\tcolor: inherit;\n\ttext-decoration: none;\n\ttransition: all 0.3s;\n}\n.navbar{\n\tpadding: 15px 10px;\n\tbackground: #fff;\n    border: none;\n\tborder-radius: 0;\n\tmargin-bottom: 40px;\n\tbox-shadow: 1px 1px 3px rgba(0,0,0,0.1);\n}\n\n.navbar-btn{\n\tbox-shadow: none;\n\toutline: none!important;\n\tborder: none;\n}\n\n.line{\n\twidth: 100%;\n\theight: 1px;\n\tborder-bottom: 1px dashed #ddd;\n}\n\n.wrapper {\n    display: flex;\n    width: 100%;\n    align-items: stretch;\n    font-family: 'Poppins', sans-serif;\n}\n#sidebar {\n    min-width: 250px;\n    max-width: 250px;\n    background: #7386D5;\n    color: #fff;\n    min-height: 100vh;\n    transition: all 0.3s;\n}\n#sidebar.active{\n\tmargin-left: -250px;\n}\n\n#sidebar .sidebar-header{\n\tpadding: 20px;\n\tbackground: #6d7fcc;\n}\n#sidebar ul.components{\n\tpadding: 20px 0px;\n\tborder-bottom: 1px solid #47748b;\n}\n\n#sidebar ul p{\n\tpadding: 10px;\n\tfont-size: 1.1em;\n\tdisplay: block;\n}\n\n#sidebar ul li a{\n\tpadding: 10px;\n\tfont-size: 1.1em;\n\tdisplay: block;\n}\n#sidebar ul li a:hover {\n    color: #7386D5;\n    background: #fff;\n}\n\n#sidebar ul li.active>a,\na[aria-expanded=\"true\"] {\n    color: #fff;\n    background: #6d7fcc;\n}\na[data-toggle=\"collapse\"] {\n    position: relative;\n}\n.dropdown-toggle::after {\n    display: block;\n    position: absolute;\n    top: 50%;\n    right: 20px;\n    transform: translateY(-50%);\n}\n\nul ul a {\n    font-size: 0.9em !important;\n    padding-left: 30px !important;\n    background: #6d7fcc;\n}\n\nul.CTAs {\n    padding: 20px;\n}\n\nul.CTAs a {\n    text-align: center;\n    font-size: 0.9em !important;\n    display: block;\n    border-radius: 5px;\n    margin-bottom: 5px;\n}\na.download{\n\tbackground: #fff;\n\tcolor: #7386D5;\n}\na.article,\na.article:hover {\n    background: #6d7fcc !important;\n    color: #fff !important;\n}\n\n#content {\n    width: 100%;\n    padding: 20px;\n    min-height: 100vh;\n    transition: all 0.3s;\n}\n\n@media(maz-width:768px){\n\t#sidebar{margin-left: -250px;}\n\t#sidebar.active{\n\t\tmargin-left: 0px;\n\t}\n\t#sidebarCollapse span{\n\t\tdisplay: none;\n\t}\n}\n", ""]);
 
 // exports
 
@@ -66170,6 +66189,36 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./public/css/configBanner.css":
+/*!*************************************!*\
+  !*** ./public/css/configBanner.css ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader??ref--6-1!../../node_modules/postcss-loader/src??ref--6-2!./configBanner.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./public/css/configBanner.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./public/css/login.css":
 /*!******************************!*\
   !*** ./public/css/login.css ***!
@@ -66327,11 +66376,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _components_VerticalNavbar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/VerticalNavbar */ "./resources/js/components/VerticalNavbar.js");
-/* harmony import */ var _components_HorizontalNavbar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/HorizontalNavbar */ "./resources/js/components/HorizontalNavbar.js");
-/* harmony import */ var _public_css_navbarAdmin_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../public/css/navbarAdmin.css */ "./public/css/navbarAdmin.css");
-/* harmony import */ var _public_css_navbarAdmin_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_public_css_navbarAdmin_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _components_VerticalNavbar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/VerticalNavbar */ "./resources/js/components/VerticalNavbar.js");
+/* harmony import */ var _components_HorizontalNavbar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/HorizontalNavbar */ "./resources/js/components/HorizontalNavbar.js");
+/* harmony import */ var _public_css_navbarAdmin_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../public/css/navbarAdmin.css */ "./public/css/navbarAdmin.css");
+/* harmony import */ var _public_css_navbarAdmin_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_public_css_navbarAdmin_css__WEBPACK_IMPORTED_MODULE_5__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -66355,7 +66403,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 
 
 
@@ -66389,9 +66436,9 @@ function (_Component) {
         render: function render(props) {
           return props.location.state !== undefined && props.location.state.login ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "wrapper"
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_VerticalNavbar__WEBPACK_IMPORTED_MODULE_4__["default"], props), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_VerticalNavbar__WEBPACK_IMPORTED_MODULE_3__["default"], props), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "container-fluid"
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_HorizontalNavbar__WEBPACK_IMPORTED_MODULE_5__["default"], props), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_HorizontalNavbar__WEBPACK_IMPORTED_MODULE_4__["default"], props), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
             to: "/admin/config/login"
           });
         }
@@ -66422,6 +66469,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _public_css_configBanner_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../public/css/configBanner.css */ "./public/css/configBanner.css");
+/* harmony import */ var _public_css_configBanner_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_public_css_configBanner_css__WEBPACK_IMPORTED_MODULE_3__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -66441,6 +66490,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -66467,7 +66517,8 @@ function (_Component) {
         products: []
       },
       errorEdit: '',
-      newTitle: ''
+      newTitle: '',
+      products: []
     };
     return _this;
   }
@@ -66624,9 +66675,85 @@ function (_Component) {
       }, "Cambiar")))));
     }
   }, {
+    key: "createProductBannerTable",
+    value: function createProductBannerTable() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-xs-12"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "lines-style"
+      }, "Productos Destacados"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "table-responsive wrap-table",
+        "data-pattern": "priority-columns"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+        className: "table table-hover"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", {
+        className: "theadTable"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        className: "cell"
+      }, "Codigo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        className: "cell",
+        "data-priority": "1"
+      }, "Titulo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        className: "cell",
+        "data-priority": "2"
+      }, "Prioridad"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        className: "cell",
+        "data-priority": "3"
+      }, "Precio"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        className: "cell",
+        "data-priority": "4"
+      }, "Categoria"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+        className: "rowTable"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Argentina"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Spanish (official),"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "41,803,125"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "31.3"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "2,780,387")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Australia"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "English 79%,"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "23,630,169"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "37.3"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "7,739,983")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Greece"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Greek 99% "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "11,128,404"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "43.2"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "131,956")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Luxembourg"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Luxermbourgish "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "536,761"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "39.1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "2,586")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Russia"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Russian, others"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "142,467,651"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "38.4"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "17,076,310")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Sweden"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Swedish, small S"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "9,631,261"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "41.1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "449,954"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "btn btn-danger"
+      }, "Sacar"));
+    }
+  }, {
+    key: "createTrProduct",
+    value: function createTrProduct() {
+      return this.state.products.map(function (product) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+          className: "rowTable"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.code), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.priority), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.price), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.category));
+      });
+    }
+  }, {
     key: "createProductTable",
     value: function createProductTable() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Hello");
+      if (this.state.products.length !== 0) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-xs-12"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "lines-style"
+        }, "Productos"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "table-responsive wrap-table",
+          "data-pattern": "priority-columns"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+          className: "table table-hover"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", {
+          className: "theadTable"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+          className: "cell"
+        }, "Codigo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+          className: "cell",
+          "data-priority": "1"
+        }, "Titulo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+          className: "cell",
+          "data-priority": "2"
+        }, "Prioridad"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+          className: "cell",
+          "data-priority": "3"
+        }, "Precio"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+          className: "cell",
+          "data-priority": "4"
+        }, "Categoria"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.createTrProduct()))));
+      }
+      /*
+          Retornar algo mas lindo
+      */
+
+
+      return undefined;
     }
   }, {
     key: "render",
@@ -66639,7 +66766,7 @@ function (_Component) {
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
-      }, this.createEditNameInput(), this.showErrors(this.state.errorEdit), this.createProductTable());
+      }, this.createEditNameInput(), this.showErrors(this.state.errorEdit), this.createProductBannerTable(), this.createProductTable());
     }
   }]);
 
@@ -66881,7 +67008,9 @@ function (_Component) {
     value: function createEditCategoryForm() {
       var _this7 = this;
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-xs-12"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "categoryChange",
@@ -66910,7 +67039,7 @@ function (_Component) {
         onClick: function onClick() {
           return _this7.deleteCategory();
         }
-      }, "Borrar Categoria"))));
+      }, "Borrar Categoria")))));
     }
   }, {
     key: "render",
@@ -67878,7 +68007,8 @@ function (_Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-        id: "sidebar"
+        id: "sidebar",
+        className: "navbar-vertical"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sidebar-header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "ADMINISTRACION WEB")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {

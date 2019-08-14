@@ -74,31 +74,31 @@ export default class ConfigCategory extends Component {
     createCategoryForm() {
         return (
             <div>
-            <div className="form-group">
-                <label htmlFor="categorySelector">Seleccione una categoria: </label>
-                <select className="form-control" size="5" id="categorySelector" onChange={event => this.handlerCategorySelected(event.target.value)}>
-                    {this.createCategoryOptionsTable()}
-                </select>
-            </div>
-            {this.showErrors(this.state.errorsDelete)}
-            {this.showErrors(this.state.errorsEdit)}
-            {this.showErrors(this.state.errorsNewCategory)}
-            <form>
-                <div className="form-group row">
-                    <label htmlFor="createCategory" className="col-md-3 col-form-label">Crear una nueva Categoria:</label>
-                    <div className="col-md-6 mb-3">
-                        <input type="text" 
-                            className="form-control" 
-                            placeholder="Escriba un nombre para la Categoria" 
-                            id="createCategory" 
-                            onChange={ event => this.abstractHandler('category_name', event.target.value) }
-                        />
-                    </div>
-                    <div className="col-md-3">
-                        <button type="reset" className="btn btn-primary col-12" onClick={() => this.createCategory()}>Crear Categoria</button>
-                    </div>
+                <div className="form-group">
+                    <label htmlFor="categorySelector">Seleccione una categoria: </label>
+                    <select className="form-control" size="5" id="categorySelector" onChange={event => this.handlerCategorySelected(event.target.value)}>
+                        {this.createCategoryOptionsTable()}
+                    </select>
                 </div>
-            </form>
+                {this.showErrors(this.state.errorsDelete)}
+                {this.showErrors(this.state.errorsEdit)}
+                {this.showErrors(this.state.errorsNewCategory)}
+                <form>
+                    <div className="form-group row">
+                        <label htmlFor="createCategory" className="col-md-3 col-form-label">Crear una nueva Categoria:</label>
+                        <div className="col-md-6 mb-3">
+                            <input type="text" 
+                                className="form-control" 
+                                placeholder="Escriba un nombre para la Categoria" 
+                                id="createCategory" 
+                                onChange={ event => this.abstractHandler('category_name', event.target.value) }
+                            />
+                        </div>
+                        <div className="col-md-3">
+                            <button type="reset" className="btn btn-primary col-12" onClick={() => this.createCategory()}>Crear Categoria</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         );
     }
@@ -125,23 +125,25 @@ export default class ConfigCategory extends Component {
 
     createEditCategoryForm() {
         return (
-            <form>
-                <div className="form-group row">
-                    <label htmlFor="categoryChange" className="col-md-3 col-form-label">Cambiar el nombre:</label>
-                    <div className="col-md-6 mb-3">
-                        <input type="text" 
-                            className="form-control"
-                            placeholder="Eliga un nuevo nombre"
-                            id="categoryChange" 
-                            onChange={event => this.abstractHandler('category_edit', event.target.value) }
-                        />
+            <div className="col-xs-12">
+                <form>
+                    <div className="form-group row">
+                        <label htmlFor="categoryChange" className="col-md-3 col-form-label">Cambiar el nombre:</label>
+                        <div className="col-md-6 mb-3">
+                            <input type="text" 
+                                className="form-control"
+                                placeholder="Eliga un nuevo nombre"
+                                id="categoryChange" 
+                                onChange={event => this.abstractHandler('category_edit', event.target.value) }
+                            />
+                        </div>
+                        <div className="col-md-3">
+                            <button type="reset" className="btn btn-primary col-12" onClick={() => this.changeCategory()}>Aplicar Cambios</button>
+                            <button type="reset" className="btn btn-danger col-12 mt-2" onClick={() => this.deleteCategory()}>Borrar Categoria</button>
+                        </div>
                     </div>
-                    <div className="col-md-3">
-                        <button type="reset" className="btn btn-primary col-12" onClick={() => this.changeCategory()}>Aplicar Cambios</button>
-                        <button type="reset" className="btn btn-danger col-12 mt-2" onClick={() => this.deleteCategory()}>Borrar Categoria</button>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
         );
     }
 

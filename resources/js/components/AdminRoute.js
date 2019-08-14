@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { Switch, Route, Redirect } from 'react-router';
-import { BrowserRouter } from 'react-router-dom';
 import VerticalNavbar from '../components/VerticalNavbar';
 import HorizontalNavbar from '../components/HorizontalNavbar';
 import '../../../public/css/navbarAdmin.css';

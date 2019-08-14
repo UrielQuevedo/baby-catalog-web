@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import '../../../public/css/configBanner.css';
 
 export default class ConfigBanner extends Component {
 
@@ -17,6 +18,7 @@ export default class ConfigBanner extends Component {
             },
             errorEdit: '',
             newTitle: '',
+            products: [],
         };
     }
 
@@ -120,12 +122,112 @@ export default class ConfigBanner extends Component {
         );
     }
 
-    createProductTable() {
+    createProductBannerTable() {
         return (
-            <div>
-                Hello
+            <div className="col-xs-12">
+                <span className="lines-style">Productos Destacados</span>
+                <div className="table-responsive wrap-table" data-pattern="priority-columns">
+                    <table className="table table-hover">
+                        <thead className="theadTable">
+                            <tr>
+                            <th className="cell">Codigo</th>
+                            <th className="cell" data-priority="1">Titulo</th>
+                            <th className="cell" data-priority="2">Prioridad</th>
+                            <th className="cell" data-priority="3">Precio</th>
+                            <th className="cell" data-priority="4">Categoria</th>
+                            </tr>
+                        </thead>
+                    <tbody>
+                        <tr className="rowTable">
+                            <td>Argentina</td>
+                            <td>Spanish (official),</td>
+                            <td>41,803,125</td>
+                            <td>31.3</td>
+                            <td>2,780,387</td>
+                        </tr>
+                        <tr>
+                            <td>Australia</td>
+                            <td>English 79%,</td>
+                            <td>23,630,169</td>
+                            <td>37.3</td>
+                            <td>7,739,983</td>
+                        </tr>
+                        <tr>
+                            <td>Greece</td>
+                            <td>Greek 99% </td>
+                            <td>11,128,404</td>
+                            <td>43.2</td>
+                            <td>131,956</td>
+                        </tr>
+                        <tr>
+                            <td>Luxembourg</td>
+                            <td>Luxermbourgish </td>
+                            <td>536,761</td>
+                            <td>39.1</td>
+                            <td>2,586</td>
+                        </tr>
+                        <tr>
+                            <td>Russia</td>
+                            <td>Russian, others</td>
+                            <td>142,467,651</td>
+                            <td>38.4</td>
+                            <td>17,076,310</td>
+                        </tr>
+                        <tr>
+                            <td>Sweden</td>
+                            <td>Swedish, small S</td>
+                            <td>9,631,261</td>
+                            <td>41.1</td>
+                            <td>449,954</td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+                <button className="btn btn-danger">Sacar</button>
             </div>
         );
+    }
+
+    createTrProduct() {
+        return this.state.products.map( product => (
+            <tr className="rowTable">
+                <td>{product.code}</td>
+                <td>{product.title}</td>
+                <td>{product.priority}</td>
+                <td>{product.price}</td>
+                <td>{product.category}</td>
+            </tr>
+        ));
+    }
+
+    createProductTable() {
+        if(this.state.products.length !== 0) {
+            return (
+                <div className="col-xs-12">
+                    <span className="lines-style">Productos</span>
+                    <div className="table-responsive wrap-table" data-pattern="priority-columns">
+                        <table className="table table-hover">
+                            <thead className="theadTable">
+                                <tr>
+                                <th className="cell">Codigo</th>
+                                <th className="cell" data-priority="1">Titulo</th>
+                                <th className="cell" data-priority="2">Prioridad</th>
+                                <th className="cell" data-priority="3">Precio</th>
+                                <th className="cell" data-priority="4">Categoria</th>
+                                </tr>
+                            </thead>
+                        <tbody>
+                            {this.createTrProduct()} 
+                        </tbody>
+                        </table>
+                    </div>
+                </div>
+            );
+        }
+        /*
+            Retornar algo mas lindo
+        */
+        return undefined;
     }
 
     render() {
@@ -141,6 +243,7 @@ export default class ConfigBanner extends Component {
             <div className="container">
                 {this.createEditNameInput()}
                 {this.showErrors(this.state.errorEdit)}
+                {this.createProductBannerTable()}
                 {this.createProductTable()}
             </div>
         );

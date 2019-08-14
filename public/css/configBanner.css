@@ -1,0 +1,47 @@
+.theadTable {
+    color: #ffffff;
+    background: #6c7ae0;
+}
+
+.cell {
+    font-size: 18px;
+    color: #fff;
+    padding-top: 19px;
+    padding-bottom: 19px;
+}
+
+.wrap-table {
+    border-radius: 5px;
+    border: 1px solid #8080804f;
+}
+
+tr:hover td{
+    background-color: #ececff;
+    cursor: pointer;
+}
+
+td {
+    font-size: 15px;
+    color: #666666;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.lines-style {
+    display: grid;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    grid-template-columns: minmax(20px, 1fr) auto minmax(20px, 1fr);
+    grid-gap: 20px;
+}
+
+.lines-style:before,
+.lines-style:after {
+    content: '';
+    border-top: 2px solid;
+}
+
+
+
