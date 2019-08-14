@@ -35,10 +35,10 @@ class BannerController extends Controller
     public function store(Request $request)
     {
         if(!$request->input('title')){
-            return response()->json(['errors'=>'Faltan datos necesarios para el proceso de alta.'],422);
+            return response()->json(['error'=>'Faltan datos necesarios para el proceso de alta.'],422);
         }
         if(count(Banner::all()) >= 1){
-            return response()->json(['errors'=>'Ya existe un Banner, Editelo.'],422);
+            return response()->json(['error'=>'Ya existe un Banner, Editelo.'],422);
         }
         $newBanner = new Banner();
         $newBanner->title=$request->input('title');
@@ -57,10 +57,10 @@ class BannerController extends Controller
     {
         $banner = Banner::find($id);
         if(!$banner){
-            return response()->json(['errors'=>'No se encuentra un banner con ese código.'],404);
+            return response()->json(['error'=>'No se encuentra un banner con ese código.'],404);
         }
         if(!$request->input('title')){
-            return response()->json(['errors'=>'Faltan datos necesarios para el proceso de alta.'],422);
+            return response()->json(['error'=>'Faltan datos necesarios para el proceso de alta.'],422);
         }
         $banner->title=$request->input('title');
         $banner->save();

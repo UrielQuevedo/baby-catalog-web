@@ -66424,6 +66424,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -66455,13 +66457,16 @@ function (_Component) {
     _classCallCheck(this, ConfigBanner);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ConfigBanner).call(this, props));
-    _this.changeNewTitle = _this.changeNewTitle.bind(_assertThisInitialized(_this));
+    _this.abstractHandler = _this.abstractHandler.bind(_assertThisInitialized(_this));
     _this.createANewBanner = _this.createANewBanner.bind(_assertThisInitialized(_this));
+    _this.sendEditBannerTitle = _this.sendEditBannerTitle.bind(_assertThisInitialized(_this));
     _this.state = {
       banner: {
+        id: '',
         title: '',
         products: []
       },
+      errorEdit: '',
       newTitle: ''
     };
     return _this;
@@ -66481,11 +66486,9 @@ function (_Component) {
       });
     }
   }, {
-    key: "changeNewTitle",
-    value: function changeNewTitle(value) {
-      this.setState({
-        newTitle: value
-      });
+    key: "abstractHandler",
+    value: function abstractHandler(property, value) {
+      this.setState(_defineProperty({}, property, value));
     }
   }, {
     key: "createANewBanner",
@@ -66502,14 +66505,37 @@ function (_Component) {
         return _this3.setState({
           banner: response.data.data
         });
-      })["catch"](function (error) {
-        return console.log(error.response.data);
+      }, this.abstractHandler('errorEdit', ''))["catch"](function (error) {
+        return _this3.setState({
+          errorEdit: error.response.data.error
+        });
+      });
+    }
+  }, {
+    key: "sendEditBannerTitle",
+    value: function sendEditBannerTitle() {
+      var _this4 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.put("/api/banner/".concat(this.state.banner.id), {
+        title: this.state.newTitle
+      }, {
+        headers: {
+          "Authorization": "Bearer ".concat(this.props.location.state.token)
+        }
+      }).then(function (response) {
+        return _this4.setState({
+          banner: response.data.data
+        });
+      }, this.abstractHandler('errorEdit', ''))["catch"](function (error) {
+        return _this4.setState({
+          errorEdit: error.response.data.error
+        });
       });
     }
   }, {
     key: "firstBanner",
     value: function firstBanner() {
-      var _this4 = this;
+      var _this5 = this;
 
       if (this.state.banner == '') {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Eliga un Titulo para su Panel de Destacados:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -66521,7 +66547,7 @@ function (_Component) {
           className: "form-control",
           placeholder: "Escriba un nombre",
           onChange: function onChange(event) {
-            return _this4.changeNewTitle(event.target.value);
+            return _this5.abstractHandler('newTitle', event.target.value);
           }
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col"
@@ -66529,7 +66555,7 @@ function (_Component) {
           type: "reset",
           className: "btn btn-success",
           onClick: function onClick() {
-            return _this4.createANewBanner();
+            return _this5.createANewBanner();
           }
         }, "Crear")))));
       }
@@ -66537,11 +66563,70 @@ function (_Component) {
       return undefined;
     }
   }, {
+    key: "showErrors",
+    value: function showErrors(error) {
+      if (error !== '') {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          style: {
+            color: 'red'
+          }
+        }, error));
+      }
+
+      return undefined;
+    }
+  }, {
+    key: "createEditNameInput",
+    value: function createEditNameInput() {
+      var _this6 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        style: {
+          color: 'grey'
+        }
+      }, " Titulo actual: ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "mb-4"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        style: {
+          fontSize: 40,
+          color: '#54545f'
+        }
+      }, this.state.banner.title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "editNameBanner",
+        className: "col-md-2 col-form-label"
+      }, "Cambiar titulo:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-md-6 mb-3"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "form-control",
+        placeholder: "Escriba un nuevo titulo",
+        id: "editNameBanner",
+        onChange: function onChange(event) {
+          return _this6.abstractHandler('newTitle', event.target.value);
+        }
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-md-3"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "reset",
+        className: "btn btn-primary col-12",
+        onClick: function onClick() {
+          return _this6.sendEditBannerTitle();
+        }
+      }, "Cambiar")))));
+    }
+  }, {
+    key: "createProductTable",
+    value: function createProductTable() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Hello");
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
-      }, console.log(this.state.banner), this.firstBanner());
+      }, this.firstBanner(), this.createEditNameInput(), this.showErrors(this.state.errorEdit), this.createProductTable());
     }
   }]);
 

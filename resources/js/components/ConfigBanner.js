@@ -6,13 +6,16 @@ export default class ConfigBanner extends Component {
 
     constructor(props) {
         super(props);
-        this.changeNewTitle = this.changeNewTitle.bind(this);
+        this.abstractHandler = this.abstractHandler.bind(this);
         this.createANewBanner = this.createANewBanner.bind(this);
+        this.sendEditBannerTitle = this.sendEditBannerTitle.bind(this);
         this.state = {
             banner: {
+                id: '',
                 title: '',
                 products: [],
             },
+            errorEdit: '',
             newTitle: '',
         };
     }
@@ -23,8 +26,8 @@ export default class ConfigBanner extends Component {
             .catch(error => console.log(error.response));
     }
 
-    changeNewTitle(value) {
-        this.setState({ newTitle: value});
+    abstractHandler(property, value) {
+        this.setState({ [property]: value } );
     }
 
     createANewBanner() {
@@ -33,8 +36,18 @@ export default class ConfigBanner extends Component {
                 "Authorization" : `Bearer ${this.props.location.state.token}`,
             } 
         })
-            .then(response => this.setState({ banner: response.data.data }))
-            .catch(error => console.log(error.response.data));
+            .then(response => this.setState({ banner: response.data.data }), this.abstractHandler('errorEdit', ''))
+            .catch(error => this.setState({ errorEdit: error.response.data.error }));
+    }
+
+    sendEditBannerTitle() {
+        axios.put(`/api/banner/${this.state.banner.id}`, { title: this.state.newTitle }, { 
+            headers: {
+                "Authorization" : `Bearer ${this.props.location.state.token}`,
+            } 
+        })
+            .then(response => this.setState({ banner: response.data.data }), this.abstractHandler('errorEdit', ''))
+            .catch(error => this.setState({ errorEdit: error.response.data.error }));
     }
 
     firstBanner() {
@@ -45,7 +58,7 @@ export default class ConfigBanner extends Component {
                     <form>
                         <div className="form-row">
                             <div className="col">
-                            <input type="text" className="form-control" placeholder="Escriba un nombre" onChange={event => this.changeNewTitle(event.target.value)} />
+                            <input type="text" className="form-control" placeholder="Escriba un nombre" onChange={event => this.abstractHandler('newTitle', event.target.value)} />
                             </div>
                             <div className="col">
                                 <button type="reset" className="btn btn-success" onClick={() => this.createANewBanner()}>Crear</button>
@@ -58,13 +71,63 @@ export default class ConfigBanner extends Component {
         return undefined;
     }
 
+    showErrors(error) {
+        if(error !== '') {
+            return (
+                <div>
+                    <p style={{ color: 'red' }}>
+                        {error}
+                    </p>
+                </div>
+            );
+        }  
+        return undefined;
+    }
+
+    createEditNameInput() {
+        return (
+            <div>
+                <div>
+                    <span style={{ color: 'grey' }}> Titulo actual: </span>
+                </div>
+                <div className="mb-4">
+                    <span style={{ fontSize: 40, color: '#54545f' }}>{this.state.banner.title}</span>
+                </div>
+                <form>
+                    <div className="form-group row">
+                        <label htmlFor="editNameBanner" className="col-md-2 col-form-label">Cambiar titulo:</label>
+                        <div className="col-md-6 mb-3">
+                            <input type="text" 
+                                className="form-control" 
+                                placeholder="Escriba un nuevo titulo" 
+                                id="editNameBanner" 
+                                onChange={ event => this.abstractHandler('newTitle', event.target.value) }
+                            />
+                        </div>
+                        <div className="col-md-3">
+                            <button type="reset" className="btn btn-primary col-12" onClick={() => this.sendEditBannerTitle()}>Cambiar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        );
+    }
+
+    createProductTable() {
+        return (
+            <div>
+                Hello
+            </div>
+        );
+    }
+
     render() {
         return (
             <div className="container">
-                {console.log(this.state.banner)}
                 {this.firstBanner()}
-                {/* {this.createEditNameInput()}
-                {this.createProductTable()} */}
+                {this.createEditNameInput()}
+                {this.showErrors(this.state.errorEdit)}
+                {this.createProductTable()}
             </div>
         );
     }
