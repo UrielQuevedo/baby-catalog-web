@@ -19,7 +19,11 @@ class BannerController extends Controller
      */
     public function index()
     {
-        return response()->json(['status'=>'ok', 'data'=>Banner::all()[0]], 200);
+        $banners = Banner::all();
+        if(count($banners) == 0) {
+            return response()->json(['status'=>'ok', 'data'=>''], 200); 
+        }
+        return response()->json(['status'=>'ok', 'data'=>$banners[0]], 200);
     }
 
     /**

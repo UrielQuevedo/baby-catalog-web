@@ -66432,9 +66432,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -66455,16 +66455,93 @@ function (_Component) {
     _classCallCheck(this, ConfigBanner);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ConfigBanner).call(this, props));
-    _this.state = {};
+    _this.changeNewTitle = _this.changeNewTitle.bind(_assertThisInitialized(_this));
+    _this.createANewBanner = _this.createANewBanner.bind(_assertThisInitialized(_this));
+    _this.state = {
+      banner: {
+        title: '',
+        products: []
+      },
+      newTitle: ''
+    };
     return _this;
   }
 
   _createClass(ConfigBanner, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/api/banner').then(function (response) {
+        return _this2.setState({
+          banner: response.data.data
+        });
+      })["catch"](function (error) {
+        return console.log(error.response);
+      });
+    }
+  }, {
+    key: "changeNewTitle",
+    value: function changeNewTitle(value) {
+      this.setState({
+        newTitle: value
+      });
+    }
+  }, {
+    key: "createANewBanner",
+    value: function createANewBanner() {
+      var _this3 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/api/banner', {
+        title: this.state.newTitle
+      }, {
+        headers: {
+          "Authorization": "Bearer ".concat(this.props.location.state.token)
+        }
+      }).then(function (response) {
+        return _this3.setState({
+          banner: response.data.data
+        });
+      })["catch"](function (error) {
+        return console.log(error.response.data);
+      });
+    }
+  }, {
+    key: "firstBanner",
+    value: function firstBanner() {
+      var _this4 = this;
+
+      if (this.state.banner == '') {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Eliga un Titulo para su Panel de Destacados:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "form-row"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "text",
+          className: "form-control",
+          placeholder: "Escriba un nombre",
+          onChange: function onChange(event) {
+            return _this4.changeNewTitle(event.target.value);
+          }
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          type: "reset",
+          className: "btn btn-success",
+          onClick: function onClick() {
+            return _this4.createANewBanner();
+          }
+        }, "Crear")))));
+      }
+
+      return undefined;
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
-      }, "ConfigBanner");
+      }, console.log(this.state.banner), this.firstBanner());
     }
   }]);
 
