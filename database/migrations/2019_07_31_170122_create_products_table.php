@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->text('description')->nullable();
             $table->integer('price')->nullable();
             $table->integer('priority')->nullable(true);
+            $table->integer('banner_id')->unsigned()->nullable();
             $table->string('code')->nullable();
             $table->integer('category_id')->unsigned()->nullable();
             $table->foreign('category_id')->references('id')->on('categories');

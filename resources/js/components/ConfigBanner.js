@@ -10,7 +10,7 @@ export default class ConfigBanner extends Component {
         this.abstractHandler = this.abstractHandler.bind(this);
         this.createANewBanner = this.createANewBanner.bind(this);
         this.sendEditBannerTitle = this.sendEditBannerTitle.bind(this);
-        this.selectProductFromProductsTable = this.selectProductFromProductsTable.bind(this);
+        this.selectProductFromAbstractTable = this.selectProductFromAbstractTable.bind(this);
         this.state = {
             banner: {
                 id: '',
@@ -21,6 +21,7 @@ export default class ConfigBanner extends Component {
             newTitle: '',
             products: [],
             productSelected: '',
+            productBannerSelected: '',
         };
     }
 
@@ -36,7 +37,7 @@ export default class ConfigBanner extends Component {
 
     giveBanner() {
         axios.get('/api/banner')
-            .then(response => this.setState({ banner: response.data.data }))
+            .then(response => this.setState({ banner: response.data.data, products_banner: response.data.products }))
             .catch(error => console.log(error.response));
     }
 
@@ -134,33 +135,68 @@ export default class ConfigBanner extends Component {
         );
     }
 
-    createProductBannerTable() {
+    createHeaderTable() {
         return (
-            <div className="col-xs-12">
-                <span className="lines-style">Productos Destacados</span>
-                <div className="table-responsive wrap-table" data-pattern="priority-columns">
-                    <table className="table table-hover">
-                        <thead className="theadTable">
-                            <tr>
-                            <th className="cell">Codigo</th>
-                            <th className="cell" data-priority="1">Titulo</th>
-                            <th className="cell" data-priority="2">Prioridad</th>
-                            <th className="cell" data-priority="3">Precio</th>
-                            <th className="cell" data-priority="4">Categoria</th>
-                            </tr>
-                        </thead>
-                    <tbody>
-                        
-                    </tbody>
-                    </table>
-                </div>
-                <button className="btn btn-danger">Sacar</button>
-            </div>
+            <tr>
+                <th className="cell">Codigo</th>
+                <th className="cell" data-priority="1">Titulo</th>
+                <th className="cell" data-priority="2">Prioridad</th>
+                <th className="cell" data-priority="3">Precio</th>
+                <th className="cell" data-priority="4">Categoria</th>
+            </tr>
         );
     }
 
-    selectProductFromProductsTable(product) {
-        this.setState({ productSelected: product });
+    selectProductFromAbstractTable(property, product) {
+        this.setState({ [property]: product })
+    }
+
+    createProductTable(id, product) {
+        var classN = '';
+        if(product === this.state.productBannerSelected) {
+            classN = 'rowSelected';
+        }
+        return (
+            <tr className={"rowTable " + classN} key={id} onClick={() => this.selectProductFromAbstractTable('productBannerSelected', product)}>
+                <td>{product.code}</td>
+                <td>{product.title}</td>
+                <td>{product.priority}</td>
+                <td>{product.price}</td>
+                <td>{product.category_name}</td>
+            </tr>
+        );
+    }
+
+    createTrProductsBannerTable() {
+        return this.state.banner.products.map(product => (
+            this.createProductTable(product.code+'TR'+'ProductBanner',product)
+        ));
+    }
+
+    createProductBannerTable() {
+        if(this.state.banner.products.length !== 0) {
+            return (
+                <div className="col-xs-12">
+                    <span className="lines-style">Productos Destacados</span>
+                    <div className="table-responsive wrap-table" data-pattern="priority-columns">
+                        <table className="table table-hover">
+                            <thead className="theadTable">
+                                {this.createHeaderTable()}
+                            </thead>
+                            <tbody>
+                                {this.createTrProductsBannerTable()}
+                            </tbody>
+                        </table>
+                    </div>
+                    <button className="btn btn-danger">Sacar</button>
+                </div>
+            );
+        }
+        return (
+            <div className="alert alert-primary" role="alert">
+                No hay productos en el banner aún.
+            </div>
+        );
     }
 
     createTrProduct(id, product) {
@@ -169,7 +205,7 @@ export default class ConfigBanner extends Component {
             classN = 'rowSelected';
         }
         return (
-            <tr className={"rowTable " + classN} key={id} onClick={() => this.selectProductFromProductsTable(product)}>
+            <tr className={"rowTable " + classN} key={id} onClick={() => this.selectProductFromAbstractTable('productSelected', product)}>
                 <td>{product.code}</td>
                 <td>{product.title}</td>
                 <td>{product.priority}</td>
@@ -193,13 +229,7 @@ export default class ConfigBanner extends Component {
                     <div className="table-responsive wrap-table" data-pattern="priority-columns">
                         <table className="table table-hover">
                             <thead className="theadTable">
-                                <tr>
-                                <th className="cell">Codigo</th>
-                                <th className="cell" data-priority="1">Titulo</th>
-                                <th className="cell" data-priority="2">Prioridad</th>
-                                <th className="cell" data-priority="3">Precio</th>
-                                <th className="cell" data-priority="4">Categoria</th>
-                                </tr>
+                                {this.createHeaderTable()}
                             </thead>
                         <tbody>
                             {this.createTrProductsTable()} 

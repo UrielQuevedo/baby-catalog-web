@@ -66510,7 +66510,7 @@ function (_Component) {
     _this.abstractHandler = _this.abstractHandler.bind(_assertThisInitialized(_this));
     _this.createANewBanner = _this.createANewBanner.bind(_assertThisInitialized(_this));
     _this.sendEditBannerTitle = _this.sendEditBannerTitle.bind(_assertThisInitialized(_this));
-    _this.selectProductFromProductsTable = _this.selectProductFromProductsTable.bind(_assertThisInitialized(_this));
+    _this.selectProductFromAbstractTable = _this.selectProductFromAbstractTable.bind(_assertThisInitialized(_this));
     _this.state = {
       banner: {
         id: '',
@@ -66520,7 +66520,8 @@ function (_Component) {
       errorEdit: '',
       newTitle: '',
       products: [],
-      productSelected: ''
+      productSelected: '',
+      productBannerSelected: ''
     };
     return _this;
   }
@@ -66549,7 +66550,8 @@ function (_Component) {
 
       axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/api/banner').then(function (response) {
         return _this3.setState({
-          banner: response.data.data
+          banner: response.data.data,
+          products_banner: response.data.products
         });
       })["catch"](function (error) {
         return console.log(error.response);
@@ -66694,20 +66696,9 @@ function (_Component) {
       }, "Cambiar")))));
     }
   }, {
-    key: "createProductBannerTable",
-    value: function createProductBannerTable() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-xs-12"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "lines-style"
-      }, "Productos Destacados"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "table-responsive wrap-table",
-        "data-pattern": "priority-columns"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
-        className: "table table-hover"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", {
-        className: "theadTable"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    key: "createHeaderTable",
+    value: function createHeaderTable() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
         className: "cell"
       }, "Codigo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
         className: "cell",
@@ -66721,21 +66712,70 @@ function (_Component) {
       }, "Precio"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
         className: "cell",
         "data-priority": "4"
-      }, "Categoria"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "btn btn-danger"
-      }, "Sacar"));
+      }, "Categoria"));
     }
   }, {
-    key: "selectProductFromProductsTable",
-    value: function selectProductFromProductsTable(product) {
-      this.setState({
-        productSelected: product
+    key: "selectProductFromAbstractTable",
+    value: function selectProductFromAbstractTable(property, product) {
+      this.setState(_defineProperty({}, property, product));
+    }
+  }, {
+    key: "createProductTable",
+    value: function createProductTable(id, product) {
+      var _this8 = this;
+
+      var classN = '';
+
+      if (product === this.state.productBannerSelected) {
+        classN = 'rowSelected';
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+        className: "rowTable " + classN,
+        key: id,
+        onClick: function onClick() {
+          return _this8.selectProductFromAbstractTable('productBannerSelected', product);
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.code), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.priority), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.price), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.category_name));
+    }
+  }, {
+    key: "createTrProductsBannerTable",
+    value: function createTrProductsBannerTable() {
+      var _this9 = this;
+
+      return this.state.banner.products.map(function (product) {
+        return _this9.createProductTable(product.code + 'TR' + 'ProductBanner', product);
       });
+    }
+  }, {
+    key: "createProductBannerTable",
+    value: function createProductBannerTable() {
+      if (this.state.banner.products.length !== 0) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-xs-12"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "lines-style"
+        }, "Productos Destacados"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "table-responsive wrap-table",
+          "data-pattern": "priority-columns"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+          className: "table table-hover"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", {
+          className: "theadTable"
+        }, this.createHeaderTable()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.createTrProductsBannerTable()))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "btn btn-danger"
+        }, "Sacar"));
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "alert alert-primary",
+        role: "alert"
+      }, "No hay productos en el banner a\xFAn.");
     }
   }, {
     key: "createTrProduct",
     value: function createTrProduct(id, product) {
-      var _this8 = this;
+      var _this10 = this;
 
       var classN = '';
 
@@ -66747,17 +66787,17 @@ function (_Component) {
         className: "rowTable " + classN,
         key: id,
         onClick: function onClick() {
-          return _this8.selectProductFromProductsTable(product);
+          return _this10.selectProductFromAbstractTable('productSelected', product);
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.code), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.priority), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.price), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.category_name));
     }
   }, {
     key: "createTrProductsTable",
     value: function createTrProductsTable() {
-      var _this9 = this;
+      var _this11 = this;
 
       return this.state.products.map(function (product) {
-        return _this9.createTrProduct(product.code + 'TR' + 'ProductTable', product);
+        return _this11.createTrProduct(product.code + 'TR' + 'ProductTable', product);
       });
     }
   }, {
@@ -66775,21 +66815,7 @@ function (_Component) {
           className: "table table-hover"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", {
           className: "theadTable"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-          className: "cell"
-        }, "Codigo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-          className: "cell",
-          "data-priority": "1"
-        }, "Titulo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-          className: "cell",
-          "data-priority": "2"
-        }, "Prioridad"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-          className: "cell",
-          "data-priority": "3"
-        }, "Precio"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-          className: "cell",
-          "data-priority": "4"
-        }, "Categoria"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.createTrProductsTable()))));
+        }, this.createHeaderTable()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.createTrProductsTable()))));
       }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
