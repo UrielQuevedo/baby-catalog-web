@@ -12,7 +12,7 @@ class ProductController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('jwt', ['except' => ['index','show','showByCategory']]);
+        $this->middleware('jwt', ['except' => ['index','show','showByCategory','searchByCode']]);
     }
 
     /**
@@ -82,6 +82,20 @@ class ProductController extends Controller
                                 ->where('products.category_id', '=', $category_id)
                                     ->orderBy('priority','asc')
                                         ->get();
+
+        return response()->json(['status'=>'ok','data'=>$products], 200);
+    }
+
+    public function searchByCode($code) {
+        if(!$code) {
+            return response()->json(['error'=>'Codigo vacio'],422);
+        }
+        $products=DB::table('products')
+                        ->select('products.id','priority','code','title','waist','description','price','category_name', 'category_id')
+                            ->where('code', $code)
+                                ->join('categories', 'categories.id', '=', 'products.category_id')
+                                        ->orderBy('priority','asc')
+                                            ->get();
 
         return response()->json(['status'=>'ok','data'=>$products], 200);
     }
