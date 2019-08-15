@@ -13,6 +13,7 @@ export default class ConfigBanner extends Component {
         this.addProductToBanner = this.addProductToBanner.bind(this);
         this.removeProductFromBanner = this.removeProductFromBanner.bind(this);
         this.handleChangeSelect = this.handleChangeSelect.bind(this);
+        this.searchByCode = this.searchByCode.bind(this);
         this.state = {
             banner: {
                 id: '',
@@ -25,6 +26,7 @@ export default class ConfigBanner extends Component {
             productSelected: '',
             productBannerSelected: '',
             category_selected: 'none',
+            searchCode: '',
             categories: [],
             errorSelectProduct: '',
             errorRemoveProduct: '',
@@ -82,6 +84,21 @@ export default class ConfigBanner extends Component {
         axios.put(`/api/banner/${this.state.banner.id}/${this.state.productBannerSelected.id}`, { token: this.props.location.state.token})
             .then(response => this.setState({ banner: response.data.data }), this.abstractHandler('errorRemoveProduct', ''))
             .catch(error => this.setState({ errorRemoveProduct: error.response.data.error }));
+    }
+
+    handleChangeSelect(event) {
+        this.setState({ category_selected: event.target.value });
+        axios.get(`/api/product/byCategory/${event.target.value}`)
+            .then(response => this.setState({ products: response.data.data }))
+            .catch(error => console.log(error.response.data.error));    
+    }
+
+    searchByCode() {
+        if(this.state.searchCode !== '') {
+            axios.get(`/api/product/byCode/${this.state.searchCode}`)
+                .then(response => this.setState({ products: response.data.data }))
+                .catch(error => console.log(error.response))
+        }
     }
 
     firstBanner() {
@@ -237,13 +254,6 @@ export default class ConfigBanner extends Component {
         ));
     }
 
-    handleChangeSelect(event) {
-        this.setState({ category_selected: event.target.value });
-        axios.get(`/api/product/byCategory/${event.target.value}`)
-            .then(response => this.setState({ products: response.data.data }))
-            .catch(error => console.log(error.response.data.error));    
-    }
-
     createOptions() {
         return this.state.categories.map(category => (
             <option value={category.id}>{category.category_name}</option>
@@ -262,21 +272,36 @@ export default class ConfigBanner extends Component {
         );
     }
 
+    createSearchCode() {
+        return (
+            <form class="form-group row">
+                <div class="form-group mx-sm-3 mb-2">
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        placeholder="Buscar Codigo" 
+                        onChange={event => this.abstractHandler('searchCode', event.target.value)} />
+                </div>
+                <button type="button" class="btn btn-primary mb-2" onClick={() => this.searchByCode()}>Buscar</button>
+            </form>
+        );
+    }
+
     createTableProduct() {
         if(this.state.products.length !== 0) {
             return (
                 <div>
-                <div className="table-responsive wrap-table" data-pattern="priority-columns">
-                    <table className="table table-hover">
-                        <thead className="theadTable">
-                            {this.createHeaderTable()}
-                        </thead>
-                        <tbody>
-                            {this.createTrProductsTable()} 
-                        </tbody>
-                    </table>
-                </div>
-                <button type="button" className="btn btn-success" onClick={() => this.addProductToBanner()}>Agregar</button>
+                    <div className="table-responsive wrap-table" data-pattern="priority-columns">
+                        <table className="table table-hover">
+                            <thead className="theadTable">
+                                {this.createHeaderTable()}
+                            </thead>
+                            <tbody>
+                                {this.createTrProductsTable()} 
+                            </tbody>
+                        </table>
+                    </div>
+                    <button type="button" className="btn btn-success" onClick={() => this.addProductToBanner()}>Agregar</button>
                 </div>
             );
         }
@@ -294,6 +319,7 @@ export default class ConfigBanner extends Component {
                     <span className="lines-style">Productos</span>
                     {this.showErrors(this.state.errorSelectProduct)}
                     {this.createSelector()}
+                    {this.createSearchCode()}
                     {this.createTableProduct()}
                 </div>
             );

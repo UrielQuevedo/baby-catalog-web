@@ -66513,6 +66513,7 @@ function (_Component) {
     _this.addProductToBanner = _this.addProductToBanner.bind(_assertThisInitialized(_this));
     _this.removeProductFromBanner = _this.removeProductFromBanner.bind(_assertThisInitialized(_this));
     _this.handleChangeSelect = _this.handleChangeSelect.bind(_assertThisInitialized(_this));
+    _this.searchByCode = _this.searchByCode.bind(_assertThisInitialized(_this));
     _this.state = {
       banner: {
         id: '',
@@ -66525,6 +66526,7 @@ function (_Component) {
       productSelected: '',
       productBannerSelected: '',
       category_selected: 'none',
+      searchCode: '',
       categories: [],
       errorSelectProduct: '',
       errorRemoveProduct: ''
@@ -66647,9 +66649,40 @@ function (_Component) {
       });
     }
   }, {
+    key: "handleChangeSelect",
+    value: function handleChangeSelect(event) {
+      var _this8 = this;
+
+      this.setState({
+        category_selected: event.target.value
+      });
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/api/product/byCategory/".concat(event.target.value)).then(function (response) {
+        return _this8.setState({
+          products: response.data.data
+        });
+      })["catch"](function (error) {
+        return console.log(error.response.data.error);
+      });
+    }
+  }, {
+    key: "searchByCode",
+    value: function searchByCode() {
+      var _this9 = this;
+
+      if (this.state.searchCode !== '') {
+        axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/api/product/byCode/".concat(this.state.searchCode)).then(function (response) {
+          return _this9.setState({
+            products: response.data.data
+          });
+        })["catch"](function (error) {
+          return console.log(error.response);
+        });
+      }
+    }
+  }, {
     key: "firstBanner",
     value: function firstBanner() {
-      var _this8 = this;
+      var _this10 = this;
 
       if (this.state.banner == '') {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -66668,7 +66701,7 @@ function (_Component) {
           className: "form-control",
           placeholder: "Escriba un titulo",
           onChange: function onChange(event) {
-            return _this8.abstractHandler('newTitle', event.target.value);
+            return _this10.abstractHandler('newTitle', event.target.value);
           }
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-md-3"
@@ -66676,7 +66709,7 @@ function (_Component) {
           type: "reset",
           className: "btn btn-success col-12",
           onClick: function onClick() {
-            return _this8.createANewBanner();
+            return _this10.createANewBanner();
           }
         }, "Crear")))));
       }
@@ -66699,7 +66732,7 @@ function (_Component) {
   }, {
     key: "createEditNameInput",
     value: function createEditNameInput() {
-      var _this9 = this;
+      var _this11 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         style: {
@@ -66725,7 +66758,7 @@ function (_Component) {
         placeholder: "Escriba un nuevo titulo",
         id: "editNameBanner",
         onChange: function onChange(event) {
-          return _this9.abstractHandler('newTitle', event.target.value);
+          return _this11.abstractHandler('newTitle', event.target.value);
         }
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-md-3"
@@ -66733,7 +66766,7 @@ function (_Component) {
         type: "reset",
         className: "btn btn-primary col-12",
         onClick: function onClick() {
-          return _this9.sendEditBannerTitle();
+          return _this11.sendEditBannerTitle();
         }
       }, "Cambiar")))));
     }
@@ -66759,7 +66792,7 @@ function (_Component) {
   }, {
     key: "createProductTableBanner",
     value: function createProductTableBanner(id, product) {
-      var _this10 = this;
+      var _this12 = this;
 
       var classN = '';
 
@@ -66771,23 +66804,23 @@ function (_Component) {
         className: "rowTable " + classN,
         key: id,
         onClick: function onClick() {
-          return _this10.abstractHandler('productBannerSelected', product);
+          return _this12.abstractHandler('productBannerSelected', product);
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.code), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.priority), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.price), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.category.category_name));
     }
   }, {
     key: "createTrProductsBannerTable",
     value: function createTrProductsBannerTable() {
-      var _this11 = this;
+      var _this13 = this;
 
       return this.state.banner.products.map(function (product) {
-        return _this11.createProductTableBanner(product.code + 'TR' + 'ProductBanner', product);
+        return _this13.createProductTableBanner(product.code + 'TR' + 'ProductBanner', product);
       });
     }
   }, {
     key: "createProductBannerTable",
     value: function createProductBannerTable() {
-      var _this12 = this;
+      var _this14 = this;
 
       if (this.state.banner.products.length !== 0) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -66805,7 +66838,7 @@ function (_Component) {
           type: "button",
           className: "btn btn-danger",
           onClick: function onClick() {
-            return _this12.removeProductFromBanner();
+            return _this14.removeProductFromBanner();
           }
         }, "Sacar"));
       }
@@ -66818,7 +66851,7 @@ function (_Component) {
   }, {
     key: "createTrProduct",
     value: function createTrProduct(id, product) {
-      var _this13 = this;
+      var _this15 = this;
 
       var classN = '';
 
@@ -66830,33 +66863,17 @@ function (_Component) {
         className: "rowTable " + classN,
         key: id,
         onClick: function onClick() {
-          return _this13.abstractHandler('productSelected', product);
+          return _this15.abstractHandler('productSelected', product);
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.code), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.priority), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.price), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.category_name));
     }
   }, {
     key: "createTrProductsTable",
     value: function createTrProductsTable() {
-      var _this14 = this;
+      var _this16 = this;
 
       return this.state.products.map(function (product) {
-        return _this14.createTrProduct(product.code + 'TR' + 'ProductTable', product);
-      });
-    }
-  }, {
-    key: "handleChangeSelect",
-    value: function handleChangeSelect(event) {
-      var _this15 = this;
-
-      this.setState({
-        category_selected: event.target.value
-      });
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/api/product/byCategory/".concat(event.target.value)).then(function (response) {
-        return _this15.setState({
-          products: response.data.data
-        });
-      })["catch"](function (error) {
-        return console.log(error.response.data.error);
+        return _this16.createTrProduct(product.code + 'TR' + 'ProductTable', product);
       });
     }
   }, {
@@ -66881,9 +66898,33 @@ function (_Component) {
       }, "Elegir"), this.createOptions()));
     }
   }, {
+    key: "createSearchCode",
+    value: function createSearchCode() {
+      var _this17 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        "class": "form-group row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "form-group mx-sm-3 mb-2"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        "class": "form-control",
+        placeholder: "Buscar Codigo",
+        onChange: function onChange(event) {
+          return _this17.abstractHandler('searchCode', event.target.value);
+        }
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        "class": "btn btn-primary mb-2",
+        onClick: function onClick() {
+          return _this17.searchByCode();
+        }
+      }, "Buscar"));
+    }
+  }, {
     key: "createTableProduct",
     value: function createTableProduct() {
-      var _this16 = this;
+      var _this18 = this;
 
       if (this.state.products.length !== 0) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -66897,7 +66938,7 @@ function (_Component) {
           type: "button",
           className: "btn btn-success",
           onClick: function onClick() {
-            return _this16.addProductToBanner();
+            return _this18.addProductToBanner();
           }
         }, "Agregar"));
       }
@@ -66915,7 +66956,7 @@ function (_Component) {
           className: "col-xs-12"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "lines-style"
-        }, "Productos"), this.showErrors(this.state.errorSelectProduct), this.createSelector(), this.createTableProduct());
+        }, "Productos"), this.showErrors(this.state.errorSelectProduct), this.createSelector(), this.createSearchCode(), this.createTableProduct());
       }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

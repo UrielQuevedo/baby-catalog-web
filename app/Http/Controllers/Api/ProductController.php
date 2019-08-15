@@ -87,16 +87,15 @@ class ProductController extends Controller
     }
 
     public function searchByCode($code) {
-        if(!$code) {
-            return response()->json(['error'=>'Codigo vacio'],422);
-        }
         $products=DB::table('products')
                         ->select('products.id','priority','code','title','waist','description','price','category_name', 'category_id')
                             ->where('code', $code)
                                 ->join('categories', 'categories.id', '=', 'products.category_id')
                                         ->orderBy('priority','asc')
                                             ->get();
-
+        if(count($products) == 0) {
+            return response()->json(['error'=>'No se encontro ningun producto con ese codigo'],422);
+        }
         return response()->json(['status'=>'ok','data'=>$products], 200);
     }
 
