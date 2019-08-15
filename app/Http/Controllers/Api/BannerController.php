@@ -90,4 +90,22 @@ class BannerController extends Controller
         }
         return response()->json(['status'=>'ok', 'data'=>$banner], 200);
     }
+
+    public function removeProduct($idBanner, $idProduct)
+    {
+        $banner = Banner::find($idBanner);
+        if(!$banner) {
+            return response()->json(['error'=>'No se encuentra un banner con ese código.'],404);
+        }
+        $product = Product::find($idProduct);
+        if(!$product) {
+            return response()->json(['error'=>'No se encuentra un producto. (Seleccione uno)'],404);
+        }
+        $product->banner_id=null;
+        $product->save();
+        foreach ($banner->products as $product) {
+            $product->category;
+        }
+        return response()->json(['status'=>'ok', 'data'=>$banner], 200);
+    }
 }

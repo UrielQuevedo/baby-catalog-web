@@ -11,7 +11,7 @@ export default class ConfigBanner extends Component {
         this.createANewBanner = this.createANewBanner.bind(this);
         this.sendEditBannerTitle = this.sendEditBannerTitle.bind(this);
         this.addProductToBanner = this.addProductToBanner.bind(this);
-        this.selectProductFromAbstractTable = this.selectProductFromAbstractTable.bind(this);
+        this.removeProductFromBanner = this.removeProductFromBanner.bind(this);
         this.state = {
             banner: {
                 id: '',
@@ -24,6 +24,7 @@ export default class ConfigBanner extends Component {
             productSelected: '',
             productBannerSelected: '',
             errorSelectProduct: '',
+            errorRemoveProduct: '',
         };
     }
 
@@ -71,6 +72,12 @@ export default class ConfigBanner extends Component {
         axios.post(`/api/banner/${this.state.banner.id}/${this.state.productSelected.id}`, { token: this.props.location.state.token})
             .then(response => this.setState({ banner: response.data.data }), this.abstractHandler('errorSelectProduct', ''))
             .catch(error => this.setState({ errorSelectProduct: error.response.data.error }));
+    }
+
+    removeProductFromBanner() {
+        axios.put(`/api/banner/${this.state.banner.id}/${this.state.productBannerSelected.id}`, { token: this.props.location.state.token})
+            .then(response => this.setState({ banner: response.data.data }), this.abstractHandler('errorRemoveProduct', ''))
+            .catch(error => this.setState({ errorRemoveProduct: error.response.data.error }));
     }
 
     firstBanner() {
@@ -155,17 +162,13 @@ export default class ConfigBanner extends Component {
         );
     }
 
-    selectProductFromAbstractTable(property, product) {
-        this.setState({ [property]: product })
-    }
-
     createProductTableBanner(id, product) {
         var classN = '';
         if(product === this.state.productBannerSelected) {
             classN = 'rowSelected';
         }
         return (
-            <tr className={"rowTable " + classN} key={id} onClick={() => this.selectProductFromAbstractTable('productBannerSelected', product)}>
+            <tr className={"rowTable " + classN} key={id} onClick={() => this.abstractHandler('productBannerSelected', product)}>
                 <td>{product.code}</td>
                 <td>{product.title}</td>
                 <td>{product.priority}</td>
@@ -186,6 +189,7 @@ export default class ConfigBanner extends Component {
             return (
                 <div className="col-xs-12">
                     <span className="lines-style">Productos Destacados</span>
+                    {this.showErrors(this.state.errorRemoveProduct)}
                     <div className="table-responsive wrap-table" data-pattern="priority-columns">
                         <table className="table table-hover">
                             <thead className="theadTable">
@@ -196,7 +200,7 @@ export default class ConfigBanner extends Component {
                             </tbody>
                         </table>
                     </div>
-                    <button type="button" className="btn btn-danger">Sacar</button>
+                    <button type="button" className="btn btn-danger" onClick={() => this.removeProductFromBanner()}>Sacar</button>
                 </div>
             );
         }
@@ -213,7 +217,7 @@ export default class ConfigBanner extends Component {
             classN = 'rowSelected';
         }
         return (
-            <tr className={"rowTable " + classN} key={id} onClick={() => this.selectProductFromAbstractTable('productSelected', product)}>
+            <tr className={"rowTable " + classN} key={id} onClick={() => this.abstractHandler('productSelected', product)}>
                 <td>{product.code}</td>
                 <td>{product.title}</td>
                 <td>{product.priority}</td>
