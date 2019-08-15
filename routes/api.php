@@ -16,9 +16,11 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::post('/banner/{idBanner}/{idProduct}','Api\BannerController@addProduct');
 Route::resource('category','Api\CategoryController', ['only' => ['index', 'store', 'show', 'update', 'destroy']]);
 Route::resource('product','Api\ProductController', ['only' => ['store', 'index', 'update', 'destroy', 'show']]);
-Route::resource('banner','Api\BannerController',['only' => ['store','index','update','addProduct']]);
+Route::resource('banner','Api\BannerController',['only' => ['store','index','update']]);
+
 
 Route::group([
     'prefix' => 'auth',

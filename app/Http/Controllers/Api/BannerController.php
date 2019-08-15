@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Banner;
+use App\Product;
 use DB;
 
 class BannerController extends Controller
@@ -25,7 +26,9 @@ class BannerController extends Controller
             return response()->json(['status'=>'ok', 'data'=>''], 200); 
         }
         $banner = $banners[0];
-        $banner->products;
+        foreach ($banner->products as $product) {
+            $product->category;
+        }
         return response()->json(['status'=>'ok', 'data'=>$banner], 200);
     }
 
@@ -74,14 +77,17 @@ class BannerController extends Controller
     {
         $banner = Banner::find($idBanner);
         if(!$banner) {
-            return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra un banner con ese código.'])],404);
+            return response()->json(['error'=>'No se encuentra un banner con ese código.'],404);
         }
         $product = Product::find($idProduct);
         if(!$product) {
-            return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra un producto. (Seleccione uno)'])],404);
+            return response()->json(['error'=>'No se encuentra un producto. (Seleccione uno)'],404);
         }
         $product->banner_id=$idBanner;
         $product->save();
-        return response()->json(['status'=>'ok'], 200);
+        foreach ($banner->products as $product) {
+            $product->category;
+        }
+        return response()->json(['status'=>'ok', 'data'=>$banner], 200);
     }
 }

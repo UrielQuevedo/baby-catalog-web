@@ -16,5 +16,5 @@ class Product extends Model
     public function banner()
 	{
 		return $this->belongsTo('App\Banner');
-	}
+    }
 }

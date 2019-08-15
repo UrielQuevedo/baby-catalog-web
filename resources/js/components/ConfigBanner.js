@@ -10,6 +10,7 @@ export default class ConfigBanner extends Component {
         this.abstractHandler = this.abstractHandler.bind(this);
         this.createANewBanner = this.createANewBanner.bind(this);
         this.sendEditBannerTitle = this.sendEditBannerTitle.bind(this);
+        this.addProductToBanner = this.addProductToBanner.bind(this);
         this.selectProductFromAbstractTable = this.selectProductFromAbstractTable.bind(this);
         this.state = {
             banner: {
@@ -22,6 +23,7 @@ export default class ConfigBanner extends Component {
             products: [],
             productSelected: '',
             productBannerSelected: '',
+            errorSelectProduct: '',
         };
     }
 
@@ -63,6 +65,12 @@ export default class ConfigBanner extends Component {
         })
             .then(response => this.setState({ banner: response.data.data }), this.abstractHandler('errorEdit', ''))
             .catch(error => this.setState({ errorEdit: error.response.data.error }));
+    }
+
+    addProductToBanner() {
+        axios.post(`/api/banner/${this.state.banner.id}/${this.state.productSelected.id}`, { token: this.props.location.state.token})
+            .then(response => this.setState({ banner: response.data.data }), this.abstractHandler('errorSelectProduct', ''))
+            .catch(error => this.setState({ errorSelectProduct: error.response.data.error }));
     }
 
     firstBanner() {
@@ -151,7 +159,7 @@ export default class ConfigBanner extends Component {
         this.setState({ [property]: product })
     }
 
-    createProductTable(id, product) {
+    createProductTableBanner(id, product) {
         var classN = '';
         if(product === this.state.productBannerSelected) {
             classN = 'rowSelected';
@@ -162,14 +170,14 @@ export default class ConfigBanner extends Component {
                 <td>{product.title}</td>
                 <td>{product.priority}</td>
                 <td>{product.price}</td>
-                <td>{product.category_name}</td>
+                <td>{product.category.category_name}</td>
             </tr>
         );
     }
 
     createTrProductsBannerTable() {
         return this.state.banner.products.map(product => (
-            this.createProductTable(product.code+'TR'+'ProductBanner',product)
+            this.createProductTableBanner(product.code+'TR'+'ProductBanner',product)
         ));
     }
 
@@ -188,7 +196,7 @@ export default class ConfigBanner extends Component {
                             </tbody>
                         </table>
                     </div>
-                    <button className="btn btn-danger">Sacar</button>
+                    <button type="button" className="btn btn-danger">Sacar</button>
                 </div>
             );
         }
@@ -226,6 +234,7 @@ export default class ConfigBanner extends Component {
             return (
                 <div className="col-xs-12">
                     <span className="lines-style">Productos</span>
+                    {this.showErrors(this.state.errorSelectProduct)}
                     <div className="table-responsive wrap-table" data-pattern="priority-columns">
                         <table className="table table-hover">
                             <thead className="theadTable">
@@ -236,13 +245,14 @@ export default class ConfigBanner extends Component {
                         </tbody>
                         </table>
                     </div>
+                    <button type="button" className="btn btn-success" onClick={() => this.addProductToBanner()}>Agregar</button>
                 </div>
             );
         }
         return (
             <div className="alert alert-primary" role="alert">
                 No hay productos cargados aún.
-            </div>
+            </div>                              
         );
     }
 

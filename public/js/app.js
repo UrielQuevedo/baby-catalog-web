@@ -66510,6 +66510,7 @@ function (_Component) {
     _this.abstractHandler = _this.abstractHandler.bind(_assertThisInitialized(_this));
     _this.createANewBanner = _this.createANewBanner.bind(_assertThisInitialized(_this));
     _this.sendEditBannerTitle = _this.sendEditBannerTitle.bind(_assertThisInitialized(_this));
+    _this.addProductToBanner = _this.addProductToBanner.bind(_assertThisInitialized(_this));
     _this.selectProductFromAbstractTable = _this.selectProductFromAbstractTable.bind(_assertThisInitialized(_this));
     _this.state = {
       banner: {
@@ -66521,7 +66522,8 @@ function (_Component) {
       newTitle: '',
       products: [],
       productSelected: '',
-      productBannerSelected: ''
+      productBannerSelected: '',
+      errorSelectProduct: ''
     };
     return _this;
   }
@@ -66605,9 +66607,26 @@ function (_Component) {
       });
     }
   }, {
+    key: "addProductToBanner",
+    value: function addProductToBanner() {
+      var _this6 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/api/banner/".concat(this.state.banner.id, "/").concat(this.state.productSelected.id), {
+        token: this.props.location.state.token
+      }).then(function (response) {
+        return _this6.setState({
+          banner: response.data.data
+        });
+      }, this.abstractHandler('errorSelectProduct', ''))["catch"](function (error) {
+        return _this6.setState({
+          errorSelectProduct: error.response.data.error
+        });
+      });
+    }
+  }, {
     key: "firstBanner",
     value: function firstBanner() {
-      var _this6 = this;
+      var _this7 = this;
 
       if (this.state.banner == '') {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -66626,7 +66645,7 @@ function (_Component) {
           className: "form-control",
           placeholder: "Escriba un titulo",
           onChange: function onChange(event) {
-            return _this6.abstractHandler('newTitle', event.target.value);
+            return _this7.abstractHandler('newTitle', event.target.value);
           }
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-md-3"
@@ -66634,7 +66653,7 @@ function (_Component) {
           type: "reset",
           className: "btn btn-success col-12",
           onClick: function onClick() {
-            return _this6.createANewBanner();
+            return _this7.createANewBanner();
           }
         }, "Crear")))));
       }
@@ -66657,7 +66676,7 @@ function (_Component) {
   }, {
     key: "createEditNameInput",
     value: function createEditNameInput() {
-      var _this7 = this;
+      var _this8 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         style: {
@@ -66683,7 +66702,7 @@ function (_Component) {
         placeholder: "Escriba un nuevo titulo",
         id: "editNameBanner",
         onChange: function onChange(event) {
-          return _this7.abstractHandler('newTitle', event.target.value);
+          return _this8.abstractHandler('newTitle', event.target.value);
         }
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-md-3"
@@ -66691,7 +66710,7 @@ function (_Component) {
         type: "reset",
         className: "btn btn-primary col-12",
         onClick: function onClick() {
-          return _this7.sendEditBannerTitle();
+          return _this8.sendEditBannerTitle();
         }
       }, "Cambiar")))));
     }
@@ -66720,9 +66739,9 @@ function (_Component) {
       this.setState(_defineProperty({}, property, product));
     }
   }, {
-    key: "createProductTable",
-    value: function createProductTable(id, product) {
-      var _this8 = this;
+    key: "createProductTableBanner",
+    value: function createProductTableBanner(id, product) {
+      var _this9 = this;
 
       var classN = '';
 
@@ -66734,17 +66753,17 @@ function (_Component) {
         className: "rowTable " + classN,
         key: id,
         onClick: function onClick() {
-          return _this8.selectProductFromAbstractTable('productBannerSelected', product);
+          return _this9.selectProductFromAbstractTable('productBannerSelected', product);
         }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.code), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.priority), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.price), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.category_name));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.code), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.priority), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.price), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.category.category_name));
     }
   }, {
     key: "createTrProductsBannerTable",
     value: function createTrProductsBannerTable() {
-      var _this9 = this;
+      var _this10 = this;
 
       return this.state.banner.products.map(function (product) {
-        return _this9.createProductTable(product.code + 'TR' + 'ProductBanner', product);
+        return _this10.createProductTableBanner(product.code + 'TR' + 'ProductBanner', product);
       });
     }
   }, {
@@ -66763,6 +66782,7 @@ function (_Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", {
           className: "theadTable"
         }, this.createHeaderTable()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.createTrProductsBannerTable()))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          type: "button",
           className: "btn btn-danger"
         }, "Sacar"));
       }
@@ -66775,7 +66795,7 @@ function (_Component) {
   }, {
     key: "createTrProduct",
     value: function createTrProduct(id, product) {
-      var _this10 = this;
+      var _this11 = this;
 
       var classN = '';
 
@@ -66787,35 +66807,43 @@ function (_Component) {
         className: "rowTable " + classN,
         key: id,
         onClick: function onClick() {
-          return _this10.selectProductFromAbstractTable('productSelected', product);
+          return _this11.selectProductFromAbstractTable('productSelected', product);
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.code), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.priority), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.price), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.category_name));
     }
   }, {
     key: "createTrProductsTable",
     value: function createTrProductsTable() {
-      var _this11 = this;
+      var _this12 = this;
 
       return this.state.products.map(function (product) {
-        return _this11.createTrProduct(product.code + 'TR' + 'ProductTable', product);
+        return _this12.createTrProduct(product.code + 'TR' + 'ProductTable', product);
       });
     }
   }, {
     key: "createProductTable",
     value: function createProductTable() {
+      var _this13 = this;
+
       if (this.state.products.length !== 0) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-xs-12"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "lines-style"
-        }, "Productos"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, "Productos"), this.showErrors(this.state.errorSelectProduct), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "table-responsive wrap-table",
           "data-pattern": "priority-columns"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
           className: "table table-hover"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", {
           className: "theadTable"
-        }, this.createHeaderTable()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.createTrProductsTable()))));
+        }, this.createHeaderTable()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.createTrProductsTable()))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          type: "button",
+          className: "btn btn-success",
+          onClick: function onClick() {
+            return _this13.addProductToBanner();
+          }
+        }, "Agregar"));
       }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
