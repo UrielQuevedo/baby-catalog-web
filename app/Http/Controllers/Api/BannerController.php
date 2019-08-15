@@ -70,6 +70,9 @@ class BannerController extends Controller
         }
         $banner->title=$request->input('title');
         $banner->save();
+        foreach ($banner->products as $product) {
+            $product->category;
+        }
         return response()->json(['status'=>'ok','data'=>$banner], 200);
     }
 

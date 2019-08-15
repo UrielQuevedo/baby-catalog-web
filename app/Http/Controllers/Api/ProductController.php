@@ -12,7 +12,7 @@ class ProductController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('jwt', ['except' => ['index','show']]);
+        $this->middleware('jwt', ['except' => ['index','show','showByCategory']]);
     }
 
     /**
@@ -22,7 +22,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products=DB::table('products')->select('products.id','priority','title','waist','code','description','price', 'category_name', 'category_id')->join('categories', 'categories.id', '=', 'products.category_id')->get();
+        $products=DB::table('products')
+                        ->select('products.id','priority','title','waist','code','description','price', 'category_name', 'category_id')
+                            ->join('categories', 'categories.id', '=', 'products.category_id')->get();
         return response()->json(['status'=>'ok','data'=>$products], 200);
     }
 
@@ -61,6 +63,27 @@ class ProductController extends Controller
     public function show($id)
     {
         //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  string  $category
+     * @return \Illuminate\Http\Response
+     */
+    public function showByCategory($category_id) {
+        $category=Category::find($category_id);
+        if(!$category) {
+            return response()->json(['error'=>'No se encuentra una categoria con ese código.'],422);
+        }
+        $products=DB::table('products')
+                        ->select('products.id','priority','code','title','waist','description','price','category_name', 'category_id')
+                            ->join('categories', 'categories.id', '=', 'products.category_id')
+                                ->where('products.category_id', '=', $category_id)
+                                    ->orderBy('priority','asc')
+                                        ->get();
+
+        return response()->json(['status'=>'ok','data'=>$products], 200);
     }
 
     /**
