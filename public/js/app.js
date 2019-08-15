@@ -66512,6 +66512,7 @@ function (_Component) {
     _this.sendEditBannerTitle = _this.sendEditBannerTitle.bind(_assertThisInitialized(_this));
     _this.addProductToBanner = _this.addProductToBanner.bind(_assertThisInitialized(_this));
     _this.removeProductFromBanner = _this.removeProductFromBanner.bind(_assertThisInitialized(_this));
+    _this.handleChangeSelect = _this.handleChangeSelect.bind(_assertThisInitialized(_this));
     _this.state = {
       banner: {
         id: '',
@@ -66523,6 +66524,8 @@ function (_Component) {
       products: [],
       productSelected: '',
       productBannerSelected: '',
+      category_selected: 'none',
+      categories: [],
       errorSelectProduct: '',
       errorRemoveProduct: ''
     };
@@ -66533,17 +66536,19 @@ function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.giveBanner();
-      this.giveAllProducts();
+      this.giveAllCategories();
     }
   }, {
-    key: "giveAllProducts",
-    value: function giveAllProducts() {
+    key: "giveAllCategories",
+    value: function giveAllCategories() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/api/product').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/api/category').then(function (response) {
         return _this2.setState({
-          products: response.data.data
+          categories: response.data.data
         });
+      })["catch"](function (error) {
+        return console.log(error.response.data.error);
       });
     }
   }, {
@@ -66839,16 +66844,49 @@ function (_Component) {
       });
     }
   }, {
-    key: "createProductTable",
-    value: function createProductTable() {
+    key: "handleChangeSelect",
+    value: function handleChangeSelect(event) {
       var _this15 = this;
 
+      this.setState({
+        category_selected: event.target.value
+      });
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/api/product/byCategory/".concat(event.target.value)).then(function (response) {
+        return _this15.setState({
+          products: response.data.data
+        });
+      })["catch"](function (error) {
+        return console.log(error.response.data.error);
+      });
+    }
+  }, {
+    key: "createOptions",
+    value: function createOptions() {
+      return this.state.categories.map(function (category) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+          value: category.id
+        }, category.category_name);
+      });
+    }
+  }, {
+    key: "createSelector",
+    value: function createSelector() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Seleccione una Categoria:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        className: "form-control",
+        value: this.state.category_selected,
+        onChange: this.handleChangeSelect
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        disabled: "disabled",
+        value: "none"
+      }, "Elegir"), this.createOptions()));
+    }
+  }, {
+    key: "createTableProduct",
+    value: function createTableProduct() {
+      var _this16 = this;
+
       if (this.state.products.length !== 0) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col-xs-12"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-          className: "lines-style"
-        }, "Productos"), this.showErrors(this.state.errorSelectProduct), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "table-responsive wrap-table",
           "data-pattern": "priority-columns"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
@@ -66859,9 +66897,25 @@ function (_Component) {
           type: "button",
           className: "btn btn-success",
           onClick: function onClick() {
-            return _this15.addProductToBanner();
+            return _this16.addProductToBanner();
           }
         }, "Agregar"));
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "alert alert-warning",
+        role: "alert"
+      }, "Seleccione una categoria.");
+    }
+  }, {
+    key: "createWrapperProducts",
+    value: function createWrapperProducts() {
+      if (this.state.categories.length !== 0) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-xs-12"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "lines-style"
+        }, "Productos"), this.showErrors(this.state.errorSelectProduct), this.createSelector(), this.createTableProduct());
       }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -66880,7 +66934,7 @@ function (_Component) {
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
-      }, this.createEditNameInput(), this.showErrors(this.state.errorEdit), this.createProductBannerTable(), this.createProductTable());
+      }, this.createEditNameInput(), this.showErrors(this.state.errorEdit), this.createProductBannerTable(), this.createWrapperProducts());
     }
   }]);
 

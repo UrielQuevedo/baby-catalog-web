@@ -12,6 +12,7 @@ export default class ConfigBanner extends Component {
         this.sendEditBannerTitle = this.sendEditBannerTitle.bind(this);
         this.addProductToBanner = this.addProductToBanner.bind(this);
         this.removeProductFromBanner = this.removeProductFromBanner.bind(this);
+        this.handleChangeSelect = this.handleChangeSelect.bind(this);
         this.state = {
             banner: {
                 id: '',
@@ -23,6 +24,8 @@ export default class ConfigBanner extends Component {
             products: [],
             productSelected: '',
             productBannerSelected: '',
+            category_selected: 'none',
+            categories: [],
             errorSelectProduct: '',
             errorRemoveProduct: '',
         };
@@ -30,12 +33,13 @@ export default class ConfigBanner extends Component {
 
     componentDidMount() {
         this.giveBanner();
-        this.giveAllProducts();
+        this.giveAllCategories();
     }
 
-    giveAllProducts() {
-        axios.get('/api/product')
-            .then(response => this.setState({ products: response.data.data }));
+    giveAllCategories() {
+        axios.get('/api/category')
+            .then(response => this.setState({ categories: response.data.data }))
+            .catch(error => console.log(error.response.data.error))
     }
 
     giveBanner() {
@@ -233,23 +237,64 @@ export default class ConfigBanner extends Component {
         ));
     }
 
-    createProductTable() {
+    handleChangeSelect(event) {
+        this.setState({ category_selected: event.target.value });
+        axios.get(`/api/product/byCategory/${event.target.value}`)
+            .then(response => this.setState({ products: response.data.data }))
+            .catch(error => console.log(error.response.data.error));    
+    }
+
+    createOptions() {
+        return this.state.categories.map(category => (
+            <option value={category.id}>{category.category_name}</option>
+        ));
+    }
+
+    createSelector() {
+        return (
+            <label>
+                Seleccione una Categoria:
+                <select className="form-control" value={this.state.category_selected} onChange={this.handleChangeSelect}>
+                    <option disabled="disabled" value="none">Elegir</option>
+                    {this.createOptions()}
+                </select>
+            </label>
+        );
+    }
+
+    createTableProduct() {
         if(this.state.products.length !== 0) {
+            return (
+                <div>
+                <div className="table-responsive wrap-table" data-pattern="priority-columns">
+                    <table className="table table-hover">
+                        <thead className="theadTable">
+                            {this.createHeaderTable()}
+                        </thead>
+                        <tbody>
+                            {this.createTrProductsTable()} 
+                        </tbody>
+                    </table>
+                </div>
+                <button type="button" className="btn btn-success" onClick={() => this.addProductToBanner()}>Agregar</button>
+                </div>
+            );
+        }
+        return (
+            <div className="alert alert-warning" role="alert">
+                Seleccione una categoria.
+            </div>   
+        );
+    }
+
+    createWrapperProducts() {
+        if(this.state.categories.length !== 0) {
             return (
                 <div className="col-xs-12">
                     <span className="lines-style">Productos</span>
                     {this.showErrors(this.state.errorSelectProduct)}
-                    <div className="table-responsive wrap-table" data-pattern="priority-columns">
-                        <table className="table table-hover">
-                            <thead className="theadTable">
-                                {this.createHeaderTable()}
-                            </thead>
-                        <tbody>
-                            {this.createTrProductsTable()} 
-                        </tbody>
-                        </table>
-                    </div>
-                    <button type="button" className="btn btn-success" onClick={() => this.addProductToBanner()}>Agregar</button>
+                    {this.createSelector()}
+                    {this.createTableProduct()}
                 </div>
             );
         }
@@ -274,7 +319,7 @@ export default class ConfigBanner extends Component {
                 {this.createEditNameInput()}
                 {this.showErrors(this.state.errorEdit)}
                 {this.createProductBannerTable()}
-                {this.createProductTable()}
+                {this.createWrapperProducts()}
             </div>
         );
     }
