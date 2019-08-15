@@ -45,11 +45,11 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         if ($this->checkIfTheDataIsValid($request)){
-			return response()->json(['errors'=>array(['code'=>422,'message'=>'Faltan datos necesarios para el proceso de alta.(Complete todos los campos)'])],422);
+			return response()->json(['error'=>'Faltan datos necesarios para el proceso de alta.(Complete todos los campos)'],422);
 		}
         $newProduct = new Product();
-        $this->loadProductData($newProduct,$request);
-        return response()->json(['status'=>'ok','data'=>$request], 200);
+        $newProduct = $this->loadProductData($newProduct,$request);
+        return response()->json(['status'=>'ok','data'=>$newProduct], 200);
     }
 
     /**
@@ -110,5 +110,6 @@ class ProductController extends Controller
         $newProduct->category_id=$request->input('category_id'); 
         $newProduct->code=$request->input('code');
         $newProduct->save();
+        return $newProduct;
     }
 }

@@ -6378,7 +6378,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".theadTable {\n    color: #ffffff;\n    background: #6c7ae0;\n}\n\n.cell {\n    font-size: 18px;\n    color: #fff;\n    padding-top: 19px;\n    padding-bottom: 19px;\n}\n\n.wrap-table {\n    border-radius: 5px;\n    border: 1px solid #8080804f;\n}\n\ntr:hover td{\n    background-color: #ececff;\n    cursor: pointer;\n}\n\ntd {\n    font-size: 15px;\n    color: #666666;\n    padding-top: 20px;\n    padding-bottom: 20px;\n    border-bottom: 1px solid #f2f2f2;\n}\n\n.lines-style {\n    display: grid;\n    width: 100%;\n    align-items: center;\n    text-align: center;\n    grid-template-columns: minmax(20px, 1fr) auto minmax(20px, 1fr);\n    grid-gap: 20px;\n}\n\n.lines-style:before,\n.lines-style:after {\n    content: '';\n    border-top: 2px solid;\n}\n\n\n\n", ""]);
+exports.push([module.i, ".theadTable {\n    color: #ffffff;\n    background: #6c7ae0;\n}\n\n.cell {\n    font-size: 18px;\n    color: #fff;\n    padding-top: 19px;\n    padding-bottom: 19px;\n}\n\n.wrap-table {\n    border-radius: 5px;\n    border: 1px solid #8080804f;\n}\n\ntr:hover td{\n    background-color: #ececff;\n    cursor: pointer;\n}\n\ntd {\n    font-size: 15px;\n    color: #666666;\n    padding-top: 20px;\n    padding-bottom: 20px;\n    border-bottom: 1px solid #f2f2f2;\n}\n\n.lines-style {\n    display: grid;\n    width: 100%;\n    align-items: center;\n    text-align: center;\n    grid-template-columns: minmax(20px, 1fr) auto minmax(20px, 1fr);\n    grid-gap: 20px;\n}\n\n.lines-style:before,\n.lines-style:after {\n    content: '';\n    border-top: 2px solid;\n}\n\n.rowSelected {\n    background: #ececff;\n}", ""]);
 
 // exports
 
@@ -66510,6 +66510,7 @@ function (_Component) {
     _this.abstractHandler = _this.abstractHandler.bind(_assertThisInitialized(_this));
     _this.createANewBanner = _this.createANewBanner.bind(_assertThisInitialized(_this));
     _this.sendEditBannerTitle = _this.sendEditBannerTitle.bind(_assertThisInitialized(_this));
+    _this.selectProductFromProductsTable = _this.selectProductFromProductsTable.bind(_assertThisInitialized(_this));
     _this.state = {
       banner: {
         id: '',
@@ -66518,7 +66519,8 @@ function (_Component) {
       },
       errorEdit: '',
       newTitle: '',
-      products: []
+      products: [],
+      productSelected: ''
     };
     return _this;
   }
@@ -66526,10 +66528,27 @@ function (_Component) {
   _createClass(ConfigBanner, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      this.giveBanner();
+      this.giveAllProducts();
+    }
+  }, {
+    key: "giveAllProducts",
+    value: function giveAllProducts() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/api/banner').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/api/product').then(function (response) {
         return _this2.setState({
+          products: response.data.data
+        });
+      });
+    }
+  }, {
+    key: "giveBanner",
+    value: function giveBanner() {
+      var _this3 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/api/banner').then(function (response) {
+        return _this3.setState({
           banner: response.data.data
         });
       })["catch"](function (error) {
@@ -66544,7 +66563,7 @@ function (_Component) {
   }, {
     key: "createANewBanner",
     value: function createANewBanner() {
-      var _this3 = this;
+      var _this4 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/api/banner', {
         title: this.state.newTitle
@@ -66553,11 +66572,11 @@ function (_Component) {
           "Authorization": "Bearer ".concat(this.props.location.state.token)
         }
       }).then(function (response) {
-        return _this3.setState({
+        return _this4.setState({
           banner: response.data.data
         });
       }, this.abstractHandler('errorEdit', ''))["catch"](function (error) {
-        return _this3.setState({
+        return _this4.setState({
           errorEdit: error.response.data.error
         });
       });
@@ -66565,7 +66584,7 @@ function (_Component) {
   }, {
     key: "sendEditBannerTitle",
     value: function sendEditBannerTitle() {
-      var _this4 = this;
+      var _this5 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_2___default.a.put("/api/banner/".concat(this.state.banner.id), {
         title: this.state.newTitle
@@ -66574,11 +66593,11 @@ function (_Component) {
           "Authorization": "Bearer ".concat(this.props.location.state.token)
         }
       }).then(function (response) {
-        return _this4.setState({
+        return _this5.setState({
           banner: response.data.data
         });
       }, this.abstractHandler('errorEdit', ''))["catch"](function (error) {
-        return _this4.setState({
+        return _this5.setState({
           errorEdit: error.response.data.error
         });
       });
@@ -66586,7 +66605,7 @@ function (_Component) {
   }, {
     key: "firstBanner",
     value: function firstBanner() {
-      var _this5 = this;
+      var _this6 = this;
 
       if (this.state.banner == '') {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -66605,7 +66624,7 @@ function (_Component) {
           className: "form-control",
           placeholder: "Escriba un titulo",
           onChange: function onChange(event) {
-            return _this5.abstractHandler('newTitle', event.target.value);
+            return _this6.abstractHandler('newTitle', event.target.value);
           }
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-md-3"
@@ -66613,7 +66632,7 @@ function (_Component) {
           type: "reset",
           className: "btn btn-success col-12",
           onClick: function onClick() {
-            return _this5.createANewBanner();
+            return _this6.createANewBanner();
           }
         }, "Crear")))));
       }
@@ -66636,7 +66655,7 @@ function (_Component) {
   }, {
     key: "createEditNameInput",
     value: function createEditNameInput() {
-      var _this6 = this;
+      var _this7 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         style: {
@@ -66662,7 +66681,7 @@ function (_Component) {
         placeholder: "Escriba un nuevo titulo",
         id: "editNameBanner",
         onChange: function onChange(event) {
-          return _this6.abstractHandler('newTitle', event.target.value);
+          return _this7.abstractHandler('newTitle', event.target.value);
         }
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-md-3"
@@ -66670,7 +66689,7 @@ function (_Component) {
         type: "reset",
         className: "btn btn-primary col-12",
         onClick: function onClick() {
-          return _this6.sendEditBannerTitle();
+          return _this7.sendEditBannerTitle();
         }
       }, "Cambiar")))));
     }
@@ -66702,19 +66721,43 @@ function (_Component) {
       }, "Precio"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
         className: "cell",
         "data-priority": "4"
-      }, "Categoria"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
-        className: "rowTable"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Argentina"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Spanish (official),"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "41,803,125"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "31.3"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "2,780,387")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Australia"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "English 79%,"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "23,630,169"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "37.3"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "7,739,983")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Greece"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Greek 99% "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "11,128,404"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "43.2"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "131,956")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Luxembourg"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Luxermbourgish "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "536,761"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "39.1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "2,586")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Russia"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Russian, others"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "142,467,651"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "38.4"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "17,076,310")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Sweden"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Swedish, small S"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "9,631,261"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "41.1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "449,954"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, "Categoria"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "btn btn-danger"
       }, "Sacar"));
     }
   }, {
+    key: "selectProductFromProductsTable",
+    value: function selectProductFromProductsTable(product) {
+      this.setState({
+        productSelected: product
+      });
+    }
+  }, {
     key: "createTrProduct",
-    value: function createTrProduct() {
+    value: function createTrProduct(id, product) {
+      var _this8 = this;
+
+      var classN = '';
+
+      if (product === this.state.productSelected) {
+        classN = 'rowSelected';
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+        className: "rowTable " + classN,
+        key: id,
+        onClick: function onClick() {
+          return _this8.selectProductFromProductsTable(product);
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.code), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.priority), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.price), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.category_name));
+    }
+  }, {
+    key: "createTrProductsTable",
+    value: function createTrProductsTable() {
+      var _this9 = this;
+
       return this.state.products.map(function (product) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
-          className: "rowTable"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.code), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.priority), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.price), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.category));
+        return _this9.createTrProduct(product.code + 'TR' + 'ProductTable', product);
       });
     }
   }, {
@@ -66746,14 +66789,13 @@ function (_Component) {
         }, "Precio"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
           className: "cell",
           "data-priority": "4"
-        }, "Categoria"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.createTrProduct()))));
+        }, "Categoria"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.createTrProductsTable()))));
       }
-      /*
-          Retornar algo mas lindo
-      */
 
-
-      return undefined;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "alert alert-primary",
+        role: "alert"
+      }, "No hay productos cargados a\xFAn.");
     }
   }, {
     key: "render",
@@ -67343,8 +67385,12 @@ function (_Component) {
   }, {
     key: "createProduct",
     value: function createProduct() {
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('api/product', this.state.product)["catch"](function (error) {
-        return console.log(error.response);
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/api/product', this.state.product, {
+        headers: {
+          "Authorization": "Bearer ".concat(this.props.location.state.token)
+        }
+      })["catch"](function (error) {
+        return console.log(error.response.data);
       });
     }
   }, {
@@ -68007,8 +68053,7 @@ function (_Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-        id: "sidebar",
-        className: "navbar-vertical"
+        id: "sidebar"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sidebar-header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "ADMINISTRACION WEB")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {

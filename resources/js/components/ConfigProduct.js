@@ -154,8 +154,12 @@ export default class ConfigProduct extends Component {
     }
 
     createProduct() {
-        axios.post('api/product', this.state.product)
-            .catch(error => console.log(error.response));
+        axios.post('/api/product', this.state.product, { 
+            headers: {
+                "Authorization" : `Bearer ${this.props.location.state.token}`,
+            } 
+        })
+            .catch(error => console.log(error.response.data));
     }
 
     createProductForm() {
@@ -232,10 +236,10 @@ export default class ConfigProduct extends Component {
 
     render() {
         return (
-                <div className="container">
-                    {this.createProductForm()}
-                    {this.createProductTable()}
-                </div>
+            <div className="container">
+                {this.createProductForm()}
+                {this.createProductTable()}
+            </div>
         );
     }
 }

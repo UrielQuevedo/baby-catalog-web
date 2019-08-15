@@ -10,6 +10,7 @@ export default class ConfigBanner extends Component {
         this.abstractHandler = this.abstractHandler.bind(this);
         this.createANewBanner = this.createANewBanner.bind(this);
         this.sendEditBannerTitle = this.sendEditBannerTitle.bind(this);
+        this.selectProductFromProductsTable = this.selectProductFromProductsTable.bind(this);
         this.state = {
             banner: {
                 id: '',
@@ -19,10 +20,21 @@ export default class ConfigBanner extends Component {
             errorEdit: '',
             newTitle: '',
             products: [],
+            productSelected: '',
         };
     }
 
     componentDidMount() {
+        this.giveBanner();
+        this.giveAllProducts();
+    }
+
+    giveAllProducts() {
+        axios.get('/api/product')
+            .then(response => this.setState({ products: response.data.data }));
+    }
+
+    giveBanner() {
         axios.get('/api/banner')
             .then(response => this.setState({ banner: response.data.data }))
             .catch(error => console.log(error.response));
@@ -138,48 +150,7 @@ export default class ConfigBanner extends Component {
                             </tr>
                         </thead>
                     <tbody>
-                        <tr className="rowTable">
-                            <td>Argentina</td>
-                            <td>Spanish (official),</td>
-                            <td>41,803,125</td>
-                            <td>31.3</td>
-                            <td>2,780,387</td>
-                        </tr>
-                        <tr>
-                            <td>Australia</td>
-                            <td>English 79%,</td>
-                            <td>23,630,169</td>
-                            <td>37.3</td>
-                            <td>7,739,983</td>
-                        </tr>
-                        <tr>
-                            <td>Greece</td>
-                            <td>Greek 99% </td>
-                            <td>11,128,404</td>
-                            <td>43.2</td>
-                            <td>131,956</td>
-                        </tr>
-                        <tr>
-                            <td>Luxembourg</td>
-                            <td>Luxermbourgish </td>
-                            <td>536,761</td>
-                            <td>39.1</td>
-                            <td>2,586</td>
-                        </tr>
-                        <tr>
-                            <td>Russia</td>
-                            <td>Russian, others</td>
-                            <td>142,467,651</td>
-                            <td>38.4</td>
-                            <td>17,076,310</td>
-                        </tr>
-                        <tr>
-                            <td>Sweden</td>
-                            <td>Swedish, small S</td>
-                            <td>9,631,261</td>
-                            <td>41.1</td>
-                            <td>449,954</td>
-                        </tr>
+                        
                     </tbody>
                     </table>
                 </div>
@@ -188,15 +159,29 @@ export default class ConfigBanner extends Component {
         );
     }
 
-    createTrProduct() {
-        return this.state.products.map( product => (
-            <tr className="rowTable">
+    selectProductFromProductsTable(product) {
+        this.setState({ productSelected: product });
+    }
+
+    createTrProduct(id, product) {
+        var classN = '';
+        if(product === this.state.productSelected) {
+            classN = 'rowSelected';
+        }
+        return (
+            <tr className={"rowTable " + classN} key={id} onClick={() => this.selectProductFromProductsTable(product)}>
                 <td>{product.code}</td>
                 <td>{product.title}</td>
                 <td>{product.priority}</td>
                 <td>{product.price}</td>
-                <td>{product.category}</td>
+                <td>{product.category_name}</td>
             </tr>
+        );
+    }
+
+    createTrProductsTable() {
+        return this.state.products.map(product => (
+            this.createTrProduct(product.code+'TR'+'ProductTable', product)
         ));
     }
 
@@ -217,17 +202,18 @@ export default class ConfigBanner extends Component {
                                 </tr>
                             </thead>
                         <tbody>
-                            {this.createTrProduct()} 
+                            {this.createTrProductsTable()} 
                         </tbody>
                         </table>
                     </div>
                 </div>
             );
         }
-        /*
-            Retornar algo mas lindo
-        */
-        return undefined;
+        return (
+            <div className="alert alert-primary" role="alert">
+                No hay productos cargados aún.
+            </div>
+        );
     }
 
     render() {

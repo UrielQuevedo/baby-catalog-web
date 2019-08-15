@@ -43,5 +43,6 @@ td {
     border-top: 2px solid;
 }
 
-
-
+.rowSelected {
+    background: #ececff;
+}

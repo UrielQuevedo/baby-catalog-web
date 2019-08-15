@@ -18,7 +18,7 @@ export default class VerticalNavbar extends Component {
 
     render() {
         return (
-            <nav id="sidebar" className="navbar-vertical">
+            <nav id="sidebar">
                 <div className="sidebar-header">
                     <h3>ADMINISTRACION WEB</h3>
                 </div> 
