@@ -30,6 +30,7 @@ export default class ConfigBanner extends Component {
             categories: [],
             errorSelectProduct: '',
             errorRemoveProduct: '',
+            errorSearchByCode: '',
         };
     }
 
@@ -96,8 +97,12 @@ export default class ConfigBanner extends Component {
     searchByCode() {
         if(this.state.searchCode !== '') {
             axios.get(`/api/product/byCode/${this.state.searchCode}`)
+                .then(response => this.setState({ products: response.data.data, errorSearchByCode: '' }))
+                .catch(error => this.abstractHandler('errorSearchByCode', error.response.data.error))
+        } else if(this.state.category_selected !== 'none') {
+            axios.get(`/api/product/byCategory/${this.state.category_selected}`)
                 .then(response => this.setState({ products: response.data.data }))
-                .catch(error => console.log(error.response))
+                .catch(error => console.log(error.response));   
         }
     }
 
@@ -151,14 +156,14 @@ export default class ConfigBanner extends Component {
                 <div className="mb-4">
                     <span style={{ fontSize: 40, color: '#54545f' }}>{this.state.banner.title}</span>
                 </div>
-                <form>
+                <form onSubmit={e => { e.preventDefault(); }}>
                     <div className="form-group row">
-                        <label htmlFor="editNameBanner" className="col-md-2 col-form-label">Cambiar titulo:</label>
+                        <label className="col-md-2 col-form-label">Cambiar titulo:</label>
                         <div className="col-md-6 mb-3">
-                            <input type="text" 
+                            <input
+                                type="text" 
                                 className="form-control" 
                                 placeholder="Escriba un nuevo titulo" 
-                                id="editNameBanner" 
                                 onChange={ event => this.abstractHandler('newTitle', event.target.value) }
                             />
                         </div>
@@ -211,7 +216,7 @@ export default class ConfigBanner extends Component {
                 <div className="col-xs-12">
                     <span className="lines-style">Productos Destacados</span>
                     {this.showErrors(this.state.errorRemoveProduct)}
-                    <div className="table-responsive wrap-table" data-pattern="priority-columns">
+                    <div className="table-responsive wrap-table mb-4 scrollTable" data-pattern="priority-columns">
                         <table className="table table-hover">
                             <thead className="theadTable">
                                 {this.createHeaderTable()}
@@ -221,13 +226,13 @@ export default class ConfigBanner extends Component {
                             </tbody>
                         </table>
                     </div>
-                    <button type="button" className="btn btn-danger" onClick={() => this.removeProductFromBanner()}>Sacar</button>
+                    <button type="button" className="btn btn-danger col-12 col-md-4 offset-md-4" onClick={() => this.removeProductFromBanner()}>Sacar</button>
                 </div>
             );
         }
         return (
             <div className="alert alert-primary" role="alert">
-                No hay productos en el banner aún.
+                No hay productos en el "Destacados" aún.
             </div>
         );
     }
@@ -255,35 +260,39 @@ export default class ConfigBanner extends Component {
     }
 
     createOptions() {
-        return this.state.categories.map(category => (
-            <option value={category.id}>{category.category_name}</option>
+        return this.state.categories.map((category, i) => (
+            <option key={i + 'optionFilter'} value={category.id}>{category.category_name}</option>
         ));
     }
 
-    createSelector() {
+    createWrapperFilterProducts() {
         return (
-            <label>
-                Seleccione una Categoria:
-                <select className="form-control" value={this.state.category_selected} onChange={this.handleChangeSelect}>
-                    <option disabled="disabled" value="none">Elegir</option>
-                    {this.createOptions()}
-                </select>
-            </label>
-        );
-    }
-
-    createSearchCode() {
-        return (
-            <form class="form-group row">
-                <div class="form-group mx-sm-3 mb-2">
-                    <input 
-                        type="text" 
-                        class="form-control" 
-                        placeholder="Buscar Codigo" 
-                        onChange={event => this.abstractHandler('searchCode', event.target.value)} />
+            <div className="col-xs-12">
+                <div class="row justify-content-around">
+                    <div className="col-12 col-md-4 p-0 mb-3">
+                        <label htmlFor="categoryChange" className="col-12 col-form-label">Seleccione una Categoria:</label>
+                        <div class="col-12">
+                            <select className="form-control" value={this.state.category_selected} onChange={this.handleChangeSelect}>
+                                <option disabled="disabled" value="none">Elegir</option>
+                                {this.createOptions()}
+                            </select>
+                        </div>
+                    </div>
+                    <div className="col-12 col-md-4 p-0 mb-3">
+                        <label htmlFor="categoryChange" className="col-12 col-form-label">Buscar por Codigo:</label>
+                        <div class="col-12 mb-3">
+                            <input 
+                                    type="text" 
+                                    className="form-control" 
+                                    placeholder="Buscar Codigo" 
+                                    onChange={event => this.abstractHandler('searchCode', event.target.value)} />
+                        </div>
+                        <div class="col-12">
+                            <button type="button" className="btn btn-primary col-12" onClick={() => this.searchByCode()}>Buscar</button>
+                        </div>
+                    </div>
                 </div>
-                <button type="button" class="btn btn-primary mb-2" onClick={() => this.searchByCode()}>Buscar</button>
-            </form>
+            </div>
         );
     }
 
@@ -291,7 +300,7 @@ export default class ConfigBanner extends Component {
         if(this.state.products.length !== 0) {
             return (
                 <div>
-                    <div className="table-responsive wrap-table" data-pattern="priority-columns">
+                    <div className="table-responsive wrap-table mb-4 scrollTable" data-pattern="priority-columns">
                         <table className="table table-hover">
                             <thead className="theadTable">
                                 {this.createHeaderTable()}
@@ -301,13 +310,13 @@ export default class ConfigBanner extends Component {
                             </tbody>
                         </table>
                     </div>
-                    <button type="button" className="btn btn-success" onClick={() => this.addProductToBanner()}>Agregar</button>
+                    <button type="button" className="btn btn-success col-12 col-md-4 offset-md-4" onClick={() => this.addProductToBanner()}>Agregar</button>
                 </div>
             );
         }
         return (
             <div className="alert alert-warning" role="alert">
-                Seleccione una categoria.
+                Seleccione una categoria o busque un producto por su codigo.
             </div>   
         );
     }
@@ -315,11 +324,11 @@ export default class ConfigBanner extends Component {
     createWrapperProducts() {
         if(this.state.categories.length !== 0) {
             return (
-                <div className="col-xs-12">
+                <div className="col-xs-12 mb-4">
                     <span className="lines-style">Productos</span>
                     {this.showErrors(this.state.errorSelectProduct)}
-                    {this.createSelector()}
-                    {this.createSearchCode()}
+                    {this.showErrors(this.state.errorSearchByCode)}
+                    {this.createWrapperFilterProducts()}
                     {this.createTableProduct()}
                 </div>
             );

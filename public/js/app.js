@@ -6378,7 +6378,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".theadTable {\n    color: #ffffff;\n    background: #6c7ae0;\n}\n\n.cell {\n    font-size: 18px;\n    color: #fff;\n    padding-top: 19px;\n    padding-bottom: 19px;\n}\n\n.wrap-table {\n    border-radius: 5px;\n    border: 1px solid #8080804f;\n}\n\ntr:hover td{\n    background-color: #ececff;\n    cursor: pointer;\n}\n\ntd {\n    font-size: 15px;\n    color: #666666;\n    padding-top: 20px;\n    padding-bottom: 20px;\n    border-bottom: 1px solid #f2f2f2;\n}\n\n.lines-style {\n    display: grid;\n    width: 100%;\n    align-items: center;\n    text-align: center;\n    grid-template-columns: minmax(20px, 1fr) auto minmax(20px, 1fr);\n    grid-gap: 20px;\n}\n\n.lines-style:before,\n.lines-style:after {\n    content: '';\n    border-top: 2px solid;\n}\n\n.rowSelected {\n    background: #ececff;\n}", ""]);
+exports.push([module.i, ".theadTable {\n    color: #ffffff;\n    background: #6c7ae0;\n}\n\n.cell {\n    font-size: 18px;\n    color: #fff;\n    padding-top: 19px;\n    padding-bottom: 19px;\n}\n\n.wrap-table {\n    border-radius: 5px;\n    border: 1px solid #8080804f;\n}\n\ntr:hover td{\n    background-color: #ececff;\n    cursor: pointer;\n}\n\ntd {\n    font-size: 15px;\n    color: #666666;\n    padding-top: 20px;\n    padding-bottom: 20px;\n    border-bottom: 1px solid #f2f2f2;\n}\n\n.lines-style {\n    color: rgb(146, 141, 187);\n    font-size: 30px;\n    display: grid;\n    width: 100%;\n    align-items: center;\n    text-align: center;\n    grid-template-columns: minmax(20px, 1fr) auto minmax(20px, 1fr);\n    grid-gap: 20px;\n    margin-bottom: 40px;\n    margin-top: 40px;\n}\n\n.lines-style:before,\n.lines-style:after {\n    content: '';\n    border-top: 2px solid;\n}\n\n.rowSelected {\n    background: #ececff;\n}\n\n.scrollTable {\n    max-height: 500px;\n}\n", ""]);
 
 // exports
 
@@ -66529,7 +66529,8 @@ function (_Component) {
       searchCode: '',
       categories: [],
       errorSelectProduct: '',
-      errorRemoveProduct: ''
+      errorRemoveProduct: '',
+      errorSearchByCode: ''
     };
     return _this;
   }
@@ -66672,6 +66673,15 @@ function (_Component) {
       if (this.state.searchCode !== '') {
         axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/api/product/byCode/".concat(this.state.searchCode)).then(function (response) {
           return _this9.setState({
+            products: response.data.data,
+            errorSearchByCode: ''
+          });
+        })["catch"](function (error) {
+          return _this9.abstractHandler('errorSearchByCode', error.response.data.error);
+        });
+      } else if (this.state.category_selected !== 'none') {
+        axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/api/product/byCategory/".concat(this.state.category_selected)).then(function (response) {
+          return _this9.setState({
             products: response.data.data
           });
         })["catch"](function (error) {
@@ -66745,10 +66755,13 @@ function (_Component) {
           fontSize: 40,
           color: '#54545f'
         }
-      }, this.state.banner.title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.state.banner.title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: function onSubmit(e) {
+          e.preventDefault();
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "editNameBanner",
         className: "col-md-2 col-form-label"
       }, "Cambiar titulo:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-md-6 mb-3"
@@ -66756,7 +66769,6 @@ function (_Component) {
         type: "text",
         className: "form-control",
         placeholder: "Escriba un nuevo titulo",
-        id: "editNameBanner",
         onChange: function onChange(event) {
           return _this11.abstractHandler('newTitle', event.target.value);
         }
@@ -66828,7 +66840,7 @@ function (_Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "lines-style"
         }, "Productos Destacados"), this.showErrors(this.state.errorRemoveProduct), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "table-responsive wrap-table",
+          className: "table-responsive wrap-table mb-4 scrollTable",
           "data-pattern": "priority-columns"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
           className: "table table-hover"
@@ -66836,7 +66848,7 @@ function (_Component) {
           className: "theadTable"
         }, this.createHeaderTable()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.createTrProductsBannerTable()))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           type: "button",
-          className: "btn btn-danger",
+          className: "btn btn-danger col-12 col-md-4 offset-md-4",
           onClick: function onClick() {
             return _this14.removeProductFromBanner();
           }
@@ -66846,7 +66858,7 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "alert alert-primary",
         role: "alert"
-      }, "No hay productos en el banner a\xFAn.");
+      }, "No hay productos en el \"Destacados\" a\xFAn.");
     }
   }, {
     key: "createTrProduct",
@@ -66879,47 +66891,59 @@ function (_Component) {
   }, {
     key: "createOptions",
     value: function createOptions() {
-      return this.state.categories.map(function (category) {
+      return this.state.categories.map(function (category, i) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+          key: i + 'optionFilter',
           value: category.id
         }, category.category_name);
       });
     }
   }, {
-    key: "createSelector",
-    value: function createSelector() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Seleccione una Categoria:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    key: "createWrapperFilterProducts",
+    value: function createWrapperFilterProducts() {
+      var _this17 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-xs-12"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "row justify-content-around"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-md-4 p-0 mb-3"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "categoryChange",
+        className: "col-12 col-form-label"
+      }, "Seleccione una Categoria:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "col-12"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         className: "form-control",
         value: this.state.category_selected,
         onChange: this.handleChangeSelect
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         disabled: "disabled",
         value: "none"
-      }, "Elegir"), this.createOptions()));
-    }
-  }, {
-    key: "createSearchCode",
-    value: function createSearchCode() {
-      var _this17 = this;
-
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        "class": "form-group row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "form-group mx-sm-3 mb-2"
+      }, "Elegir"), this.createOptions()))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-md-4 p-0 mb-3"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "categoryChange",
+        className: "col-12 col-form-label"
+      }, "Buscar por Codigo:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "col-12 mb-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        "class": "form-control",
+        className: "form-control",
         placeholder: "Buscar Codigo",
         onChange: function onChange(event) {
           return _this17.abstractHandler('searchCode', event.target.value);
         }
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "col-12"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "button",
-        "class": "btn btn-primary mb-2",
+        className: "btn btn-primary col-12",
         onClick: function onClick() {
           return _this17.searchByCode();
         }
-      }, "Buscar"));
+      }, "Buscar")))));
     }
   }, {
     key: "createTableProduct",
@@ -66928,7 +66952,7 @@ function (_Component) {
 
       if (this.state.products.length !== 0) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "table-responsive wrap-table",
+          className: "table-responsive wrap-table mb-4 scrollTable",
           "data-pattern": "priority-columns"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
           className: "table table-hover"
@@ -66936,7 +66960,7 @@ function (_Component) {
           className: "theadTable"
         }, this.createHeaderTable()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.createTrProductsTable()))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           type: "button",
-          className: "btn btn-success",
+          className: "btn btn-success col-12 col-md-4 offset-md-4",
           onClick: function onClick() {
             return _this18.addProductToBanner();
           }
@@ -66946,17 +66970,17 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "alert alert-warning",
         role: "alert"
-      }, "Seleccione una categoria.");
+      }, "Seleccione una categoria o busque un producto por su codigo.");
     }
   }, {
     key: "createWrapperProducts",
     value: function createWrapperProducts() {
       if (this.state.categories.length !== 0) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col-xs-12"
+          className: "col-xs-12 mb-4"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "lines-style"
-        }, "Productos"), this.showErrors(this.state.errorSelectProduct), this.createSelector(), this.createSearchCode(), this.createTableProduct());
+        }, "Productos"), this.showErrors(this.state.errorSelectProduct), this.showErrors(this.state.errorSearchByCode), this.createWrapperFilterProducts(), this.createTableProduct());
       }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
