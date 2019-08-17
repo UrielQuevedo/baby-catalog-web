@@ -7,7 +7,7 @@ export default class ConfigProduct extends Component {
 
     constructor(props) {
         super(props);
-        this.abstractHandlerForANewProduct = this.abstractHandlerForANewProduct.bind(this);
+        this.abstractHandlerForAProduct = this.abstractHandlerForAProduct.bind(this);
         this.handleChangeSelect = this.handleChangeSelect.bind(this);
         this.abstractHandler = this.abstractHandler.bind(this);
         this.searchByCode = this.searchByCode.bind(this);
@@ -27,6 +27,7 @@ export default class ConfigProduct extends Component {
             category_selected:'none',
             searchCode: '',
             errorSearchByCode: '',
+            errorCreateProduct: '',
         };
     }
 
@@ -39,7 +40,7 @@ export default class ConfigProduct extends Component {
             .then(response => this.setState({ categories: response.data.data }));
     }
 
-    abstractHandlerForANewProduct(property, value) {
+    abstractHandlerForAProduct(property, value) {
         let prevProduct = this.state.product;
         this.setState({ product : { ...prevProduct, [property]: value } });
     }
@@ -55,6 +56,21 @@ export default class ConfigProduct extends Component {
         axios.get(`/api/product/byCategory/${event.target.value}`)
             .then(response => this.setState({ products: response.data.data }))
             .catch(error => console.log(error.response.data.error));    
+    }
+
+    resetProduct() {
+        this.setState({
+            product: {
+                id: undefined,
+                title: '',
+                description: '',
+                code: '',
+                price: '',
+                priority: '',
+                waist: '',
+                category_id: '',
+            }
+        });
     }
 
     abstractHandler(property, value) {
@@ -73,13 +89,22 @@ export default class ConfigProduct extends Component {
         }
     }
 
+    giveAllProductsByCategoryIfSelected(data) {
+        if(data.category_id === this.state.category_selected) {
+            axios.get(`/api/product/byCategory/${this.state.category_selected}`)
+                .then(response => this.setState({ products: response.data.data }))
+                .catch(error => console.log(error.response.data.error));  
+        }
+    }
+
     createProduct() {
         axios.post('/api/product', this.state.product, { 
             headers: {
                 "Authorization" : `Bearer ${this.props.location.state.token}`,
             } 
         })
-            .catch(error => console.log(error.response.data));
+            .then(response => this.giveAllProductsByCategoryIfSelected(response.data.data), this.resetProduct())
+            .catch(error => this.setState({ errorCreateProduct: error.response.data.error }));
     }
 
     createTableProduct() {
@@ -157,10 +182,10 @@ export default class ConfigProduct extends Component {
     createWrapperFilterProducts() {
         return (
             <div className="col-xs-12">
-                <div class="row justify-content-around">
+                <div className="row justify-content-around">
                     <div className="col-12 col-md-4 p-0 mb-3">
                         <label htmlFor="categoryChange" className="col-12 col-form-label">Seleccione una Categoria:</label>
-                        <div class="col-12">
+                        <div className="col-12">
                             <select className="form-control" value={this.state.category_selected} onChange={this.handleChangeSelect}>
                                 <option disabled="disabled" value="none">Elegir</option>
                                 {this.createOptions()}
@@ -169,14 +194,14 @@ export default class ConfigProduct extends Component {
                     </div>
                     <div className="col-12 col-md-4 p-0 mb-3">
                         <label htmlFor="categoryChange" className="col-12 col-form-label">Buscar por Codigo:</label>
-                        <div class="col-12 mb-3">
+                        <div className="col-12 mb-3">
                             <input 
                                     type="text" 
                                     className="form-control" 
                                     placeholder="Buscar Codigo" 
                                     onChange={event => this.abstractHandler('searchCode', event.target.value)} />
                         </div>
-                        <div class="col-12">
+                        <div className="col-12">
                             <button type="button" className="btn btn-primary col-12" onClick={() => this.searchByCode()}>Buscar</button>
                         </div>
                     </div>
@@ -220,58 +245,75 @@ export default class ConfigProduct extends Component {
             ///////////////////////////// Product Form \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
     */
 
+    createXProductInput(title, id, placeholder, type, className) {
+        return (
+            <div className={"col-12 col-md-6 col-md-auto row pr-0 " + className}>
+                <label htmlFor={id} className="col-md-2 col-form-label">{title}</label>
+                <div className="col-md-9 mb-3 pr-0">
+                    <input 
+                        type={type}
+                        className="form-control" 
+                        id={id}
+                        placeholder={placeholder}
+                        onChange={event => this.abstractHandlerForAProduct(id, event.target.value)} />
+                </div>
+            </div>
+        );
+    }
+
+    createCategoryProductInput() {
+        return (
+            <div className="col-12 col-md-6 col-md-auto row pr-0">
+                <label className="col-md-2 col-form-label">Categoria:</label>
+                <div className="col-md-9 mb-3 pr-0">
+                    <select 
+                        className="form-control" 
+                        defaultValue={'none'}
+                        onChange={event => this.abstractHandlerForAProduct('category_id', event.target.value)}>
+                        <option disabled="disabled" value="none">Elegir</option>
+                            {this.createOptions()}
+                    </select>
+                </div>
+            </div>
+        );
+    }
+
     createWrapperProductFrom() {
         return (
-            <form className="col-xs-12 mb-4">
+            <form className="col-xs-12 mb-4" onSubmit={e => { e.preventDefault(); }}>
                 <span className="lines-style">Crear o Editar Producto</span>
                 <div className="row">
-                    <div className="col-12 col-md-6 col-md-auto mr-auto row pr-0">
-                        <label for="inputPassword" class="col-md-2 col-form-label">Titulo:</label>
-                        <div class="col-md-9 mb-3 pr-0">
-                            <input type="text" class="form-control" id="inputPassword" placeholder="Ingrese un Titulo" />
-                        </div>
-                    </div>
-                    <div className="col-12 col-md-6 col-md-auto row pr-0">
-                        <label for="inputPassword" class="col-md-2 col-form-label">Codigo:</label>
-                        <div class="col-md-9 mb-3 pr-0">
-                            <input type="text" class="form-control" id="inputPassword" placeholder="Codigo del Producto" />
-                        </div>
-                    </div>
-                    <div className="col-12 col-md-6 col-md-auto mr-auto row pr-0">
-                        <label for="inputPassword" class="col-md-2 col-form-label">Precio:</label>
-                        <div class="col-md-9 mb-3 pr-0">
-                            <input type="number" class="form-control" id="inputPassword" placeholder="A partir de 0" />
-                        </div>
-                    </div>
-                    <div className="col-12 col-md-6 col-md-auto row pr-0">
-                        <label for="inputPassword" class="col-md-2 col-form-label">Prioridad:</label>
-                        <div class="col-md-9 mb-3 pr-0">
-                            <input type="number" class="form-control" id="inputPassword" placeholder="A partir de 0" />
-                        </div>
-                    </div>
-                    <div className="col-12 col-md-6 col-md-auto mr-auto row pr-0">
-                        <label for="inputPassword" class="col-md-2 col-form-label">Talle:</label>
-                        <div class="col-md-9 mb-3 pr-0">
-                            <input type="number" class="form-control" id="inputPassword" placeholder="Ingrese los Talles" />
-                        </div>
-                    </div>
-                    <div className="col-12 col-md-6 col-md-auto row pr-0">
-                        <label for="inputPassword" class="col-md-2 col-form-label">Categoria:</label>
-                        <div class="col-md-9 mb-3 pr-0">
-                            <input type="number" class="form-control" id="inputPassword" placeholder="Elegir" />
-                        </div>
-                    </div>
+                    {this.createXProductInput('Titulo:', 'title', 'Ingrese un Titulo', 'text', 'mr-auto')}
+                    {this.createXProductInput('Codigo:', 'code', 'Codigo del Producto', 'text')}
+                    {this.createXProductInput('Precio:', 'price', 'A partir de 0', 'number', 'mr-auto')}
+                    {this.createXProductInput('Prioridad:', 'priority', 'A partir de 0', 'number')}
+                    {this.createXProductInput('Talle:', 'waist', 'Ingrese los Talles', 'text', 'mr-auto')}
+                    {this.createCategoryProductInput()}
                     <div className="col-12 row pr-0">
-                        <label for="inputPassword" class="col-md-1 col-form-label mr-3">Descripcion:</label>
-                        <div class="col-md-10 mb-3 pr-0">
-                            <input type="text" class="form-control" id="inputPassword" placeholder="Agregar una Descripcion" />
+                        <label htmlFor="description" className="col-md-1 col-form-label mr-3">Descripcion:</label>
+                        <div className="col-md-10 mb-3 pr-0">
+                            <input 
+                                type="text" 
+                                className="form-control" 
+                                id="description" 
+                                placeholder="Agregar una Descripcion"
+                                onChange={event => this.abstractHandlerForAProduct('description', event.target.value)} />
                         </div>
                     </div>
-                    <div class="col-12 row justify-content-around pr-0">
-                        <div class="col-12 col-md-6 d-flex justify-content-end pr-0 mb-4">
-                            <button className="col-12 col-md-6 btn btn-success">Crear</button>
+                    <div className="col-12">
+                        {this.showErrors(this.state.errorCreateProduct)}
+                    </div>
+                    <div className="col-12 row justify-content-around pr-0">
+                        <div className="col-12 col-md-6 d-flex justify-content-end pr-0 mb-4">
+                            <button 
+                                className="col-12 col-md-6 btn btn-success"
+                                onClick={() => this.createProduct()}
+                                type="reset"
+                                >
+                                Crear
+                            </button>
                         </div>
-                        <div class="col-12 col-md-6 pr-0 mb-4">
+                        <div className="col-12 col-md-6 pr-0 mb-4">
                             <button className="col-12 col-md-6 btn btn-primary">Aplicar</button>
                         </div>
                     </div>
