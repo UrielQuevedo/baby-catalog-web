@@ -67412,6 +67412,11 @@ function (_Component) {
         product: _objectSpread({}, prevProduct, _defineProperty({}, property, value))
       });
     }
+    /*
+    
+            ////////////////////////// TABLE \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+     */
+
   }, {
     key: "handleChangeSelect",
     value: function handleChangeSelect(event) {
@@ -67630,12 +67635,121 @@ function (_Component) {
         role: "alert"
       }, "No hay productos cargados a\xFAn.");
     }
+    /*
+            ///////////////////////////// Product Form \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    */
+
+  }, {
+    key: "createWrapperProductFrom",
+    value: function createWrapperProductFrom() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "col-xs-12 mb-4"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "lines-style"
+      }, "Crear o Editar Producto"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-md-6 col-md-auto mr-auto row pr-0"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        "for": "inputPassword",
+        "class": "col-md-2 col-form-label"
+      }, "Titulo:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "col-md-9 mb-3 pr-0"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        "class": "form-control",
+        id: "inputPassword",
+        placeholder: "Ingrese un Titulo"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-md-6 col-md-auto row pr-0"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        "for": "inputPassword",
+        "class": "col-md-2 col-form-label"
+      }, "Codigo:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "col-md-9 mb-3 pr-0"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        "class": "form-control",
+        id: "inputPassword",
+        placeholder: "Codigo del Producto"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-md-6 col-md-auto mr-auto row pr-0"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        "for": "inputPassword",
+        "class": "col-md-2 col-form-label"
+      }, "Precio:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "col-md-9 mb-3 pr-0"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "number",
+        "class": "form-control",
+        id: "inputPassword",
+        placeholder: "A partir de 0"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-md-6 col-md-auto row pr-0"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        "for": "inputPassword",
+        "class": "col-md-2 col-form-label"
+      }, "Prioridad:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "col-md-9 mb-3 pr-0"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "number",
+        "class": "form-control",
+        id: "inputPassword",
+        placeholder: "A partir de 0"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-md-6 col-md-auto mr-auto row pr-0"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        "for": "inputPassword",
+        "class": "col-md-2 col-form-label"
+      }, "Talle:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "col-md-9 mb-3 pr-0"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "number",
+        "class": "form-control",
+        id: "inputPassword",
+        placeholder: "Ingrese los Talles"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-md-6 col-md-auto row pr-0"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        "for": "inputPassword",
+        "class": "col-md-2 col-form-label"
+      }, "Categoria:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "col-md-9 mb-3 pr-0"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "number",
+        "class": "form-control",
+        id: "inputPassword",
+        placeholder: "Elegir"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 row pr-0"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        "for": "inputPassword",
+        "class": "col-md-1 col-form-label mr-3"
+      }, "Descripcion:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "col-md-10 mb-3 pr-0"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        "class": "form-control",
+        id: "inputPassword",
+        placeholder: "Agregar una Descripcion"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "col-12 row justify-content-around pr-0"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "col-12 col-md-6 d-flex justify-content-end pr-0 mb-4"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "col-12 col-md-6 btn btn-success"
+      }, "Crear")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "col-12 col-md-6 pr-0 mb-4"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "col-12 col-md-6 btn btn-primary"
+      }, "Aplicar")))));
+    }
   }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
-      }, this.createWrapperProducts());
+      }, this.createWrapperProductFrom(), this.createWrapperProducts());
     }
   }]);
 

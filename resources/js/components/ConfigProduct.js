@@ -44,6 +44,12 @@ export default class ConfigProduct extends Component {
         this.setState({ product : { ...prevProduct, [property]: value } });
     }
 
+    /*
+    
+            ////////////////////////// TABLE \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+    */
+
     handleChangeSelect(event) {
         this.setState({ category_selected: event.target.value });
         axios.get(`/api/product/byCategory/${event.target.value}`)
@@ -210,9 +216,74 @@ export default class ConfigProduct extends Component {
         );
     }
 
+    /*
+            ///////////////////////////// Product Form \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    */
+
+    createWrapperProductFrom() {
+        return (
+            <form className="col-xs-12 mb-4">
+                <span className="lines-style">Crear o Editar Producto</span>
+                <div className="row">
+                    <div className="col-12 col-md-6 col-md-auto mr-auto row pr-0">
+                        <label for="inputPassword" class="col-md-2 col-form-label">Titulo:</label>
+                        <div class="col-md-9 mb-3 pr-0">
+                            <input type="text" class="form-control" id="inputPassword" placeholder="Ingrese un Titulo" />
+                        </div>
+                    </div>
+                    <div className="col-12 col-md-6 col-md-auto row pr-0">
+                        <label for="inputPassword" class="col-md-2 col-form-label">Codigo:</label>
+                        <div class="col-md-9 mb-3 pr-0">
+                            <input type="text" class="form-control" id="inputPassword" placeholder="Codigo del Producto" />
+                        </div>
+                    </div>
+                    <div className="col-12 col-md-6 col-md-auto mr-auto row pr-0">
+                        <label for="inputPassword" class="col-md-2 col-form-label">Precio:</label>
+                        <div class="col-md-9 mb-3 pr-0">
+                            <input type="number" class="form-control" id="inputPassword" placeholder="A partir de 0" />
+                        </div>
+                    </div>
+                    <div className="col-12 col-md-6 col-md-auto row pr-0">
+                        <label for="inputPassword" class="col-md-2 col-form-label">Prioridad:</label>
+                        <div class="col-md-9 mb-3 pr-0">
+                            <input type="number" class="form-control" id="inputPassword" placeholder="A partir de 0" />
+                        </div>
+                    </div>
+                    <div className="col-12 col-md-6 col-md-auto mr-auto row pr-0">
+                        <label for="inputPassword" class="col-md-2 col-form-label">Talle:</label>
+                        <div class="col-md-9 mb-3 pr-0">
+                            <input type="number" class="form-control" id="inputPassword" placeholder="Ingrese los Talles" />
+                        </div>
+                    </div>
+                    <div className="col-12 col-md-6 col-md-auto row pr-0">
+                        <label for="inputPassword" class="col-md-2 col-form-label">Categoria:</label>
+                        <div class="col-md-9 mb-3 pr-0">
+                            <input type="number" class="form-control" id="inputPassword" placeholder="Elegir" />
+                        </div>
+                    </div>
+                    <div className="col-12 row pr-0">
+                        <label for="inputPassword" class="col-md-1 col-form-label mr-3">Descripcion:</label>
+                        <div class="col-md-10 mb-3 pr-0">
+                            <input type="text" class="form-control" id="inputPassword" placeholder="Agregar una Descripcion" />
+                        </div>
+                    </div>
+                    <div class="col-12 row justify-content-around pr-0">
+                        <div class="col-12 col-md-6 d-flex justify-content-end pr-0 mb-4">
+                            <button className="col-12 col-md-6 btn btn-success">Crear</button>
+                        </div>
+                        <div class="col-12 col-md-6 pr-0 mb-4">
+                            <button className="col-12 col-md-6 btn btn-primary">Aplicar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        );
+    }
+
     render() {
         return (
             <div className="container">
+                {this.createWrapperProductFrom()}
                 {this.createWrapperProducts()}
             </div>
         );
