@@ -113,7 +113,7 @@ export default class ConfigBanner extends Component {
                     <div className="mb-2">
                         <span style={{ fontSize: 17, color: '#2b2424' }}>Eliga un Titulo para su Panel de Destacados:</span>
                     </div>
-                    <form>
+                    <form onSubmit={e => { e.preventDefault(); }}>
                         <div className="form-group row">
                             <div className="col-md-6 mb-3">
                                 <input 

@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import '../../../public/css/configBanner.css';
 
 export default class ConfigProduct extends Component {
 
     constructor(props) {
         super(props);
         this.abstractHandlerForANewProduct = this.abstractHandlerForANewProduct.bind(this);
+        this.handleChangeSelect = this.handleChangeSelect.bind(this);
+        this.abstractHandler = this.abstractHandler.bind(this);
+        this.searchByCode = this.searchByCode.bind(this);
         this.state = {
             category_name: '',
             categories: [],
@@ -19,18 +23,15 @@ export default class ConfigProduct extends Component {
                 priority: '',
                 waist: '',
                 category_id: '',
-            }
+            },
+            category_selected:'none',
+            searchCode: '',
+            errorSearchByCode: '',
         };
     }
 
     componentDidMount() {
         this.giveAllCategories();
-        this.giveAllProducts();
-    }
-
-    giveAllProducts() {
-        axios.get('/api/product')
-            .then(response => this.setState({ products: response.data.data }));
     }
 
     giveAllCategories() {
@@ -38,119 +39,32 @@ export default class ConfigProduct extends Component {
             .then(response => this.setState({ categories: response.data.data }));
     }
 
-    createCategoryOptionsTable() {
-        if (this.state.categories !== []) {
-            return this.state.categories.map(category => (
-                <option key={category.id} value={category.id}>{category.category_name}</option>
-            ));
-        }
-    }
-
     abstractHandlerForANewProduct(property, value) {
         let prevProduct = this.state.product;
         this.setState({ product : { ...prevProduct, [property]: value } });
     }
 
-    createTitleInput() {
-        return (   
-            <div className="row">
-                <label htmlFor="productTitle" className="col-3 col-md-2 col-form-label"><p className="float-right">Titulo:</p></label>
-                <div className="col-9 col-md-10">
-                    <input type="text" 
-                        className="form-control" 
-                        id="productTitle" 
-                        placeholder="Ingrese un Titulo"
-                        defaultValue={this.state.product.title}
-                        onChange={event => this.abstractHandlerForANewProduct('title', event.target.value)} 
-                    />
-                </div>
-            </div>
-        );
+    handleChangeSelect(event) {
+        this.setState({ category_selected: event.target.value });
+        axios.get(`/api/product/byCategory/${event.target.value}`)
+            .then(response => this.setState({ products: response.data.data }))
+            .catch(error => console.log(error.response.data.error));    
     }
 
-    createDescriptionInput() {
-        return (
-            <div className="row">
-                <label htmlFor="productDescription" className="col-4 col-md-2 col-form-label"><p className="float-right">Descripcion:</p></label>
-                <div className="col-8 col-md-10">
-                    <input type="text" 
-                    className="form-control" 
-                    id="productDescription" 
-                    placeholder="Agrega una descripcion"
-                    defaultValue={this.state.product.description}
-                    onChange={event => this.abstractHandlerForANewProduct('description', event.target.value)} 
-                    />
-                </div>
-            </div>
-        );
+    abstractHandler(property, value) {
+        this.setState({ [property]: value } );
     }
 
-    createCodeInput() {
-        return (
-            <div className="row">
-                <label htmlFor="productCode" className="col-4 col-md-2 col-form-label"><p className="float-right">Codigo:</p></label>
-                <div className="col-8 col-md-10">
-                    <input type="text" 
-                    className="form-control" 
-                    id="productCode" 
-                    placeholder="Agrega un codigo"
-                    defaultValue={this.state.product.code}
-                    onChange={event => this.abstractHandlerForANewProduct('code', event.target.value)} 
-                    />
-                </div>
-            </div>
-        );
-    }
-
-    createPriceAndPriorityInput() {
-        return (
-            <div className="row">
-                <label htmlFor="productPrice" className="col-3 col-md-2 col-form-label"><p className="float-right">Precio:</p></label>
-                <div className="col-9 col-md-4">
-                    <input type="number" 
-                        className="form-control" 
-                        id="productPrice" 
-                        placeholder="A partir de 0"
-                        defaultValue={this.state.product.price} 
-                        onChange={event => this.abstractHandlerForANewProduct('price', event.target.value)}       
-                    />
-                </div>
-                <label htmlFor="priorityProduct" className="col-3 col-md-2 col-form-label"><p className="float-right">Prioridad:</p></label>
-                <div className="col-9 col-md-4">
-                    <input type="number" 
-                        className="form-control" 
-                        id="priorityProduct" 
-                        placeholder="A partir de 0"
-                        defaultValue={this.state.product.priority}
-                        onChange={event => this.abstractHandlerForANewProduct('priority', event.target.value)}       
-                    />
-                </div>
-            </div>
-        );
-    }
-
-    createCategoryAndWaistInput() {
-        return (
-            <div className="row">
-                <label htmlFor="productWaist" className="col-3 col-md-2 col-form-label"><p className="float-right">Talle:</p></label>
-                <div className="col-9 col-md-4">
-                    <input type="text" 
-                        className="form-control" 
-                        id="productWaist" 
-                        placeholder="Ingrese los talles"
-                        defaultValue={this.state.product.waist} 
-                        onChange={event => this.abstractHandlerForANewProduct('waist', event.target.value)}       
-                    />
-                </div>
-                <label htmlFor="productCategory" className="col-3 col-md-2 col-form-label"><p className="float-right">Categoria:</p></label>
-                <div className="col-9 col-md-4">
-                    <select className="form-control" defaultValue={'DEFAULT'} id="categorySelector" onChange={() => this.abstractHandlerForANewProduct('category_id', event.target.value)}>
-                        <option disabled="disabled" value="DEFAULT">Elegir</option>
-                        {this.createCategoryOptionsTable()}
-                    </select>
-                </div>
-            </div>
-        );
+    searchByCode() {
+        if(this.state.searchCode !== '') {
+            axios.get(`/api/product/byCode/${this.state.searchCode}`)
+                .then(response => this.setState({ products: response.data.data, errorSearchByCode: '' }))
+                .catch(error => this.abstractHandler('errorSearchByCode', error.response.data.error))
+        } else if(this.state.category_selected !== 'none') {
+            axios.get(`/api/product/byCategory/${this.state.category_selected}`)
+                .then(response => this.setState({ products: response.data.data }))
+                .catch(error => console.log(error.response));   
+        }
     }
 
     createProduct() {
@@ -162,83 +76,144 @@ export default class ConfigProduct extends Component {
             .catch(error => console.log(error.response.data));
     }
 
-    createProductForm() {
-        return (
-            <form encType="multipart/form-data">
-                <div className="row">
-                    <div className="col-12 col-md-9">
-                        {this.createTitleInput()}
-                        {this.createDescriptionInput()}
-                        {this.createCodeInput()}
-                        {this.createPriceAndPriorityInput()}
-                        {this.createCategoryAndWaistInput()}
+    createTableProduct() {
+        if(this.state.products.length !== 0) {
+            return (
+                <div>
+                    <div className="table-responsive wrap-table mb-4 scrollTable" data-pattern="priority-columns">
+                        <table className="table table-hover">
+                            <thead className="theadTable">
+                                {this.createHeaderTable()}
+                            </thead>
+                            <tbody>
+                                {this.createTrProductsTable()} 
+                            </tbody>
+                        </table>
+                    </div>
+                    <div className="row">
+                        <div className="col-12 col-md-4 col-md-auto mr-auto mb-4">
+                            <button className="btn btn-primary col-12">Editar </button>
+                        </div>
+                        <div className="col-12 col-md-4 col-md-auto mb-4">
+                            <button className="btn btn-danger col-12">Borrar </button>
+                        </div>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col-12">
-                        <button type="reset" className="btn btn-primary" onClick={() => this.createProduct()}>Crear Producto</button>
-                    </div>
-                </div>  
-            </form>
+            );
+        }
+        return (
+            <div className="alert alert-warning" role="alert">
+                Seleccione una categoria o busque un producto por su codigo.
+            </div>   
         );
     }
 
-    createProductTableHead() {
+    createTrProduct(id, product) {
+        var classN = '';
+        if(product === this.state.productSelected) {
+            classN = 'rowSelected';
+        }
         return (
-            <thead>
-                <tr>
-                    <th scope="col">Titulo</th>
-                    <th scope="col">Code</th>
-                    <th scope="col">Talle</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">Categoria</th>
-                    <th scope="col">Prioridad</th>
-                </tr>
-            </thead>
-        );
-    }
-
-    createARowForTheProductTable(product, i) {
-        return (
-            <tr key={i}>
-                <td>{product.title}</td>
+            <tr className={"rowTable " + classN} key={id} onClick={() => this.abstractHandler('productSelected', product)}>
                 <td>{product.code}</td>
-                <td>{product.waist}</td>
+                <td>{product.title}</td>
+                <td>{product.priority}</td>
                 <td>{product.price}</td>
                 <td>{product.category_name}</td>
-                <td>{product.priority}</td>
             </tr>
         );
     }
 
-    createProductTableRows() {
-        return this.state.products.map((product, i) => (
-            this.createARowForTheProductTable(product, i)
+    createTrProductsTable() {
+        return this.state.products.map(product => (
+            this.createTrProduct(product.code+'TR'+'ProductTable', product)
         ));
     }
 
-    createProductTable() {
-        return(
-            <div className="col-12">
-                <div className="col-12">
-                    <div className="tablaProductos espacioBottom">
-                        <table className="table table-bordered table-responsive">
-                            {this.createProductTableHead()}
-                            <tbody>
-                                {this.createProductTableRows()}
-                            </tbody>
-                        </table>
+    createHeaderTable() {
+        return (
+            <tr>
+                <th className="cell">Codigo</th>
+                <th className="cell" data-priority="1">Titulo</th>
+                <th className="cell" data-priority="2">Prioridad</th>
+                <th className="cell" data-priority="3">Precio</th>
+                <th className="cell" data-priority="4">Categoria</th>
+            </tr>
+        );
+    }
+
+    createOptions() {
+        return this.state.categories.map((category, i) => (
+            <option key={i + 'optionFilter'} value={category.id}>{category.category_name}</option>
+        ));
+    }
+
+    createWrapperFilterProducts() {
+        return (
+            <div className="col-xs-12">
+                <div class="row justify-content-around">
+                    <div className="col-12 col-md-4 p-0 mb-3">
+                        <label htmlFor="categoryChange" className="col-12 col-form-label">Seleccione una Categoria:</label>
+                        <div class="col-12">
+                            <select className="form-control" value={this.state.category_selected} onChange={this.handleChangeSelect}>
+                                <option disabled="disabled" value="none">Elegir</option>
+                                {this.createOptions()}
+                            </select>
+                        </div>
+                    </div>
+                    <div className="col-12 col-md-4 p-0 mb-3">
+                        <label htmlFor="categoryChange" className="col-12 col-form-label">Buscar por Codigo:</label>
+                        <div class="col-12 mb-3">
+                            <input 
+                                    type="text" 
+                                    className="form-control" 
+                                    placeholder="Buscar Codigo" 
+                                    onChange={event => this.abstractHandler('searchCode', event.target.value)} />
+                        </div>
+                        <div class="col-12">
+                            <button type="button" className="btn btn-primary col-12" onClick={() => this.searchByCode()}>Buscar</button>
+                        </div>
                     </div>
                 </div>
             </div>
         );
     }
 
+    showErrors(error) {
+        if(error !== '') {
+            return (
+                <div>
+                    <p style={{ color: 'red' }}>
+                        {error}
+                    </p>
+                </div>
+            );
+        }  
+        return undefined;
+    }
+
+    createWrapperProducts() {
+        if(this.state.categories.length !== 0) {
+            return (
+                <div className="col-xs-12 mb-4">
+                    <span className="lines-style">Productos</span>
+                    {this.showErrors(this.state.errorSearchByCode)}
+                    {this.createWrapperFilterProducts()}
+                    {this.createTableProduct()}
+                </div>
+            );
+        }
+        return (
+            <div className="alert alert-primary" role="alert">
+                No hay productos cargados aún.
+            </div>                              
+        );
+    }
+
     render() {
         return (
             <div className="container">
-                {this.createProductForm()}
-                {this.createProductTable()}
+                {this.createWrapperProducts()}
             </div>
         );
     }

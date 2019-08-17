@@ -83,7 +83,7 @@ export default class ConfigCategory extends Component {
                 {this.showErrors(this.state.errorsDelete)}
                 {this.showErrors(this.state.errorsEdit)}
                 {this.showErrors(this.state.errorsNewCategory)}
-                <form>
+                <form onSubmit={e => { e.preventDefault(); }}>
                     <div className="form-group row">
                         <label htmlFor="createCategory" className="col-md-3 col-form-label">Crear una nueva Categoria:</label>
                         <div className="col-md-6 mb-3">
@@ -126,7 +126,7 @@ export default class ConfigCategory extends Component {
     createEditCategoryForm() {
         return (
             <div className="col-xs-12">
-                <form>
+                <form onSubmit={e => { e.preventDefault(); }}>
                     <div className="form-group row">
                         <label htmlFor="categoryChange" className="col-md-3 col-form-label">Cambiar el nombre:</label>
                         <div className="col-md-6 mb-3">
