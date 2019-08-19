@@ -268,10 +268,10 @@ export default class ConfigBanner extends Component {
     createWrapperFilterProducts() {
         return (
             <div className="col-xs-12">
-                <div class="row justify-content-around">
+                <div className="row justify-content-around">
                     <div className="col-12 col-md-4 p-0 mb-3">
                         <label htmlFor="categoryChange" className="col-12 col-form-label">Seleccione una Categoria:</label>
-                        <div class="col-12">
+                        <div className="col-12">
                             <select className="form-control" value={this.state.category_selected} onChange={this.handleChangeSelect}>
                                 <option disabled="disabled" value="none">Elegir</option>
                                 {this.createOptions()}
@@ -280,14 +280,14 @@ export default class ConfigBanner extends Component {
                     </div>
                     <div className="col-12 col-md-4 p-0 mb-3">
                         <label htmlFor="categoryChange" className="col-12 col-form-label">Buscar por Codigo:</label>
-                        <div class="col-12 mb-3">
+                        <div className="col-12 mb-3">
                             <input 
                                     type="text" 
                                     className="form-control" 
                                     placeholder="Buscar Codigo" 
                                     onChange={event => this.abstractHandler('searchCode', event.target.value)} />
                         </div>
-                        <div class="col-12">
+                        <div className="col-12">
                             <button type="button" className="btn btn-primary col-12" onClick={() => this.searchByCode()}>Buscar</button>
                         </div>
                     </div>

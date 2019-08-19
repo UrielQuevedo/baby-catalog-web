@@ -6378,7 +6378,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".theadTable {\n    color: #ffffff;\n    background: #6c7ae0;\n}\n\n.cell {\n    font-size: 18px;\n    color: #fff;\n    padding-top: 19px;\n    padding-bottom: 19px;\n}\n\n.wrap-table {\n    border-radius: 5px;\n    border: 1px solid #8080804f;\n}\n\ntr:hover td{\n    background-color: #ececff;\n    cursor: pointer;\n}\n\ntd {\n    font-size: 15px;\n    color: #666666;\n    padding-top: 20px;\n    padding-bottom: 20px;\n    border-bottom: 1px solid #f2f2f2;\n}\n\n.lines-style {\n    color: rgb(146, 141, 187);\n    font-size: 30px;\n    display: grid;\n    width: 100%;\n    align-items: center;\n    text-align: center;\n    grid-template-columns: minmax(20px, 1fr) auto minmax(20px, 1fr);\n    grid-gap: 20px;\n    margin-bottom: 40px;\n    margin-top: 40px;\n}\n\n.lines-style:before,\n.lines-style:after {\n    content: '';\n    border-top: 2px solid;\n}\n\n.rowSelected {\n    background: #ececff;\n}\n\n.scrollTable {\n    max-height: 500px;\n}\n", ""]);
+exports.push([module.i, ".theadTable {\n    color: #ffffff;\n    background: #6c7ae0;\n}\n\n.cell {\n    font-size: 18px;\n    color: #fff;\n    padding-top: 19px;\n    padding-bottom: 19px;\n}\n\n.wrap-table {\n    border-radius: 5px;\n    border: 1px solid #8080804f;\n}\n\ntr:hover td{\n    background-color: #ececff;\n    cursor: pointer;\n}\n\ntd {\n    font-size: 15px;\n    color: #666666;\n    padding-top: 20px;\n    padding-bottom: 20px;\n    border-bottom: 1px solid #f2f2f2;\n}\n\n.lines-style {\n    color: rgb(146, 141, 187);\n    font-size: 30px;\n    display: grid;\n    width: 100%;\n    align-items: center;\n    text-align: center;\n    grid-template-columns: minmax(20px, 1fr) auto minmax(20px, 1fr);\n    grid-gap: 20px;\n    margin-bottom: 40px;\n    margin-top: 40px;\n}\n\n.lines-style:before,\n.lines-style:after {\n    content: '';\n    border-top: 2px solid;\n}\n\n.rowSelected {\n    background: #ececff;\n}\n\n.scrollTable {\n    max-height: 500px;\n}\n\n[type=\"file\"] {\n    height: 0;\n    overflow: hidden;\n    width: 0;\n}\n\n[type=\"file\"] + label {\n    background: #f15d22;\n    border: none;\n    border-radius: 5px;\n    color: #fff;\n    cursor: pointer;\n    display: inline-block;\n    font-family: 'Poppins', sans-serif;\n    font-size: inherit;\n    font-weight: 600;\n    margin-bottom: 1rem;\n    outline: none;\n    padding: 1rem 50px;\n    position: relative;\n    transition: all 0.3s;\n    vertical-align: middle;\n}\n\n[type=\"file\"]:focus + label,\n[type=\"file\"] + label:hover {\n    background-color: #b43d0d;\n    ;\n}\n", ""]);
 
 // exports
 
@@ -66910,14 +66910,14 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-xs-12"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "row justify-content-around"
+        className: "row justify-content-around"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12 col-md-4 p-0 mb-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "categoryChange",
         className: "col-12 col-form-label"
       }, "Seleccione una Categoria:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "col-12"
+        className: "col-12"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         className: "form-control",
         value: this.state.category_selected,
@@ -66931,7 +66931,7 @@ function (_Component) {
         htmlFor: "categoryChange",
         className: "col-12 col-form-label"
       }, "Buscar por Codigo:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "col-12 mb-3"
+        className: "col-12 mb-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "form-control",
@@ -66940,7 +66940,7 @@ function (_Component) {
           return _this17.abstractHandler('searchCode', event.target.value);
         }
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "col-12"
+        className: "col-12"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "button",
         className: "btn btn-primary col-12",
@@ -67373,6 +67373,7 @@ function (_Component) {
       categories: [],
       products: [],
       product: {
+        image_url: '',
         title: '',
         description: '',
         code: '',
@@ -67722,9 +67723,64 @@ function (_Component) {
       }, "Elegir"), this.createOptions())));
     }
   }, {
+    key: "saveImage",
+    value: function saveImage(event) {
+      var _this12 = this;
+
+      var file = event.target.files[0];
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        _this12.abstractHandlerForAProduct('image_url', e.target.result);
+      };
+
+      reader.readAsDataURL(file);
+    }
+  }, {
+    key: "showImage",
+    value: function showImage() {
+      if (this.state.product.image === '') {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-12 col-lg-3"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: "https://www.bicifan.uy/wp-content/uploads/2016/09/producto-sin-imagen.png",
+          className: "rounded img-thumbnail img-fluid",
+          width: "250",
+          height: "200"
+        }));
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-lg-3"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: this.state.product.image_url,
+        className: "rounded img-thumbnail img-fluid",
+        width: "250",
+        height: "200"
+      }));
+    }
+  }, {
+    key: "createImageProductInput",
+    value: function createImageProductInput() {
+      var _this13 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "file",
+        name: "photo",
+        id: "file",
+        onChange: function onChange(event) {
+          return _this13.saveImage(event);
+        }
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "file"
+      }, "Seleccione una Imagen"));
+    }
+  }, {
     key: "createWrapperProductFrom",
     value: function createWrapperProductFrom() {
-      var _this12 = this;
+      var _this14 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "col-xs-12 mb-4",
@@ -67735,7 +67791,7 @@ function (_Component) {
         className: "lines-style"
       }, "Crear o Editar Producto"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
-      }, this.createXProductInput('Titulo:', 'title', 'Ingrese un Titulo', 'text', 'mr-auto'), this.createXProductInput('Codigo:', 'code', 'Codigo del Producto', 'text'), this.createXProductInput('Precio:', 'price', 'A partir de 0', 'number', 'mr-auto'), this.createXProductInput('Prioridad:', 'priority', 'A partir de 0', 'number'), this.createXProductInput('Talle:', 'waist', 'Ingrese los Talles', 'text', 'mr-auto'), this.createCategoryProductInput(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.showImage(), this.createImageProductInput(), this.createXProductInput('Titulo:', 'title', 'Ingrese un Titulo', 'text', 'mr-auto'), this.createXProductInput('Codigo:', 'code', 'Codigo del Producto', 'text'), this.createXProductInput('Precio:', 'price', 'A partir de 0', 'number', 'mr-auto'), this.createXProductInput('Prioridad:', 'priority', 'A partir de 0', 'number'), this.createXProductInput('Talle:', 'waist', 'Ingrese los Talles', 'text', 'mr-auto'), this.createCategoryProductInput(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12 row pr-0"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "description",
@@ -67748,7 +67804,7 @@ function (_Component) {
         id: "description",
         placeholder: "Agregar una Descripcion",
         onChange: function onChange(event) {
-          return _this12.abstractHandlerForAProduct('description', event.target.value);
+          return _this14.abstractHandlerForAProduct('description', event.target.value);
         }
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12"
@@ -67759,7 +67815,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "col-12 col-md-6 btn btn-success",
         onClick: function onClick() {
-          return _this12.createProduct();
+          return _this14.createProduct();
         },
         type: "reset"
       }, "Crear")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -67773,7 +67829,7 @@ function (_Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
-      }, this.createWrapperProductFrom(), this.createWrapperProducts());
+      }, console.log(this.state.product), this.createWrapperProductFrom(), this.createWrapperProducts());
     }
   }]);
 

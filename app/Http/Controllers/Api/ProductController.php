@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Category;
 use App\Product;
 use DB;
+use Cloudder;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -12,30 +13,7 @@ class ProductController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('jwt', ['except' => ['index','show','showByCategory','searchByCode']]);
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $products=DB::table('products')
-                        ->select('products.id','priority','title','waist','code','description','price', 'category_name', 'category_id')
-                            ->join('categories', 'categories.id', '=', 'products.category_id')->get();
-        return response()->json(['status'=>'ok','data'=>$products], 200);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $this->middleware('jwt', ['except' => ['show','showByCategory','searchByCode']]);
     }
 
     /**
@@ -50,6 +28,10 @@ class ProductController extends Controller
 			return response()->json(['error'=>'Faltan datos necesarios para el proceso de alta.(Complete todos los campos)'],422);
 		}
         $newProduct = new Product();
+        $cloudder = Cloudder::upload($request->input('image_url'));
+        $uploadResult = $cloudder->getResult();
+        $newProduct->image_url=$uploadResult['url'];
+        $newProduct->image_id=$uploadResult['public_id'];
         $newProduct = $this->loadProductData($newProduct,$request);
         return response()->json(['status'=>'ok','data'=>$newProduct], 200);
     }
@@ -62,7 +44,11 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::find($id);
+        if(!$product) {
+            return response()->json(['error'=>'No se encuentra un producto con ese código.'],422);
+        }
+        return response()->json(['status'=>'ok','data'=>$product],200);
     }
 
     /**
@@ -77,7 +63,7 @@ class ProductController extends Controller
             return response()->json(['error'=>'No se encuentra una categoria con ese código.'],422);
         }
         $products=DB::table('products')
-                        ->select('products.id','priority','code','title','waist','description','price','category_name', 'category_id')
+                        ->select('products.id','priority','image_url','code','title','waist','description','price','category_name', 'category_id')
                             ->join('categories', 'categories.id', '=', 'products.category_id')
                                 ->where('products.category_id', '=', $category_id)
                                     ->orderBy('priority','asc')
@@ -88,7 +74,7 @@ class ProductController extends Controller
 
     public function searchByCode($code) {
         $products=DB::table('products')
-                        ->select('products.id','priority','code','title','waist','description','price','category_name', 'category_id')
+                        ->select('products.id','priority','image_url','code','title','waist','description','price','category_name', 'category_id')
                             ->where('code', $code)
                                 ->join('categories', 'categories.id', '=', 'products.category_id')
                                         ->orderBy('priority','asc')
@@ -100,17 +86,6 @@ class ProductController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -119,7 +94,24 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+        if(!$product) {
+            return response()->json(['error'=>'No se encuentra el producto.(Seleccione uno de la tabla)'],404);
+        }
+        if($this->checkIfTheDataIsValid($request)) {
+            return response()->json(['error'=>'Faltan datos necesarios para el proceso de alta.(Complete todos los campos)'],422);
+        }
+        if($product->image_url !== $request->input('image_url')) {
+            Cloudder::destroyImage($product->image_id);
+            Cloudder::delete($product->image_id);
+
+            $cloudder = Cloudder::upload($request->input('image_url'));
+            $uploadResult = $cloudder->getResult();
+            $product->image_url=$uploadResult['url'];
+            $product->image_id=$uploadResult['public_id'];
+        }
+        $product = $this->loadProductData($product, $request);
+        return response()->json(['status'=>'ok','data'=>$product], 200);
     }
 
     /**
@@ -130,11 +122,27 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+        if(!$product) {
+            return response()->json(['error'=>'No se encuentra el producto'],404);
+        }
+        Cloudder::destroyImage($product->image_id);
+        Cloudder::delete($product->image_id);
+        $product->delete();
+        
+        return response()->json(['code'=>204,'message'=>'Se ha eliminado el producto correctamente.'],204);
     }
 
     private function checkIfTheDataIsValid($request) {
-        return (!$request->input('title') || !$request->input('waist') || !$request->input('description') || !$request->input('code') || !$request->input('price') || !$request->input('priority') || !$request->input('category_id'));
+        return (!$request->input('title') || 
+                !$request->input('waist') || 
+                !$request->input('description') || 
+                !$request->input('code') || 
+                !$request->input('price') || 
+                !$request->input('priority') || 
+                !$request->input('category_id') ||
+                !$request->input('image_url')
+            );
     }
 
     private function loadProductData($newProduct, $request){

@@ -19,6 +19,8 @@ class CreateProductsTable extends Migration
             $table->string('waist')->nullable();
             $table->text('description')->nullable();
             $table->integer('price')->nullable();
+            $table->string('image_url')->nullable();
+            $table->string('image_id')->nullable();
             $table->integer('priority')->nullable(true);
             $table->integer('banner_id')->unsigned()->nullable();
             $table->string('code')->nullable();

@@ -16,6 +16,7 @@ export default class ConfigProduct extends Component {
             categories: [],
             products: [],
             product: {
+                image_url: '',
                 title: '',
                 description: '',
                 code: '',
@@ -278,11 +279,46 @@ export default class ConfigProduct extends Component {
         );
     }
 
+    saveImage(event) {
+        let file = event.target.files[0];
+        let reader = new FileReader();
+        reader.onload = (e) => {
+            this.abstractHandlerForAProduct('image_url', e.target.result);
+        };
+        reader.readAsDataURL(file);
+    }
+
+    showImage() {
+        if (this.state.product.image === '') {
+            return (
+                <div className="col-12 col-lg-3">
+                    <img src="https://www.bicifan.uy/wp-content/uploads/2016/09/producto-sin-imagen.png" className="rounded img-thumbnail img-fluid" width="250" height="200" />    
+                </div>
+            );
+        }
+        return (
+            <div className="col-12 col-lg-3">
+                <img src={this.state.product.image_url} className="rounded img-thumbnail img-fluid" width="250" height="200" />    
+            </div>  
+        );
+    }
+
+    createImageProductInput() {
+        return (
+            <div className="col-12">
+                <input type="file" name="photo" id="file" onChange={event => this.saveImage(event)}/>
+                <label htmlFor="file" >Seleccione una Imagen</label>
+            </div>
+        );
+    }
+
     createWrapperProductFrom() {
         return (
             <form className="col-xs-12 mb-4" onSubmit={e => { e.preventDefault(); }}>
                 <span className="lines-style">Crear o Editar Producto</span>
                 <div className="row">
+                    {this.showImage()}
+                    {this.createImageProductInput()}
                     {this.createXProductInput('Titulo:', 'title', 'Ingrese un Titulo', 'text', 'mr-auto')}
                     {this.createXProductInput('Codigo:', 'code', 'Codigo del Producto', 'text')}
                     {this.createXProductInput('Precio:', 'price', 'A partir de 0', 'number', 'mr-auto')}
@@ -325,6 +361,7 @@ export default class ConfigProduct extends Component {
     render() {
         return (
             <div className="container">
+                {console.log(this.state.product)}
                 {this.createWrapperProductFrom()}
                 {this.createWrapperProducts()}
             </div>
