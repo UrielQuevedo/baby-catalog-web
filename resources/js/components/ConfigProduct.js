@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import '../../../public/css/configBanner.css';
+import Crop from '../components/Crop';
 
 export default class ConfigProduct extends Component {
 
@@ -25,6 +26,7 @@ export default class ConfigProduct extends Component {
                 waist: '',
                 category_id: '',
             },
+            image_selected: '',
             category_selected:'none',
             searchCode: '',
             errorSearchByCode: '',
@@ -61,8 +63,10 @@ export default class ConfigProduct extends Component {
 
     resetProduct() {
         this.setState({
+            image_selected:'',
             product: {
                 id: undefined,
+                image_url: '',
                 title: '',
                 description: '',
                 code: '',
@@ -283,33 +287,43 @@ export default class ConfigProduct extends Component {
         let file = event.target.files[0];
         let reader = new FileReader();
         reader.onload = (e) => {
-            this.abstractHandlerForAProduct('image_url', e.target.result);
+            this.setState({ image_selected: e.target.result });
         };
         reader.readAsDataURL(file);
     }
 
     showImage() {
-        if (this.state.product.image === '') {
+        if (this.state.product.image_url === '') {
             return (
-                <div className="col-12 col-lg-3">
-                    <img src="https://www.bicifan.uy/wp-content/uploads/2016/09/producto-sin-imagen.png" className="rounded img-thumbnail img-fluid" width="250" height="200" />    
-                </div>
+                <img src="https://www.bicifan.uy/wp-content/uploads/2016/09/producto-sin-imagen.png" className="rounded img-thumbnail img-fluid" width="250" height="200" />                
             );
         }
         return (
-            <div className="col-12 col-lg-3">
-                <img src={this.state.product.image_url} className="rounded img-thumbnail img-fluid" width="250" height="200" />    
-            </div>  
+            <img src={this.state.product.image_url} className="rounded img-thumbnail img-fluid" width="250" height="200" />    
         );
     }
 
     createImageProductInput() {
         return (
-            <div className="col-12">
+            <div className="col-12 row d-flex justify-content-center">
+                <div className="col-12 pr-0 d-flex justify-content-center">
+                    {this.showImage()}    
+                </div>
                 <input type="file" name="photo" id="file" onChange={event => this.saveImage(event)}/>
                 <label htmlFor="file" >Seleccione una Imagen</label>
             </div>
         );
+    }
+
+    createCropper() {
+        if(this.state.image_selected !== '') {
+            return (
+                <Crop 
+                    image_selected={this.state.image_selected} 
+                    abstractHandlerForAProduct={this.abstractHandlerForAProduct}
+                />
+            );
+        }
     }
 
     createWrapperProductFrom() {
@@ -317,7 +331,7 @@ export default class ConfigProduct extends Component {
             <form className="col-xs-12 mb-4" onSubmit={e => { e.preventDefault(); }}>
                 <span className="lines-style">Crear o Editar Producto</span>
                 <div className="row">
-                    {this.showImage()}
+                    {this.createCropper()}
                     {this.createImageProductInput()}
                     {this.createXProductInput('Titulo:', 'title', 'Ingrese un Titulo', 'text', 'mr-auto')}
                     {this.createXProductInput('Codigo:', 'code', 'Codigo del Producto', 'text')}
@@ -361,7 +375,6 @@ export default class ConfigProduct extends Component {
     render() {
         return (
             <div className="container">
-                {console.log(this.state.product)}
                 {this.createWrapperProductFrom()}
                 {this.createWrapperProducts()}
             </div>

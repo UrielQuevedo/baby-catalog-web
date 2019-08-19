@@ -73,7 +73,7 @@ td {
     font-weight: 600;
     margin-bottom: 1rem;
     outline: none;
-    padding: 1rem 50px;
+    padding: 8px 40px;
     position: relative;
     transition: all 0.3s;
     vertical-align: middle;
@@ -83,4 +83,11 @@ td {
 [type="file"] + label:hover {
     background-color: #b43d0d;
     ;
+}
+
+.cropContainerImage {
+    height: 400px;
+    width: 100%;
+    position: relative;
+    background: rgb(146, 142, 142);
 }
