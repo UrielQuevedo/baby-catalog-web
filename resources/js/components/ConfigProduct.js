@@ -12,6 +12,8 @@ export default class ConfigProduct extends Component {
         this.handleChangeSelect = this.handleChangeSelect.bind(this);
         this.abstractHandler = this.abstractHandler.bind(this);
         this.searchByCode = this.searchByCode.bind(this);
+        this.handlerEditProductSend = this.handlerEditProductSend.bind(this);
+        this.handlerEdit = this.handlerEdit.bind(this);
         this.state = {
             category_name: '',
             categories: [],
@@ -22,16 +24,18 @@ export default class ConfigProduct extends Component {
                 description: '',
                 code: '',
                 offer: false,
-                price: '',
-                priority: '',
+                price: 1,
+                priority: 1,
                 waist: '',
                 category_id: '',
             },
+            product_selected: '',
             image_selected: '',
             category_selected:'none',
             searchCode: '',
             errorSearchByCode: '',
             errorCreateProduct: '',
+            errorToEdit: '',
         };
     }
 
@@ -65,6 +69,7 @@ export default class ConfigProduct extends Component {
     resetProduct() {
         this.setState({
             image_selected:'',
+            product_selected: '',
             product: {
                 id: undefined,
                 image_url: '',
@@ -72,8 +77,8 @@ export default class ConfigProduct extends Component {
                 description: '',
                 code: '',
                 offer:false,
-                price: '',
-                priority: '',
+                price: 1,
+                priority: 1,
                 waist: '',
                 category_id: '',
             }
@@ -97,10 +102,12 @@ export default class ConfigProduct extends Component {
     }
 
     giveAllProductsByCategoryIfSelected(data) {
-        if(data.category_id === this.state.category_selected) {
+        if(parseInt(data.category_id) === parseInt(this.state.category_selected)) {
             axios.get(`/api/product/byCategory/${this.state.category_selected}`)
                 .then(response => this.setState({ products: response.data.data }))
                 .catch(error => console.log(error.response.data.error));  
+        } else if (this.state.searchCode !== '') {
+            this.setState({ products: [] });
         }
     }
 
@@ -110,7 +117,26 @@ export default class ConfigProduct extends Component {
                 "Authorization" : `Bearer ${this.props.location.state.token}`,
             } 
         })
-            .then(response => this.giveAllProductsByCategoryIfSelected(response.data.data), this.resetProduct())
+            .then(response => this.giveAllProductsByCategoryIfSelected(response.data.data), this.resetProduct(), this.abstractHandler('errorCreateProduct', ''))
+            .catch(error => this.setState({ errorCreateProduct: error.response.data.error }));
+    }
+
+    handlerEdit() {
+        let product_to_edit = this.state.product_selected;
+        if(product_to_edit === '') {
+            this.setState({ errorToEdit: 'Seleccione un Producto de la Tabla.' })
+        } else {
+            this.setState({ product: product_to_edit, errorToEdit: '' });
+        }
+    }
+
+    handlerEditProductSend() {
+        axios.put(`/api/product/${this.state.product.id}`, this.state.product, { 
+            headers: {
+                "Authorization" : `Bearer ${this.props.location.state.token}`,
+            } 
+        })
+            .then(response => this.giveAllProductsByCategoryIfSelected(response.data.data), this.resetProduct(), this.abstractHandler('errorCreateProduct', ''))
             .catch(error => this.setState({ errorCreateProduct: error.response.data.error }));
     }
 
@@ -128,9 +154,10 @@ export default class ConfigProduct extends Component {
                             </tbody>
                         </table>
                     </div>
+                    {this.showErrors(this.state.errorToEdit)}
                     <div className="row">
                         <div className="col-12 col-md-4 col-md-auto mr-auto mb-4">
-                            <button className="btn btn-primary col-12">Editar </button>
+                            <button className="btn btn-primary col-12" onClick={() => this.handlerEdit()}>Editar </button>
                         </div>
                         <div className="col-12 col-md-4 col-md-auto mb-4">
                             <button className="btn btn-danger col-12">Borrar </button>
@@ -148,11 +175,11 @@ export default class ConfigProduct extends Component {
 
     createTrProduct(id, product) {
         var classN = '';
-        if(product === this.state.productSelected) {
+        if(product === this.state.product_selected) {
             classN = 'rowSelected';
         }
         return (
-            <tr className={"rowTable " + classN} key={id} onClick={() => this.abstractHandler('productSelected', product)}>
+            <tr className={"rowTable " + classN} key={id} onClick={() => this.abstractHandler('product_selected', product)}>
                 <td>{product.code}</td>
                 <td>{product.title}</td>
                 <td>{product.priority}</td>
@@ -261,6 +288,7 @@ export default class ConfigProduct extends Component {
                         type={type}
                         className="form-control" 
                         id={id}
+                        defaultValue={this.state.product[id]}
                         placeholder={placeholder}
                         onChange={event => this.abstractHandlerForAProduct(id, event.target.value)} />
                 </div>
@@ -270,7 +298,7 @@ export default class ConfigProduct extends Component {
 
     createOfferInput() {
         return (
-            <div className="col-12 col-md-6 col-md-auto col-auto row pr-0">
+            <div className="col-12 col-md-6 col-md-auto col-auto row pr-0 mb-3">
                 <label htmlFor="offer" className="col-2 form-check-label">Oferta:</label>
                 <div className="col-9 mb-3 pr-0 ">
                     <input 
@@ -290,10 +318,10 @@ export default class ConfigProduct extends Component {
                 <label className="col-md-2 col-form-label">Categoria:</label>
                 <div className="col-md-9 mb-3 pr-0">
                     <select 
-                        className="form-control" 
-                        defaultValue={'none'}
+                        className="form-control"
+                        defaultValue={this.state.product.category_id}
                         onChange={event => this.abstractHandlerForAProduct('category_id', event.target.value)}>
-                        <option disabled="disabled" value="none">Elegir</option>
+                        <option disabled="disabled" value="">Elegir</option>
                             {this.createOptions()}
                     </select>
                 </div>
@@ -344,6 +372,40 @@ export default class ConfigProduct extends Component {
         }
     }
 
+    createPriceProductInput() {
+        return (
+            <div className="col-12 col-md-6 col-md-auto row pr-0 mr-auto">
+                <label htmlFor="price" className="col-md-2 col-form-label">Precio:</label>
+                <div className="col-md-9 mb-3 pr-0">
+                    <input 
+                        type="number"
+                        className="form-control" 
+                        id="price"
+                        defaultValue={this.state.product.price}
+                        placeholder="A partir de 0"
+                        onChange={event => this.abstractHandlerForAProduct('price', event.target.value)} />
+                </div>
+            </div>
+        );
+    }
+
+    createPriorityProductInput() {
+        return (
+            <div className="col-12 col-md-6 col-md-auto row pr-0">
+                <label htmlFor="priority" className="col-md-2 col-form-label">Prioridad:</label>
+                <div className="col-md-9 mb-3 pr-0">
+                    <input 
+                        type="number"
+                        className="form-control" 
+                        id="priority"
+                        defaultValue={this.state.product.priority}
+                        placeholder="A partir de 0"
+                        onChange={event => this.abstractHandlerForAProduct('priority', event.target.value)} />
+                </div>
+            </div>
+        );
+    }
+
     createWrapperProductFrom() {
         return (
             <form className="col-xs-12 mb-4" onSubmit={e => { e.preventDefault(); }}>
@@ -353,8 +415,8 @@ export default class ConfigProduct extends Component {
                     {this.createImageProductInput()}
                     {this.createXProductInput('Titulo:', 'title', 'Ingrese un Titulo', 'text', 'mr-auto')}
                     {this.createXProductInput('Codigo:', 'code', 'Codigo del Producto', 'text')}
-                    {this.createXProductInput('Precio:', 'price', 'A partir de 0', 'number', 'mr-auto')}
-                    {this.createXProductInput('Prioridad:', 'priority', 'A partir de 0', 'number')}
+                    {this.createPriceProductInput()}
+                    {this.createPriorityProductInput()}
                     {this.createXProductInput('Talle:', 'waist', 'Ingrese los Talles', 'text', 'mr-auto')}
                     {this.createCategoryProductInput()}
                     <div className="col-12 row pr-0">
@@ -364,6 +426,7 @@ export default class ConfigProduct extends Component {
                                 type="text" 
                                 className="form-control" 
                                 id="description" 
+                                defaultValue={this.state.product.description}
                                 placeholder="Agregar una Descripcion"
                                 onChange={event => this.abstractHandlerForAProduct('description', event.target.value)} />
                         </div>
@@ -383,7 +446,7 @@ export default class ConfigProduct extends Component {
                             </button>
                         </div>
                         <div className="col-12 col-md-6 pr-0 mb-4">
-                            <button className="col-12 col-md-6 btn btn-primary">Aplicar</button>
+                            <button type="reset" className="col-12 col-md-6 btn btn-primary" onClick={() => this.handlerEditProductSend()}>Aplicar</button>
                         </div>
                     </div>
                 </div>
@@ -394,7 +457,6 @@ export default class ConfigProduct extends Component {
     render() {
         return (
             <div className="container">
-                {console.log(this.state.product)}
                 {this.createWrapperProductFrom()}
                 {this.createWrapperProducts()}
             </div>

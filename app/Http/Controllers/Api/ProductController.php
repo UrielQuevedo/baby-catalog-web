@@ -26,7 +26,11 @@ class ProductController extends Controller
     {
         if ($this->checkIfTheDataIsValid($request)){
 			return response()->json(['error'=>'Faltan datos necesarios para el proceso de alta.(Complete todos los campos)'],422);
-		}
+        }
+        $products=DB::table('products')->select('code')->where('code', $request->input('code'))->get();
+        if (count($products) != 0) {
+            return response()->json(['error'=>'Ya existe un Producto con ese Codigo.'],422);
+        }
         $newProduct = new Product();
         $cloudder = Cloudder::upload($request->input('image_url'));
         $uploadResult = $cloudder->getResult();
@@ -101,6 +105,10 @@ class ProductController extends Controller
         if($this->checkIfTheDataIsValid($request)) {
             return response()->json(['error'=>'Faltan datos necesarios para el proceso de alta.(Complete todos los campos)'],422);
         }
+        $products=DB::table('products')->select('code')->where('code', $request->input('code'))->get();
+        if (count($products) != 0) {
+            return response()->json(['error'=>'Ya existe un Producto con ese Codigo.'],422);
+        }
         if($product->image_url !== $request->input('image_url')) {
             Cloudder::destroyImage($product->image_id);
             Cloudder::delete($product->image_id);
@@ -141,7 +149,6 @@ class ProductController extends Controller
                 !$request->input('price') || 
                 !$request->input('priority') || 
                 !$request->input('category_id') ||
-                !$request->input('offer') ||
                 !$request->input('image_url')
             );
     }
