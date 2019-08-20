@@ -105,7 +105,7 @@ class ProductController extends Controller
         if($this->checkIfTheDataIsValid($request)) {
             return response()->json(['error'=>'Faltan datos necesarios para el proceso de alta.(Complete todos los campos)'],422);
         }
-        $products=DB::table('products')->select('code')->where('code', $request->input('code'))->get();
+        $products=DB::table('products')->select('code')->where('code', $request->input('code'))->where('id','!=',$request->input('id'))->get();
         if (count($products) != 0) {
             return response()->json(['error'=>'Ya existe un Producto con ese Codigo.'],422);
         }
