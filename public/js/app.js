@@ -71132,6 +71132,7 @@ function (_Component) {
         title: '',
         description: '',
         code: '',
+        offer: false,
         price: '',
         priority: '',
         waist: '',
@@ -71202,6 +71203,7 @@ function (_Component) {
           title: '',
           description: '',
           code: '',
+          offer: false,
           price: '',
           priority: '',
           waist: '',
@@ -71459,9 +71461,31 @@ function (_Component) {
       })));
     }
   }, {
+    key: "createOfferInput",
+    value: function createOfferInput() {
+      var _this11 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-md-6 col-md-auto col-auto row pr-0"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "offer",
+        className: "col-2 form-check-label"
+      }, "Oferta:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-9 mb-3 pr-0 "
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        checked: this.state.product.offer,
+        className: "form-check-input",
+        id: "offer",
+        onChange: function onChange(event) {
+          return _this11.abstractHandlerForAProduct('offer', event.target.checked);
+        }
+      })));
+    }
+  }, {
     key: "createCategoryProductInput",
     value: function createCategoryProductInput() {
-      var _this11 = this;
+      var _this12 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12 col-md-6 col-md-auto row pr-0"
@@ -71473,7 +71497,7 @@ function (_Component) {
         className: "form-control",
         defaultValue: 'none',
         onChange: function onChange(event) {
-          return _this11.abstractHandlerForAProduct('category_id', event.target.value);
+          return _this12.abstractHandlerForAProduct('category_id', event.target.value);
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         disabled: "disabled",
@@ -71483,13 +71507,13 @@ function (_Component) {
   }, {
     key: "saveImage",
     value: function saveImage(event) {
-      var _this12 = this;
+      var _this13 = this;
 
       var file = event.target.files[0];
       var reader = new FileReader();
 
       reader.onload = function (e) {
-        _this12.setState({
+        _this13.setState({
           image_selected: e.target.result
         });
       };
@@ -71518,7 +71542,7 @@ function (_Component) {
   }, {
     key: "createImageProductInput",
     value: function createImageProductInput() {
-      var _this13 = this;
+      var _this14 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12 row d-flex justify-content-center"
@@ -71529,7 +71553,7 @@ function (_Component) {
         name: "photo",
         id: "file",
         onChange: function onChange(event) {
-          return _this13.saveImage(event);
+          return _this14.saveImage(event);
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "file"
@@ -71548,7 +71572,7 @@ function (_Component) {
   }, {
     key: "createWrapperProductFrom",
     value: function createWrapperProductFrom() {
-      var _this14 = this;
+      var _this15 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "col-xs-12 mb-4",
@@ -71572,9 +71596,9 @@ function (_Component) {
         id: "description",
         placeholder: "Agregar una Descripcion",
         onChange: function onChange(event) {
-          return _this14.abstractHandlerForAProduct('description', event.target.value);
+          return _this15.abstractHandlerForAProduct('description', event.target.value);
         }
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }))), this.createOfferInput(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12"
       }, this.showErrors(this.state.errorCreateProduct)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12 row justify-content-around pr-0"
@@ -71583,7 +71607,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "col-12 col-md-6 btn btn-success",
         onClick: function onClick() {
-          return _this14.createProduct();
+          return _this15.createProduct();
         },
         type: "reset"
       }, "Crear")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -71597,7 +71621,7 @@ function (_Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
-      }, this.createWrapperProductFrom(), this.createWrapperProducts());
+      }, console.log(this.state.product), this.createWrapperProductFrom(), this.createWrapperProducts());
     }
   }]);
 

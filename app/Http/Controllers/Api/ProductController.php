@@ -63,7 +63,7 @@ class ProductController extends Controller
             return response()->json(['error'=>'No se encuentra una categoria con ese código.'],422);
         }
         $products=DB::table('products')
-                        ->select('products.id','priority','image_url','code','title','waist','description','price','category_name', 'category_id')
+                        ->select('products.id','offer','priority','image_url','code','title','waist','description','price','category_name', 'category_id')
                             ->join('categories', 'categories.id', '=', 'products.category_id')
                                 ->where('products.category_id', '=', $category_id)
                                     ->orderBy('priority','asc')
@@ -74,7 +74,7 @@ class ProductController extends Controller
 
     public function searchByCode($code) {
         $products=DB::table('products')
-                        ->select('products.id','priority','image_url','code','title','waist','description','price','category_name', 'category_id')
+                        ->select('products.id','offer','priority','image_url','code','title','waist','description','price','category_name', 'category_id')
                             ->where('code', $code)
                                 ->join('categories', 'categories.id', '=', 'products.category_id')
                                         ->orderBy('priority','asc')
@@ -141,6 +141,7 @@ class ProductController extends Controller
                 !$request->input('price') || 
                 !$request->input('priority') || 
                 !$request->input('category_id') ||
+                !$request->input('offer') ||
                 !$request->input('image_url')
             );
     }
@@ -153,6 +154,7 @@ class ProductController extends Controller
         $newProduct->priority=$request->input('priority');
         $newProduct->category_id=$request->input('category_id'); 
         $newProduct->code=$request->input('code');
+        $newProduct->offer=$request->input('offer');
         $newProduct->save();
         return $newProduct;
     }

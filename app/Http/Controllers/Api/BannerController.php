@@ -49,6 +49,7 @@ class BannerController extends Controller
         $newBanner = new Banner();
         $newBanner->title=$request->input('title');
         $newBanner->save();
+        $newBanner->products;
         return response()->json(['status'=>'ok','data'=>$newBanner], 200);;
     }
 

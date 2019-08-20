@@ -21,6 +21,7 @@ export default class ConfigProduct extends Component {
                 title: '',
                 description: '',
                 code: '',
+                offer: false,
                 price: '',
                 priority: '',
                 waist: '',
@@ -70,6 +71,7 @@ export default class ConfigProduct extends Component {
                 title: '',
                 description: '',
                 code: '',
+                offer:false,
                 price: '',
                 priority: '',
                 waist: '',
@@ -266,6 +268,22 @@ export default class ConfigProduct extends Component {
         );
     }
 
+    createOfferInput() {
+        return (
+            <div className="col-12 col-md-6 col-md-auto col-auto row pr-0">
+                <label htmlFor="offer" className="col-2 form-check-label">Oferta:</label>
+                <div className="col-9 mb-3 pr-0 ">
+                    <input 
+                        type="checkbox"
+                        checked={this.state.product.offer}
+                        className="form-check-input"
+                        id="offer"
+                        onChange={event => this.abstractHandlerForAProduct('offer', event.target.checked)} />
+                </div>
+            </div>
+        );
+    }
+
     createCategoryProductInput() {
         return (
             <div className="col-12 col-md-6 col-md-auto row pr-0">
@@ -350,6 +368,7 @@ export default class ConfigProduct extends Component {
                                 onChange={event => this.abstractHandlerForAProduct('description', event.target.value)} />
                         </div>
                     </div>
+                    {this.createOfferInput()}
                     <div className="col-12">
                         {this.showErrors(this.state.errorCreateProduct)}
                     </div>
@@ -375,6 +394,7 @@ export default class ConfigProduct extends Component {
     render() {
         return (
             <div className="container">
+                {console.log(this.state.product)}
                 {this.createWrapperProductFrom()}
                 {this.createWrapperProducts()}
             </div>
