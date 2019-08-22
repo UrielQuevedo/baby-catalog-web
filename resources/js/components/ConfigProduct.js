@@ -130,6 +130,17 @@ export default class ConfigProduct extends Component {
         }
     }
 
+    handlerDelete() {
+        let data = { category_id: this.state.product_selected.category_id };
+        axios.delete(`/api/product/${this.state.product_selected.id}`, { 
+            headers: {
+                "Authorization" : `Bearer ${this.props.location.state.token}`,
+            } 
+        })
+            .then(this.giveAllProductsByCategoryIfSelected(data), this.setState({ product_selected: '', errorToEdit:'' }))
+            .catch(error => this.setState({ errorToEdit: error.response.data.error }));
+    }
+
     handlerEditProductSend() {
         axios.put(`/api/product/${this.state.product.id}`, this.state.product, { 
             headers: {
@@ -160,7 +171,7 @@ export default class ConfigProduct extends Component {
                             <button className="btn btn-primary col-12" onClick={() => this.handlerEdit()}>Editar </button>
                         </div>
                         <div className="col-12 col-md-4 col-md-auto mb-4">
-                            <button className="btn btn-danger col-12">Borrar </button>
+                            <button className="btn btn-danger col-12" onClick={() => this.handlerDelete()}>Borrar </button>
                         </div>
                     </div>
                 </div>
