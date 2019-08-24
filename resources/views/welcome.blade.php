@@ -9,6 +9,7 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link href="/css/app.css" rel="stylesheet" type="text/css">
+        <script defer src="https://kit.fontawesome.com/09e2560192.js"></script>
     </head>
     <body>
         <div id="index"></div>
