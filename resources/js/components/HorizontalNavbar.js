@@ -27,10 +27,10 @@ export default class HorizontalNavbar extends Component {
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="prueb">
                     <button type="button" id="sidebarCollapse" className="btn btn-info" onClick={() => this.responsiveNavbar()}>
-                        <i className="fa fa-align-justify"></i> <span>{this.state.textButton}</span>
+                            <span>{this.state.textButton}</span>
                     </button> 
                     <button type="button" className="btn btn-danger" onClick={() => this.closeSession()}>
-                    <i className="fa fa-align-justify"></i> <span>Cerrar Sesión</span>
+                        <span>Cerrar Sesión</span>
                     </button>
                 </div>
             </nav>

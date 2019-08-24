@@ -352,11 +352,11 @@ export default class ConfigProduct extends Component {
     showImage() {
         if (this.state.product.image_url === '') {
             return (
-                <img src="https://www.bicifan.uy/wp-content/uploads/2016/09/producto-sin-imagen.png" className="rounded img-thumbnail img-fluid" width="250" height="200" />                
+                <img src="https://www.bicifan.uy/wp-content/uploads/2016/09/producto-sin-imagen.png" className="rounded img-thumbnail img-fluid" style={{ width:'390px', height:'400px'}}/>                
             );
         }
         return (
-            <img src={this.state.product.image_url} className="rounded img-thumbnail img-fluid" width="250" height="200" />    
+            <img src={this.state.product.image_url} className="rounded img-thumbnail img-fluid" style={{ width:'390px', height:'400px'}}/>    
         );
     }
 
