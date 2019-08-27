@@ -59,6 +59,10 @@ nav {
     line-height: 61px;
 }
 
+.itemNavActive {
+    color: #3f51b5;
+}
+
 .menu a:hover,
 .show-menu-btn:hover,
 .hide-menu-btn:hover{

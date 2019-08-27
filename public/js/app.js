@@ -8703,7 +8703,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".map iframe {\n    width: 100%;\n}", ""]);
+exports.push([module.i, ".map iframe {\n    width: 100%;\n}\n\n.box-info {\n    box-shadow: 0 5px 15px -5px #00000070;\n}\n\n.icon-contact {\n    transition: .2s;\n}\n\n.icon-contact:hover {\n    color: blue;\n}", ""]);
 
 // exports
 
@@ -8779,7 +8779,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap);", ""]);
 
 // module
-exports.push([module.i, ".header{\n    height: 58px;\n    background: rgb(115, 214, 159);\n    padding: 0 20px;\n    color: #fff;\n    z-index: 2;\n}\n\n.box {\n    font-family: 'Lexend Deca', sans-serif;\n}\n\nnav {\n    position: -webkit-sticky; /* Safari */\n    position: sticky;\n    top: 0;\n}\n\nheader, i {\n    font-size: 30px;\n    /* font-family: 'Poppins', sans-serif; */\n}\n\n.menu{\n    line-height: 61px;\n    /* font-family: 'Poppins', sans-serif; */\n}\n\n.banner {\n    background-image: url(\"https://res.cloudinary.com/dddzzcrzg/image/upload/v1566573157/bannerbebe_u65gpb.jpg\");\n    background-attachment: fixed;\n}\n\nnav {\n    text-align: center;\n}\n\n.menu a{\n    color: #fefefe;\n    text-transform: uppercase;\n    text-decoration: none;\n    padding: 0 10px;\n    font-size: 20px;\n    transition: 0.4s;\n}\n\n.show-menu-btn,.hide-menu-btn{\n    transition: 0.4s;\n    cursor: pointer;\n    display: none;\n}\n\n.show-menu-btn {\n    float: right;\n}\n\n.show-menu-btn i{\n    line-height: 61px;\n}\n\n.menu a:hover,\n.show-menu-btn:hover,\n.hide-menu-btn:hover{\n    color: #3498db;\n}\n\n#chk {\n    position: absolute;\n    visibility: hidden;\n    z-index: -1111;\n}\n\n.icons {\n    line-height: 72px;\n    display: none;\n}\n\n.ribbon {\n    font-size: 18px !important;\n    width: 50%;\n    z-index: -1;\n    font-family: Arial, Helvetica, sans-serif;\n    color: #fff;\n    position: relative;\n    background: #e84393;\n    text-align: center;\n    padding: 1em 2em;\n    margin: 2em auto 3em;\n}\n.ribbon:before, .ribbon:after {\n    content: \"\";\n    position: absolute;\n    display: block;\n    bottom: -1em;\n    border: 1.5em solid #e84393;\n    z-index: -1;\n}\n.ribbon:before {\n    left: -2em;\n    border-right-width: 1.5em;\n    border-left-color: transparent;\n}\n.ribbon:after {\n    right: -2em;\n    border-left-width: 1.5em;\n    border-right-color: transparent;\n}\n.ribbon .ribbon-content:before, .ribbon .ribbon-content:after {\n    content: \"\";\n    position: absolute;\n    display: block;\n    border-style: solid;\n    border-color: #e84393 transparent transparent transparent;\n    bottom: -1em;\n}\n.ribbon .ribbon-content:before {\n    left: 0;\n    border-width: 1em 0 0 1em;\n}\n.ribbon .ribbon-content:after {\n    right: 0;\n    border-width: 1em 1em 0 0;\n}\n\n.social-bar {\n    position: fixed;\n    right: 0;\n    top: 35%;\n    font-size: 1.5rem;\n    display: flex;\n    flex-direction: column;\n    align-items: flex-end;\n    z-index: 100;\n}\n\n.icon-social {\n    text-decoration: none;\n    padding: .7rem;\n    display: flex;\n    transition: all .5s;\n    color: #fff;\n}\n\n.icon-social:first-child {\n    border-radius: 1rem 0 0 0;\n}\n\n.icon-social:last-child {\n    border-radius: 0 0 0 1rem;\n}\n\n.icon-social:hover {\n    padding-right: 3rem;\n    border-radius: 1rem 0 0 1rem;\n    box-shadow: 0 0 .5rem rgb(0, 0, 0, 0.42);\n    color: #fff;\n}\n\n.instagram {\n    background: #f09433; \n    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); \n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );\n}\n\n@media screen and (max-width:800px) {\n    .show-menu-btn,.hide-menu-btn {\n        display: block;\n    }\n\n    .icons {\n        display: inline;\n    }\n\n    .social-bar {\n        display: none;\n    }\n\n    .ribbon {\n        width: 85%;\n    }\n\n    .menu{\n        position: fixed;\n        width: 100%;\n        height: 100vh;\n        background: rgb(156, 206, 179);\n        right: -100%;\n        top: 0;\n        text-align: center;\n        padding: 80px 0;\n        line-height: normal;\n        transition: 0.7s;\n    }\n\n    .menu a{\n        display: block;\n        padding: 20px;\n    }\n\n    .hide-menu-btn {\n        position: absolute;\n        top: 40px;\n        right: 40px;\n    }\n\n    #chk:checked ~ .menu{\n        right: 0;\n    }\n\n}\n\n.imageBanner {\n    width: 250px !important;\n    height: 250px;\n    cursor: pointer;\n}\n\n.imageBanner:hover .image-product{\n    opacity: 0.4;\n    transition: 1s;\n}\n\n.image-product:hover {\n    transform:scale(1.03)\n}\n\n.imageBanner:hover .middle{\n    opacity: 1;\n}\n\n.middle {\n    transition: .5s ease;\n    opacity: 0;\n    position: absolute;\n    top: 83%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    -ms-transform: translate(-50%, -50%);\n    text-align: center;\n}\n\n.slick-initialized {\n    z-index: 1 !important;\n}\n\n.button-view {\n    color: #fff; \n    border: 2px solid #e84393;\n    border-radius: 10px;\n    background: none;\n    padding: 10px 20px;\n    font-size: 20px;\n    margin: 10px;\n    cursor: pointer;\n    color: #fff;\n    color: #e84393;\n    position: relative;\n    overflow: hidden;\n}\n\n.button-view:hover {\n    color: #fff;\n}\n\n.button-view::before{\n    content: \"\";\n    position: absolute;\n    left: 0;\n    width: 100%;\n    height: 0%;\n    color: #fff;\n    background: #e84393;\n    z-index: -1;\n    transition: 0.8s; \n}\n\n.button-view::before {\n    top:0;\n    border-radius: 0 0 50% 50%;\n}\n\n.button-view:hover::before {\n    height: 180%;\n}\n\n.container-carousel{\n    width: 340px !important;\n}", ""]);
+exports.push([module.i, ".header{\n    height: 58px;\n    background: rgb(115, 214, 159);\n    padding: 0 20px;\n    color: #fff;\n    z-index: 2;\n}\n\n.box {\n    font-family: 'Lexend Deca', sans-serif;\n}\n\nnav {\n    position: -webkit-sticky; /* Safari */\n    position: sticky;\n    top: 0;\n}\n\nheader, i {\n    font-size: 30px;\n    /* font-family: 'Poppins', sans-serif; */\n}\n\n.menu{\n    line-height: 61px;\n    /* font-family: 'Poppins', sans-serif; */\n}\n\n.banner {\n    background-image: url(\"https://res.cloudinary.com/dddzzcrzg/image/upload/v1566573157/bannerbebe_u65gpb.jpg\");\n    background-attachment: fixed;\n}\n\nnav {\n    text-align: center;\n}\n\n.menu a{\n    color: #fefefe;\n    text-transform: uppercase;\n    text-decoration: none;\n    padding: 0 10px;\n    font-size: 20px;\n    transition: 0.4s;\n}\n\n.show-menu-btn,.hide-menu-btn{\n    transition: 0.4s;\n    cursor: pointer;\n    display: none;\n}\n\n.show-menu-btn {\n    float: right;\n}\n\n.show-menu-btn i{\n    line-height: 61px;\n}\n\n.itemNavActive {\n    color: #3f51b5;\n}\n\n.menu a:hover,\n.show-menu-btn:hover,\n.hide-menu-btn:hover{\n    color: #3498db;\n}\n\n#chk {\n    position: absolute;\n    visibility: hidden;\n    z-index: -1111;\n}\n\n.icons {\n    line-height: 72px;\n    display: none;\n}\n\n.ribbon {\n    font-size: 18px !important;\n    width: 50%;\n    z-index: -1;\n    font-family: Arial, Helvetica, sans-serif;\n    color: #fff;\n    position: relative;\n    background: #e84393;\n    text-align: center;\n    padding: 1em 2em;\n    margin: 2em auto 3em;\n}\n.ribbon:before, .ribbon:after {\n    content: \"\";\n    position: absolute;\n    display: block;\n    bottom: -1em;\n    border: 1.5em solid #e84393;\n    z-index: -1;\n}\n.ribbon:before {\n    left: -2em;\n    border-right-width: 1.5em;\n    border-left-color: transparent;\n}\n.ribbon:after {\n    right: -2em;\n    border-left-width: 1.5em;\n    border-right-color: transparent;\n}\n.ribbon .ribbon-content:before, .ribbon .ribbon-content:after {\n    content: \"\";\n    position: absolute;\n    display: block;\n    border-style: solid;\n    border-color: #e84393 transparent transparent transparent;\n    bottom: -1em;\n}\n.ribbon .ribbon-content:before {\n    left: 0;\n    border-width: 1em 0 0 1em;\n}\n.ribbon .ribbon-content:after {\n    right: 0;\n    border-width: 1em 1em 0 0;\n}\n\n.social-bar {\n    position: fixed;\n    right: 0;\n    top: 35%;\n    font-size: 1.5rem;\n    display: flex;\n    flex-direction: column;\n    align-items: flex-end;\n    z-index: 100;\n}\n\n.icon-social {\n    text-decoration: none;\n    padding: .7rem;\n    display: flex;\n    transition: all .5s;\n    color: #fff;\n}\n\n.icon-social:first-child {\n    border-radius: 1rem 0 0 0;\n}\n\n.icon-social:last-child {\n    border-radius: 0 0 0 1rem;\n}\n\n.icon-social:hover {\n    padding-right: 3rem;\n    border-radius: 1rem 0 0 1rem;\n    box-shadow: 0 0 .5rem rgb(0, 0, 0, 0.42);\n    color: #fff;\n}\n\n.instagram {\n    background: #f09433; \n    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); \n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );\n}\n\n@media screen and (max-width:800px) {\n    .show-menu-btn,.hide-menu-btn {\n        display: block;\n    }\n\n    .icons {\n        display: inline;\n    }\n\n    .social-bar {\n        display: none;\n    }\n\n    .ribbon {\n        width: 85%;\n    }\n\n    .menu{\n        position: fixed;\n        width: 100%;\n        height: 100vh;\n        background: rgb(156, 206, 179);\n        right: -100%;\n        top: 0;\n        text-align: center;\n        padding: 80px 0;\n        line-height: normal;\n        transition: 0.7s;\n    }\n\n    .menu a{\n        display: block;\n        padding: 20px;\n    }\n\n    .hide-menu-btn {\n        position: absolute;\n        top: 40px;\n        right: 40px;\n    }\n\n    #chk:checked ~ .menu{\n        right: 0;\n    }\n\n}\n\n.imageBanner {\n    width: 250px !important;\n    height: 250px;\n    cursor: pointer;\n}\n\n.imageBanner:hover .image-product{\n    opacity: 0.4;\n    transition: 1s;\n}\n\n.image-product:hover {\n    transform:scale(1.03)\n}\n\n.imageBanner:hover .middle{\n    opacity: 1;\n}\n\n.middle {\n    transition: .5s ease;\n    opacity: 0;\n    position: absolute;\n    top: 83%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    -ms-transform: translate(-50%, -50%);\n    text-align: center;\n}\n\n.slick-initialized {\n    z-index: 1 !important;\n}\n\n.button-view {\n    color: #fff; \n    border: 2px solid #e84393;\n    border-radius: 10px;\n    background: none;\n    padding: 10px 20px;\n    font-size: 20px;\n    margin: 10px;\n    cursor: pointer;\n    color: #fff;\n    color: #e84393;\n    position: relative;\n    overflow: hidden;\n}\n\n.button-view:hover {\n    color: #fff;\n}\n\n.button-view::before{\n    content: \"\";\n    position: absolute;\n    left: 0;\n    width: 100%;\n    height: 0%;\n    color: #fff;\n    background: #e84393;\n    z-index: -1;\n    transition: 0.8s; \n}\n\n.button-view::before {\n    top:0;\n    border-radius: 0 0 50% 50%;\n}\n\n.button-view:hover::before {\n    height: 180%;\n}\n\n.container-carousel{\n    width: 340px !important;\n}", ""]);
 
 // exports
 
@@ -74934,11 +74934,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return AdminRoute; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
-/* harmony import */ var _components_VerticalNavbar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/VerticalNavbar */ "./resources/js/components/VerticalNavbar.js");
-/* harmony import */ var _components_HorizontalNavbar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/HorizontalNavbar */ "./resources/js/components/HorizontalNavbar.js");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var _components_VerticalNavbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/VerticalNavbar */ "./resources/js/components/VerticalNavbar.js");
+/* harmony import */ var _components_HorizontalNavbar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/HorizontalNavbar */ "./resources/js/components/HorizontalNavbar.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -74968,7 +74966,6 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-
 var AdminRoute =
 /*#__PURE__*/
 function (_Component) {
@@ -74990,13 +74987,13 @@ function (_Component) {
           Component = _this$props.component,
           props = _objectWithoutProperties(_this$props, ["component"]);
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_2__["Route"], _extends({}, props, {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_1__["Route"], _extends({}, props, {
         render: function render(props) {
           return props.location.state !== undefined && props.location.state.login ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "wrapper"
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_VerticalNavbar__WEBPACK_IMPORTED_MODULE_3__["default"], props), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_VerticalNavbar__WEBPACK_IMPORTED_MODULE_2__["default"], props), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "container-fluid"
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_HorizontalNavbar__WEBPACK_IMPORTED_MODULE_4__["default"], props), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_HorizontalNavbar__WEBPACK_IMPORTED_MODULE_3__["default"], props), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
             to: "/admin/config/login"
           });
         }
@@ -76624,8 +76621,60 @@ function (_Component) {
   _createClass(Contact, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "CONTACTO"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Quilmes"), "Horarios Direccion Seguinos en nuestras redes y realiza cualquier consulta(FAcebook, instagram, whatsapp)", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "map"
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container-fluid"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "d-flex justify-content-center mb-4 mt-5"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        style: {
+          color: '#e84393',
+          fontSize: '54px'
+        }
+      }, "CONTACTO"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "d-flex justify-content-center mb-4"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Quilmes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row box-info"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-md-4 text-center mb-4"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: "mt-4 mb-2"
+      }, "Horarios"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Lunes-Viernes: 9am - 8pm"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sabados: 9am - 8pm"), "Domingos: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        style: {
+          color: 'red'
+        }
+      }, "Cerrado")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-md-4 text-center mb-4"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: "mt-4 mb-2"
+      }, "Direccion"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Rivadavia 108"), "Quilmes, Buenos Aires"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-md-4 text-center mb-4"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: "mt-4 mb-2"
+      }, "Redes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "mb-2"
+      }, "Seguinos en nuestras redes y consultanos cualquier duda."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "mb-2"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://wa.me/5491162743761?text=Hola%20Nala%20queria%20saber%20de%20tus%20ofertas",
+        target: "_blank",
+        className: "mr-4"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fab fa-whatsapp icon-contact"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://www.instagram.com/nalaquilmes/?fbclid=IwAR3Zy-k9ihYTBbi3DurzfMn8s_xQGcYcIZ0HOJ68knEjGVg4xVWybmd4kik",
+        target: "_blank",
+        className: "mr-4 icon-contact"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fab fa-instagram"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://www.facebook.com/Nala-Quilmes-1096349540445839/?ref=br_rs",
+        target: "_blank"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fab fa-facebook icon-contact"
+      }))), "tel:. (+54 9 11) 6452.5874")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "map mt-5 mb-2"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("iframe", {
         src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3279.278094120835!2d-58.259949000000006!3d-34.723383999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a32e6ae51b62dd%3A0x5c7d3fff9eab9d9a!2sNala%20kids!5e0!3m2!1ses-419!2sar!4v1566922805225!5m2!1ses-419!2sar",
         width: "600",
@@ -77047,8 +77096,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Header; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _public_css_page_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../public/css/page.css */ "./public/css/page.css");
+/* harmony import */ var _public_css_page_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_public_css_page_css__WEBPACK_IMPORTED_MODULE_3__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -77070,6 +77122,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
+
 var Header =
 /*#__PURE__*/
 function (_Component) {
@@ -77086,6 +77140,12 @@ function (_Component) {
   }
 
   _createClass(Header, [{
+    key: "isActive",
+    value: function isActive(possiblePathname) {
+      console.log(window.location.pathname == possiblePathname);
+      return window.location.pathname === possiblePathname ? 'itemNavActive' : '';
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -77096,7 +77156,7 @@ function (_Component) {
         style: {
           cursor: 'pointer'
         }
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+      })), console.log(window.location.pathname), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "icons ml-4"
@@ -77128,14 +77188,22 @@ function (_Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "menu"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, " Inicio "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, " Catalogo "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, " Contacto "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, " Quienes Somos "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        href: "/"
+      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: this.isActive('/')
+      }, "Inicio")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "/catalogue"
+      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: this.isActive('/catalogue')
+      }, "Catalogo")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "/contacts"
+      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: this.isActive('/contacts')
+      }, "Contacto")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "/aboutUs"
+      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: this.isActive('/aboutUs')
+      }, "Quienes Somos")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "chk",
         className: "hide-menu-btn"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -77150,7 +77218,7 @@ function (_Component) {
 
 
 if (document.getElementById('header')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Header, null), document.getElementById('header'));
+  react_dom__WEBPACK_IMPORTED_MODULE_2___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Header, null), document.getElementById('header'));
 }
 
 /***/ }),
@@ -77348,7 +77416,7 @@ function (_Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           style: {
             fontSize: '22px',
-            color: '#7D2DDE'
+            color: 'rgb(33, 150, 244)'
           }
         }, product.title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-12",
@@ -77370,7 +77438,8 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container",
         style: {
-          marginTop: '50px'
+          marginTop: '50px',
+          boxShadow: '0 5px 15px -5px #00000070'
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "https://tienda.pachibebes.com/image/catalog/banners_home/ecommerceInv2019-23.jpg",

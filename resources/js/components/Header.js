@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import ReactDOM from 'react-dom';
+import '../../../public/css/page.css';
 
 export default class Header extends Component {
 
@@ -9,15 +11,21 @@ export default class Header extends Component {
         };
     }
 
+    isActive(possiblePathname) {
+        console.log(window.location.pathname == possiblePathname);
+        return window.location.pathname === possiblePathname ? 'itemNavActive' : '';
+    }
+
     render() {
         return (
             <React.Fragment>
                 <div className="row d-flex justify-content-center mr-0 banner">
                     <img src="https://res.cloudinary.com/dddzzcrzg/image/upload/v1566572950/NalaTitle_owkurc.png" role="presentation" style={{ cursor:'pointer' }}/>
                 </div>
+                {console.log(window.location.pathname)}
                 <nav className="header">
                     <div className="icons ml-4">
-                    <a href="https://wa.me/5491162743761?text=Hola%20Nala%20queria%20saber%20de%20tus%20ofertas" target="_blank" className="mr-4"><i className="fab fa-whatsapp"></i></a>
+                        <a href="https://wa.me/5491162743761?text=Hola%20Nala%20queria%20saber%20de%20tus%20ofertas" target="_blank" className="mr-4"><i className="fab fa-whatsapp"></i></a>
                         <a href="https://www.instagram.com/nalaquilmes/?fbclid=IwAR3Zy-k9ihYTBbi3DurzfMn8s_xQGcYcIZ0HOJ68knEjGVg4xVWybmd4kik" target="_blank" className="mr-4"><i className="fab fa-instagram"></i></a>
                         <a href="https://www.facebook.com/Nala-Quilmes-1096349540445839/?ref=br_rs" target="_blank"><i className="fab fa-facebook"></i></a>
                     </div>
@@ -27,10 +35,10 @@ export default class Header extends Component {
                     </label>
 
                     <ul className="menu">
-                        <a href="#"> Inicio </a>
-                        <a href="#"> Catalogo </a>
-                        <a href="#"> Contacto </a>
-                        <a href="#"> Quienes Somos </a>
+                        <a href="/"> <span className={this.isActive('/')}>Inicio</span></a>
+                        <a href="/catalogue"> <span className={this.isActive('/catalogue')}>Catalogo</span></a>
+                        <a href="/contacts"> <span className={this.isActive('/contacts')}>Contacto</span></a>
+                        <a href="/aboutUs"> <span className={this.isActive('/aboutUs')}>Quienes Somos</span></a>
                         <label htmlFor="chk" className="hide-menu-btn">
                             <i className="fas fa-times"></i>
                         </label>

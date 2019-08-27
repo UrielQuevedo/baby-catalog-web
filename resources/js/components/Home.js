@@ -107,7 +107,7 @@ export default class Home extends Component {
                     </div>
                 </div>
                 <div className="col-12" style={{ textAlign: "center" }}>
-                    <span style={{ fontSize: '22px', color:'#7D2DDE' }}>{product.title}</span>
+                    <span style={{ fontSize: '22px', color:'rgb(33, 150, 244)' }}>{product.title}</span>
                 </div>
                 <div className="col-12" style={{ textAlign: "center" }}>
                     <span style={{ fontSize: '16px' }}>{product.price}$</span>
@@ -119,7 +119,7 @@ export default class Home extends Component {
     render() {
         return (
             <div className="box">
-                <div className="container"  style={{ marginTop: '50px' }}>
+                <div className="container"  style={{ marginTop: '50px', boxShadow: '0 5px 15px -5px #00000070' }}>
                     <img src="https://tienda.pachibebes.com/image/catalog/banners_home/ecommerceInv2019-23.jpg" alt="" className="img-fluid"/>
                 </div>
                 <div className="container-fluid">
