@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import { Switch, Route, Redirect } from 'react-router';
 import VerticalNavbar from '../components/VerticalNavbar';
 import HorizontalNavbar from '../components/HorizontalNavbar';
-import '../../../public/css/navbarAdmin.css';
 
 export default class AdminRoute extends Component {
 

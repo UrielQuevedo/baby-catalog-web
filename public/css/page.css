@@ -29,6 +29,7 @@ header, i {
 
 .banner {
     background-image: url("https://res.cloudinary.com/dddzzcrzg/image/upload/v1566573157/bannerbebe_u65gpb.jpg");
+    background-attachment: fixed;
 }
 
 nav {

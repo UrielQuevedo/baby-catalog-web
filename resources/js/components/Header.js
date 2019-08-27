@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import '../../../public/css/page.css';
 
 export default class Header extends Component {
 
@@ -12,7 +11,7 @@ export default class Header extends Component {
 
     render() {
         return (
-            <div className="box">
+            <React.Fragment>
                 <div className="row d-flex justify-content-center mr-0 banner">
                     <img src="https://res.cloudinary.com/dddzzcrzg/image/upload/v1566572950/NalaTitle_owkurc.png" role="presentation" style={{ cursor:'pointer' }}/>
                 </div>
@@ -31,13 +30,13 @@ export default class Header extends Component {
                         <a href="#"> Inicio </a>
                         <a href="#"> Catalogo </a>
                         <a href="#"> Contacto </a>
-                        <a href="#"> Quines Somos </a>
+                        <a href="#"> Quienes Somos </a>
                         <label htmlFor="chk" className="hide-menu-btn">
                             <i className="fas fa-times"></i>
                         </label>
                     </ul>
                 </nav>
-            </div>
+            </React.Fragment>
         );
     }
 }

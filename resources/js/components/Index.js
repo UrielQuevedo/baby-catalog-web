@@ -28,8 +28,8 @@ export default class Index extends Component {
                     <AdminRoute path='/admin/config/product' component={ConfigProduct} />
                     <AdminRoute path='/admin/config/category' component={ConfigCategory} />
                     <AdminRoute path='/admin/config/banner' component={ConfigBanner} />
-                    <Route path="/contacts" render={() => <div><Header /><Contact /><Footer /></div>} />
-                    <Route path="/" render={() => <div><Header /><Home /><Footer /></div>} />
+                    <Route path="/contacts" render={() => <div className="box"><Header /><Contact /><Footer /></div>} />
+                    <Route path="/" render={() => <div className="box"><Header /><Home /><Footer /></div>} />
                 </Switch>
             </BrowserRouter>
         );
