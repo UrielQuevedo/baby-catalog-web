@@ -6,6 +6,7 @@ import ConfigProduct from '../components/ConfigProduct';
 import Home from '../components/Home';
 import AdminRoute from '../components/AdminRoute';
 import Login from '../components/Login';
+import Footer from '../components/Footer';
 import ConfigCategory from '../components/ConfigCategory';
 import ConfigBanner from '../components/ConfigBanner';
 
@@ -25,7 +26,7 @@ export default class Index extends Component {
                     <AdminRoute path='/admin/config/product' component={ConfigProduct} />
                     <AdminRoute path='/admin/config/category' component={ConfigCategory} />
                     <AdminRoute path='/admin/config/banner' component={ConfigBanner} />
-                    <Route path="/" component={Home} />
+                    <Route path="/" render={() => <div><Home /><Footer /></div>} />
                 </Switch>
             </BrowserRouter>
         );

@@ -26,6 +26,7 @@
     },
     "dependencies": {
         "react-easy-crop": "^1.14.0",
-        "react-router-dom": "^5.0.1"
+        "react-router-dom": "^5.0.1",
+        "react-slick": "^0.25.2"
     }
 }

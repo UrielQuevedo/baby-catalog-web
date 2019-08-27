@@ -4,6 +4,7 @@
     background: rgb(115, 214, 159);
     padding: 0 20px;
     color: #fff;
+    z-index: 2;
 }
 
 .box {
@@ -75,13 +76,13 @@ nav {
 }
 
 .ribbon {
-    font-size: 16px !important;
+    font-size: 18px !important;
     width: 50%;
     z-index: -1;
     font-family: Arial, Helvetica, sans-serif;
     color: #fff;
     position: relative;
-    background: #ff6666;
+    background: #e84393;
     text-align: center;
     padding: 1em 2em;
     margin: 2em auto 3em;
@@ -91,7 +92,7 @@ nav {
     position: absolute;
     display: block;
     bottom: -1em;
-    border: 1.5em solid #ff6666;
+    border: 1.5em solid #e84393;
     z-index: -1;
 }
 .ribbon:before {
@@ -109,7 +110,7 @@ nav {
     position: absolute;
     display: block;
     border-style: solid;
-    border-color: #ff6666 transparent transparent transparent;
+    border-color: #e84393 transparent transparent transparent;
     bottom: -1em;
 }
 .ribbon .ribbon-content:before {
@@ -208,4 +209,82 @@ nav {
         right: 0;
     }
 
+}
+
+.imageBanner {
+    width: 250px !important;
+    height: 250px;
+    cursor: pointer;
+}
+
+.imageBanner:hover .image-product{
+    opacity: 0.4;
+    transition: 1s;
+}
+
+.image-product:hover {
+    transform:scale(1.03)
+}
+
+.imageBanner:hover .middle{
+    opacity: 1;
+}
+
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 83%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.slick-initialized {
+    z-index: 1 !important;
+}
+
+.button-view {
+    color: #fff; 
+    border: 2px solid #e84393;
+    border-radius: 10px;
+    background: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    margin: 10px;
+    cursor: pointer;
+    color: #fff;
+    color: #e84393;
+    position: relative;
+    overflow: hidden;
+}
+
+.button-view:hover {
+    color: #fff;
+}
+
+.button-view::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    color: #fff;
+    background: #e84393;
+    z-index: -1;
+    transition: 0.8s; 
+}
+
+.button-view::before {
+    top:0;
+    border-radius: 0 0 50% 50%;
+}
+
+.button-view:hover::before {
+    height: 180%;
+}
+
+.container-carousel{
+    width: 340px !important;
 }

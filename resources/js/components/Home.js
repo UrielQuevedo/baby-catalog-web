@@ -1,14 +1,87 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import Slider from "react-slick";
 import axios from 'axios';
 import '../../../public/css/page.css';
+
+function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className="slick-arrow slick-next d-none d-md-block col-md-12"
+        style={{ ...style, display: "block"}}
+        onClick={onClick}
+      >
+          <i class="fas fa-chevron-circle-right" style={{ color: 'rgb(115, 214, 159)', fontSize: '40px', transform: 'translate(-20px, -59px)' }}></i>
+      </div>
+    );
+  }
+  
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className="slick-arrow slick-prev d-none d-md-block col-md-12"
+        onClick={onClick}
+      >
+          <i class="fas fa-chevron-circle-left" style={{ color: 'rgb(115, 214, 159)', fontSize: '40px', transform: 'translate(-16px,-59px)'}}></i>
+      </div>
+    );
+  }
 
 export default class Home extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            banner: '',
+            banner: {
+                title: '',
+                products: [],
+            },  
+            settings: {
+                arrows: true,
+                dots: true,
+                speed: 500,
+                infinite: true,
+                slidesToShow: 4,
+                initialSlide: 0,
+                slidesToScroll: 4,
+                nextArrow: <SampleNextArrow />,
+                prevArrow: <SamplePrevArrow />,
+                pauseOnHover: true,
+                responsive: [
+                    {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                    }
+                    },
+                    {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        initialSlide: 1
+                    }
+                    },
+                    {
+                        breakpoint: 590,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            initialSlide: 1
+                        }
+                        },
+                    {
+                    breakpoint: 991,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                    }
+                ]
+            }
         };
     }
 
@@ -19,22 +92,41 @@ export default class Home extends Component {
     getBanner() {
         axios.get('/api/banner')
             .then(response => this.setState({ banner: response.data.data }))
-            .catch(error => console.log(error.response.data.error));
+            .catch(error => console.log(error));
     }
 
+    showAllBannerProducts() {
+        return this.state.banner.products.map((product, i) => (
+            <div className="d-flex justify-content-center row">
+                <div className="imageBanner col-12 d-flex justify-content-center">
+                    <img className="img-fluid rounded image-product" src={product.image_url} style={{ height:'100%'}} alt={product.description} />
+                    <div className="middle">
+                        <span style={{ fontSize: '20px' }}>
+                            VER
+                        </span>
+                    </div>
+                </div>
+                <div className="col-12" style={{ textAlign: "center" }}>
+                    <span style={{ fontSize: '22px', color:'#7D2DDE' }}>{product.title}</span>
+                </div>
+                <div className="col-12" style={{ textAlign: "center" }}>
+                    <span style={{ fontSize: '16px' }}>{product.price}$</span>
+                </div>
+            </div>
+        ));
+    }
 
     render() {
         return (
             <div className="box">
-                {console.log(this.state.banner)}
                 <div className="row d-flex justify-content-center mr-0 banner">
-                    <img src="https://res.cloudinary.com/dddzzcrzg/image/upload/v1566572950/NalaTitle_owkurc.png" />
+                    <img src="https://res.cloudinary.com/dddzzcrzg/image/upload/v1566572950/NalaTitle_owkurc.png" role="presentation" style={{ cursor:'pointer' }}/>
                 </div>
                 <nav className="header">
                     <div className="icons ml-4">
-                        <i className="fab fa-whatsapp mr-4"></i>
-                        <i className="fab fa-instagram mr-4"></i>
-                        <i className="fab fa-facebook"></i>
+                    <a href="https://wa.me/5491162743761?text=Hola%20Nala%20queria%20saber%20de%20tus%20ofertas" target="_blank" className="mr-4"><i className="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/nalaquilmes/?fbclid=IwAR3Zy-k9ihYTBbi3DurzfMn8s_xQGcYcIZ0HOJ68knEjGVg4xVWybmd4kik" target="_blank" className="mr-4"><i className="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/Nala-Quilmes-1096349540445839/?ref=br_rs" target="_blank"><i className="fab fa-facebook"></i></a>
                     </div>
                     <input type="checkbox" id="chk" />
                     <label htmlFor="chk" className="show-menu-btn">
@@ -51,45 +143,30 @@ export default class Home extends Component {
                         </label>
                     </ul>
                 </nav>
+                <div className="container"  style={{ marginTop: '50px' }}>
+                    <img src="https://tienda.pachibebes.com/image/catalog/banners_home/ecommerceInv2019-23.jpg" alt="" className="img-fluid"/>
+                </div>
                 <div className="container-fluid">
-                    <div className="justify-content-center">
+                    <div className="justify-content-center" style={{ marginTop: '50px' }}>
                         <h1 className="ribbon">
                             <strong className="ribbon-content">{this.state.banner.title}</strong>
                         </h1>
                     </div>
                     <div className="social-bar">
-                        <a href="#" target="_blank" className="icon-social" style={{ background: '#25d366'}}><i className="fab fa-whatsapp"></i></a>
-                        <a href="#" target="_blank" className="icon-social instagram" ><i className="fab fa-instagram"></i></a>
-                        <a href="#" target="_blank" className="icon-social" style={{ background: '#2E406E'}}><i className="fab fa-facebook-square"></i></a>
+                        <a href="https://wa.me/5491162743761?text=Hola%20Nala%20queria%20saber%20de%20tus%20ofertas" target="_blank" className="icon-social" style={{ background: '#25d366'}}><i className="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/nalaquilmes/?fbclid=IwAR3Zy-k9ihYTBbi3DurzfMn8s_xQGcYcIZ0HOJ68knEjGVg4xVWybmd4kik" target="_blank" className="icon-social instagram" ><i className="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/Nala-Quilmes-1096349540445839/?ref=br_rs" target="_blank" className="icon-social" style={{ background: '#2E406E'}}><i className="fab fa-facebook-square"></i></a>
                     </div>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dolor velit, pellentesque vitae eleifend at, tincidunt vehicula augue. Donec ultricies sollicitudin pellentesque. Fusce in molestie dui. Quisque aliquet vestibulum eros eget interdum. Suspendisse sollicitudin venenatis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer cursus ligula purus, eget faucibus orci rhoncus nec. Morbi egestas enim tincidunt, commodo nibh ut, molestie dolor. Duis accumsan eros ut ornare volutpat. Nam tincidunt, purus id placerat posuere, tellus massa malesuada est, at interdum ligula tellus at augue. Ut lectus sapien, accumsan a maximus eu, accumsan id tortor. Quisque blandit leo ac nunc pretium lobortis. Praesent at enim in diam finibus aliquet et sed purus. Aenean sodales, mi sed aliquet ultricies, leo odio accumsan nisl, non dignissim neque enim nec purus. Donec vitae ultricies ligula. Duis iaculis porttitor turpis ut efficitur.
-
-                    Donec interdum nulla non sollicitudin consectetur. Phasellus maximus ante vel mi tempor, eu aliquam nulla consectetur. Vivamus elit nulla, imperdiet a purus vel, dictum aliquam diam. Suspendisse potenti. Fusce iaculis posuere quam at bibendum. Morbi ullamcorper turpis in tortor varius, at vestibulum nisi lobortis. Vestibulum sodales lorem ac nulla tristique pretium. Integer eu efficitur tortor. Suspendisse potenti. Quisque facilisis porttitor nibh. Quisque vel tellus id mi accumsan auctor. Vestibulum et urna vitae tortor euismod bibendum. In ac cursus mauris.
-
-                    Donec et odio neque. Donec dictum scelerisque tellus, nec vestibulum purus rhoncus ac. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris et justo dictum, fermentum lorem ac, fringilla arcu. Fusce euismod arcu quis magna faucibus congue. In efficitur odio magna, quis auctor arcu consequat quis. Sed ullamcorper elementum orci eget tincidunt. Mauris a magna non purus congue maximus. Nam at eros arcu. Nullam commodo quis velit et blandit. Donec tempus posuere arcu, eget ullamcorper justo. Nam pretium feugiat accumsan. Proin sollicitudin auctor sapien, at vestibulum risus cursus at. Pellentesque magna nisl, convallis a lectus at, efficitur commodo nibh. Nunc nec ullamcorper purus, ac sagittis ante.
-
-                    Morbi quam orci, mollis vel dolor eu, volutpat rutrum elit. Maecenas faucibus leo finibus sem tristique pretium. Proin sed semper arcu. Vivamus pulvinar urna tellus. Suspendisse semper tortor ut rhoncus ullamcorper. Donec semper mauris in mi ornare scelerisque. Etiam scelerisque dolor vitae massa semper condimentum. Integer sem nunc, ultrices vulputate lorem egestas, placerat luctus eros. Vivamus semper sollicitudin ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique, massa non rutrum semper, arcu arcu consequat ex, sed facilisis ante odio sed tortor.
-
-                    Nullam bibendum massa a ligula viverra cursus. Etiam lectus arcu, molestie in ullamcorper in, vulputate in elit. Aliquam sed odio dapibus, posuere lacus quis, porttitor erat. Pellentesque feugiat, orci eu auctor luctus, enim lectus auctor tortor, a vehicula ligula lectus et metus. Donec quis ex ligula. Etiam auctor laoreet sem vel viverra. Morbi id commodo justo, quis vestibulum mi. Pellentesque non urna ex. Sed vitae ultricies arcu, sed malesuada purus. Morbi sit amet mauris nulla. Quisque sit amet nunc dui.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dolor velit, pellentesque vitae eleifend at, tincidunt vehicula augue. Donec ultricies sollicitudin pellentesque. Fusce in molestie dui. Quisque aliquet vestibulum eros eget interdum. Suspendisse sollicitudin venenatis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer cursus ligula purus, eget faucibus orci rhoncus nec. Morbi egestas enim tincidunt, commodo nibh ut, molestie dolor. Duis accumsan eros ut ornare volutpat. Nam tincidunt, purus id placerat posuere, tellus massa malesuada est, at interdum ligula tellus at augue. Ut lectus sapien, accumsan a maximus eu, accumsan id tortor. Quisque blandit leo ac nunc pretium lobortis. Praesent at enim in diam finibus aliquet et sed purus. Aenean sodales, mi sed aliquet ultricies, leo odio accumsan nisl, non dignissim neque enim nec purus. Donec vitae ultricies ligula. Duis iaculis porttitor turpis ut efficitur.
-
-                    Donec interdum nulla non sollicitudin consectetur. Phasellus maximus ante vel mi tempor, eu aliquam nulla consectetur. Vivamus elit nulla, imperdiet a purus vel, dictum aliquam diam. Suspendisse potenti. Fusce iaculis posuere quam at bibendum. Morbi ullamcorper turpis in tortor varius, at vestibulum nisi lobortis. Vestibulum sodales lorem ac nulla tristique pretium. Integer eu efficitur tortor. Suspendisse potenti. Quisque facilisis porttitor nibh. Quisque vel tellus id mi accumsan auctor. Vestibulum et urna vitae tortor euismod bibendum. In ac cursus mauris.
-
-                    Donec et odio neque. Donec dictum scelerisque tellus, nec vestibulum purus rhoncus ac. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris et justo dictum, fermentum lorem ac, fringilla arcu. Fusce euismod arcu quis magna faucibus congue. In efficitur odio magna, quis auctor arcu consequat quis. Sed ullamcorper elementum orci eget tincidunt. Mauris a magna non purus congue maximus. Nam at eros arcu. Nullam commodo quis velit et blandit. Donec tempus posuere arcu, eget ullamcorper justo. Nam pretium feugiat accumsan. Proin sollicitudin auctor sapien, at vestibulum risus cursus at. Pellentesque magna nisl, convallis a lectus at, efficitur commodo nibh. Nunc nec ullamcorper purus, ac sagittis ante.
-
-                    Morbi quam orci, mollis vel dolor eu, volutpat rutrum elit. Maecenas faucibus leo finibus sem tristique pretium. Proin sed semper arcu. Vivamus pulvinar urna tellus. Suspendisse semper tortor ut rhoncus ullamcorper. Donec semper mauris in mi ornare scelerisque. Etiam scelerisque dolor vitae massa semper condimentum. Integer sem nunc, ultrices vulputate lorem egestas, placerat luctus eros. Vivamus semper sollicitudin ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique, massa non rutrum semper, arcu arcu consequat ex, sed facilisis ante odio sed tortor.
-
-                    Nullam bibendum massa a ligula viverra cursus. Etiam lectus arcu, molestie in ullamcorper in, vulputate in elit. Aliquam sed odio dapibus, posuere lacus quis, porttitor erat. Pellentesque feugiat, orci eu auctor luctus, enim lectus auctor tortor, a vehicula ligula lectus et metus. Donec quis ex ligula. Etiam auctor laoreet sem vel viverra. Morbi id commodo justo, quis vestibulum mi. Pellentesque non urna ex. Sed vitae ultricies arcu, sed malesuada purus. Morbi sit amet mauris nulla. Quisque sit amet nunc dui.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dolor velit, pellentesque vitae eleifend at, tincidunt vehicula augue. Donec ultricies sollicitudin pellentesque. Fusce in molestie dui. Quisque aliquet vestibulum eros eget interdum. Suspendisse sollicitudin venenatis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer cursus ligula purus, eget faucibus orci rhoncus nec. Morbi egestas enim tincidunt, commodo nibh ut, molestie dolor. Duis accumsan eros ut ornare volutpat. Nam tincidunt, purus id placerat posuere, tellus massa malesuada est, at interdum ligula tellus at augue. Ut lectus sapien, accumsan a maximus eu, accumsan id tortor. Quisque blandit leo ac nunc pretium lobortis. Praesent at enim in diam finibus aliquet et sed purus. Aenean sodales, mi sed aliquet ultricies, leo odio accumsan nisl, non dignissim neque enim nec purus. Donec vitae ultricies ligula. Duis iaculis porttitor turpis ut efficitur.
-
-                    Donec interdum nulla non sollicitudin consectetur. Phasellus maximus ante vel mi tempor, eu aliquam nulla consectetur. Vivamus elit nulla, imperdiet a purus vel, dictum aliquam diam. Suspendisse potenti. Fusce iaculis posuere quam at bibendum. Morbi ullamcorper turpis in tortor varius, at vestibulum nisi lobortis. Vestibulum sodales lorem ac nulla tristique pretium. Integer eu efficitur tortor. Suspendisse potenti. Quisque facilisis porttitor nibh. Quisque vel tellus id mi accumsan auctor. Vestibulum et urna vitae tortor euismod bibendum. In ac cursus mauris.
-
-                    Donec et odio neque. Donec dictum scelerisque tellus, nec vestibulum purus rhoncus ac. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris et justo dictum, fermentum lorem ac, fringilla arcu. Fusce euismod arcu quis magna faucibus congue. In efficitur odio magna, quis auctor arcu consequat quis. Sed ullamcorper elementum orci eget tincidunt. Mauris a magna non purus congue maximus. Nam at eros arcu. Nullam commodo quis velit et blandit. Donec tempus posuere arcu, eget ullamcorper justo. Nam pretium feugiat accumsan. Proin sollicitudin auctor sapien, at vestibulum risus cursus at. Pellentesque magna nisl, convallis a lectus at, efficitur commodo nibh. Nunc nec ullamcorper purus, ac sagittis ante.
-
-                    Morbi quam orci, mollis vel dolor eu, volutpat rutrum elit. Maecenas faucibus leo finibus sem tristique pretium. Proin sed semper arcu. Vivamus pulvinar urna tellus. Suspendisse semper tortor ut rhoncus ullamcorper. Donec semper mauris in mi ornare scelerisque. Etiam scelerisque dolor vitae massa semper condimentum. Integer sem nunc, ultrices vulputate lorem egestas, placerat luctus eros. Vivamus semper sollicitudin ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique, massa non rutrum semper, arcu arcu consequat ex, sed facilisis ante odio sed tortor.
-
-                    Nullam bibendum massa a ligula viverra cursus. Etiam lectus arcu, molestie in ullamcorper in, vulputate in elit. Aliquam sed odio dapibus, posuere lacus quis, porttitor erat. Pellentesque feugiat, orci eu auctor luctus, enim lectus auctor tortor, a vehicula ligula lectus et metus. Donec quis ex ligula. Etiam auctor laoreet sem vel viverra. Morbi id commodo justo, quis vestibulum mi. Pellentesque non urna ex. Sed vitae ultricies arcu, sed malesuada purus. Morbi sit amet mauris nulla. Quisque sit amet nunc dui.
-
+                    <div className="container mb-5">
+                        <Slider {...this.state.settings}>
+                            {this.showAllBannerProducts()}
+                        </Slider>
+                        <div className="d-flex justify-content-center mt-5">
+                            <button className="button-view">
+                                VER MAS
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         );
