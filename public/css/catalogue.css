@@ -1,0 +1,20 @@
+.container-product-catalogue {
+    box-shadow: 0 5px 15px -5px #00000070;
+    height: 459px;
+    width: 328px;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.title-card-product {
+    color: #2296f3;
+    margin-top: 20px;
+}
+
+.linear {
+    border-color: #72d69e;
+    width: 20px;
+    display: inline-block;
+    max-width: 100%;
+    margin: .5em;
+}

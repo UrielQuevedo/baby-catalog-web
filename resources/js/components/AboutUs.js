@@ -13,7 +13,7 @@ export default class AboutUs extends Component {
     render() {
         return (
             <div className="container-fluid">
-                <div className="d-flex justify-content-center mb-5 mt-5">
+                <div className="d-flex justify-content-center mb-5 mt-5 text-center">
                     <h1> <span style={{ color: '#e84393', fontSize: '54px' }}>QUIENES SOMOS</span></h1>
                 </div>
                 <div className="container">

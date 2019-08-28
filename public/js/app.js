@@ -8684,7 +8684,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".container-product-catalogue {\n    box-shadow: 0 5px 15px -5px #00000070;\n    height: 459px;\n    width: 328px;\n    border-radius: 16px;\n    cursor: pointer;\n}\n\n.title-card-product {\n    color: #2296f3;\n    margin-top: 20px;\n}\n\n.linear {\n    border-color: #72d69e;\n    width: 20px;\n    display: inline-block;\n    max-width: 100%;\n    margin: .5em;\n}", ""]);
 
 // exports
 
@@ -75030,7 +75030,7 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container-fluid"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "d-flex justify-content-center mb-5 mt-5"
+        className: "d-flex justify-content-center mb-5 mt-5 text-center"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         style: {
           color: '#e84393',
@@ -75162,8 +75162,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _public_css_catalogue_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../public/css/catalogue.css */ "./public/css/catalogue.css");
-/* harmony import */ var _public_css_catalogue_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_public_css_catalogue_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _public_css_catalogue_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../public/css/catalogue.css */ "./public/css/catalogue.css");
+/* harmony import */ var _public_css_catalogue_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_public_css_catalogue_css__WEBPACK_IMPORTED_MODULE_3__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -75186,6 +75188,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var Catalogue =
 /*#__PURE__*/
 function (_Component) {
@@ -75197,23 +75200,130 @@ function (_Component) {
     _classCallCheck(this, Catalogue);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Catalogue).call(this, props));
-    _this.state = {};
+    _this.state = {
+      categories: [],
+      products_category: []
+    };
     return _this;
   }
 
   _createClass(Catalogue, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.getAllCategories();
+      this.getProductsByCategory();
+    }
+  }, {
+    key: "getAllCategories",
+    value: function getAllCategories() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/api/category').then(function (response) {
+        return _this2.setState({
+          categories: response.data.data
+        });
+      })["catch"](function (error) {
+        return console.log(error.response.data);
+      });
+    }
+  }, {
+    key: "getProductsByCategory",
+    value: function getProductsByCategory() {
+      var _this3 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/api/product/byCategory/1').then(function (response) {
+        return _this3.setState({
+          products_category: response.data.data
+        });
+      })["catch"](function (error) {
+        return console.log(error.response.data);
+      });
+    }
+  }, {
+    key: "createCategoryMenu",
+    value: function createCategoryMenu() {
+      return this.state.categories.map(function (category) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: ""
+        }, category.category_name);
+      });
+    }
+  }, {
+    key: "createProducts",
+    value: function createProducts() {
+      return this.state.products_category.map(function (product) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-12 col-md-3 text-center pr-0 mb-5"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "container-product-catalogue pt-5"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "container",
+          style: {
+            height: '300px',
+            width: '300px'
+          }
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: product.image_url,
+          alt: "",
+          className: "img-fluid rounded",
+          style: {
+            width: '100%',
+            height: '100%'
+          }
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+          className: "title-card-product"
+        }, product.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", {
+          "data-hook": "product-item-line-between-name-and-price",
+          "class": "linear",
+          "aria-hidden": "true"
+        })), product.price, "$"));
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container-fluid"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, console.log(this.state.categories), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "d-flex justify-content-center mb-5 mt-5"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         style: {
           color: '#e84393',
           fontSize: '54px'
         }
-      }, "CATALOGO"))));
+      }, "CATALOGO"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-md-2 text-center"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Categorias"), this.createCategoryMenu()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-md-10 row pr-0 mr-0"
+      }, this.createProducts())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "social-bar"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://wa.me/5491162743761?text=Hola%20Nala%20queria%20saber%20de%20tus%20ofertas",
+        target: "_blank",
+        className: "icon-social",
+        style: {
+          background: '#25d366'
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fab fa-whatsapp"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://www.instagram.com/nalaquilmes/?fbclid=IwAR3Zy-k9ihYTBbi3DurzfMn8s_xQGcYcIZ0HOJ68knEjGVg4xVWybmd4kik",
+        target: "_blank",
+        className: "icon-social instagram"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fab fa-instagram"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://www.facebook.com/Nala-Quilmes-1096349540445839/?ref=br_rs",
+        target: "_blank",
+        className: "icon-social",
+        style: {
+          background: '#2E406E'
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fab fa-facebook-square"
+      }))));
     }
   }]);
 
