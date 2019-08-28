@@ -12,7 +12,7 @@ function SampleNextArrow(props) {
         style={{ ...style, display: "block"}}
         onClick={onClick}
       >
-          <i class="fas fa-chevron-circle-right" style={{ color: 'rgb(115, 214, 159)', fontSize: '40px', transform: 'translate(-20px, -59px)' }}></i>
+          <i class="fas fa-chevron-circle-right icon-carousel" style={{ color: 'rgb(115, 214, 159)', transform: 'translate(-1px, -59px)' }}></i>
       </div>
     );
   }
@@ -24,7 +24,7 @@ function SampleNextArrow(props) {
         className="slick-arrow slick-prev d-none d-md-block col-md-12"
         onClick={onClick}
       >
-          <i class="fas fa-chevron-circle-left" style={{ color: 'rgb(115, 214, 159)', fontSize: '40px', transform: 'translate(-16px,-59px)'}}></i>
+          <i class="fas fa-chevron-circle-left icon-carousel" style={{ color: 'rgb(115, 214, 159)', transform: 'translate(-16px,-59px)'}}></i>
       </div>
     );
   }
@@ -98,19 +98,21 @@ export default class Home extends Component {
     showAllBannerProducts() {
         return this.state.banner.products.map((product, i) => (
             <div className="d-flex justify-content-center row">
-                <div className="imageBanner col-12 d-flex justify-content-center">
-                    <img className="img-fluid rounded image-product" src={product.image_url} style={{ height:'100%'}} alt={product.description} />
-                    <div className="middle">
-                        <span style={{ fontSize: '20px' }}>
-                            VER
-                        </span>
+                <div className="wrapper-image-carousel">
+                    <div className="imageBanner col-12 d-flex justify-content-center">
+                        <img className="img-fluid rounded image-product" src={product.image_url} style={{ height:'100%'}} alt={product.description} />
+                        <div className="middle">
+                            <span style={{ fontSize: '20px' }}>
+                                VER
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div className="col-12" style={{ textAlign: "center" }}>
-                    <span style={{ fontSize: '22px', color:'rgb(33, 150, 244)' }}>{product.title}</span>
-                </div>
-                <div className="col-12" style={{ textAlign: "center" }}>
-                    <span style={{ fontSize: '16px' }}>{product.price}$</span>
+                    <div className="col-12" style={{ textAlign: "center" }}>
+                        <span style={{ fontSize: '22px', color:'rgb(33, 150, 244)' }}>{product.title}</span>
+                    </div>
+                    <div className="col-12" style={{ textAlign: "center" }}>
+                        <span style={{ fontSize: '16px' }}>{product.price}$</span>
+                    </div>
                 </div>
             </div>
         ));
