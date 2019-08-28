@@ -11,6 +11,7 @@ import ConfigCategory from '../components/ConfigCategory';
 import ConfigBanner from '../components/ConfigBanner';
 import Contact from "./Contact";
 import Header from "./Header";
+import AboutUs from "./AboutUs";
 
 export default class Index extends Component {
     constructor(props) {
@@ -28,7 +29,8 @@ export default class Index extends Component {
                     <AdminRoute path='/admin/config/product' component={ConfigProduct} />
                     <AdminRoute path='/admin/config/category' component={ConfigCategory} />
                     <AdminRoute path='/admin/config/banner' component={ConfigBanner} />
-                    <Route path="/contacts" render={() => <div className="box"><Header /><Contact /><Footer /></div>} />
+                    <Route exact path="/contacts" render={() => <div className="box"><Header /><Contact /><Footer /></div>} />
+                    <Route exact path="/aboutUs" render={() => <div className="box"><Header /><AboutUs /><Footer /></div>} />
                     <Route path="/" render={() => <div className="box"><Header /><Home /><Footer /></div>} />
                 </Switch>
             </BrowserRouter>
