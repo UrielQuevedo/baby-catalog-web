@@ -7,7 +7,7 @@ import '../../../public/css/page.css';
 function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
-      <div
+    <div
         className="slick-arrow slick-next d-none d-md-block col-md-12"
         style={{ ...style, display: "block"}}
         onClick={onClick}
@@ -122,7 +122,7 @@ export default class Home extends Component {
         return (
             <div className="box">
                 <div className="container"  style={{ marginTop: '50px', boxShadow: '0 5px 15px -5px #00000070' }}>
-                    <img src="https://tienda.pachibebes.com/image/catalog/banners_home/ecommerceInv2019-23.jpg" alt="" className="img-fluid"/>
+                    <a href="/catalogue"><img src="https://tienda.pachibebes.com/image/catalog/banners_home/ecommerceInv2019-23.jpg" alt="" className="img-fluid" style={{ cursor:'pointer' }}/></a>
                 </div>
                 <div className="container-fluid">
                     <div className="justify-content-center" style={{ marginTop: '50px' }}>

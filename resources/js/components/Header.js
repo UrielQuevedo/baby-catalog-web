@@ -20,7 +20,7 @@ export default class Header extends Component {
         return (
             <React.Fragment>
                 <div className="row d-flex justify-content-center mr-0 banner">
-                    <img src="https://res.cloudinary.com/dddzzcrzg/image/upload/v1566572950/NalaTitle_owkurc.png" role="presentation" style={{ cursor:'pointer' }}/>
+                    <a href="/"><img src="https://res.cloudinary.com/dddzzcrzg/image/upload/v1566572950/NalaTitle_owkurc.png" role="presentation" style={{ cursor:'pointer' }}/></a>
                 </div>
                 {console.log(window.location.pathname)}
                 <nav className="header">
