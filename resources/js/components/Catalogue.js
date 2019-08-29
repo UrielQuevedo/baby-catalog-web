@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import axios from 'axios';
 import '../../../public/css/catalogue.css';
 import '../../../public/css/page.css';
 
 
-export default class Catalogue extends Component {
+class Catalogue extends Component {
 
     constructor(props) {
         super(props);
@@ -27,16 +29,22 @@ export default class Catalogue extends Component {
     }
 
     getProductsByCategory() {
-        axios.get('/api/product/byCategory/1')
+        axios.get(`/api/product/byCategory/${this.props.match.params.idCategory}`)
             .then( response => this.setState({ products_category: response.data.data }))
             .catch( error => console.log(error.response.data));
     }
 
+    isActiveCategory(id) {
+        return this.props.match.params.idCategory == id ? 'active-category' : '';
+    }
+
     createCategoryMenu() {
         return this.state.categories.map( category => (
-            <div className="mt-3 mb-3" style={{ fontSize: '22px' }}>
-                {category.category_name}
-            </div>
+                <a href={`/catalogue/${category.id}`} className="">
+                    <div className={`mt-3 mb-3 ${this.isActiveCategory(category.id)} category-menu`}>
+                        {category.category_name}
+                    </div>
+                </a>
         ));
     }
 
@@ -87,6 +95,8 @@ export default class Catalogue extends Component {
         );
     }
 }
+
+export default withRouter(Catalogue)
 
 if (document.getElementById('catalogue')) {
     ReactDOM.render(<Catalogue />, document.getElementById('catalogue'));

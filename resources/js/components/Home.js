@@ -103,7 +103,7 @@ export default class Home extends Component {
                         <img className="img-fluid rounded image-product" src={product.image_url} style={{ height:'100%'}} alt={product.description} />
                         <div className="middle">
                             <span>
-                                <i class="fas fa-search icon-search"></i>
+                                <span className="icon-search">VER</span>
                             </span>
                         </div>
                     </div>

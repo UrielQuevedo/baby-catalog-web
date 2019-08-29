@@ -27,6 +27,20 @@
     top: 75px;
 }
 
+.active-category {
+    background: #fbffcc;
+}
+
+.category-menu {
+    cursor: pointer;
+    font-size: 22px;
+    color: rgb(232, 67, 147);
+    transition: .6s;
+}
+
+.category-menu:hover {
+    background: #fbffcc;
+}
 
 .category-selected {
     background: #95b5a363;

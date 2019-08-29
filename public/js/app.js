@@ -8684,7 +8684,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".container-product-catalogue {\n    box-shadow: 0 5px 15px -5px #00000070;\n    height: 459px;\n    width: 328px;\n    border-radius: 16px;\n    cursor: pointer;\n}\n\n.title-card-product {\n    color: #2296f3;\n    margin-top: 20px;\n}\n\n.linear {\n    border-color: #72d69e;\n    width: 20px;\n    display: inline-block;\n    max-width: 100%;\n    margin: .5em;\n}\n\n.wrapper-categories {\n    box-shadow: 0 5px 15px -5px #00000070;\n    min-width: 205px;\n    position: -webkit-sticky; /* Safari */\n    position: sticky;\n    top: 75px;\n}\n\n\n.category-selected {\n    background: #95b5a363;\n}", ""]);
+exports.push([module.i, ".container-product-catalogue {\n    box-shadow: 0 5px 15px -5px #00000070;\n    height: 459px;\n    width: 328px;\n    border-radius: 16px;\n    cursor: pointer;\n}\n\n.title-card-product {\n    color: #2296f3;\n    margin-top: 20px;\n}\n\n.linear {\n    border-color: #72d69e;\n    width: 20px;\n    display: inline-block;\n    max-width: 100%;\n    margin: .5em;\n}\n\n.wrapper-categories {\n    box-shadow: 0 5px 15px -5px #00000070;\n    min-width: 205px;\n    position: -webkit-sticky; /* Safari */\n    position: sticky;\n    top: 75px;\n}\n\n.active-category {\n    background: #fbffcc;\n}\n\n.category-menu {\n    cursor: pointer;\n    font-size: 22px;\n    color: rgb(232, 67, 147);\n    transition: .6s;\n}\n\n.category-menu:hover {\n    background: #fbffcc;\n}\n\n.category-selected {\n    background: #95b5a363;\n}", ""]);
 
 // exports
 
@@ -8798,7 +8798,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap);", ""]);
 
 // module
-exports.push([module.i, ".header{\n    height: 58px;\n    background: rgb(115, 214, 159);\n    padding: 0 20px;\n    color: #fff;\n    box-shadow: 0 5px 15px -5px #00000070;\n    z-index: 2;\n}\n\n.box {\n    font-family: 'Lexend Deca', sans-serif;\n}\n\nnav {\n    position: -webkit-sticky; /* Safari */\n    position: sticky;\n    top: 0;\n}\n\nheader, i {\n    font-size: 30px;\n    /* font-family: 'Poppins', sans-serif; */\n}\n\n.menu{\n    line-height: 61px;\n    /* font-family: 'Poppins', sans-serif; */\n}\n\n.banner {\n    background-image: url(\"https://res.cloudinary.com/dddzzcrzg/image/upload/v1566573157/bannerbebe_u65gpb.jpg\");\n    background-attachment: fixed;\n}\n\nnav {\n    text-align: center;\n}\n\n.menu a{\n    color: #fefefe;\n    text-transform: uppercase;\n    text-decoration: none;\n    padding: 0 10px;\n    font-size: 20px;\n    transition: 0.4s;\n}\n\n.show-menu-btn,.hide-menu-btn{\n    transition: 0.4s;\n    cursor: pointer;\n    display: none;\n}\n\n.show-menu-btn {\n    float: right;\n}\n\n.show-menu-btn i{\n    line-height: 61px;\n}\n\n.itemNavActive {\n    color: #3f51b5;\n}\n\n.menu a:hover,\n.show-menu-btn:hover,\n.hide-menu-btn:hover{\n    color: #3498db;\n}\n\n#chk {\n    position: absolute;\n    visibility: hidden;\n    z-index: -1111;\n}\n\n.icons {\n    line-height: 72px;\n    display: none;\n}\n\n.ribbon {\n    font-size: 18px !important;\n    width: 50%;\n    z-index: -1;\n    font-family: Arial, Helvetica, sans-serif;\n    color: #fff;\n    position: relative;\n    background: #e84393;\n    text-align: center;\n    padding: 1em 2em;\n    margin: 2em auto 3em;\n}\n.ribbon:before, .ribbon:after {\n    content: \"\";\n    position: absolute;\n    display: block;\n    bottom: -1em;\n    border: 1.5em solid #e84393;\n    z-index: -1;\n}\n.ribbon:before {\n    left: -2em;\n    border-right-width: 1.5em;\n    border-left-color: transparent;\n}\n.ribbon:after {\n    right: -2em;\n    border-left-width: 1.5em;\n    border-right-color: transparent;\n}\n.ribbon .ribbon-content:before, .ribbon .ribbon-content:after {\n    content: \"\";\n    position: absolute;\n    display: block;\n    border-style: solid;\n    border-color: #e84393 transparent transparent transparent;\n    bottom: -1em;\n}\n.ribbon .ribbon-content:before {\n    left: 0;\n    border-width: 1em 0 0 1em;\n}\n.ribbon .ribbon-content:after {\n    right: 0;\n    border-width: 1em 1em 0 0;\n}\n\n.social-bar {\n    position: fixed;\n    right: 0;\n    top: 35%;\n    font-size: 1.5rem;\n    display: flex;\n    flex-direction: column;\n    align-items: flex-end;\n    z-index: 100;\n}\n\n.icon-social {\n    text-decoration: none;\n    padding: .7rem;\n    display: flex;\n    transition: all .5s;\n    color: #fff;\n}\n\n.icon-social:first-child {\n    border-radius: 1rem 0 0 0;\n}\n\n.icon-social:last-child {\n    border-radius: 0 0 0 1rem;\n}\n\n.icon-social:hover {\n    padding-right: 3rem;\n    border-radius: 1rem 0 0 1rem;\n    box-shadow: 0 0 .5rem rgb(0, 0, 0, 0.42);\n    color: #fff;\n}\n\n.instagram {\n    background: #f09433; \n    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); \n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );\n}\n\n@media screen and (max-width:800px) {\n    .show-menu-btn,.hide-menu-btn {\n        display: block;\n    }\n\n    .icons {\n        display: inline;\n    }\n\n    .social-bar {\n        display: none;\n    }\n\n    .ribbon {\n        width: 85%;\n    }\n\n    .menu{\n        position: fixed;\n        width: 100%;\n        height: 100vh;\n        background: rgb(156, 206, 179);\n        right: -100%;\n        top: 0;\n        text-align: center;\n        padding: 80px 0;\n        line-height: normal;\n        transition: 0.7s;\n    }\n\n    .menu a{\n        display: block;\n        padding: 20px;\n    }\n\n    .hide-menu-btn {\n        position: absolute;\n        top: 40px;\n        right: 40px;\n    }\n\n    #chk:checked ~ .menu{\n        right: 0;\n    }\n\n}\n\n.imageBanner {\n    width: 250px !important;\n    height: 250px;\n    cursor: pointer;\n}\n\n.imageBanner:hover .image-product{\n    opacity: 0.2;\n    transition: 1s;\n}\n\n.image-product:hover {\n    transform:scale(1.03)\n}\n\n.imageBanner:hover .middle{\n    opacity: 1;\n}\n\n.middle {\n    transition: .5s ease;\n    opacity: 0;\n    position: absolute;\n    top: 83%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    -ms-transform: translate(-50%, -50%);\n    text-align: center;\n}\n\n.slick-initialized {\n    z-index: 1 !important;\n}\n\n.icon-search {\n    color: #ea5a93;\n}\n\n.button-view {\n    color: #fff; \n    border: 2px solid #e84393;\n    border-radius: 10px;\n    background: none;\n    padding: 10px 20px;\n    font-size: 20px;\n    margin: 10px;\n    cursor: pointer;\n    color: #fff;\n    color: #e84393;\n    position: relative;\n    overflow: hidden;\n}\n\n.button-view:hover {\n    color: #fff;\n}\n\n.button-view::before{\n    content: \"\";\n    position: absolute;\n    left: 0;\n    width: 100%;\n    height: 0%;\n    color: #fff;\n    background: #e84393;\n    z-index: -1;\n    transition: 0.8s; \n}\n\n.button-view::before {\n    top:0;\n    border-radius: 0 0 50% 50%;\n}\n\n.button-view:hover::before {\n    height: 180%;\n}\n\n.container-carousel{\n    width: 340px !important;\n}\n\n.wrapper-image-carousel {\n    box-shadow: 0 5px 15px -5px #00000070;\n    margin-bottom: 10px;\n}\n\n.icon-carousel {\n    box-shadow: 0 5px 15px -5px #00000070;\n    font-size: '40px';\n    border-radius: 22px;\n}", ""]);
+exports.push([module.i, ".header{\n    height: 58px;\n    background: rgb(115, 214, 159);\n    padding: 0 20px;\n    color: #fff;\n    box-shadow: 0 5px 15px -5px #00000070;\n    z-index: 2;\n}\n\n.box {\n    font-family: 'Lexend Deca', sans-serif;\n}\n\nnav {\n    position: -webkit-sticky; /* Safari */\n    position: sticky;\n    top: 0;\n}\n\nheader, i {\n    font-size: 30px;\n    /* font-family: 'Poppins', sans-serif; */\n}\n\n.menu{\n    line-height: 61px;\n    /* font-family: 'Poppins', sans-serif; */\n}\n\n.banner {\n    background-image: url(\"https://res.cloudinary.com/dddzzcrzg/image/upload/v1566573157/bannerbebe_u65gpb.jpg\");\n    background-attachment: fixed;\n}\n\nnav {\n    text-align: center;\n}\n\n.menu a{\n    color: #fefefe;\n    text-transform: uppercase;\n    text-decoration: none;\n    padding: 0 10px;\n    font-size: 20px;\n    transition: 0.4s;\n}\n\n.show-menu-btn,.hide-menu-btn{\n    transition: 0.4s;\n    cursor: pointer;\n    display: none;\n}\n\n.show-menu-btn {\n    float: right;\n}\n\n.show-menu-btn i{\n    line-height: 61px;\n}\n\n.itemNavActive {\n    color: #3f51b5;\n}\n\n.menu a:hover,\n.show-menu-btn:hover,\n.hide-menu-btn:hover{\n    color: #3498db;\n}\n\n#chk {\n    position: absolute;\n    visibility: hidden;\n    z-index: -1111;\n}\n\n.icons {\n    line-height: 72px;\n    display: none;\n}\n\n.ribbon {\n    font-size: 18px !important;\n    width: 50%;\n    z-index: -1;\n    font-family: Arial, Helvetica, sans-serif;\n    color: #fff;\n    position: relative;\n    background: #e84393;\n    text-align: center;\n    padding: 1em 2em;\n    margin: 2em auto 3em;\n}\n.ribbon:before, .ribbon:after {\n    content: \"\";\n    position: absolute;\n    display: block;\n    bottom: -1em;\n    border: 1.5em solid #e84393;\n    z-index: -1;\n}\n.ribbon:before {\n    left: -2em;\n    border-right-width: 1.5em;\n    border-left-color: transparent;\n}\n.ribbon:after {\n    right: -2em;\n    border-left-width: 1.5em;\n    border-right-color: transparent;\n}\n.ribbon .ribbon-content:before, .ribbon .ribbon-content:after {\n    content: \"\";\n    position: absolute;\n    display: block;\n    border-style: solid;\n    border-color: #e84393 transparent transparent transparent;\n    bottom: -1em;\n}\n.ribbon .ribbon-content:before {\n    left: 0;\n    border-width: 1em 0 0 1em;\n}\n.ribbon .ribbon-content:after {\n    right: 0;\n    border-width: 1em 1em 0 0;\n}\n\n.social-bar {\n    position: fixed;\n    right: 0;\n    top: 35%;\n    font-size: 1.5rem;\n    display: flex;\n    flex-direction: column;\n    align-items: flex-end;\n    z-index: 100;\n}\n\n.icon-social {\n    text-decoration: none;\n    padding: .7rem;\n    display: flex;\n    transition: all .5s;\n    color: #fff;\n}\n\n.icon-social:first-child {\n    border-radius: 1rem 0 0 0;\n}\n\n.icon-social:last-child {\n    border-radius: 0 0 0 1rem;\n}\n\n.icon-social:hover {\n    padding-right: 3rem;\n    border-radius: 1rem 0 0 1rem;\n    box-shadow: 0 0 .5rem rgb(0, 0, 0, 0.42);\n    color: #fff;\n}\n\n.instagram {\n    background: #f09433; \n    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); \n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );\n}\n\n@media screen and (max-width:800px) {\n    .show-menu-btn,.hide-menu-btn {\n        display: block;\n    }\n\n    .icons {\n        display: inline;\n    }\n\n    .social-bar {\n        display: none;\n    }\n\n    .ribbon {\n        width: 85%;\n    }\n\n    .menu{\n        position: fixed;\n        width: 100%;\n        height: 100vh;\n        background: rgb(156, 206, 179);\n        right: -100%;\n        top: 0;\n        text-align: center;\n        padding: 80px 0;\n        line-height: normal;\n        transition: 0.7s;\n    }\n\n    .menu a{\n        display: block;\n        padding: 20px;\n    }\n\n    .hide-menu-btn {\n        position: absolute;\n        top: 40px;\n        right: 40px;\n    }\n\n    #chk:checked ~ .menu{\n        right: 0;\n    }\n\n}\n\n.imageBanner {\n    width: 250px !important;\n    height: 250px;\n    cursor: pointer;\n}\n\n.imageBanner:hover .image-product{\n    opacity: 0.2;\n    transition: 1s;\n}\n\n.image-product:hover {\n    transform:scale(1.03)\n}\n\n.imageBanner:hover .middle{\n    opacity: 1;\n}\n\n.middle {\n    transition: .5s ease;\n    opacity: 0;\n    position: absolute;\n    top: 83%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    -ms-transform: translate(-50%, -50%);\n    text-align: center;\n}\n\n.slick-initialized {\n    z-index: 1 !important;\n}\n\n.icon-search {\n    color: #ea5a93;\n    font-size: 25px;\n}\n\n.button-view {\n    color: #fff; \n    border: 2px solid #e84393;\n    border-radius: 10px;\n    background: none;\n    padding: 10px 20px;\n    font-size: 20px;\n    margin: 10px;\n    cursor: pointer;\n    color: #fff;\n    color: #e84393;\n    position: relative;\n    overflow: hidden;\n}\n\n.button-view:hover {\n    color: #fff;\n}\n\n.button-view::before{\n    content: \"\";\n    position: absolute;\n    left: 0;\n    width: 100%;\n    height: 0%;\n    color: #fff;\n    background: #e84393;\n    z-index: -1;\n    transition: 0.8s; \n}\n\n.button-view::before {\n    top:0;\n    border-radius: 0 0 50% 50%;\n}\n\n.button-view:hover::before {\n    height: 180%;\n}\n\n.container-carousel{\n    width: 340px !important;\n}\n\n.wrapper-image-carousel {\n    box-shadow: 0 5px 15px -5px #00000070;\n    margin-bottom: 10px;\n}\n\n.icon-carousel {\n    box-shadow: 0 5px 15px -5px #00000070;\n    font-size: '40px';\n    border-radius: 22px;\n}", ""]);
 
 // exports
 
@@ -75157,17 +75157,18 @@ function (_Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Catalogue; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _public_css_catalogue_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../public/css/catalogue.css */ "./public/css/catalogue.css");
-/* harmony import */ var _public_css_catalogue_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_public_css_catalogue_css__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _public_css_page_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../public/css/page.css */ "./public/css/page.css");
-/* harmony import */ var _public_css_page_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_public_css_page_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _public_css_catalogue_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../public/css/catalogue.css */ "./public/css/catalogue.css");
+/* harmony import */ var _public_css_catalogue_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_public_css_catalogue_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _public_css_page_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../public/css/page.css */ "./public/css/page.css");
+/* harmony import */ var _public_css_page_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_public_css_page_css__WEBPACK_IMPORTED_MODULE_6__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -75185,6 +75186,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
 
 
 
@@ -75221,7 +75224,7 @@ function (_Component) {
     value: function getAllCategories() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/api/category').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/category').then(function (response) {
         return _this2.setState({
           categories: response.data.data
         });
@@ -75234,7 +75237,7 @@ function (_Component) {
     value: function getProductsByCategory() {
       var _this3 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/api/product/byCategory/1').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get("/api/product/byCategory/".concat(this.props.match.params.idCategory)).then(function (response) {
         return _this3.setState({
           products_category: response.data.data
         });
@@ -75243,15 +75246,22 @@ function (_Component) {
       });
     }
   }, {
+    key: "isActiveCategory",
+    value: function isActiveCategory(id) {
+      return this.props.match.params.idCategory == id ? 'active-category' : '';
+    }
+  }, {
     key: "createCategoryMenu",
     value: function createCategoryMenu() {
+      var _this4 = this;
+
       return this.state.categories.map(function (category) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "mt-3 mb-3",
-          style: {
-            fontSize: '22px'
-          }
-        }, category.category_name);
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: "/catalogue/".concat(category.id),
+          className: ""
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "mt-3 mb-3 ".concat(_this4.isActiveCategory(category.id), " category-menu")
+        }, category.category_name));
       });
     }
   }, {
@@ -75349,7 +75359,7 @@ function (_Component) {
   return Catalogue;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router__WEBPACK_IMPORTED_MODULE_3__["withRouter"])(Catalogue));
 
 if (document.getElementById('catalogue')) {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Catalogue, null), document.getElementById('catalogue'));
@@ -77491,8 +77501,12 @@ function (_Component) {
   _createClass(Header, [{
     key: "isActive",
     value: function isActive(possiblePathname) {
-      console.log(window.location.pathname == possiblePathname);
-      return window.location.pathname === possiblePathname ? 'itemNavActive' : '';
+      return window.location.pathname.includes(possiblePathname) ? 'itemNavActive' : '';
+    }
+  }, {
+    key: "isActiveHome",
+    value: function isActiveHome() {
+      return window.location.pathname === "/" ? 'itemNavActive' : '';
     }
   }, {
     key: "render",
@@ -77507,7 +77521,7 @@ function (_Component) {
         style: {
           cursor: 'pointer'
         }
-      }))), console.log(window.location.pathname), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "icons ml-4"
@@ -77541,7 +77555,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "/"
       }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: this.isActive('/')
+        className: this.isActiveHome()
       }, "Inicio")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "/catalogue"
       }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -77755,9 +77769,9 @@ function (_Component) {
           alt: product.description
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "middle"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          "class": "fas fa-search icon-search"
-        })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "icon-search"
+        }, "VER")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-12",
           style: {
             textAlign: "center"
@@ -77996,6 +78010,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Header */ "./resources/js/components/Header.js");
 /* harmony import */ var _AboutUs__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./AboutUs */ "./resources/js/components/AboutUs.js");
 /* harmony import */ var _Catalogue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Catalogue */ "./resources/js/components/Catalogue.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_15__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -78030,6 +78046,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var Index =
 /*#__PURE__*/
 function (_Component) {
@@ -78041,16 +78058,37 @@ function (_Component) {
     _classCallCheck(this, Index);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Index).call(this, props));
-    _this.state = {};
+    _this.state = {
+      category_id: ''
+    };
     return _this;
   }
 
   _createClass(Index, [{
     key: "componentDidMount",
-    value: function componentDidMount() {}
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_15___default.a.get('/api/category').then(function (response) {
+        return _this2.setState({
+          category_id: response.data.data[0].id
+        });
+      })["catch"](function (error) {
+        return console.log(error);
+      });
+    }
+  }, {
+    key: "redirect",
+    value: function redirect() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+        to: "/catalogue/".concat(this.state.category_id)
+      });
+    }
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/admin/config/login",
@@ -78083,6 +78121,12 @@ function (_Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/catalogue",
+        render: function render() {
+          return _this3.redirect();
+        }
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        exact: true,
+        path: "/catalogue/:idCategory",
         render: function render() {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "box"
@@ -78336,11 +78380,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _public_css_navbarAdmin_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../public/css/navbarAdmin.css */ "./public/css/navbarAdmin.css");
-/* harmony import */ var _public_css_navbarAdmin_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_public_css_navbarAdmin_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _public_css_navbarAdmin_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../public/css/navbarAdmin.css */ "./public/css/navbarAdmin.css");
+/* harmony import */ var _public_css_navbarAdmin_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_public_css_navbarAdmin_css__WEBPACK_IMPORTED_MODULE_3__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -78358,7 +78400,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 
 
 
@@ -78398,21 +78439,21 @@ function (_Component) {
         className: "title-config"
       }, "Configuracion"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: this.checkPosition('/admin/config/product')
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: {
           pathname: '/admin/config/product',
           state: this.props.location.state
         }
       }, "Producto")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: this.checkPosition('/admin/config/category')
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: {
           pathname: '/admin/config/category',
           state: this.props.location.state
         }
       }, "Categoria")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: this.checkPosition('/admin/config/banner')
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: {
           pathname: '/admin/config/banner',
           state: this.props.location.state
