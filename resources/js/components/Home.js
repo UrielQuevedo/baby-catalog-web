@@ -102,8 +102,8 @@ export default class Home extends Component {
                     <div className="imageBanner col-12 d-flex justify-content-center">
                         <img className="img-fluid rounded image-product" src={product.image_url} style={{ height:'100%'}} alt={product.description} />
                         <div className="middle">
-                            <span style={{ fontSize: '20px' }}>
-                                VER
+                            <span>
+                                <i class="fas fa-search icon-search"></i>
                             </span>
                         </div>
                     </div>

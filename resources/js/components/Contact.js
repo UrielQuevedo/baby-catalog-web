@@ -43,7 +43,7 @@ export default class Contact extends Component {
                                     <a href="https://www.instagram.com/nalaquilmes/?fbclid=IwAR3Zy-k9ihYTBbi3DurzfMn8s_xQGcYcIZ0HOJ68knEjGVg4xVWybmd4kik" target="_blank" className="mr-4 icon-contact"><i className="fab fa-instagram"></i></a>
                                     <a href="https://www.facebook.com/Nala-Quilmes-1096349540445839/?ref=br_rs" target="_blank"><i className="fab fa-facebook icon-contact"></i></a>
                                 </div>
-                                tel:. (+54 9 11) 6452.5874
+                                tel:. (+54 9 11) 6274.3761
                             </div>
                         </div>
                     </div>

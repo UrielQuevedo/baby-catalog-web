@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import '../../../public/css/catalogue.css';
+import '../../../public/css/page.css';
+
 
 export default class Catalogue extends Component {
 
@@ -32,7 +34,7 @@ export default class Catalogue extends Component {
 
     createCategoryMenu() {
         return this.state.categories.map( category => (
-            <div className="">
+            <div className="mt-3 mb-3" style={{ fontSize: '22px' }}>
                 {category.category_name}
             </div>
         ));
@@ -40,10 +42,10 @@ export default class Catalogue extends Component {
 
     createProducts() {
         return this.state.products_category.map( product => (
-            <div className="col-12 col-md-3 text-center pr-0 mb-5">
+            <div className="text-center pr-0 mb-5 mr-3 ml-4">
                 <div className="container-product-catalogue pt-5">
-                    <div className="container" style={{ height: '300px', width: '300px'}}>
-                        <img src={product.image_url} alt="" className="img-fluid rounded" style={{ width:'100%', height:'100%'}} />
+                    <div className="container image-container-product" style={{ height: '300px', width: '300px'}}>
+                        <img src={product.image_url} alt="" className="img-fluid rounded image-product" style={{ width:'100%', height:'100%'}} />
                     </div>
                     <h4 className="title-card-product">
                         {product.title}
@@ -51,7 +53,7 @@ export default class Catalogue extends Component {
                     <div>
                         <hr data-hook="product-item-line-between-name-and-price" class="linear" aria-hidden="true" />
                     </div>
-                    {product.price}$
+                    <span style={{ fontSize: '18px'}}>{product.price}$</span>
                 </div>
             </div>
         ));
@@ -59,17 +61,20 @@ export default class Catalogue extends Component {
 
     render() {
         return (
-            <div className="container-fluid">
-                {console.log(this.state.categories)}
+            <div className="container-fluid" >
                 <div className="d-flex justify-content-center mb-5 mt-5">
                     <h1> <span style={{ color: '#e84393', fontSize: '54px' }}>CATALOGO</span></h1>
                 </div>
                 <div className="row">
-                    <div className="col-12 col-md-2 text-center">
-                        <h3>Categorias</h3>
-                        {this.createCategoryMenu()}
+                    <div className="col-12 col-lg-2 text-center">
+                        <div className="wrapper-categories mb-5">
+                            <h3 className="pt-4" style={{ fontSize: '34px' }}>Categorias</h3>
+                            <div className="mt-4 pb-4">
+                                {this.createCategoryMenu()}
+                            </div>
+                        </div>
                     </div>
-                    <div className="col-12 col-md-10 row pr-0 mr-0">
+                    <div className="col-12 col-lg-10 pr-0 mr-0 row d-flex justify-content-center">
                         {this.createProducts()}
                     </div>
                 </div>

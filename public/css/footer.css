@@ -5,6 +5,15 @@
     padding: 0;
 }
 
+html, body {
+    height: 100%;
+}
+
+#index {
+    min-height:100%;
+    position:relative;
+}
+
 .footer {
     background: rgb(115, 214, 159);
     padding: 55px 40px;
