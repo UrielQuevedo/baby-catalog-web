@@ -14,6 +14,7 @@ import Header from "./Header";
 import AboutUs from "./AboutUs";
 import Catalogue from "./Catalogue";
 import Axios from "axios";
+import Product from "./Product";
 
 export default class Index extends Component {
     constructor(props) {
@@ -45,6 +46,7 @@ export default class Index extends Component {
                     <Route exact path="/aboutUs" render={() => <div className="box"><Header /><AboutUs /><Footer /></div>} />
                     <Route exact path="/catalogue" render={() => this.redirect()} />
                     <Route exact path="/catalogue/:idCategory" render={() => <div className="box"><Header /><Catalogue /><Footer /></div>} />
+                    <Route exact path="/product/:idProduct" render={() => <div className="box"><Header /> <Product /> <Footer /></div>} />
                     <Route path="/" render={() => <div className="box"><Header /><Home /><Footer /></div>} />
                 </Switch>
             </BrowserRouter>

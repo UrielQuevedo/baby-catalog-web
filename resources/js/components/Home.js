@@ -140,9 +140,11 @@ export default class Home extends Component {
                             {this.showAllBannerProducts()}
                         </Slider>
                         <div className="d-flex justify-content-center mt-5">
-                            <button className="button-view">
-                                VER MAS
-                            </button>
+                            <a href="/catalogue">
+                                <button className="button-view">
+                                    VER MAS
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import axios from 'axios';
 import '../../../public/css/catalogue.css';
-import '../../../public/css/page.css';
 
 
 class Catalogue extends Component {
@@ -40,7 +39,7 @@ class Catalogue extends Component {
 
     createCategoryMenu() {
         return this.state.categories.map( category => (
-                <a href={`/catalogue/${category.id}`} className="">
+                <a href={`/catalogue/${category.id}`}>
                     <div className={`mt-3 mb-3 ${this.isActiveCategory(category.id)} category-menu`}>
                         {category.category_name}
                     </div>
