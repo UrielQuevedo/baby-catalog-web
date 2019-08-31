@@ -75767,6 +75767,8 @@ function (_Component) {
     value: function createHeaderTable() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
         className: "cell"
+      }, "#"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        className: "cell"
       }, "Codigo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
         className: "cell",
         "data-priority": "1"
@@ -75783,7 +75785,7 @@ function (_Component) {
     }
   }, {
     key: "createProductTableBanner",
-    value: function createProductTableBanner(id, product) {
+    value: function createProductTableBanner(id, product, i) {
       var _this12 = this;
 
       var classN = '';
@@ -75798,15 +75800,15 @@ function (_Component) {
         onClick: function onClick() {
           return _this12.abstractHandler('productBannerSelected', product);
         }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.code), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.priority), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.price), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.category.category_name));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, i), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.code), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.priority), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.price), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.category.category_name));
     }
   }, {
     key: "createTrProductsBannerTable",
     value: function createTrProductsBannerTable() {
       var _this13 = this;
 
-      return this.state.banner.products.map(function (product) {
-        return _this13.createProductTableBanner(product.code + 'TR' + 'ProductBanner', product);
+      return this.state.banner.products.map(function (product, i) {
+        return _this13.createProductTableBanner(product.code + 'TR' + 'ProductBanner', product, i + 1);
       });
     }
   }, {
@@ -75842,7 +75844,7 @@ function (_Component) {
     }
   }, {
     key: "createTrProduct",
-    value: function createTrProduct(id, product) {
+    value: function createTrProduct(id, product, i) {
       var _this15 = this;
 
       var classN = '';
@@ -75857,15 +75859,15 @@ function (_Component) {
         onClick: function onClick() {
           return _this15.abstractHandler('productSelected', product);
         }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.code), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.priority), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.price), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.category_name));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, i), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.code), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.priority), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.price), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.category_name));
     }
   }, {
     key: "createTrProductsTable",
     value: function createTrProductsTable() {
       var _this16 = this;
 
-      return this.state.products.map(function (product) {
-        return _this16.createTrProduct(product.code + 'TR' + 'ProductTable', product);
+      return this.state.products.map(function (product, i) {
+        return _this16.createTrProduct(product.code + 'TR' + 'ProductTable', product, i + 1);
       });
     }
   }, {
@@ -76597,7 +76599,7 @@ function (_Component) {
     }
   }, {
     key: "createTrProduct",
-    value: function createTrProduct(id, product) {
+    value: function createTrProduct(id, product, i) {
       var _this10 = this;
 
       var classN = '';
@@ -76612,21 +76614,23 @@ function (_Component) {
         onClick: function onClick() {
           return _this10.abstractHandler('product_selected', product);
         }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.code), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.priority), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.price), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.category_name));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, i), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.code), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.priority), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.price), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.category_name));
     }
   }, {
     key: "createTrProductsTable",
     value: function createTrProductsTable() {
       var _this11 = this;
 
-      return this.state.products.map(function (product) {
-        return _this11.createTrProduct(product.code + 'TR' + 'ProductTable', product);
+      return this.state.products.map(function (product, i) {
+        return _this11.createTrProduct(product.code + 'TR' + 'ProductTable', product, i + 1);
       });
     }
   }, {
     key: "createHeaderTable",
     value: function createHeaderTable() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        className: "cell"
+      }, "#"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
         className: "cell"
       }, "Codigo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
         className: "cell",

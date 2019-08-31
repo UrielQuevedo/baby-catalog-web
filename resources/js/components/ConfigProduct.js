@@ -184,13 +184,14 @@ export default class ConfigProduct extends Component {
         );
     }
 
-    createTrProduct(id, product) {
+    createTrProduct(id, product, i) {
         var classN = '';
         if(product === this.state.product_selected) {
             classN = 'rowSelected';
         }
         return (
             <tr className={"rowTable " + classN} key={id} onClick={() => this.abstractHandler('product_selected', product)}>
+                <td>{i}</td>
                 <td>{product.code}</td>
                 <td>{product.title}</td>
                 <td>{product.priority}</td>
@@ -201,14 +202,15 @@ export default class ConfigProduct extends Component {
     }
 
     createTrProductsTable() {
-        return this.state.products.map(product => (
-            this.createTrProduct(product.code+'TR'+'ProductTable', product)
+        return this.state.products.map((product, i) => (
+            this.createTrProduct(product.code+'TR'+'ProductTable', product, i+1)
         ));
     }
 
     createHeaderTable() {
         return (
             <tr>
+                <th className="cell">#</th>
                 <th className="cell">Codigo</th>
                 <th className="cell" data-priority="1">Titulo</th>
                 <th className="cell" data-priority="2">Prioridad</th>
