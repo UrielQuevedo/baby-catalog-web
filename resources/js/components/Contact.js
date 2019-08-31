@@ -39,7 +39,7 @@ export default class Contact extends Component {
                             <div>
                                 <div className="mb-2">Seguinos en nuestras redes y consultanos cualquier duda.</div>
                                 <div className="mb-2">
-                                    <a href="https://wa.me/5491162743761?text=Hola%20Nala%20queria%20saber%20de%20tus%20ofertas" target="_blank" className="mr-4"><i className="fab fa-whatsapp icon-contact"></i></a>
+                                    <a href="https://wa.me/5491162743761?text=Hola%20Nala%20queria%20realizar%20una%20consulta" target="_blank" className="mr-4"><i className="fab fa-whatsapp icon-contact"></i></a>
                                     <a href="https://www.instagram.com/nalaquilmes/?fbclid=IwAR3Zy-k9ihYTBbi3DurzfMn8s_xQGcYcIZ0HOJ68knEjGVg4xVWybmd4kik" target="_blank" className="mr-4 icon-contact"><i className="fab fa-instagram"></i></a>
                                     <a href="https://www.facebook.com/Nala-Quilmes-1096349540445839/?ref=br_rs" target="_blank"><i className="fab fa-facebook icon-contact"></i></a>
                                 </div>

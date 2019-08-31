@@ -75385,7 +75385,7 @@ function (_Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "social-bar"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "https://wa.me/5491162743761?text=Hola%20Nala%20queria%20saber%20de%20tus%20ofertas",
+        href: "https://wa.me/5491162743761?text=Hola%20Nala%20queria%20realizar%20una%20consulta",
         target: "_blank",
         className: "icon-social",
         style: {
@@ -77072,7 +77072,7 @@ function (_Component) {
       }, "Seguinos en nuestras redes y consultanos cualquier duda."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "mb-2"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "https://wa.me/5491162743761?text=Hola%20Nala%20queria%20saber%20de%20tus%20ofertas",
+        href: "https://wa.me/5491162743761?text=Hola%20Nala%20queria%20realizar%20una%20consulta",
         target: "_blank",
         className: "mr-4"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -77496,7 +77496,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fab fa-instagram"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "https://wa.me/5491162743761?text=Hola%20Nala%20queria%20saber%20de%20tus%20ofertas",
+        href: "https://wa.me/5491162743761?text=Hola%20Nala%20queria%20realizar%20una%20consulta",
         target: "_blank",
         className: "icon-footer"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -77611,7 +77611,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fab fa-instagram"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "https://wa.me/5491162743761?text=Hola%20Nala%20queria%20saber%20de%20tus%20ofertas",
+        href: "https://wa.me/5491162743761?text=Hola%20Nala%20queria%20realizar%20una%20consulta",
         target: "_blank"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fab fa-whatsapp"
@@ -77904,7 +77904,7 @@ function (_Component) {
       }, this.state.banner.title))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "social-bar"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "https://wa.me/5491162743761?text=Hola%20Nala%20queria%20saber%20de%20tus%20ofertas",
+        href: "https://wa.me/5491162743761?text=Hola%20Nala%20queria%20realizar%20una%20consulta",
         target: "_blank",
         className: "icon-social",
         style: {
@@ -78594,19 +78594,21 @@ function (_Component) {
       }, "Talle: ", this.state.product.waist), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "mt-4 mb-3"
       }, this.state.product.description), "Cualquier consulta la puede realizar directamente por ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "",
+        href: "https://wa.me/5491162743761?text=Queria%20consultar%20sobre%20la%20prenda%20".concat(this.state.product.code),
+        target: "_blank",
         style: {
           color: 'red'
         }
-      }, "WhatsApp"), " o por ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "",
+      }, "WhatsApp "), " o por ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://www.facebook.com/Nala-Quilmes-1096349540445839/?ref=br_rs",
+        target: "_blank",
         style: {
           color: 'red'
         }
-      }, "Facebook"), " utilizando el codigo de la prenda", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Facebook "), "utilizando el codigo de la prenda", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "footer-icons d-flex justify-content-center mt-3 mb-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "https://wa.me/5491162743761?text=Hola%20Nala%20queria%20saber%20de%20tus%20ofertas",
+        href: "https://wa.me/5491162743761?text=Queria%20consultar%20sobre%20la%20prenda%20".concat(this.state.product.code),
         target: "_blank",
         className: "icon-footer"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {

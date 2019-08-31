@@ -53,7 +53,7 @@ export default class Footer extends Component {
                     <div className="footer-icons d-flex justify-content-center mt-3">
                         <a href="https://www.facebook.com/Nala-Quilmes-1096349540445839/?ref=br_rs" target="_blank" className="icon-footer"><i className="fab fa-facebook-f"></i></a>
                         <a href="https://www.instagram.com/nalaquilmes/?fbclid=IwAR3Zy-k9ihYTBbi3DurzfMn8s_xQGcYcIZ0HOJ68knEjGVg4xVWybmd4kik" target="_blank" className="icon-footer"><i className="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/5491162743761?text=Hola%20Nala%20queria%20saber%20de%20tus%20ofertas" target="_blank" className="icon-footer"><i className="fab fa-whatsapp"></i></a>
+                        <a href="https://wa.me/5491162743761?text=Hola%20Nala%20queria%20realizar%20una%20consulta" target="_blank" className="icon-footer"><i className="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
