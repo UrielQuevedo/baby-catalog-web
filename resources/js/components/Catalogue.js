@@ -50,18 +50,20 @@ class Catalogue extends Component {
     createProducts() {
         return this.state.products_category.map( product => (
             <div className="text-center pr-0 mb-5 mr-3 ml-4">
-                <div className="container-product-catalogue pt-5">
-                    <div className="container image-container-product" style={{ height: '300px', width: '300px'}}>
-                        <img src={product.image_url} alt="" className="img-fluid rounded image-product" style={{ width:'100%', height:'100%'}} />
+                <Link to={`/product/${product.id}`}>
+                    <div className="container-product-catalogue pt-5">
+                        <div className="container image-container-product" style={{ height: '300px', width: '300px'}}>
+                            <img src={product.image_url} alt="" className="img-fluid rounded image-product" style={{ width:'100%', height:'100%'}} />
+                        </div>
+                        <h4 className="title-card-product">
+                            {product.title}
+                        </h4>
+                        <div>
+                            <hr data-hook="product-item-line-between-name-and-price" class="linear" aria-hidden="true" />
+                        </div>
+                        <span style={{ fontSize: '18px'}}>{product.price}$</span>
                     </div>
-                    <h4 className="title-card-product">
-                        {product.title}
-                    </h4>
-                    <div>
-                        <hr data-hook="product-item-line-between-name-and-price" class="linear" aria-hidden="true" />
-                    </div>
-                    <span style={{ fontSize: '18px'}}>{product.price}$</span>
-                </div>
+                </Link>
             </div>
         ));
     }

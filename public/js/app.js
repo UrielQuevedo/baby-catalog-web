@@ -75315,6 +75315,8 @@ function (_Component) {
       return this.state.products_category.map(function (product) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "text-center pr-0 mb-5 mr-3 ml-4"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+          to: "/product/".concat(product.id)
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "container-product-catalogue pt-5"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -75341,7 +75343,7 @@ function (_Component) {
           style: {
             fontSize: '18px'
           }
-        }, product.price, "$")));
+        }, product.price, "$"))));
       });
     }
   }, {
@@ -78478,14 +78480,11 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Product).call(this, props));
     _this.state = {
       product: {
-        category_id: '',
         code: '',
         description: '',
         id: undefined,
         image_url: '',
-        offer: 0,
         price: '',
-        priority: '',
         title: '',
         waist: ''
       }
@@ -78510,23 +78509,81 @@ function (_Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container-fluid"
+        className: "container mb-5"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "d-flex justify-content-center mt-5 mb-5"
+        className: "d-flex justify-content-center mb-3 mt-3"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "fas fa-arrow-circle-left",
+        style: {
+          fontSize: '78px',
+          color: '#f6982e',
+          cursor: 'pointer'
+        },
+        onClick: function onClick() {
+          return history.back();
+        }
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row pt-5",
+        style: {
+          boxShadow: '0 5px 15px -5px #00000070'
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-md-6 d-flex justify-content-end mb-5"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         style: {
-          height: '450px',
-          width: '450px'
+          maxHeight: '500px',
+          maxWidth: '450px'
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: this.state.product.image_url,
-        alt: this.state.product.description,
+        alt: "",
         className: "img-fluid",
         style: {
-          width: '100%',
-          height: '100%'
+          boxShadow: 'rgba(0, 0, 0, 0.44) 0px 5px 27px 1px'
         }
-      })), this.state.product.title), this.state.product.code, this.state.product.price, this.state.product.waist, this.state.product.description, this.state.product.category_id);
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-md-6 text-center"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        style: {
+          color: '#e84393',
+          fontSize: '49px'
+        }
+      }, this.state.product.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        style: {
+          color: '#463219',
+          fontSize: '18px'
+        }
+      }, this.state.product.code), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        style: {
+          fontSize: '31px'
+        }
+      }, this.state.product.price, "$"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "mt-1"
+      }, "Talle: ", this.state.product.waist), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "mt-4 mb-3"
+      }, this.state.product.description), "Cualquier consulta la puede realizar directamente por ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: ""
+      }, "WhatsApp"), " o por ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: ""
+      }, "Facebook"), " utilizando el codigo de la prenda", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "footer-icons d-flex justify-content-center mt-3 mb-3"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://www.facebook.com/Nala-Quilmes-1096349540445839/?ref=br_rs",
+        target: "_blank",
+        className: "icon-footer"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fab fa-facebook-f"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://wa.me/5491162743761?text=Hola%20Nala%20queria%20saber%20de%20tus%20ofertas",
+        target: "_blank",
+        className: "icon-footer"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fab fa-whatsapp",
+        style: {
+          color: '#72d69e',
+          fontSize: '33px'
+        }
+      }))))));
     }
   }]);
 
