@@ -91,3 +91,7 @@ td {
     position: relative;
     background: rgb(146, 142, 142);
 }
+
+.checkbox-input {
+    transform: translate(1px, 10px);
+}

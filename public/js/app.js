@@ -8703,7 +8703,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".theadTable {\n    color: #ffffff;\n    background: #6c7ae0;\n}\n\n.cell {\n    font-size: 18px;\n    color: #fff;\n    padding-top: 19px;\n    padding-bottom: 19px;\n}\n\n.wrap-table {\n    border-radius: 5px;\n    border: 1px solid #8080804f;\n}\n\ntr:hover td{\n    background-color: #ececff;\n    cursor: pointer;\n}\n\ntd {\n    font-size: 15px;\n    color: #666666;\n    padding-top: 20px;\n    padding-bottom: 20px;\n    border-bottom: 1px solid #f2f2f2;\n}\n\n.lines-style {\n    color: rgb(146, 141, 187);\n    font-size: 30px;\n    display: grid;\n    width: 100%;\n    align-items: center;\n    text-align: center;\n    grid-template-columns: minmax(20px, 1fr) auto minmax(20px, 1fr);\n    grid-gap: 20px;\n    margin-bottom: 40px;\n    margin-top: 40px;\n}\n\n.lines-style:before,\n.lines-style:after {\n    content: '';\n    border-top: 2px solid;\n}\n\n.rowSelected {\n    background: #ececff;\n}\n\n.scrollTable {\n    max-height: 500px;\n}\n\n[type=\"file\"] {\n    height: 0;\n    overflow: hidden;\n    width: 0;\n}\n\n[type=\"file\"] + label {\n    background: #f15d22;\n    border: none;\n    border-radius: 5px;\n    color: #fff;\n    cursor: pointer;\n    display: inline-block;\n    font-family: 'Poppins', sans-serif;\n    font-size: inherit;\n    font-weight: 600;\n    margin-bottom: 1rem;\n    outline: none;\n    padding: 8px 40px;\n    position: relative;\n    transition: all 0.3s;\n    vertical-align: middle;\n}\n\n[type=\"file\"]:focus + label,\n[type=\"file\"] + label:hover {\n    background-color: #b43d0d;\n    ;\n}\n\n.cropContainerImage {\n    height: 400px;\n    width: 100%;\n    position: relative;\n    background: rgb(146, 142, 142);\n}\n", ""]);
+exports.push([module.i, ".theadTable {\n    color: #ffffff;\n    background: #6c7ae0;\n}\n\n.cell {\n    font-size: 18px;\n    color: #fff;\n    padding-top: 19px;\n    padding-bottom: 19px;\n}\n\n.wrap-table {\n    border-radius: 5px;\n    border: 1px solid #8080804f;\n}\n\ntr:hover td{\n    background-color: #ececff;\n    cursor: pointer;\n}\n\ntd {\n    font-size: 15px;\n    color: #666666;\n    padding-top: 20px;\n    padding-bottom: 20px;\n    border-bottom: 1px solid #f2f2f2;\n}\n\n.lines-style {\n    color: rgb(146, 141, 187);\n    font-size: 30px;\n    display: grid;\n    width: 100%;\n    align-items: center;\n    text-align: center;\n    grid-template-columns: minmax(20px, 1fr) auto minmax(20px, 1fr);\n    grid-gap: 20px;\n    margin-bottom: 40px;\n    margin-top: 40px;\n}\n\n.lines-style:before,\n.lines-style:after {\n    content: '';\n    border-top: 2px solid;\n}\n\n.rowSelected {\n    background: #ececff;\n}\n\n.scrollTable {\n    max-height: 500px;\n}\n\n[type=\"file\"] {\n    height: 0;\n    overflow: hidden;\n    width: 0;\n}\n\n[type=\"file\"] + label {\n    background: #f15d22;\n    border: none;\n    border-radius: 5px;\n    color: #fff;\n    cursor: pointer;\n    display: inline-block;\n    font-family: 'Poppins', sans-serif;\n    font-size: inherit;\n    font-weight: 600;\n    margin-bottom: 1rem;\n    outline: none;\n    padding: 8px 40px;\n    position: relative;\n    transition: all 0.3s;\n    vertical-align: middle;\n}\n\n[type=\"file\"]:focus + label,\n[type=\"file\"] + label:hover {\n    background-color: #b43d0d;\n    ;\n}\n\n.cropContainerImage {\n    height: 400px;\n    width: 100%;\n    position: relative;\n    background: rgb(146, 142, 142);\n}\n\n.checkbox-input {\n    transform: translate(1px, 10px);\n}", ""]);
 
 // exports
 
@@ -76358,6 +76358,7 @@ function (_Component) {
         image_url: '',
         title: '',
         description: '',
+        title_offer: '',
         code: '',
         offer: false,
         price: 1,
@@ -76765,16 +76766,16 @@ function (_Component) {
       var _this14 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-12 col-md-6 col-md-auto col-auto row pr-0 mb-3"
+        className: "col-12 col-md-6 col-md-auto col-auto row pr-0 mb-3 checkbox-input"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "offer",
         className: "col-2 form-check-label"
-      }, "Oferta:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Promo:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-9 mb-3 pr-0 "
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "checkbox",
         checked: this.state.product.offer,
-        className: "form-check-input",
+        className: "form-check-input ml-3",
         id: "offer",
         onChange: function onChange(event) {
           return _this14.abstractHandlerForAProduct('offer', event.target.checked);
@@ -76919,9 +76920,32 @@ function (_Component) {
       })));
     }
   }, {
+    key: "createOfferTitleInput",
+    value: function createOfferTitleInput() {
+      var _this20 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-md-6 col-md-auto row pr-0"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "offerTitle",
+        className: "col-md-3 col-form-label"
+      }, "Titulo Promo:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-md-8 mb-3 pr-0"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "form-control",
+        id: "offerTitle",
+        defaultValue: this.state.product.title_offer,
+        placeholder: "Titulo de la Promo",
+        onChange: function onChange(event) {
+          return _this20.abstractHandlerForAProduct('title_offer', event.target.value);
+        }
+      })));
+    }
+  }, {
     key: "createWrapperProductFrom",
     value: function createWrapperProductFrom() {
-      var _this20 = this;
+      var _this21 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "col-xs-12 mb-4",
@@ -76946,9 +76970,9 @@ function (_Component) {
         defaultValue: this.state.product.description,
         placeholder: "Agregar una Descripcion",
         onChange: function onChange(event) {
-          return _this20.abstractHandlerForAProduct('description', event.target.value);
+          return _this21.abstractHandlerForAProduct('description', event.target.value);
         }
-      }))), this.createOfferInput(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }))), this.createOfferInput(), this.createOfferTitleInput(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12"
       }, this.showErrors(this.state.errorCreateProduct)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12 row justify-content-around pr-0"
@@ -76957,7 +76981,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "col-12 col-md-6 btn btn-success",
         onClick: function onClick() {
-          return _this20.createProduct();
+          return _this21.createProduct();
         },
         type: "reset"
       }, "Crear")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -76966,7 +76990,7 @@ function (_Component) {
         type: "reset",
         className: "col-12 col-md-6 btn btn-primary",
         onClick: function onClick() {
-          return _this20.handlerEditProductSend();
+          return _this21.handlerEditProductSend();
         }
       }, "Aplicar")))));
     }

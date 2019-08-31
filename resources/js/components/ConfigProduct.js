@@ -22,6 +22,7 @@ export default class ConfigProduct extends Component {
                 image_url: '',
                 title: '',
                 description: '',
+                title_offer: '',
                 code: '',
                 offer: false,
                 price: 1,
@@ -311,13 +312,13 @@ export default class ConfigProduct extends Component {
 
     createOfferInput() {
         return (
-            <div className="col-12 col-md-6 col-md-auto col-auto row pr-0 mb-3">
-                <label htmlFor="offer" className="col-2 form-check-label">Oferta:</label>
+            <div className="col-12 col-md-6 col-md-auto col-auto row pr-0 mb-3 checkbox-input">
+                <label htmlFor="offer" className="col-2 form-check-label">Promo:</label>
                 <div className="col-9 mb-3 pr-0 ">
                     <input 
                         type="checkbox"
                         checked={this.state.product.offer}
-                        className="form-check-input"
+                        className="form-check-input ml-3"
                         id="offer"
                         onChange={event => this.abstractHandlerForAProduct('offer', event.target.checked)} />
                 </div>
@@ -419,6 +420,23 @@ export default class ConfigProduct extends Component {
         );
     }
 
+    createOfferTitleInput() {
+        return (
+            <div className="col-12 col-md-6 col-md-auto row pr-0">
+                <label htmlFor="offerTitle" className="col-md-3 col-form-label">Titulo Promo:</label>
+                <div className="col-md-8 mb-3 pr-0">
+                    <input 
+                        type="text"
+                        className="form-control" 
+                        id="offerTitle"
+                        defaultValue={this.state.product.title_offer}
+                        placeholder="Titulo de la Promo"
+                        onChange={event => this.abstractHandlerForAProduct('title_offer', event.target.value)} />
+                </div>
+            </div>
+        );
+    }
+
     createWrapperProductFrom() {
         return (
             <form className="col-xs-12 mb-4" onSubmit={e => { e.preventDefault(); }}>
@@ -445,6 +463,7 @@ export default class ConfigProduct extends Component {
                         </div>
                     </div>
                     {this.createOfferInput()}
+                    {this.createOfferTitleInput()}
                     <div className="col-12">
                         {this.showErrors(this.state.errorCreateProduct)}
                     </div>

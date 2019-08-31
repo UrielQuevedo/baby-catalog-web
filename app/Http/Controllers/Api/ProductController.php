@@ -27,6 +27,9 @@ class ProductController extends Controller
         if ($this->checkIfTheDataIsValid($request)){
 			return response()->json(['error'=>'Faltan datos necesarios para el proceso de alta.(Complete todos los campos)'],422);
         }
+        if ($request->input('offer') && !$request->input('title_offer')) {
+            return response()->json(['error'=>'Falta un titulo a la Promocion'],422);
+        }
         $products=DB::table('products')->select('code')->where('code', $request->input('code'))->get();
         if (count($products) != 0) {
             return response()->json(['error'=>'Ya existe un Producto con ese Codigo.'],422);
@@ -67,7 +70,7 @@ class ProductController extends Controller
             return response()->json(['error'=>'No se encuentra una categoria con ese código.'],422);
         }
         $products=DB::table('products')
-                        ->select('products.id','offer','priority','image_url','code','title','waist','description','price','category_name', 'category_id')
+                        ->select('products.id','offer','title_offer','priority','image_url','code','title','waist','description','price','category_name', 'category_id')
                             ->join('categories', 'categories.id', '=', 'products.category_id')
                                 ->where('products.category_id', '=', $category_id)
                                     ->orderBy('priority','asc')
@@ -78,7 +81,7 @@ class ProductController extends Controller
 
     public function searchByCode($code) {
         $products=DB::table('products')
-                        ->select('products.id','offer','priority','image_url','code','title','waist','description','price','category_name', 'category_id')
+                        ->select('products.id','offer','title_offer','priority','image_url','code','title','waist','description','price','category_name', 'category_id')
                             ->where('code', $code)
                                 ->join('categories', 'categories.id', '=', 'products.category_id')
                                         ->orderBy('priority','asc')
@@ -104,6 +107,9 @@ class ProductController extends Controller
         }
         if($this->checkIfTheDataIsValid($request)) {
             return response()->json(['error'=>'Faltan datos necesarios para el proceso de alta.(Complete todos los campos)'],422);
+        }
+        if ($request->input('offer') && !$request->input('title_offer')) {
+            return response()->json(['error'=>'Falta un titulo a la Promocion'],422);
         }
         $products=DB::table('products')->select('code')->where('code', $request->input('code'))->where('id','!=',$request->input('id'))->get();
         if (count($products) != 0) {
@@ -162,6 +168,7 @@ class ProductController extends Controller
         $newProduct->category_id=$request->input('category_id'); 
         $newProduct->code=$request->input('code');
         $newProduct->offer=$request->input('offer');
+        $newProduct->title_offer=$request->input('title_offer');
         $newProduct->save();
         return $newProduct;
     }
