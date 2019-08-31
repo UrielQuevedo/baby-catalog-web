@@ -19,7 +19,7 @@ export default class VerticalNavbar extends Component {
         return (
             <nav id="sidebar">
                 <div className="sidebar-header">
-                    <h3>ADMINISTRACION WEB</h3>
+                    <h3>ADMINISTRACION NALA</h3>
                 </div> 
                 <ul className="list-unstyled components">
                     <p className="title-config">Configuracion</p>

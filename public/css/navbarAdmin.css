@@ -16,7 +16,8 @@ p{font-family: 'Poppins', sans-serif;
 }
 
 .title-config {
-    color: black;
+    font-size: 24px !important;
+    color:#D5C273;
 }
 
 a,
@@ -66,10 +67,13 @@ a:focus{
 }
 
 #sidebar .sidebar-header{
-	padding: 20px;
+    padding: 20px;
 	background: #6d7fcc;
 }
 #sidebar ul.components{
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
 	padding: 20px 0px;
 	border-bottom: 1px solid #47748b;
 }
