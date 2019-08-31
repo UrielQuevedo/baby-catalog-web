@@ -87,6 +87,7 @@ class Catalogue extends Component {
                         {this.createProducts()}
                     </div>
                 </div>
+                <i class="fas fa-chevron-circle-up icon-up d-lg-none" onClick={() => window.scroll({top:140, left:0, behavior: 'smooth'})}></i>
                 <div className="social-bar">
                     <a href="https://wa.me/5491162743761?text=Hola%20Nala%20queria%20saber%20de%20tus%20ofertas" target="_blank" className="icon-social" style={{ background: '#25d366'}}><i className="fab fa-whatsapp"></i></a>
                     <a href="https://www.instagram.com/nalaquilmes/?fbclid=IwAR3Zy-k9ihYTBbi3DurzfMn8s_xQGcYcIZ0HOJ68knEjGVg4xVWybmd4kik" target="_blank" className="icon-social instagram" ><i className="fab fa-instagram"></i></a>

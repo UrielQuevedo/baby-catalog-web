@@ -8684,7 +8684,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".container-product-catalogue {\n    box-shadow: 0 5px 15px -5px #00000070;\n    height: 459px;\n    width: 328px;\n    border-radius: 16px;\n    cursor: pointer;\n}\n\n.title-card-product {\n    color: #2296f3;\n    margin-top: 20px;\n}\n\n.linear {\n    border-color: #72d69e;\n    width: 20px;\n    display: inline-block;\n    max-width: 100%;\n    margin: .5em;\n}\n\n.wrapper-categories {\n    box-shadow: 0 5px 15px -5px #00000070;\n    min-width: 205px;\n    position: -webkit-sticky; /* Safari */\n    position: sticky;\n    top: 75px;\n}\n\n.active-category {\n    background: #fbffcc;\n}\n\n.category-menu {\n    cursor: pointer;\n    font-size: 22px;\n    color: rgb(232, 67, 147);\n    transition: .6s;\n}\n\n.category-menu:hover {\n    background: #fbffcc;\n}\n\n.category-selected {\n    background: #95b5a363;\n}", ""]);
+exports.push([module.i, ".container-product-catalogue {\n    box-shadow: 0 5px 15px -5px #00000070;\n    height: 459px;\n    width: 328px;\n    border-radius: 16px;\n    cursor: pointer;\n}\n\n.title-card-product {\n    color: #2296f3;\n    margin-top: 20px;\n}\n\n.linear {\n    border-color: #72d69e;\n    width: 20px;\n    display: inline-block;\n    max-width: 100%;\n    margin: .5em;\n}\n\n.wrapper-categories {\n    box-shadow: 0 5px 15px -5px #00000070;\n    min-width: 205px;\n    position: -webkit-sticky; /* Safari */\n    position: sticky;\n    top: 75px;\n}\n\n.active-category {\n    background: #fbffcc;\n}\n\n.category-menu {\n    cursor: pointer;\n    font-size: 22px;\n    color: rgb(232, 67, 147);\n    transition: .6s;\n}\n\n.category-menu:hover {\n    background: #fbffcc;\n}\n\n.category-selected {\n    background: #95b5a363;\n}\n\n.icon-up {\n    font-size: 45px;\n    position: fixed;\n    color: #3f51b5;\n    box-shadow: 0 5px 15px -5px #00000070;\n    border-radius: 250px;\n    cursor: pointer;\n    bottom: 20px;\n    left: 10px;\n}", ""]);
 
 // exports
 
@@ -75373,7 +75373,16 @@ function (_Component) {
         className: "mt-4 pb-4"
       }, this.createCategoryMenu()))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12 col-lg-10 pr-0 mr-0 row d-flex justify-content-center"
-      }, this.createProducts())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.createProducts())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "fas fa-chevron-circle-up icon-up d-lg-none",
+        onClick: function onClick() {
+          return window.scroll({
+            top: 140,
+            left: 0,
+            behavior: 'smooth'
+          });
+        }
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "social-bar"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "https://wa.me/5491162743761?text=Hola%20Nala%20queria%20saber%20de%20tus%20ofertas",
@@ -78517,7 +78526,9 @@ function (_Component) {
         style: {
           fontSize: '78px',
           color: '#f6982e',
-          cursor: 'pointer'
+          cursor: 'pointer',
+          boxShadow: '0 5px 15px -5px #00000070',
+          borderRadius: '50px'
         },
         onClick: function onClick() {
           return history.back();
@@ -78528,7 +78539,7 @@ function (_Component) {
           boxShadow: '0 5px 15px -5px #00000070'
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-12 col-md-6 d-flex justify-content-end mb-5"
+        className: "col-12 col-md-6 d-flex justify-content-center mb-5"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         style: {
           maxHeight: '500px',
@@ -78568,12 +78579,6 @@ function (_Component) {
       }, "Facebook"), " utilizando el codigo de la prenda", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "footer-icons d-flex justify-content-center mt-3 mb-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "https://www.facebook.com/Nala-Quilmes-1096349540445839/?ref=br_rs",
-        target: "_blank",
-        className: "icon-footer"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fab fa-facebook-f"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "https://wa.me/5491162743761?text=Hola%20Nala%20queria%20saber%20de%20tus%20ofertas",
         target: "_blank",
         className: "icon-footer"
@@ -78583,6 +78588,12 @@ function (_Component) {
           color: '#72d69e',
           fontSize: '33px'
         }
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://www.facebook.com/Nala-Quilmes-1096349540445839/?ref=br_rs",
+        target: "_blank",
+        className: "icon-footer"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fab fa-facebook-f"
       }))))));
     }
   }]);
