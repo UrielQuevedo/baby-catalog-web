@@ -56,3 +56,10 @@
     bottom: 20px;
     left: 10px;
 }
+
+.notProducts {
+    border: 2px black;
+    border-style: dashed;
+    padding: 10px;  
+    transform: translate(8px, 10px);
+}

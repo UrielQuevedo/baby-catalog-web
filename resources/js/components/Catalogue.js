@@ -48,6 +48,11 @@ class Catalogue extends Component {
     }
 
     createProducts() {
+        if(this.state.products_category.length === 0) {
+            return (
+                <div className="col align-self-center justify-content-center d-flex mb-5 notProducts">No tenemos ningun producto cargado aún.</div>
+            );
+        }
         return this.state.products_category.map( product => (
             <div className="text-center pr-0 mb-5 mr-3 ml-4">
                 <Link to={`/product/${product.id}`}>

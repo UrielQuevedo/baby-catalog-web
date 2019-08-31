@@ -47,9 +47,7 @@ export default class Footer extends Component {
                 </div>
                 <div className="footer-right col-12 col-md-4 p-0 text-center">
                     <div className="col-12 mb-2" style={{ color: '#fff', fontSize:'20px'}}>Sobre NALAkids</div>
-                    
                         NalaKids es una empresa con una trayectoria de mas de 30 años dedicada a la fabricacion de indumentaria para chicos.          
-                    
                     <div className="footer-icons d-flex justify-content-center mt-3">
                         <a href="https://www.facebook.com/Nala-Quilmes-1096349540445839/?ref=br_rs" target="_blank" className="icon-footer"><i className="fab fa-facebook-f"></i></a>
                         <a href="https://www.instagram.com/nalaquilmes/?fbclid=IwAR3Zy-k9ihYTBbi3DurzfMn8s_xQGcYcIZ0HOJ68knEjGVg4xVWybmd4kik" target="_blank" className="icon-footer"><i className="fab fa-instagram"></i></a>
