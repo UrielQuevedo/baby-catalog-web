@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Slider from "react-slick";
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../../../public/css/page.css';
 
@@ -100,12 +101,14 @@ export default class Home extends Component {
             <div className="d-flex justify-content-center row">
                 <div className="wrapper-image-carousel">
                     <div className="imageBanner col-12 d-flex justify-content-center">
-                        <img className="img-fluid rounded image-product" src={product.image_url} style={{ height:'100%'}} alt={product.description} />
-                        <div className="middle">
-                            <span>
-                                <span className="icon-search">VER</span>
-                            </span>
-                        </div>
+                        <Link to={`/product/${product.id}`}>
+                            <img className="img-fluid rounded image-product" src={product.image_url} style={{ height:'100%'}} alt={product.description} />
+                            <div className="middle">
+                                <span>
+                                    <span className="icon-search">VER</span>
+                                </span>
+                            </div>
+                        </Link>
                     </div>
                     <div className="col-12" style={{ textAlign: "center" }}>
                         <span style={{ fontSize: '22px', color:'rgb(33, 150, 244)' }}>{product.title}</span>

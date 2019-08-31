@@ -77599,22 +77599,22 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "icons ml-4"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "https://wa.me/5491162743761?text=Hola%20Nala%20queria%20saber%20de%20tus%20ofertas",
+        href: "https://www.facebook.com/Nala-Quilmes-1096349540445839/?ref=br_rs",
         target: "_blank",
-        className: "mr-4"
+        className: "mr-5"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fab fa-whatsapp"
+        className: "fab fa-facebook-square"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "https://www.instagram.com/nalaquilmes/?fbclid=IwAR3Zy-k9ihYTBbi3DurzfMn8s_xQGcYcIZ0HOJ68knEjGVg4xVWybmd4kik",
         target: "_blank",
-        className: "mr-4"
+        className: "mr-5"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fab fa-instagram"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "https://www.facebook.com/Nala-Quilmes-1096349540445839/?ref=br_rs",
+        href: "https://wa.me/5491162743761?text=Hola%20Nala%20queria%20saber%20de%20tus%20ofertas",
         target: "_blank"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fab fa-facebook"
+        className: "fab fa-whatsapp"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "checkbox",
         id: "chk"
@@ -77677,10 +77677,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_slick__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-slick */ "./node_modules/react-slick/lib/index.js");
 /* harmony import */ var react_slick__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_slick__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _public_css_page_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../public/css/page.css */ "./public/css/page.css");
-/* harmony import */ var _public_css_page_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_public_css_page_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _public_css_page_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../public/css/page.css */ "./public/css/page.css");
+/* harmony import */ var _public_css_page_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_public_css_page_css__WEBPACK_IMPORTED_MODULE_5__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -77704,6 +77705,7 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -77815,7 +77817,7 @@ function (_Component) {
     value: function getBanner() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_3___default.a.get('/api/banner').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/banner').then(function (response) {
         return _this2.setState({
           banner: response.data.data
         });
@@ -77833,6 +77835,8 @@ function (_Component) {
           className: "wrapper-image-carousel"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "imageBanner col-12 d-flex justify-content-center"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+          to: "/product/".concat(product.id)
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           className: "img-fluid rounded image-product",
           src: product.image_url,
@@ -77844,7 +77848,7 @@ function (_Component) {
           className: "middle"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "icon-search"
-        }, "VER")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, "VER"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-12",
           style: {
             textAlign: "center"
@@ -78590,9 +78594,15 @@ function (_Component) {
       }, "Talle: ", this.state.product.waist), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "mt-4 mb-3"
       }, this.state.product.description), "Cualquier consulta la puede realizar directamente por ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: ""
+        href: "",
+        style: {
+          color: 'red'
+        }
       }, "WhatsApp"), " o por ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: ""
+        href: "",
+        style: {
+          color: 'red'
+        }
       }, "Facebook"), " utilizando el codigo de la prenda", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "footer-icons d-flex justify-content-center mt-3 mb-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
