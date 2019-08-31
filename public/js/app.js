@@ -8741,7 +8741,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap);", ""]);
 
 // module
-exports.push([module.i, ".footer-links {\n    color: #ffffff;\n    margin: 20px 0 12px;\n    padding: 0;\n}\n\nhtml, body {\n    height: 100%;\n}\n\n#index {\n    min-height:100%;\n    position:relative;\n}\n\n.footer {\n    background: rgb(115, 214, 159);\n    padding: 55px 40px;\n    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);\n    box-sizing: border-box;\n    width: 100%;\n    font-family: 'Lexend Deca', sans-serif;\n}\n\n.footer .footer-left, .footer .footer-center, .footer .footer-right {\n    display: inline-block;\n    vertical-align: top;\n}\n\n.footer-right {\n    text-align: left;\n}\n\n.company-name {\n    color: #525252;\n    font-size: 14px;\n    font-weight: normal;\n}\n\n.footer-company-name {\n    color: #525252;\n    font-size: 14px;\n    font-weight: normal;\n    margin: 0;\n}\n\n.footer-center {\n    display: inline-block;\n    vertical-align: top;\n}\n\n.footer-icons {\n    top: 50%;\n    width: 100%;\n    text-align: center;\n}\n\n.icon-footer {\n    display: inline-block;\n    width: 50px;\n    height: 50px;\n    background: #f1f1f1;\n    margin: 10px;\n    border-radius: 30%;\n    box-shadow: 0 5px 15px -5px #00000070;\n    color: #3498db;\n    overflow: hidden;\n    position: relative;\n    \n}\n\n.icon-footer i{\n    line-height: 50px;\n    font-size: 26px;\n    transition: 0.2 linear;\n}\n\n.icon-footer:hover i{\n    transform: scale(1.3);\n    color: #f1f1f1;\n}\n\n.icon-footer::before {\n    content: \"\";\n    position: absolute;\n    width: 120%;\n    height: 120%;\n    background: #3498db;\n    transform: rotate(45deg);\n    left: -110%;\n    top: 90%;\n}\n\n.icon-footer:hover::before {\n    -webkit-animation: aaa 0.7s 1;\n            animation: aaa 0.7s 1;\n    top: -10%;\n    left: -10%;\n}\n\n.footer .footer-center p {\n    display: inline-block;\n    color: #ffffff;\n    vertical-align: middle;\n    margin: 0;\n}\n\n.footer .footer-center p span {\n    display: block;\n    font-weight: normal;\n    line-height: 2;\n}\n\n.footer .footer-center i {\n    color: #ffffff;\n    font-size: 30px;\n    width: 38px;\n    height: 38px;\n    border-radius: 50%;\n    text-align: center;\n    line-height: 42px;\n    margin: 10px 15px;\n    vertical-align: middle;\n}\n\n@-webkit-keyframes aaa {\n    0% {\n        left: -110%;\n        top: 90%;\n    } 50% {\n        left: 10%;\n        top: -30%;\n    } 100% {\n        top: -10%;\n        left: -10%;\n    }\n}\n\n@keyframes aaa {\n    0% {\n        left: -110%;\n        top: 90%;\n    } 50% {\n        left: 10%;\n        top: -30%;\n    } 100% {\n        top: -10%;\n        left: -10%;\n    }\n}", ""]);
+exports.push([module.i, ".footer-links {\n    color: #ffffff;\n    margin: 20px 0 12px;\n    padding: 0;\n}\n\nhtml, body {\n    height: 100%;\n}\n\n#index {\n    min-height:100%;\n    position:relative;\n}\n\n.footer {\n    background: rgb(115, 214, 159);\n    padding: 55px 40px;\n    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);\n    box-sizing: border-box;\n    width: 100%;\n    font-family: 'Lexend Deca', sans-serif;\n}\n\n.footer .footer-left, .footer .footer-center, .footer .footer-right {\n    display: inline-block;\n    vertical-align: top;\n}\n\n.footer-right {\n    text-align: left;\n}\n\n.company-name {\n    color: #525252;\n    font-size: 14px;\n    font-weight: normal;\n}\n\n.footer-company-name {\n    color: #525252;\n    font-size: 14px;\n    font-weight: normal;\n    margin: 0;\n}\n\n.footer-center {\n    display: inline-block;\n    vertical-align: top;\n}\n\n.footer-icons {\n    top: 50%;\n    width: 100%;\n    text-align: center;\n}\n\n.icon-footer {\n    display: inline-block;\n    width: 50px;\n    height: 50px;\n    background: #f1f1f1;\n    margin: 10px;\n    border-radius: 30%;\n    box-shadow: 0 5px 15px -5px #00000070;\n    color: #3498db;\n    overflow: hidden;\n    position: relative;\n    \n}\n\n.icon-footer i{\n    line-height: 50px;\n    font-size: 26px;\n    transition: 0.2 linear;\n}\n\n.icon-footer:hover i{\n    transform: scale(1.3);\n    color: #f1f1f1;\n}\n\n.icon-footer::before {\n    content: \"\";\n    position: absolute;\n    width: 120%;\n    height: 120%;\n    background: #3498db;\n    transform: rotate(45deg);\n    left: -110%;\n    top: 90%;\n}\n\n.icon-footer:hover::before {\n    -webkit-animation: aaa 0.7s 1;\n            animation: aaa 0.7s 1;\n    top: -10%;\n    left: -10%;\n}\n\n.footer .footer-center p {\n    display: inline-block;\n    color: #ffffff;\n    vertical-align: middle;\n}\n\n.footer .footer-center p span {\n    display: block;\n    font-weight: normal;\n    line-height: 2;\n}\n\n.footer .footer-center i {\n    color: #ffffff;\n    font-size: 19px;\n    width: 38px;\n    height: 38px;\n    border-radius: 50%;\n    text-align: center; \n}\n\n@-webkit-keyframes aaa {\n    0% {\n        left: -110%;\n        top: 90%;\n    } 50% {\n        left: 10%;\n        top: -30%;\n    } 100% {\n        top: -10%;\n        left: -10%;\n    }\n}\n\n@keyframes aaa {\n    0% {\n        left: -110%;\n        top: 90%;\n    } 50% {\n        left: 10%;\n        top: -30%;\n    } 100% {\n        top: -10%;\n        left: -10%;\n    }\n}", ""]);
 
 // exports
 
@@ -77437,35 +77437,52 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "footer"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "footer-left col-12 col-md-4 mb-4"
+        className: "footer-left col-12 col-md-4 mb-4 text-center",
+        style: {
+          transform: 'translate(-6px, 3px)'
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "NALA KIDS")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "company-name col-12"
       }, "\xA9NALAKIDS", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Todos los derechos reservados"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "footer-center col-12 col-md-4 p-0 mb-4"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "fas fa-map-marker-alt"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Rivadavia 108"), "Quilmes, Buenos Aires")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "fas fa-envelope mr-2"
+        className: "footer-center col-12 col-md-4 p-0 mb-4 text-center",
+        style: {
+          transform: 'translate(-22px, -1px)'
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "d-flex justify-content-center"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "fas fa-map-marker-alt",
+        style: {
+          transform: 'translate(37px, 6px)'
+        }
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Rivadavia 108"), "Quilmes, Buenos Aires")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "d-flex justify-content-center"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "fas fa-envelope mr-2",
+        style: {
+          transform: 'translate(10px, 4px)'
+        }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "mailto:nalaquilmes@gmail.com"
-      }, "nalaquilmes@gmail.com"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "fas fa-phone mr-3"
+      }, "nalaquilmes@gmail.com"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "d-flex justify-content-center"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "fas fa-phone mr-3",
+        style: {
+          transform: 'translate(20px, 5px)'
+        }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "(+54 9 11) 6274-3761")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "footer-right col-12 col-md-4 p-0"
+        className: "footer-right col-12 col-md-4 p-0 text-center"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12 mb-2",
         style: {
           color: '#fff',
           fontSize: '20px'
         }
-      }, "Sobre NALAkids"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        style: {
-          textAlign: 'center'
-        }
-      }, "NalaKids es una empresa con una trayectoria de mas de 30 a\xF1os dedicada a la fabricacion de indumentaria para chicos."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "footer-icons d-flex justify-content-start mt-3"
+      }, "Sobre NALAkids"), "NalaKids es una empresa con una trayectoria de mas de 30 a\xF1os dedicada a la fabricacion de indumentaria para chicos.", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "footer-icons d-flex justify-content-center mt-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "https://www.facebook.com/Nala-Quilmes-1096349540445839/?ref=br_rs",
         target: "_blank",
