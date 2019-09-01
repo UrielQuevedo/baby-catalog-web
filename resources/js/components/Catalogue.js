@@ -57,6 +57,7 @@ class Catalogue extends Component {
             <div className="text-center pr-0 mb-5 mr-3 ml-4">
                 <Link to={`/product/${product.id}`}>
                     <div className="container-product-catalogue pt-5">
+                        <div className="carousel-product-ribbon ribbon-1">{product.title_offer}</div>
                         <div className="container image-container-product" style={{ height: '300px', width: '300px'}}>
                             <img src={product.image_url} alt="" className="img-fluid rounded image-product" style={{ width:'100%', height:'100%'}} />
                         </div>
@@ -76,6 +77,7 @@ class Catalogue extends Component {
     render() {
         return (
             <div className="container-fluid" >
+                {console.log(this.state.products_category)}
                 <div className="d-flex justify-content-center mb-5 mt-5">
                     <h1> <span style={{ color: '#e84393', fontSize: '54px' }}>CATALOGO</span></h1>
                 </div>
