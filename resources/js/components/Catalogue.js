@@ -13,13 +13,21 @@ class Catalogue extends Component {
         this.state = {
             categories: [],
             products_category: [],
+            isOffer: false,
         };
     }
 
     componentDidMount() {
         this.getAllCategories();
         this.getProductsByCategory();
+        this.isOffer();
         this.getOffers();
+    }
+
+    isOffer() {
+        axios.get('/api/product/thereIsAOffer')
+            .then(response => this.setState({ isOffer: response.data.data }))
+            .catch(error => console.log(error));
     }
 
     getOffers() {
@@ -67,6 +75,18 @@ class Catalogue extends Component {
         return undefined
     }
 
+    createIfExistOffer() {
+        if (this.state.isOffer) {
+            return (
+                <a href="/catalogue/offers">
+                    <div className={`mt-3 mb-3 ${this.isActiveCategory("offers")} category-menu`}>
+                        Promociones
+                    </div>
+                </a>
+            );
+        }
+    }
+
     createProducts() {
         if(this.state.products_category.length === 0) {
             return (
@@ -97,7 +117,6 @@ class Catalogue extends Component {
     render() {
         return (
             <div className="container-fluid" >
-                {console.log(this.state.products_category)}
                 <div className="d-flex justify-content-center mb-5 mt-5">
                     <h1> <span style={{ color: '#e84393', fontSize: '54px' }}>CATALOGO</span></h1>
                 </div>
@@ -107,6 +126,7 @@ class Catalogue extends Component {
                             <h3 className="pt-4" style={{ fontSize: '34px' }}>Categorias</h3>
                             <div className="mt-4 pb-4">
                                 {this.createCategoryMenu()}
+                                {this.createIfExistOffer()}
                             </div>
                         </div>
                     </div>

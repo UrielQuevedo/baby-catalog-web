@@ -75254,7 +75254,8 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Catalogue).call(this, props));
     _this.state = {
       categories: [],
-      products_category: []
+      products_category: [],
+      isOffer: false
     };
     return _this;
   }
@@ -75264,16 +75265,30 @@ function (_Component) {
     value: function componentDidMount() {
       this.getAllCategories();
       this.getProductsByCategory();
+      this.isOffer();
       this.getOffers();
+    }
+  }, {
+    key: "isOffer",
+    value: function isOffer() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/product/thereIsAOffer').then(function (response) {
+        return _this2.setState({
+          isOffer: response.data.data
+        });
+      })["catch"](function (error) {
+        return console.log(error);
+      });
     }
   }, {
     key: "getOffers",
     value: function getOffers() {
-      var _this2 = this;
+      var _this3 = this;
 
       if (this.props.match.params.idCategory == 'offers') {
         axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/product/productsOffer').then(function (response) {
-          return _this2.setState({
+          return _this3.setState({
             products_category: response.data.data
           });
         })["catch"](function (error) {
@@ -75284,10 +75299,10 @@ function (_Component) {
   }, {
     key: "getAllCategories",
     value: function getAllCategories() {
-      var _this3 = this;
+      var _this4 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/category').then(function (response) {
-        return _this3.setState({
+        return _this4.setState({
           categories: response.data.data
         });
       })["catch"](function (error) {
@@ -75297,10 +75312,10 @@ function (_Component) {
   }, {
     key: "getProductsByCategory",
     value: function getProductsByCategory() {
-      var _this4 = this;
+      var _this5 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_4___default.a.get("/api/product/byCategory/".concat(this.props.match.params.idCategory)).then(function (response) {
-        return _this4.setState({
+        return _this5.setState({
           products_category: response.data.data
         });
       })["catch"](function (error) {
@@ -75315,13 +75330,13 @@ function (_Component) {
   }, {
     key: "createCategoryMenu",
     value: function createCategoryMenu() {
-      var _this5 = this;
+      var _this6 = this;
 
       return this.state.categories.map(function (category) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           href: "/catalogue/".concat(category.id)
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "mt-3 mb-3 ".concat(_this5.isActiveCategory(category.id), " category-menu")
+          className: "mt-3 mb-3 ".concat(_this6.isActiveCategory(category.id), " category-menu")
         }, category.category_name));
       });
     }
@@ -75339,9 +75354,20 @@ function (_Component) {
       return undefined;
     }
   }, {
+    key: "createIfExistOffer",
+    value: function createIfExistOffer() {
+      if (this.state.isOffer) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: "/catalogue/offers"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "mt-3 mb-3 ".concat(this.isActiveCategory("offers"), " category-menu")
+        }, "Promociones"));
+      }
+    }
+  }, {
     key: "createProducts",
     value: function createProducts() {
-      var _this6 = this;
+      var _this7 = this;
 
       if (this.state.products_category.length === 0) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -75356,7 +75382,7 @@ function (_Component) {
           to: "/product/".concat(product.id)
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "container-product-catalogue pt-5"
-        }, _this6.showOffer(product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, _this7.showOffer(product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "container image-container-product",
           style: {
             height: '300px',
@@ -75388,7 +75414,7 @@ function (_Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container-fluid"
-      }, console.log(this.state.products_category), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "d-flex justify-content-center mb-5 mt-5"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         style: {
@@ -75408,7 +75434,7 @@ function (_Component) {
         }
       }, "Categorias"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "mt-4 pb-4"
-      }, this.createCategoryMenu()))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.createCategoryMenu(), this.createIfExistOffer()))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12 col-lg-10 pr-0 mr-0 row d-flex justify-content-center"
       }, this.createProducts())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         "class": "fas fa-chevron-circle-up icon-up d-lg-none",
