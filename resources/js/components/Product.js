@@ -31,7 +31,9 @@ class Product extends Component {
     showOffer() {
         if (this.state.product.offer) {
             return (
-                <div className="product-ribbon ribbon-2">{this.state.product.title_offer}</div>
+                <div className="product-ribbon">
+                    <span className="ribbon-2">{this.state.product.title_offer}</span>
+                </div>
             );
         }
         return undefined;

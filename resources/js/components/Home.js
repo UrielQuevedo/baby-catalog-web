@@ -129,8 +129,8 @@ export default class Home extends Component {
                 </div>
                 <div className="container-fluid">
                     <div className="justify-content-center" style={{ marginTop: '50px' }}>
-                        <h1 className="ribbon">
-                            <strong className="ribbon-content">{this.state.banner.title}</strong>
+                        <h1 class="ribbon">
+                            <strong class="ribbon-content">{this.state.banner.title}</strong>
                         </h1>
                     </div>
                     <div className="social-bar">
@@ -149,6 +149,16 @@ export default class Home extends Component {
                                 </button>
                             </a>
                         </div>
+                    </div>
+                    <div className="container text-center bannerOffer">
+                        <div className="textOffer">
+                            No te podes perder las promociones exclusivas que tenemos en estas prendas para vos!
+                        </div>
+                        <a href="/catalogue">
+                            <button className="button-view buttonOffer">
+                                PROMOCIONES
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
