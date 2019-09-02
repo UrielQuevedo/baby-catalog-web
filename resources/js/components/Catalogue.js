@@ -19,6 +19,15 @@ class Catalogue extends Component {
     componentDidMount() {
         this.getAllCategories();
         this.getProductsByCategory();
+        this.getOffers();
+    }
+
+    getOffers() {
+        if(this.props.match.params.idCategory == 'offers') {
+            axios.get('/api/product/productsOffer')
+                .then(response => this.setState({ products_category: response.data.data }))
+                .catch(error => console.log(error.response.data));
+        }
     }
 
     getAllCategories() {

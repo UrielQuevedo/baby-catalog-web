@@ -13,7 +13,7 @@ class ProductController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('jwt', ['except' => ['show','showByCategory','searchByCode','productsOffer']]);
+        $this->middleware('jwt', ['except' => ['show','showByCategory','searchByCode','productsOffer','thereIsAOffer']]);
     }
 
     /**
@@ -100,6 +100,14 @@ class ProductController extends Controller
                                         ->orderBy('priority','asc')
                                             ->get();
         return response()->json(['status'=>'ok','data'=>$products], 200);
+    }
+
+    public function thereIsAOffer() {
+        $product=DB::table('products')
+                        ->limit(1)
+                            ->where('offer', 1)
+                                ->get();
+        return response()->json(['status'=>'ok','data'=>count($product) > 0], 200);
     }
 
     /**

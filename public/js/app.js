@@ -75264,14 +75264,30 @@ function (_Component) {
     value: function componentDidMount() {
       this.getAllCategories();
       this.getProductsByCategory();
+      this.getOffers();
+    }
+  }, {
+    key: "getOffers",
+    value: function getOffers() {
+      var _this2 = this;
+
+      if (this.props.match.params.idCategory == 'offers') {
+        axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/product/productsOffer').then(function (response) {
+          return _this2.setState({
+            products_category: response.data.data
+          });
+        })["catch"](function (error) {
+          return console.log(error.response.data);
+        });
+      }
     }
   }, {
     key: "getAllCategories",
     value: function getAllCategories() {
-      var _this2 = this;
+      var _this3 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/category').then(function (response) {
-        return _this2.setState({
+        return _this3.setState({
           categories: response.data.data
         });
       })["catch"](function (error) {
@@ -75281,10 +75297,10 @@ function (_Component) {
   }, {
     key: "getProductsByCategory",
     value: function getProductsByCategory() {
-      var _this3 = this;
+      var _this4 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_4___default.a.get("/api/product/byCategory/".concat(this.props.match.params.idCategory)).then(function (response) {
-        return _this3.setState({
+        return _this4.setState({
           products_category: response.data.data
         });
       })["catch"](function (error) {
@@ -75299,13 +75315,13 @@ function (_Component) {
   }, {
     key: "createCategoryMenu",
     value: function createCategoryMenu() {
-      var _this4 = this;
+      var _this5 = this;
 
       return this.state.categories.map(function (category) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           href: "/catalogue/".concat(category.id)
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "mt-3 mb-3 ".concat(_this4.isActiveCategory(category.id), " category-menu")
+          className: "mt-3 mb-3 ".concat(_this5.isActiveCategory(category.id), " category-menu")
         }, category.category_name));
       });
     }
@@ -75325,7 +75341,7 @@ function (_Component) {
   }, {
     key: "createProducts",
     value: function createProducts() {
-      var _this5 = this;
+      var _this6 = this;
 
       if (this.state.products_category.length === 0) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -75340,7 +75356,7 @@ function (_Component) {
           to: "/product/".concat(product.id)
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "container-product-catalogue pt-5"
-        }, _this5.showOffer(product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, _this6.showOffer(product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "container image-container-product",
           style: {
             height: '300px',
@@ -77813,6 +77829,7 @@ function (_Component) {
         title: '',
         products: []
       },
+      isOffer: false,
       settings: {
         arrows: true,
         dots: true,
@@ -77860,14 +77877,28 @@ function (_Component) {
     key: "componentWillMount",
     value: function componentWillMount() {
       this.getBanner();
+      this.isOffer();
+    }
+  }, {
+    key: "isOffer",
+    value: function isOffer() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/product/thereIsAOffer').then(function (response) {
+        return _this2.setState({
+          isOffer: response.data.data
+        });
+      })["catch"](function (error) {
+        return console.log(error);
+      });
     }
   }, {
     key: "getBanner",
     value: function getBanner() {
-      var _this2 = this;
+      var _this3 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/banner').then(function (response) {
-        return _this2.setState({
+        return _this3.setState({
           banner: response.data.data
         });
       })["catch"](function (error) {
@@ -77890,7 +77921,7 @@ function (_Component) {
   }, {
     key: "showAllBannerProducts",
     value: function showAllBannerProducts() {
-      var _this3 = this;
+      var _this4 = this;
 
       return this.state.banner.products.map(function (product, i) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -77922,7 +77953,7 @@ function (_Component) {
             fontSize: '22px',
             color: 'rgb(33, 150, 244)'
           }
-        }, product.title)), _this3.showOffer(product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, product.title)), _this4.showOffer(product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-12",
           style: {
             textAlign: "center"
@@ -77933,6 +77964,23 @@ function (_Component) {
           }
         }, product.price, "$"))));
       });
+    }
+  }, {
+    key: "createBannerOffer",
+    value: function createBannerOffer() {
+      if (this.state.isOffer) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "container text-center bannerOffer"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "textOffer"
+        }, "No te podes perder las promociones exclusivas que tenemos en estas prendas para vos!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: "/catalogue/offers"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "button-view buttonOffer"
+        }, "PROMOCIONES")));
+      }
+
+      return undefined;
     }
   }, {
     key: "render",
@@ -77999,15 +78047,7 @@ function (_Component) {
         href: "/catalogue"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "button-view"
-      }, "VER MAS")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container text-center bannerOffer"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "textOffer"
-      }, "No te podes perder las promociones exclusivas que tenemos en estas prendas para vos!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "/catalogue"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "button-view buttonOffer"
-      }, "PROMOCIONES")))));
+      }, "VER MAS")))), this.createBannerOffer()));
     }
   }]);
 

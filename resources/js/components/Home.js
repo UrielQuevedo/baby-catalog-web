@@ -39,6 +39,7 @@ export default class Home extends Component {
                 title: '',
                 products: [],
             },  
+            isOffer: false,
             settings: {
                 arrows: true,
                 dots: true,
@@ -87,7 +88,14 @@ export default class Home extends Component {
     }
 
     componentWillMount() {
-        this.getBanner()
+        this.getBanner();
+        this.isOffer();
+    }
+
+    isOffer() {
+        axios.get('/api/product/thereIsAOffer')
+            .then(response => this.setState({ isOffer: response.data.data }))
+            .catch(error => console.log(error));
     }
 
     getBanner() {
@@ -133,6 +141,24 @@ export default class Home extends Component {
         ));
     }
 
+    createBannerOffer() {
+        if (this.state.isOffer) {
+            return (
+                <div className="container text-center bannerOffer">
+                    <div className="textOffer">
+                        No te podes perder las promociones exclusivas que tenemos en estas prendas para vos!
+                    </div>
+                    <a href="/catalogue/offers">
+                        <button className="button-view buttonOffer">
+                            PROMOCIONES
+                        </button>
+                    </a>
+                </div>
+            );
+        }
+        return undefined;
+    }
+
     render() {
         return (
             <div className="box">
@@ -162,16 +188,7 @@ export default class Home extends Component {
                             </a>
                         </div>
                     </div>
-                    <div className="container text-center bannerOffer">
-                        <div className="textOffer">
-                            No te podes perder las promociones exclusivas que tenemos en estas prendas para vos!
-                        </div>
-                        <a href="/catalogue">
-                            <button className="button-view buttonOffer">
-                                PROMOCIONES
-                            </button>
-                        </a>
-                    </div>
+                    {this.createBannerOffer()}
                 </div>
             </div>
         );
