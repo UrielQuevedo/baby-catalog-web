@@ -13,7 +13,7 @@ class ProductController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('jwt', ['except' => ['show','showByCategory','searchByCode']]);
+        $this->middleware('jwt', ['except' => ['show','showByCategory','searchByCode','productsOffer']]);
     }
 
     /**
@@ -89,6 +89,16 @@ class ProductController extends Controller
         if(count($products) == 0) {
             return response()->json(['error'=>'No se encontro ningun producto con ese codigo'],422);
         }
+        return response()->json(['status'=>'ok','data'=>$products], 200);
+    }
+
+    public function productsOffer() {
+        $products=DB::table('products')
+                        ->select('products.id','offer','title_offer','priority','image_url','code','title','waist','description','price','category_name', 'category_id')
+                            ->where('offer', 1)
+                                ->join('categories', 'categories.id', '=', 'products.category_id')
+                                        ->orderBy('priority','asc')
+                                            ->get();
         return response()->json(['status'=>'ok','data'=>$products], 200);
     }
 

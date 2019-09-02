@@ -17,6 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::post('/banner/{idBanner}/{idProduct}','Api\BannerController@addProduct');
+Route::get('/product/productsOffer','Api\ProductController@productsOffer');
 Route::put('/banner/{idBanner}/{idProduct}','Api\BannerController@removeProduct');
 Route::get('/product/byCategory/{category_id}','Api\ProductController@showByCategory');
 Route::get('/product/byCode/{code}','Api\ProductController@searchByCode');
