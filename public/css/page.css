@@ -326,3 +326,22 @@ nav {
     margin-bottom: 40px;
     margin-top: 40px;
 }
+
+.offer-content {
+    position: absolute;
+}
+
+.offer-title-carousel {
+    width: 53px;
+    height: 24px;
+    padding: 10px 0;
+    position: absolute;
+    color: black;
+    top: -3px;
+    left: 3px;
+    font-size: 17px;
+    line-height: 6px;
+    text-align: center;
+    border-radius: 3px;
+    background: #d6bc9c;
+}

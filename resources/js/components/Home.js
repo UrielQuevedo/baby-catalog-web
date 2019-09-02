@@ -96,6 +96,17 @@ export default class Home extends Component {
             .catch(error => console.log(error));
     }
 
+    showOffer(product) {
+        if(product.offer) {
+            return (
+                <div className="offer-content">
+                    <span className="offer-title-carousel">{product.title_offer}</span>
+                </div>
+            );
+        }
+        return undefined;
+    }
+
     showAllBannerProducts() {
         return this.state.banner.products.map((product, i) => (
             <div className="d-flex justify-content-center row">
@@ -113,6 +124,7 @@ export default class Home extends Component {
                     <div className="col-12" style={{ textAlign: "center" }}>
                         <span style={{ fontSize: '22px', color:'rgb(33, 150, 244)' }}>{product.title}</span>
                     </div>
+                    {this.showOffer(product)}
                     <div className="col-12" style={{ textAlign: "center" }}>
                         <span style={{ fontSize: '16px' }}>{product.price}$</span>
                     </div>
