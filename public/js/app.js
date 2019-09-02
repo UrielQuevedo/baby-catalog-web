@@ -8684,7 +8684,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".container-product-catalogue {\n    box-shadow: 0 5px 15px -5px #00000070;\n    height: 459px;\n    width: 328px;\n    border-radius: 16px;\n    cursor: pointer;\n}\n\n.title-card-product {\n    color: #2296f3;\n    margin-top: 20px;\n}\n\n.linear {\n    border-color: #72d69e;\n    width: 20px;\n    display: inline-block;\n    max-width: 100%;\n    margin: .5em;\n}\n\n.wrapper-categories {\n    box-shadow: 0 5px 15px -5px #00000070;\n    min-width: 205px;\n    position: -webkit-sticky; /* Safari */\n    position: sticky;\n    top: 75px;\n}\n\n.active-category {\n    background: #fbffcc;\n}\n\n.category-menu {\n    cursor: pointer;\n    font-size: 22px;\n    color: rgb(232, 67, 147);\n    transition: .6s;\n}\n\n.category-menu:hover {\n    background: #fbffcc;\n}\n\n.category-selected {\n    background: #95b5a363;\n}\n\n.icon-up {\n    font-size: 45px;\n    position: fixed;\n    color: #3f51b5;\n    box-shadow: 0 5px 15px -5px #00000070;\n    border-radius: 250px;\n    cursor: pointer;\n    bottom: 20px;\n    left: 10px;\n}\n\n.notProducts {\n    border: 2px black;\n    border-style: dashed;\n    padding: 10px;  \n    transform: translate(8px, 10px);\n}\n\n\n.carousel-product-ribbon {\n    position: absolute;\n} \n\n.ribbon-1 {\n    width: 50px;\n    background: #d6bc9c;\n    line-height: 42px;\n    font-size: 19px;\n    height: 52px;\n    background: #d6bc9c;\n    transform: translate(266px, -58px);\n}\n\n.ribbon-1:before {\n    content: \"\";\n    position: absolute;\n    top: 0;\n    left: -10px;\n    border-left: 5px solid transparent;\n    border-right: 5px solid #928770;\n    border-top: 5px solid transparent;\n    border-bottom: 5px solid #928770;\n}\n\n.ribbon-1::after {\n    content: \"\";\n    position: absolute;\n    bottom: -1px;\n    left: 0;\n    border-left: 25px solid transparent;\n    border-right: 25px solid transparent;\n    border-top: 25px solid transparent;\n    border-bottom: 10px solid #fff;\n}", ""]);
+exports.push([module.i, ".container-product-catalogue {\n    box-shadow: 0 5px 15px -5px #00000070;\n    height: 459px;\n    width: 328px;\n    border-radius: 16px;\n    cursor: pointer;\n}\n\n.title-card-product {\n    color: #2296f3;\n    margin-top: 20px;\n}\n\n.linear {\n    border-color: #72d69e;\n    width: 20px;\n    display: inline-block;\n    max-width: 100%;\n    margin: .5em;\n}\n\n.wrapper-categories {\n    box-shadow: 0 5px 15px -5px #00000070;\n    min-width: 205px;\n    position: -webkit-sticky; /* Safari */\n    position: sticky;\n    top: 75px;\n}\n\n.active-category {\n    background: #fbffcc;\n}\n\n.category-menu {\n    cursor: pointer;\n    font-size: 22px;\n    color: rgb(232, 67, 147);\n    transition: .6s;\n}\n\n.category-menu:hover {\n    background: #fbffcc;\n}\n\n.category-selected {\n    background: #95b5a363;\n}\n\n.icon-up {\n    font-size: 45px;\n    position: fixed;\n    color: #3f51b5;\n    box-shadow: 0 5px 15px -5px #00000070;\n    border-radius: 250px;\n    cursor: pointer;\n    bottom: 20px;\n    left: 10px;\n}\n\n.notProducts {\n    border: 2px black;\n    border-style: dashed;\n    padding: 10px;  \n    transform: translate(8px, 10px);\n}\n\n\n.catalogue-product-ribbon {\n    position: absolute;\n} \n\n.ribbon-1 {\n    width: 50px;\n    line-height: 42px;\n    font-size: 19px;\n    height: 52px;\n    background: #d6bc9c;\n    transform: translate(266px, -58px);\n}\n\n.ribbon-1:before {\n    content: \"\";\n    position: absolute;\n    top: 0;\n    left: -10px;\n    border-left: 5px solid transparent;\n    border-right: 5px solid #928770;\n    border-top: 5px solid transparent;\n    border-bottom: 5px solid #928770;\n}\n\n.ribbon-1::after {\n    content: \"\";\n    position: absolute;\n    bottom: -1px;\n    left: 0;\n    border-left: 25px solid transparent;\n    border-right: 25px solid transparent;\n    border-top: 25px solid transparent;\n    border-bottom: 10px solid #fff;\n}", ""]);
 
 // exports
 
@@ -8817,7 +8817,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".product-ribbon{\n    position: absolute;\n} \n\n.ribbon-2 {\n    width: 50px;\n    line-height: 110px;\n    text-align: center;\n    font-size: 19px;\n    height: 107px;\n    top: 292px;\n    right: 408px;\n    background: #d6bc9c;\n}\n\n.ribbon-2:before {\n    content: \"\";\n    position: absolute;\n    top: 0;\n    left: -10px;\n    border-left: 5px solid transparent;\n    border-right: 5px solid #928770;\n    border-top: 5px solid transparent;\n    border-bottom: 5px solid #928770;\n}\n\n.ribbon-2::after {\n    content: \"\";\n    position: absolute;\n    bottom: -1px;\n    left: 0;\n    border-left: 25px solid transparent;\n    border-right: 25px solid transparent;\n    border-top: 25px solid transparent;\n    border-bottom: 10px solid #fff;\n}", ""]);
 
 // exports
 
@@ -75310,8 +75310,21 @@ function (_Component) {
       });
     }
   }, {
+    key: "showOffer",
+    value: function showOffer(product) {
+      if (product.offer) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "catalogue-product-ribbon ribbon-1"
+        }, product.title_offer);
+      }
+
+      return undefined;
+    }
+  }, {
     key: "createProducts",
     value: function createProducts() {
+      var _this5 = this;
+
       if (this.state.products_category.length === 0) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col align-self-center justify-content-center d-flex mb-5 notProducts"
@@ -75325,9 +75338,7 @@ function (_Component) {
           to: "/product/".concat(product.id)
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "container-product-catalogue pt-5"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "carousel-product-ribbon ribbon-1"
-        }, product.title_offer), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, _this5.showOffer(product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "container image-container-product",
           style: {
             height: '300px',
@@ -78546,6 +78557,7 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Product).call(this, props));
     _this.state = {
       product: {
+        offer: '',
         code: '',
         description: '',
         id: undefined,
@@ -78572,6 +78584,17 @@ function (_Component) {
       });
     }
   }, {
+    key: "showOffer",
+    value: function showOffer() {
+      if (this.state.product.offer) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "product-ribbon ribbon-2"
+        }, this.state.product.title_offer);
+      }
+
+      return undefined;
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -78595,7 +78618,7 @@ function (_Component) {
         style: {
           boxShadow: '0 5px 15px -5px #00000070'
         }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.showOffer(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12 col-md-6 d-flex justify-content-center mb-5"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         style: {

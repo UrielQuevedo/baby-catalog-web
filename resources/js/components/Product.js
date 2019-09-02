@@ -10,6 +10,7 @@ class Product extends Component {
         super(props);
         this.state = {
             product: {
+                offer: '',
                 code: '',
                 description: '',
                 id: undefined,
@@ -27,6 +28,15 @@ class Product extends Component {
             .catch(error => console.log(error));
     }
 
+    showOffer() {
+        if (this.state.product.offer) {
+            return (
+                <div className="product-ribbon ribbon-2">{this.state.product.title_offer}</div>
+            );
+        }
+        return undefined;
+    }
+
     render() {
         return (
             <div className="container mb-5">
@@ -34,6 +44,7 @@ class Product extends Component {
                     <i class="fas fa-arrow-circle-left" style={{ fontSize:'78px', color:'#f6982e', cursor:'pointer', boxShadow: '0 5px 15px -5px #00000070', borderRadius: '50px'}} onClick={() => history.back()}></i>
                 </div>
                 <div className="row pt-5" style={{boxShadow: '0 5px 15px -5px #00000070'}}>
+                    {this.showOffer()}
                     <div className="col-12 col-md-6 d-flex justify-content-center mb-5">
                         <div style={{ maxHeight: '500px', maxWidth:'450px'}}>
                             <img src={this.state.product.image_url} alt="" className="img-fluid" style={{ boxShadow: 'rgba(0, 0, 0, 0.44) 0px 5px 27px 1px'}}/>

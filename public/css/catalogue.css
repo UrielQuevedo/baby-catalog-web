@@ -65,13 +65,12 @@
 }
 
 
-.carousel-product-ribbon {
+.catalogue-product-ribbon {
     position: absolute;
 } 
 
 .ribbon-1 {
     width: 50px;
-    background: #d6bc9c;
     line-height: 42px;
     font-size: 19px;
     height: 52px;

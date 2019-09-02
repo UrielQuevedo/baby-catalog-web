@@ -47,6 +47,15 @@ class Catalogue extends Component {
         ));
     }
 
+    showOffer(product) {
+        if (product.offer) {
+            return (
+                <div className="catalogue-product-ribbon ribbon-1">{product.title_offer}</div>
+            );
+        }
+        return undefined
+    }
+
     createProducts() {
         if(this.state.products_category.length === 0) {
             return (
@@ -57,7 +66,7 @@ class Catalogue extends Component {
             <div className="text-center pr-0 mb-5 mr-3 ml-4">
                 <Link to={`/product/${product.id}`}>
                     <div className="container-product-catalogue pt-5">
-                        <div className="carousel-product-ribbon ribbon-1">{product.title_offer}</div>
+                        {this.showOffer(product)}
                         <div className="container image-container-product" style={{ height: '300px', width: '300px'}}>
                             <img src={product.image_url} alt="" className="img-fluid rounded image-product" style={{ width:'100%', height:'100%'}} />
                         </div>
