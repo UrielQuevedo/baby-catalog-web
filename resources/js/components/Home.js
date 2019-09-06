@@ -38,7 +38,10 @@ export default class Home extends Component {
             banner: {
                 title: '',
                 products: [],
-            },  
+            },
+            coverPageImage: {
+                image_url: '',
+            },
             isOffer: false,
             settings: {
                 arrows: true,
@@ -90,7 +93,14 @@ export default class Home extends Component {
     componentWillMount() {
         this.getBanner();
         this.isOffer();
+        this.getCoverPageImage();
     }
+
+    getCoverPageImage() {
+        axios.get('/api/coverPage')
+            .then(response => this.setState({ coverPageImage: response.data.data }))
+            .catch(error => console.log(error.response.data.error));
+        }
 
     isOffer() {
         axios.get('/api/product/thereIsAOffer')
@@ -108,7 +118,7 @@ export default class Home extends Component {
         if(product.offer) {
             return (
                 <div className="offer-content">
-                    <span className="offer-title-carousel">{product.title_offer}</span>
+                    <span className="offer-title-carousel">{product.offer_title}</span>
                 </div>
             );
         }
@@ -163,7 +173,14 @@ export default class Home extends Component {
         return (
             <div className="box">
                 <div className="container"  style={{ marginTop: '50px', boxShadow: '0 5px 15px -5px #00000070' }}>
-                    <a href="/catalogue"><img src="https://tienda.pachibebes.com/image/catalog/banners_home/ecommerceInv2019-23.jpg" alt="" className="img-fluid" style={{ cursor:'pointer' }}/></a>
+                    <a href="/catalogue">
+                        <img   
+                            src={this.state.coverPageImage.image_url}
+                            alt="Imagen de Portada Nala" 
+                            className="img-fluid" 
+                            style={{ cursor:'pointer' }}
+                        />
+                    </a>
                 </div>
                 <div className="container-fluid">
                     <div className="justify-content-center" style={{ marginTop: '50px' }}>

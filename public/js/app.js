@@ -8684,7 +8684,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".container-product-catalogue {\n    box-shadow: 0 5px 15px -5px #00000070;\n    height: 459px;\n    width: 328px;\n    border-radius: 16px;\n    cursor: pointer;\n}\n\n.title-card-product {\n    color: #2296f3;\n    margin-top: 20px;\n}\n\n.linear {\n    border-color: #72d69e;\n    width: 20px;\n    display: inline-block;\n    max-width: 100%;\n    margin: .5em;\n}\n\n.wrapper-categories {\n    box-shadow: 0 5px 15px -5px #00000070;\n    min-width: 205px;\n    position: -webkit-sticky; /* Safari */\n    position: sticky;\n    top: 75px;\n}\n\n.active-category {\n    background: #fbffcc;\n}\n\n.category-menu {\n    cursor: pointer;\n    font-size: 22px;\n    color: rgb(232, 67, 147);\n    transition: .6s;\n}\n\n.category-menu:hover {\n    background: #fbffcc;\n}\n\n.category-selected {\n    background: #95b5a363;\n}\n\n.icon-up {\n    font-size: 45px;\n    position: fixed;\n    color: #3f51b5;\n    box-shadow: 0 5px 15px -5px #00000070;\n    border-radius: 250px;\n    cursor: pointer;\n    bottom: 20px;\n    right: 2px;\n}\n\n.notProducts {\n    border: 2px black;\n    border-style: dashed;\n    padding: 10px;  \n    transform: translate(8px, 10px);\n}\n", ""]);
+exports.push([module.i, ".container-product-catalogue {\n    box-shadow: 0 5px 15px -5px #00000070;\n    height: 459px;\n    width: 328px;\n    border-radius: 16px;\n    cursor: pointer;\n}\n\n.title-card-product {\n    color: #2296f3;\n    margin-top: 20px;\n}\n\n.linear {\n    border-color: #72d69e;\n    width: 20px;\n    display: inline-block;\n    max-width: 100%;\n    margin: .5em;\n}\n\n.wrapper-categories {\n    box-shadow: 0 5px 15px -5px #00000070;\n    min-width: 205px;\n    position: -webkit-sticky; /* Safari */\n    position: sticky;\n    top: 75px;\n}\n\n.active-category {\n    background: #fbffcc;\n}\n\n.category-menu {\n    cursor: pointer;\n    font-size: 22px;\n    color: rgb(232, 67, 147);\n    transition: .6s;\n}\n\n.category-menu:hover {\n    background: #fbffcc;\n}\n\n.category-selected {\n    background: #95b5a363;\n}\n\n.icon-up {\n    font-size: 45px;\n    position: fixed;\n    color: #3f51b5;\n    box-shadow: 0 5px 15px -5px #00000070;\n    border-radius: 250px;\n    cursor: pointer;\n    bottom: 20px;\n    right: 2px;\n}\n\n.notProducts {\n    box-shadow: 0 5px 15px -5px #00000070;\n    border: 2px black;\n    border-style: dashed;\n    padding: 10px;  \n    transform: translate(8px, 10px);\n}\n", ""]);
 
 // exports
 
@@ -8703,7 +8703,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".theadTable {\n    color: #ffffff;\n    background: #6c7ae0;\n}\n\n.cell {\n    font-size: 18px;\n    color: #fff;\n    padding-top: 19px;\n    padding-bottom: 19px;\n}\n\n.wrap-table {\n    border-radius: 5px;\n    border: 1px solid #8080804f;\n}\n\ntr:hover td{\n    background-color: #ececff;\n    cursor: pointer;\n}\n\ntd {\n    font-size: 15px;\n    color: #666666;\n    padding-top: 20px;\n    padding-bottom: 20px;\n    border-bottom: 1px solid #f2f2f2;\n}\n\n.lines-style {\n    color: rgb(146, 141, 187);\n    font-size: 30px;\n    display: grid;\n    width: 100%;\n    align-items: center;\n    text-align: center;\n    grid-template-columns: minmax(20px, 1fr) auto minmax(20px, 1fr);\n    grid-gap: 20px;\n    margin-bottom: 40px;\n    margin-top: 40px;\n}\n\n.lines-style:before,\n.lines-style:after {\n    content: '';\n    border-top: 2px solid;\n}\n\n.rowSelected {\n    background: #ececff;\n}\n\n.scrollTable {\n    max-height: 500px;\n}\n\n[type=\"file\"] {\n    height: 0;\n    overflow: hidden;\n    width: 0;\n}\n\n[type=\"file\"] + label {\n    background: #f15d22;\n    border: none;\n    border-radius: 5px;\n    color: #fff;\n    cursor: pointer;\n    display: inline-block;\n    font-family: 'Poppins', sans-serif;\n    font-size: inherit;\n    font-weight: 600;\n    margin-bottom: 1rem;\n    outline: none;\n    padding: 8px 40px;\n    position: relative;\n    transition: all 0.3s;\n    vertical-align: middle;\n}\n\n[type=\"file\"]:focus + label,\n[type=\"file\"] + label:hover {\n    background-color: #b43d0d;\n    ;\n}\n\n.cropContainerImage {\n    height: 400px;\n    width: 100%;\n    position: relative;\n    background: rgb(146, 142, 142);\n}\n\n.checkbox-input {\n    transform: translate(1px, 10px);\n}", ""]);
+exports.push([module.i, ".theadTable {\n    color: #ffffff;\n    background: #6c7ae0;\n}\n\n.cell {\n    font-size: 18px;\n    color: #fff;\n    padding-top: 19px;\n    padding-bottom: 19px;\n}\n\n.wrap-table {\n    border-radius: 5px;\n    border: 1px solid #8080804f;\n}\n\ntr:hover td{\n    background-color: #ececff;\n    cursor: pointer;\n}\n\ntd {\n    font-size: 15px;\n    color: #666666;\n    padding-top: 20px;\n    padding-bottom: 20px;\n    border-bottom: 1px solid #f2f2f2;\n}\n\n.lines-style {\n    color: rgb(146, 141, 187);\n    font-size: 30px;\n    display: grid;\n    width: 100%;\n    align-items: center;\n    text-align: center;\n    grid-template-columns: minmax(20px, 1fr) auto minmax(20px, 1fr);\n    grid-gap: 20px;\n    margin-bottom: 40px;\n    margin-top: 40px;\n}\n\n.lines-style:before,\n.lines-style:after {\n    content: '';\n    border-top: 2px solid;\n}\n\n.rowSelected {\n    background: #ececff;\n}\n\n.scrollTable {\n    max-height: 500px;\n}\n\n[type=\"file\"] {\n    height: 0;\n    overflow: hidden;\n    width: 0;\n}\n\n[type=\"file\"] + label {\n    background: #f15d22;\n    border: none;\n    border-radius: 5px;\n    color: #fff;\n    cursor: pointer;\n    display: inline-block;\n    font-family: 'Poppins', sans-serif;\n    font-size: inherit;\n    font-weight: 600;\n    margin-bottom: 1rem;\n    outline: none;\n    padding: 7px 40px;\n    position: relative;\n    transition: all 0.3s;\n    vertical-align: middle;\n}\n\n[type=\"file\"]:focus + label,\n[type=\"file\"] + label:hover {\n    background-color: #b43d0d;\n    ;\n}\n\n.cropContainerImage {\n    height: 400px;\n    width: 100%;\n    position: relative;\n    background: rgb(146, 142, 142);\n}\n\n.checkbox-input {\n    transform: translate(1px, 10px);\n}", ""]);
 
 // exports
 
@@ -76038,7 +76038,9 @@ function (_Component) {
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
-      }, this.createEditNameInput(), this.showErrors(this.state.errorEdit), this.createProductBannerTable(), this.createWrapperProducts());
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "lines-style"
+      }, "Destacados"), this.createEditNameInput(), this.showErrors(this.state.errorEdit), this.createProductBannerTable(), this.createWrapperProducts());
     }
   }]);
 
@@ -76326,7 +76328,9 @@ function (_Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
-      }, this.createCategoryForm(), this.createEditCategoryForm());
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "lines-style"
+      }, "Categoria"), this.createCategoryForm(), this.createEditCategoryForm());
     }
   }]);
 
@@ -76337,6 +76341,263 @@ function (_Component) {
 
 if (document.getElementById('configCategory')) {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ConfigCategory, null), document.getElementById('configCategory'));
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/ConfigCoverPageImage.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/ConfigCoverPageImage.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ConfigCoverPageImage; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_Crop__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Crop */ "./resources/js/components/Crop.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+var ConfigCoverPageImage =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(ConfigCoverPageImage, _Component);
+
+  function ConfigCoverPageImage(props) {
+    var _this;
+
+    _classCallCheck(this, ConfigCoverPageImage);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ConfigCoverPageImage).call(this, props));
+    _this.saveImage = _this.saveImage.bind(_assertThisInitialized(_this));
+    _this.createCoverPageImage = _this.createCoverPageImage.bind(_assertThisInitialized(_this));
+    _this.editCoverPageImage = _this.editCoverPageImage.bind(_assertThisInitialized(_this));
+    _this.state = {
+      coverPageImage: {
+        id: undefined,
+        image_url: '',
+        image_id: ''
+      },
+      error: ''
+    };
+    return _this;
+  }
+
+  _createClass(ConfigCoverPageImage, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.getCoverPageImage();
+    }
+  }, {
+    key: "ifNotExist",
+    value: function ifNotExist(data) {
+      if (data !== '') {
+        this.setState({
+          coverPageImage: data
+        });
+      }
+    }
+  }, {
+    key: "getCoverPageImage",
+    value: function getCoverPageImage() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/api/coverPage').then(function (response) {
+        return _this2.ifNotExist(response.data.data);
+      })["catch"](function (error) {
+        return console.log(error.response.data);
+      });
+    }
+  }, {
+    key: "showImageIfExist",
+    value: function showImageIfExist() {
+      if (this.state.coverPageImage.image_url === '') {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "alert alert-primary col-12 text-center",
+          role: "alert"
+        }, "No hay una imagen de Portada Cargada a\xFAn.");
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "mb-5"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: this.state.coverPageImage.image_url,
+        alt: "Imagen de Portada de Nala Kids",
+        className: "img-fluid"
+      }));
+    }
+  }, {
+    key: "saveImage",
+    value: function saveImage(event) {
+      var _this3 = this;
+
+      var file = event.target.files[0];
+      var reader = new FileReader();
+      var prevCoverPageImage = this.state.coverPageImage;
+
+      reader.onload = function (e) {
+        _this3.setState({
+          coverPageImage: _objectSpread({}, prevCoverPageImage, {
+            image_url: e.target.result
+          })
+        });
+      };
+
+      reader.readAsDataURL(file);
+    }
+  }, {
+    key: "createCoverPageImage",
+    value: function createCoverPageImage() {
+      var _this4 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/api/coverPage', this.state.coverPageImage, {
+        headers: {
+          "Authorization": "Bearer ".concat(this.props.location.state.token)
+        }
+      }).then(function (response) {
+        return _this4.setState({
+          coverPageImage: response.data.data,
+          error: ''
+        });
+      })["catch"](function (error) {
+        return _this4.setState({
+          error: error.response.data.error
+        });
+      });
+    }
+  }, {
+    key: "editCoverPageImage",
+    value: function editCoverPageImage() {
+      var _this5 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.put("/api/coverPage/".concat(this.state.coverPageImage.id), this.state.coverPageImage, {
+        headers: {
+          "Authorization": "Bearer ".concat(this.props.location.state.token)
+        }
+      }).then(function (response) {
+        return _this5.setState({
+          coverPageImage: response.data.data,
+          error: ''
+        });
+      })["catch"](function (error) {
+        return _this5.setState({
+          error: error.response.data.error
+        });
+      });
+    }
+  }, {
+    key: "createButton",
+    value: function createButton() {
+      var _this6 = this;
+
+      if (this.state.coverPageImage.image_id === '') {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-12 col-md-6 pr-0 mb-4"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "col-12 col-md-6 btn btn-success",
+          type: "button",
+          onClick: function onClick() {
+            return _this6.createCoverPageImage();
+          }
+        }, "Crear"));
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-md-6 pr-0 mb-4"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "col-12 col-md-6 btn btn-success",
+        type: "button",
+        onClick: function onClick() {
+          return _this6.editCoverPageImage();
+        }
+      }, "Aceptar"));
+    }
+  }, {
+    key: "showErrors",
+    value: function showErrors(error) {
+      if (error !== '') {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          style: {
+            color: 'red'
+          }
+        }, error));
+      }
+
+      return undefined;
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this7 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "col-xs-12 mb-4",
+        onSubmit: function onSubmit(e) {
+          e.preventDefault();
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "lines-style"
+      }, "Imagen de Portada"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, this.showImageIfExist(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 row justify-content-around pr-0"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-md-6 d-flex justify-content-center justify-content-md-end pr-0 mb-4"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "file",
+        name: "photo",
+        id: "file",
+        onChange: function onChange(event) {
+          return _this7.saveImage(event);
+        }
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "file"
+      }, "Seleccione una Imagen")), this.createButton()), this.showErrors(this.state.error))));
+    }
+  }]);
+
+  return ConfigCoverPageImage;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+
+if (document.getElementById('configCoverPageImage')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ConfigCoverPageImage, null), document.getElementById('configCoverPageImage'));
 }
 
 /***/ }),
@@ -77915,6 +78176,9 @@ function (_Component) {
         title: '',
         products: []
       },
+      coverPageImage: {
+        image_url: ''
+      },
       isOffer: false,
       settings: {
         arrows: true,
@@ -77964,14 +78228,28 @@ function (_Component) {
     value: function componentWillMount() {
       this.getBanner();
       this.isOffer();
+      this.getCoverPageImage();
+    }
+  }, {
+    key: "getCoverPageImage",
+    value: function getCoverPageImage() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/coverPage').then(function (response) {
+        return _this2.setState({
+          coverPageImage: response.data.data
+        });
+      })["catch"](function (error) {
+        return console.log(error.response.data.error);
+      });
     }
   }, {
     key: "isOffer",
     value: function isOffer() {
-      var _this2 = this;
+      var _this3 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/product/thereIsAOffer').then(function (response) {
-        return _this2.setState({
+        return _this3.setState({
           isOffer: response.data.data
         });
       })["catch"](function (error) {
@@ -77981,10 +78259,10 @@ function (_Component) {
   }, {
     key: "getBanner",
     value: function getBanner() {
-      var _this3 = this;
+      var _this4 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/banner').then(function (response) {
-        return _this3.setState({
+        return _this4.setState({
           banner: response.data.data
         });
       })["catch"](function (error) {
@@ -77999,7 +78277,7 @@ function (_Component) {
           className: "offer-content"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "offer-title-carousel"
-        }, product.title_offer));
+        }, product.offer_title));
       }
 
       return undefined;
@@ -78007,7 +78285,7 @@ function (_Component) {
   }, {
     key: "showAllBannerProducts",
     value: function showAllBannerProducts() {
-      var _this4 = this;
+      var _this5 = this;
 
       return this.state.banner.products.map(function (product, i) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -78039,7 +78317,7 @@ function (_Component) {
             fontSize: '22px',
             color: 'rgb(33, 150, 244)'
           }
-        }, product.title)), _this4.showOffer(product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, product.title)), _this5.showOffer(product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-12",
           style: {
             textAlign: "center"
@@ -78082,8 +78360,8 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "/catalogue"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "https://tienda.pachibebes.com/image/catalog/banners_home/ecommerceInv2019-23.jpg",
-        alt: "",
+        src: this.state.coverPageImage.image_url,
+        alt: "Imagen de Portada Nala",
         className: "img-fluid",
         style: {
           cursor: 'pointer'
@@ -78290,6 +78568,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_15__);
 /* harmony import */ var _Product__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./Product */ "./resources/js/components/Product.js");
+/* harmony import */ var _ConfigCoverPageImage__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./ConfigCoverPageImage */ "./resources/js/components/ConfigCoverPageImage.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -78307,6 +78586,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -78381,6 +78661,9 @@ function (_Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AdminRoute__WEBPACK_IMPORTED_MODULE_6__["default"], {
         path: "/admin/config/banner",
         component: _components_ConfigBanner__WEBPACK_IMPORTED_MODULE_10__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AdminRoute__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        path: "/admin/config/coverPageImage",
+        component: _ConfigCoverPageImage__WEBPACK_IMPORTED_MODULE_17__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/contacts",
@@ -78942,7 +79225,14 @@ function (_Component) {
           pathname: '/admin/config/banner',
           state: this.props.location.state
         }
-      }, "Destacados"))));
+      }, "Destacados")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: this.checkPosition('/admin/config/coverPageImage')
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        to: {
+          pathname: '/admin/config/coverPageImage',
+          state: this.props.location.state
+        }
+      }, "Imagen de Portada"))));
     }
   }]);
 

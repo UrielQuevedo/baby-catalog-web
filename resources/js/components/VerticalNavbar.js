@@ -47,6 +47,14 @@ export default class VerticalNavbar extends Component {
                             Destacados
                         </Link>
                     </li>
+                    <li className={this.checkPosition('/admin/config/coverPageImage')}>
+                        <Link to={{
+                            pathname:'/admin/config/coverPageImage',
+                            state:this.props.location.state,
+                        }}>
+                            Imagen de Portada
+                        </Link>
+                    </li>
                 </ul>
             </nav>
         );

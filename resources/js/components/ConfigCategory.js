@@ -150,6 +150,7 @@ export default class ConfigCategory extends Component {
     render() {
         return (
             <div className="container">
+                <span className="lines-style">Categoria</span>
                 {this.createCategoryForm()}
                 {this.createEditCategoryForm()}
             </div>

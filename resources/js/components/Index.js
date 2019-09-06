@@ -15,6 +15,7 @@ import AboutUs from "./AboutUs";
 import Catalogue from "./Catalogue";
 import Axios from "axios";
 import Product from "./Product";
+import ConfigCoverPageImage from "./ConfigCoverPageImage";
 
 export default class Index extends Component {
     constructor(props) {
@@ -42,6 +43,7 @@ export default class Index extends Component {
                     <AdminRoute path='/admin/config/product' component={ConfigProduct} />
                     <AdminRoute path='/admin/config/category' component={ConfigCategory} />
                     <AdminRoute path='/admin/config/banner' component={ConfigBanner} />
+                    <AdminRoute path='/admin/config/coverPageImage' component={ConfigCoverPageImage} />
                     <Route exact path="/contacts" render={() => <div className="box"><Header /><Contact /><Footer /></div>} />
                     <Route exact path="/aboutUs" render={() => <div className="box"><Header /><AboutUs /><Footer /></div>} />
                     <Route exact path="/catalogue" render={() => this.redirect()} />

@@ -354,6 +354,7 @@ export default class ConfigBanner extends Component {
         }
         return (
             <div className="container">
+                <span className="lines-style">Destacados</span>
                 {this.createEditNameInput()}
                 {this.showErrors(this.state.errorEdit)}
                 {this.createProductBannerTable()}

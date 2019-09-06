@@ -22,7 +22,8 @@ class CreateProductsTable extends Migration
             $table->string('image_url')->nullable();
             $table->string('image_id')->nullable();
             $table->boolean('offer')->nullable();
-            $table->string('title_offer')->nullable();
+            $table->string('offer_title')->nullable();
+            $table->integer('offer_price')->nullable();
             $table->integer('priority')->nullable(true);
             $table->integer('banner_id')->unsigned()->nullable();
             $table->string('code')->nullable();
