@@ -172,13 +172,13 @@ export default class Home extends Component {
     render() {
         return (
             <div className="box">
-                <div className="container"  style={{ marginTop: '50px', boxShadow: '0 5px 15px -5px #00000070' }}>
+                <div className="container p-0"  style={{ marginTop: '50px', boxShadow: '0 5px 15px -5px #00000070', maxWidth: '959px', maxHeight:'383.6px' }}>
                     <a href="/catalogue">
                         <img   
                             src={this.state.coverPageImage.image_url}
                             alt="Imagen de Portada Nala" 
                             className="img-fluid" 
-                            style={{ cursor:'pointer' }}
+                            style={{ width: '100%', height: '100%', cursor: 'pointer'}}
                         />
                     </a>
                 </div>

@@ -355,11 +355,11 @@ export default class ConfigProduct extends Component {
     showImage() {
         if (this.state.product.image_url === '') {
             return (
-                <img src="https://www.bicifan.uy/wp-content/uploads/2016/09/producto-sin-imagen.png" className="rounded img-thumbnail img-fluid" style={{ width:'390px', height:'400px'}}/>                
+                <img src="https://www.bicifan.uy/wp-content/uploads/2016/09/producto-sin-imagen.png" className="rounded img-thumbnail img-fluid" style={{ width:'225px', height:'309.275px'}}/>                
             );
         }
         return (
-            <img src={this.state.product.image_url} className="rounded img-thumbnail img-fluid" style={{ width:'390px', height:'400px'}}/>    
+            <img src={this.state.product.image_url} className="rounded img-thumbnail img-fluid" style={{ width:'225px', height:'309.275px'}}/>    
         );
     }
 
@@ -379,6 +379,7 @@ export default class ConfigProduct extends Component {
         if(this.state.image_selected !== '') {
             return (
                 <Crop 
+                    aspect= {4 / 5.5}
                     image_selected={this.state.image_selected} 
                     abstractHandlerForAProduct={this.abstractHandlerForAProduct}
                 />

@@ -76405,12 +76405,14 @@ function (_Component) {
     _this.saveImage = _this.saveImage.bind(_assertThisInitialized(_this));
     _this.createCoverPageImage = _this.createCoverPageImage.bind(_assertThisInitialized(_this));
     _this.editCoverPageImage = _this.editCoverPageImage.bind(_assertThisInitialized(_this));
+    _this.abstractHandlerForAProduct = _this.abstractHandlerForAProduct.bind(_assertThisInitialized(_this));
     _this.state = {
       coverPageImage: {
         id: undefined,
         image_url: '',
         image_id: ''
       },
+      image_selected: '',
       error: ''
     };
     return _this;
@@ -76452,11 +76454,19 @@ function (_Component) {
       }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "mb-5"
+        className: "mb-5",
+        style: {
+          width: '959px',
+          height: '383.6px'
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: this.state.coverPageImage.image_url,
         alt: "Imagen de Portada de Nala Kids",
-        className: "img-fluid"
+        className: "img-fluid",
+        style: {
+          width: '100%',
+          height: '100%'
+        }
       }));
     }
   }, {
@@ -76466,13 +76476,10 @@ function (_Component) {
 
       var file = event.target.files[0];
       var reader = new FileReader();
-      var prevCoverPageImage = this.state.coverPageImage;
 
       reader.onload = function (e) {
         _this3.setState({
-          coverPageImage: _objectSpread({}, prevCoverPageImage, {
-            image_url: e.target.result
-          })
+          image_selected: e.target.result
         });
       };
 
@@ -76559,6 +76566,25 @@ function (_Component) {
       return undefined;
     }
   }, {
+    key: "abstractHandlerForAProduct",
+    value: function abstractHandlerForAProduct(property, value) {
+      var prevCoverPageImave = this.state.coverPageImage;
+      this.setState({
+        coverPageImage: _objectSpread({}, prevCoverPageImave, _defineProperty({}, property, value))
+      });
+    }
+  }, {
+    key: "createCropper",
+    value: function createCropper() {
+      if (this.state.image_selected !== '') {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Crop__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          aspect: 2.5,
+          image_selected: this.state.image_selected,
+          abstractHandlerForAProduct: this.abstractHandlerForAProduct
+        });
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this7 = this;
@@ -76574,7 +76600,7 @@ function (_Component) {
         className: "lines-style"
       }, "Imagen de Portada"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
-      }, this.showImageIfExist(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.createCropper(), this.showImageIfExist(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12 row justify-content-around pr-0"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12 col-md-6 d-flex justify-content-center justify-content-md-end pr-0 mb-4"
@@ -77146,8 +77172,8 @@ function (_Component) {
           src: "https://www.bicifan.uy/wp-content/uploads/2016/09/producto-sin-imagen.png",
           className: "rounded img-thumbnail img-fluid",
           style: {
-            width: '390px',
-            height: '400px'
+            width: '225px',
+            height: '309.275px'
           }
         });
       }
@@ -77156,8 +77182,8 @@ function (_Component) {
         src: this.state.product.image_url,
         className: "rounded img-thumbnail img-fluid",
         style: {
-          width: '390px',
-          height: '400px'
+          width: '225px',
+          height: '309.275px'
         }
       });
     }
@@ -77186,6 +77212,7 @@ function (_Component) {
     value: function createCropper() {
       if (this.state.image_selected !== '') {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Crop__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          aspect: 4 / 5.5,
           image_selected: this.state.image_selected,
           abstractHandlerForAProduct: this.abstractHandlerForAProduct
         });
@@ -77601,7 +77628,6 @@ function (_Component) {
         y: 0
       },
       zoom: 1,
-      aspect: 3.9 / 4,
       croppedAreaPixels: null,
       croppedImage: null
     };
@@ -77676,7 +77702,7 @@ function (_Component) {
         image: this.props.image_selected,
         crop: this.state.crop,
         zoom: this.state.zoom,
-        aspect: this.state.aspect,
+        aspect: this.props.aspect,
         onCropChange: this.onCropChange,
         onCropComplete: this.onCropComplete,
         onZoomChange: this.onZoomChange
@@ -78350,10 +78376,12 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "box"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container",
+        className: "container p-0",
         style: {
           marginTop: '50px',
-          boxShadow: '0 5px 15px -5px #00000070'
+          boxShadow: '0 5px 15px -5px #00000070',
+          maxWidth: '959px',
+          maxHeight: '383.6px'
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "/catalogue"
@@ -78362,6 +78390,8 @@ function (_Component) {
         alt: "Imagen de Portada Nala",
         className: "img-fluid",
         style: {
+          width: '100%',
+          height: '100%',
           cursor: 'pointer'
         }
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

@@ -16,7 +16,6 @@ export default class Crop extends Component {
         this.state = {
             crop: { x: 0, y: 0 },
             zoom: 1,
-            aspect: 3.9 / 4,
             croppedAreaPixels: null,
             croppedImage: null,
         };
@@ -51,7 +50,7 @@ export default class Crop extends Component {
                             image={this.props.image_selected}
                             crop={this.state.crop}
                             zoom={this.state.zoom}
-                            aspect={this.state.aspect}
+                            aspect={this.props.aspect}
                             onCropChange={this.onCropChange}
                             onCropComplete={this.onCropComplete}
                             onZoomChange={this.onZoomChange}

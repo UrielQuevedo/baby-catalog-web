@@ -10,12 +10,14 @@ export default class ConfigCoverPageImage extends Component {
         this.saveImage = this.saveImage.bind(this);
         this.createCoverPageImage = this.createCoverPageImage.bind(this);
         this.editCoverPageImage = this.editCoverPageImage.bind(this);
+        this.abstractHandlerForAProduct = this.abstractHandlerForAProduct.bind(this);
         this.state = {
             coverPageImage: {
                 id: undefined,
                 image_url: '',
                 image_id: '',
             },
+            image_selected: '',
             error: '',
         };
     }
@@ -45,8 +47,8 @@ export default class ConfigCoverPageImage extends Component {
             );
         }
         return (
-            <div className="mb-5">
-                <img src={this.state.coverPageImage.image_url} alt="Imagen de Portada de Nala Kids" className="img-fluid"/>
+            <div className="mb-5" style={{ width: '959px', height:'383.6px'}}>
+                <img src={this.state.coverPageImage.image_url} alt="Imagen de Portada de Nala Kids" className="img-fluid" style={{ width: '100%', height: '100%'}}/>
             </div>
         );
     }
@@ -54,9 +56,8 @@ export default class ConfigCoverPageImage extends Component {
     saveImage(event) {
         let file = event.target.files[0];
         let reader = new FileReader();
-        let prevCoverPageImage = this.state.coverPageImage;
         reader.onload = (e) => {
-            this.setState({ coverPageImage: { ...prevCoverPageImage, image_url: e.target.result } });
+            this.setState({ image_selected: e.target.result });
         };
         reader.readAsDataURL(file);
     }
@@ -109,12 +110,30 @@ export default class ConfigCoverPageImage extends Component {
         return undefined;
     }
 
+    abstractHandlerForAProduct(property, value) {
+        let prevCoverPageImave = this.state.coverPageImage;
+        this.setState({ coverPageImage : { ...prevCoverPageImave, [property]: value } });
+    }
+
+    createCropper() {
+        if(this.state.image_selected !== '') {
+            return (
+                <Crop
+                    aspect= {2.5}
+                    image_selected={this.state.image_selected} 
+                    abstractHandlerForAProduct={this.abstractHandlerForAProduct}
+                />
+            );
+        }
+    }
+
     render() {
         return (
             <div className="container">
                 <form className="col-xs-12 mb-4" onSubmit={e => { e.preventDefault(); }}>
                     <span className="lines-style">Imagen de Portada</span>
                     <div className="row">
+                        {this.createCropper()}
                         {this.showImageIfExist()}
                         <div className="col-12 row justify-content-around pr-0">
                             <div className="col-12 col-md-6 d-flex justify-content-center justify-content-md-end pr-0 mb-4">
