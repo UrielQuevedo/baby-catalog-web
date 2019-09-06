@@ -33,9 +33,10 @@ export default class Footer extends Component {
                         </p>
                     </div>
                     <div className="d-flex justify-content-center">
-                        <i class="fas fa-envelope mr-2" style={{ transform: 'translate(10px, 4px)'}}></i> 
+                        <i class="fas fa-map-marker-alt" style={{ transform: 'translate(37px, 6px)'}}></i>
                         <p>
-                            <a href="mailto:nalaquilmes@gmail.com">nalaquilmes@gmail.com</a>
+                            <span>Constitución 328</span>
+                            San Fernando, Buenos Aires
                         </p>
                     </div>
                     <div className="d-flex justify-content-center">

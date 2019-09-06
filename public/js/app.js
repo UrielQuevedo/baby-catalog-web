@@ -77872,13 +77872,11 @@ function (_Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Rivadavia 108"), "Quilmes, Buenos Aires")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "d-flex justify-content-center"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "fas fa-envelope mr-2",
+        "class": "fas fa-map-marker-alt",
         style: {
-          transform: 'translate(10px, 4px)'
+          transform: 'translate(37px, 6px)'
         }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "mailto:nalaquilmes@gmail.com"
-      }, "nalaquilmes@gmail.com"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Constituci\xF3n 328"), "San Fernando, Buenos Aires")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "d-flex justify-content-center"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         "class": "fas fa-phone mr-3",
