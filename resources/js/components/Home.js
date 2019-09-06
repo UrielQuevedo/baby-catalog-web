@@ -183,7 +183,7 @@ export default class Home extends Component {
                         <div className="d-flex justify-content-center mt-5">
                             <a href="/catalogue">
                                 <button className="button-view">
-                                    VER MAS
+                                    CATALOGO
                                 </button>
                             </a>
                         </div>

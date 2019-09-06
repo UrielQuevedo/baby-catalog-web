@@ -8722,7 +8722,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".map iframe {\n    width: 100%;\n}\n\n.box-info {\n    box-shadow: 0 5px 15px -5px #00000070;\n}\n\n.icon-contact {\n    transition: .2s;\n}\n\n.icon-contact:hover {\n    color: blue;\n}\n\n.descriptonLocal p{\n    color: black;\n    font-size: 20px;\n}", ""]);
+exports.push([module.i, ".map iframe {\n    width: 100%;\n    border: 1px solid #cbcbcb;\n    box-shadow: 0 5px 15px -5px #00000070;\n}\n\n.box-info {\n    box-shadow: 0 5px 15px -5px #00000070;\n}\n\n.icon-contact {\n    transition: .2s;\n}\n\n.icon-contact:hover {\n    color: blue;\n}\n\n.descriptonLocal p{\n    color: black;\n    font-size: 20px;\n}", ""]);
 
 // exports
 
@@ -77137,7 +77137,11 @@ function (_Component) {
           fontSize: '54px'
         }
       }, "CONTACTO"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "d-flex justify-content-center mb-4"
+        className: "row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-md-6"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "d-flex justify-content-center mb-4 mt-4"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Quilmes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -77154,7 +77158,7 @@ function (_Component) {
         className: "col-12 col-md-4 text-center mb-4"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
         className: "mt-4 mb-2"
-      }, "Direccion"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Rivadavia 108"), "Quilmes, Buenos Aires"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Direccion"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Rivadavia 108,"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Quilmes,"), "Buenos Aires"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12 col-md-4 text-center mb-4"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
         className: "mt-4 mb-2"
@@ -77180,7 +77184,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fab fa-facebook icon-contact"
       }))), "tel:. (+54 9 11) 6274.3761")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "map mt-5 mb-2"
+        className: "map mb-3 mt-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("iframe", {
         src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3279.278094120835!2d-58.259949000000006!3d-34.723383999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a32e6ae51b62dd%3A0x5c7d3fff9eab9d9a!2sNala%20kids!5e0!3m2!1ses-419!2sar!4v1566922805225!5m2!1ses-419!2sar",
         width: "600",
@@ -77190,7 +77194,63 @@ function (_Component) {
         },
         frameborder: "0",
         allowFullScreen: true
-      })));
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-md-6"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "d-flex justify-content-center mb-4 mt-4"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "San Fernando")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row box-info"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-md-4 text-center mb-4"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: "mt-4 mb-2"
+      }, "Horarios"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Lunes-Viernes: 9am - 8pm"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Sabados: 9am - 8pm"), "Domingos: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        style: {
+          color: 'red'
+        }
+      }, "Cerrado")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-md-4 text-center mb-4"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: "mt-4 mb-2"
+      }, "Direccion"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Constituci\xF3n 328,"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "B1646CXH San Fernando,"), "Buenos Aires"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-md-4 text-center mb-4"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: "mt-4 mb-2"
+      }, "Redes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "mb-2"
+      }, "Seguinos en nuestras redes y consultanos cualquier duda."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "mb-2"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://wa.me/5491162743761?text=Hola%20Nala%20queria%20realizar%20una%20consulta",
+        target: "_blank",
+        className: "mr-4"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fab fa-whatsapp icon-contact"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://www.instagram.com/nalasanfernando/",
+        target: "_blank",
+        className: "mr-4 icon-contact"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fab fa-instagram"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://www.facebook.com/NALA-San-Fernando-1433390813376015/",
+        target: "_blank"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fab fa-facebook icon-contact"
+      }))), "tel:. (+54 9 11) 6274.3761")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "map mt-3 mb-3"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("iframe", {
+        src: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13162.486568684188!2d-58.5625558!3d-34.4363646!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x556e2fc4d8c32e4!2sNala%20Kids!5e0!3m2!1ses-419!2sar!4v1567738613505!5m2!1ses-419!2sar",
+        width: "600",
+        height: "450",
+        frameborder: "0",
+        style: {
+          border: '0'
+        },
+        allowfullscreen: true
+      })))));
     }
   }]);
 
@@ -78073,7 +78133,7 @@ function (_Component) {
         href: "/catalogue"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "button-view"
-      }, "VER MAS")))), this.createBannerOffer()));
+      }, "CATALOGO")))), this.createBannerOffer()));
     }
   }]);
 

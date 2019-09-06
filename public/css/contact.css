@@ -1,5 +1,7 @@
 .map iframe {
     width: 100%;
+    border: 1px solid #cbcbcb;
+    box-shadow: 0 5px 15px -5px #00000070;
 }
 
 .box-info {
