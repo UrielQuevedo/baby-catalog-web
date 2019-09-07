@@ -65,7 +65,7 @@ class Catalogue extends Component {
     }
 
     showOffer(product) {
-        if (product.offer) {
+        if (product.offer && product.offer_title !== null) {
             return (
                 <div className="offer-content">
                     <span className="offer-title-catalogue">{product.offer_title}</span>
@@ -73,6 +73,22 @@ class Catalogue extends Component {
             );
         }
         return undefined
+    }
+
+    showPrice(product) {
+        if (product.offer && product.offer_price !== null) {
+            return (
+                <div className="col-6">
+                    <span style={{ fontSize: '17px', color: 'grey', position: 'absolute', transform: 'translate(5px, -14px)' }}>Antes</span>
+                    <strike style={{color:'red'}}><span style={{ fontSize: '27px'}}>{product.price}$</span></strike>
+                    <span style={{ fontSize: '17px', color: 'grey', position: 'absolute', transform: 'translate(111px, -14px)' }}>Ahora</span>
+                    <span style={{ fontSize: '27px', color: 'black', position: 'absolute', transform: 'translate(107px, 1px)' }}>{product.offer_price}$</span>
+                </div>
+            );
+        }
+        return (
+            <span style={{ fontSize: '27px'}}>{product.price}$</span>
+        );
     }
 
     createIfExistOffer() {
@@ -107,7 +123,7 @@ class Catalogue extends Component {
                         <div>
                             <hr data-hook="product-item-line-between-name-and-price" class="linear" aria-hidden="true" />
                         </div>
-                        <span style={{ fontSize: '18px'}}>{product.price}$</span>
+                        {this.showPrice(product)}
                     </div>
                 </Link>
             </div>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter } from 'react-router';
-import '../../../public/css/product.css';
 import Axios from 'axios';
 
 class Product extends Component {
