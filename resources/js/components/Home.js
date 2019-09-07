@@ -114,8 +114,8 @@ export default class Home extends Component {
             .catch(error => console.log(error));
     }
 
-    showOffer(product) {
-        if(product.offer) {
+    showOfferTitle(product) {
+        if(product.offer && product.offer_title !== null) {
             return (
                 <div className="offer-content">
                     <span className="offer-title-carousel">{product.offer_title}</span>
@@ -125,11 +125,46 @@ export default class Home extends Component {
         return undefined;
     }
 
+    showOfferPrice(product) {
+        if(product.offer && product.offer_price !== null) {
+            return (
+                <div style={{ position: 'absolute'}}>
+                    <div className="actual-price text-center col-6">
+                        Ahora
+                    </div>
+                    <div className="product-price new-price">
+                        {product.offer_price}$
+                    </div>
+                </div>
+            );
+        }
+        return undefined;
+    }
+
+    showPrice(product) {
+        if(product.offer && product.offer_price !== null) {
+            return (
+                <div className="col-6" style={{ marginBottom: '6px', marginTop: '4px' }}>
+                    <span className="before-price">Antes</span>
+                    <strike style={{ color: 'red' }}>
+                        <span className="product-price">{product.price}$</span>
+                    </strike>
+                </div>
+            );
+        }
+        return (
+            <div className="col-12" style={{ textAlign: "center", marginBottom: '6px', marginTop: '4px' }}>
+                <span className="product-price">{product.price}$</span>
+            </div>
+        );
+    }
+
     showAllBannerProducts() {
         return this.state.banner.products.map((product, i) => (
             <div className="d-flex justify-content-center row">
                 <div className="wrapper-image-carousel">
-                    <div className="imageBanner col-12 d-flex justify-content-center" style={{ minWidth:'225px', minHeight:'309px'}}>
+                    {this.showOfferTitle(product)}
+                    <div className="imageBanner col-12 d-flex justify-content-center" style={{ minWidth:'225px', minHeight:'309px', marginTop: '40px' }}>
                         <Link to={`/product/${product.id}`}>
                             <img className="img-fluid rounded image-product" src={product.image_url} style={{ height:'100%'}} alt={product.description} />
                             <div className="middle">
@@ -142,10 +177,8 @@ export default class Home extends Component {
                     <div className="col-12" style={{ textAlign: "center" }}>
                         <span style={{ fontSize: '22px', color:'rgb(33, 150, 244)' }}>{product.title}</span>
                     </div>
-                    {this.showOffer(product)}
-                    <div className="col-12" style={{ textAlign: "center" }}>
-                        <span style={{ fontSize: '16px' }}>{product.price}$</span>
-                    </div>
+                    {this.showOfferPrice(product)}
+                    {this.showPrice(product)}
                 </div>
             </div>
         ));

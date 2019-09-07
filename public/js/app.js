@@ -8798,7 +8798,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap);", ""]);
 
 // module
-exports.push([module.i, ".header{\n    height: 58px;\n    background: rgb(115, 214, 159);\n    padding: 0 20px;\n    color: #fff;\n    box-shadow: 0 5px 15px -5px #00000070;\n    z-index: 2;\n}\n\n.box {\n    font-family: 'Lexend Deca', sans-serif;\n}\n\nnav {\n    position: -webkit-sticky; /* Safari */\n    position: sticky;\n    top: 0;\n}\n\nheader, i {\n    font-size: 30px;\n    /* font-family: 'Poppins', sans-serif; */\n}\n\n.menu{\n    line-height: 61px;\n    /* font-family: 'Poppins', sans-serif; */\n}\n\n.banner {\n    background-image: url(\"https://res.cloudinary.com/dddzzcrzg/image/upload/v1566573157/bannerbebe_u65gpb.jpg\");\n    background-attachment: fixed;\n}\n\nnav {\n    text-align: center;\n}\n\n.menu a{\n    color: #fefefe;\n    text-transform: uppercase;\n    text-decoration: none;\n    padding: 0 10px;\n    font-size: 20px;\n    transition: 0.4s;\n}\n\n.show-menu-btn,.hide-menu-btn{\n    transition: 0.4s;\n    cursor: pointer;\n    display: none;\n}\n\n.show-menu-btn {\n    float: right;\n}\n\n.show-menu-btn i{\n    line-height: 61px;\n}\n\n.itemNavActive {\n    color: #3f51b5;\n}\n\n.menu a:hover,\n.show-menu-btn:hover,\n.hide-menu-btn:hover{\n    color: #3498db;\n}\n\n#chk {\n    position: absolute;\n    visibility: hidden;\n    z-index: -1111;\n}\n\n.icons {\n    line-height: 72px;\n    display: none;\n}\n\n.ribbon {\n    font-size: 18px !important;\n    width: 50%;\n    position: relative;\n    background: #ea5a93;\n    color: #fff;\n    text-align: center;\n    padding: 1em 2em;\n    margin: 2em auto 3em; \n}\n   .ribbon:before, .ribbon:after {\n    content: \"\";\n    position: absolute;\n    display: block;\n    bottom: -1em;\n    border: 1.5em solid #d22f6f;\n    z-index: -1;\n   }\n   .ribbon:before {\n    left: -2em;\n    border-right-width: 1.5em;\n    border-left-color: transparent;\n   }\n   .ribbon:after {\n    right: -2em;\n    border-left-width: 1.5em;\n    border-right-color: transparent;\n   }\n   .ribbon .ribbon-content:before, .ribbon .ribbon-content:after {\n    content: \"\";\n    position: absolute;\n    display: block;\n    border-style: solid;\n    border-color: #96214f transparent transparent transparent;\n    bottom: -1em;\n   }\n   .ribbon .ribbon-content:before {\n    left: 0;\n    border-width: 1em 0 0 1em;\n   }\n   .ribbon .ribbon-content:after {\n    right: 0;\n    border-width: 1em 1em 0 0;\n   }\n\n.social-bar {\n    position: fixed;\n    right: 0;\n    top: 35%;\n    font-size: 1.5rem;\n    display: flex;\n    flex-direction: column;\n    align-items: flex-end;\n    z-index: 100;\n}\n\n.icon-social {\n    text-decoration: none;\n    padding: .7rem;\n    display: flex;\n    transition: all .5s;\n    color: #fff;\n}\n\n.icon-social:first-child {\n    border-radius: 1rem 0 0 0;\n}\n\n.icon-social:last-child {\n    border-radius: 0 0 0 1rem;\n}\n\n.icon-social:hover {\n    padding-right: 3rem;\n    border-radius: 1rem 0 0 1rem;\n    box-shadow: 0 0 .5rem rgb(0, 0, 0, 0.42);\n    color: #fff;\n}\n\n.instagram {\n    background: #f09433; \n    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); \n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );\n}\n\n@media screen and (max-width:800px) {\n    .show-menu-btn,.hide-menu-btn {\n        display: block;\n    }\n\n    .icons {\n        display: inline;\n    }\n\n    .social-bar {\n        display: none;\n    }\n\n    .ribbon {\n        width: 85%;\n    }\n\n    .menu{\n        position: fixed;\n        width: 100%;\n        height: 100vh;\n        background: rgb(156, 206, 179);\n        right: -100%;\n        top: 0;\n        text-align: center;\n        padding: 80px 0;\n        line-height: normal;\n        transition: 0.7s;\n    }\n\n    .menu a{\n        display: block;\n        padding: 20px;\n    }\n\n    .hide-menu-btn {\n        position: absolute;\n        top: 40px;\n        right: 40px;\n    }\n\n    #chk:checked ~ .menu{\n        right: 0;\n    }\n\n}\n\n.imageBanner {\n    width: 250px !important;\n    height: 250px;\n    cursor: pointer;\n}\n\n.imageBanner:hover .image-product{\n    opacity: 0.2;\n    transition: 1s;\n}\n\n.image-product:hover {\n    transform:scale(1.03)\n}\n\n.imageBanner:hover .middle{\n    opacity: 1;\n}\n\n.middle {\n    transition: .5s ease;\n    opacity: 0;\n    position: absolute;\n    top: 83%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    -ms-transform: translate(-50%, -50%);\n    text-align: center;\n}\n\n.slick-initialized {\n    z-index: 1 !important;\n}\n\n.icon-search {\n    color: #ea5a93;\n    font-size: 25px;\n}\n\n.button-view {\n    color: #fff; \n    border: 2px solid #e84393;\n    border-radius: 10px;\n    background: none;\n    padding: 10px 20px;\n    font-size: 20px;\n    margin: 10px;\n    cursor: pointer;\n    color: #fff;\n    color: #e84393;\n    position: relative;\n    overflow: hidden;\n}\n\n.button-view:hover {\n    color: #fff;\n}\n\n.button-view::before{\n    content: \"\";\n    position: absolute;\n    left: 0;\n    width: 100%;\n    height: 0%;\n    color: #fff;\n    background: #e84393;\n    z-index: -1;\n    transition: 0.8s; \n}\n\n.button-view::before {\n    top:0;\n    border-radius: 0 0 50% 50%;\n}\n\n.button-view:hover::before {\n    height: 180%;\n}\n\n.container-carousel{\n    width: 340px !important;\n}\n\n.wrapper-image-carousel {\n    box-shadow: 0 5px 15px -5px #00000070;\n    margin-bottom: 10px;\n}\n\n.icon-carousel {\n    box-shadow: 0 5px 15px -5px #00000070;\n    font-size: '40px';\n    border-radius: 22px;\n}\n\n.bannerOffer {\n    margin-bottom: 50px;\n    border-radius: 7px;\n    margin-top: 30px;\n    box-shadow: 0 5px 15px -5px #00000070;\n}\n\n.textOffer {\n    color: #7c8098;\n    font-size: 30px;\n    padding-top: 40px;\n}\n\n.buttonOffer {\n    margin-bottom: 40px;\n    margin-top: 40px;\n}\n\n.offer-content {\n    position: absolute;\n}\n\n.offer-title-carousel {\n    width: 53px;\n    height: 24px;\n    padding: 10px 0;\n    position: absolute;\n    color: black;\n    top: -3px;\n    left: 3px;\n    font-size: 17px;\n    line-height: 6px;\n    text-align: center;\n    border-radius: 3px;\n    background: #d6bc9c;\n}", ""]);
+exports.push([module.i, ".header{\n    height: 58px;\n    background: rgb(115, 214, 159);\n    padding: 0 20px;\n    color: #fff;\n    box-shadow: 0 5px 15px -5px #00000070;\n    z-index: 2;\n}\n\n.box {\n    font-family: 'Lexend Deca', sans-serif;\n}\n\nnav {\n    position: -webkit-sticky; /* Safari */\n    position: sticky;\n    top: 0;\n}\n\nheader, i {\n    font-size: 30px;\n    /* font-family: 'Poppins', sans-serif; */\n}\n\n.menu{\n    line-height: 61px;\n    /* font-family: 'Poppins', sans-serif; */\n}\n\n.banner {\n    background-image: url(\"https://res.cloudinary.com/dddzzcrzg/image/upload/v1566573157/bannerbebe_u65gpb.jpg\");\n    background-attachment: fixed;\n}\n\nnav {\n    text-align: center;\n}\n\n.menu a{\n    color: #fefefe;\n    text-transform: uppercase;\n    text-decoration: none;\n    padding: 0 10px;\n    font-size: 20px;\n    transition: 0.4s;\n}\n\n.show-menu-btn,.hide-menu-btn{\n    transition: 0.4s;\n    cursor: pointer;\n    display: none;\n}\n\n.show-menu-btn {\n    float: right;\n}\n\n.show-menu-btn i{\n    line-height: 61px;\n}\n\n.itemNavActive {\n    color: #3f51b5;\n}\n\n.menu a:hover,\n.show-menu-btn:hover,\n.hide-menu-btn:hover{\n    color: #3498db;\n}\n\n#chk {\n    position: absolute;\n    visibility: hidden;\n    z-index: -1111;\n}\n\n.icons {\n    line-height: 72px;\n    display: none;\n}\n\n.ribbon {\n    font-size: 18px !important;\n    width: 50%;\n    position: relative;\n    background: #ea5a93;\n    color: #fff;\n    text-align: center;\n    padding: 1em 2em;\n    margin: 2em auto 3em; \n}\n   .ribbon:before, .ribbon:after {\n    content: \"\";\n    position: absolute;\n    display: block;\n    bottom: -1em;\n    border: 1.5em solid #d22f6f;\n    z-index: -1;\n   }\n   .ribbon:before {\n    left: -2em;\n    border-right-width: 1.5em;\n    border-left-color: transparent;\n   }\n   .ribbon:after {\n    right: -2em;\n    border-left-width: 1.5em;\n    border-right-color: transparent;\n   }\n   .ribbon .ribbon-content:before, .ribbon .ribbon-content:after {\n    content: \"\";\n    position: absolute;\n    display: block;\n    border-style: solid;\n    border-color: #96214f transparent transparent transparent;\n    bottom: -1em;\n   }\n   .ribbon .ribbon-content:before {\n    left: 0;\n    border-width: 1em 0 0 1em;\n   }\n   .ribbon .ribbon-content:after {\n    right: 0;\n    border-width: 1em 1em 0 0;\n   }\n\n.social-bar {\n    position: fixed;\n    right: 0;\n    top: 35%;\n    font-size: 1.5rem;\n    display: flex;\n    flex-direction: column;\n    align-items: flex-end;\n    z-index: 100;\n}\n\n.icon-social {\n    text-decoration: none;\n    padding: .7rem;\n    display: flex;\n    transition: all .5s;\n    color: #fff;\n}\n\n.icon-social:first-child {\n    border-radius: 1rem 0 0 0;\n}\n\n.icon-social:last-child {\n    border-radius: 0 0 0 1rem;\n}\n\n.icon-social:hover {\n    padding-right: 3rem;\n    border-radius: 1rem 0 0 1rem;\n    box-shadow: 0 0 .5rem rgb(0, 0, 0, 0.42);\n    color: #fff;\n}\n\n.instagram {\n    background: #f09433; \n    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); \n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );\n}\n\n@media screen and (max-width:800px) {\n    .show-menu-btn,.hide-menu-btn {\n        display: block;\n    }\n\n    .icons {\n        display: inline;\n    }\n\n    .social-bar {\n        display: none;\n    }\n\n    .ribbon {\n        width: 85%;\n    }\n\n    .menu{\n        position: fixed;\n        width: 100%;\n        height: 100vh;\n        background: rgb(156, 206, 179);\n        right: -100%;\n        top: 0;\n        text-align: center;\n        padding: 80px 0;\n        line-height: normal;\n        transition: 0.7s;\n    }\n\n    .menu a{\n        display: block;\n        padding: 20px;\n    }\n\n    .hide-menu-btn {\n        position: absolute;\n        top: 40px;\n        right: 40px;\n    }\n\n    #chk:checked ~ .menu{\n        right: 0;\n    }\n\n}\n\n.imageBanner {\n    width: 250px !important;\n    height: 250px;\n    cursor: pointer;\n}\n\n.imageBanner:hover .image-product{\n    opacity: 0.2;\n    transition: 1s;\n}\n\n.image-product:hover {\n    transform:scale(1.03)\n}\n\n.imageBanner:hover .middle{\n    opacity: 1;\n}\n\n.middle {\n    transition: .5s ease;\n    opacity: 0;\n    position: absolute;\n    top: 83%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    -ms-transform: translate(-50%, -50%);\n    text-align: center;\n}\n\n.slick-initialized {\n    z-index: 1 !important;\n}\n\n.icon-search {\n    color: #ea5a93;\n    font-size: 25px;\n}\n\n.button-view {\n    color: #fff; \n    border: 2px solid #e84393;\n    border-radius: 10px;\n    background: none;\n    padding: 10px 20px;\n    font-size: 20px;\n    margin: 10px;\n    cursor: pointer;\n    color: #fff;\n    color: #e84393;\n    position: relative;\n    overflow: hidden;\n}\n\n.button-view:hover {\n    color: #fff;\n}\n\n.button-view::before{\n    content: \"\";\n    position: absolute;\n    left: 0;\n    width: 100%;\n    height: 0%;\n    color: #fff;\n    background: #e84393;\n    z-index: -1;\n    transition: 0.8s; \n}\n\n.button-view::before {\n    top:0;\n    border-radius: 0 0 50% 50%;\n}\n\n.button-view:hover::before {\n    height: 180%;\n}\n\n.container-carousel{\n    width: 340px !important;\n}\n\n.wrapper-image-carousel {\n    box-shadow: 0 5px 15px -5px #00000070;\n    margin-bottom: 10px;\n}\n\n.icon-carousel {\n    box-shadow: 0 5px 15px -5px #00000070;\n    font-size: '40px';\n    border-radius: 22px;\n}\n\n.bannerOffer {\n    margin-bottom: 50px;\n    border-radius: 7px;\n    margin-top: 30px;\n    box-shadow: 0 5px 15px -5px #00000070;\n}\n\n.textOffer {\n    color: #7c8098;\n    font-size: 30px;\n    padding-top: 40px;\n}\n\n.buttonOffer {\n    margin-bottom: 40px;\n    margin-top: 40px;\n}\n\n.offer-content {\n    position: absolute;\n}\n\n.offer-title-carousel {\n    min-width: 53px;\n    min-height: 24px;\n    padding: 10px 9px;\n    position: absolute;\n    color: black;\n    top: 8px;\n    left: 15px;\n    font-size: 17px;\n    line-height: 6px;\n    text-align: center;\n    border-radius: 3px;\n    background: #d6bc9c;\n}\n\n.before-price {\n    position: absolute;\n    transform: translate(0px, -16px);\n    font-size: 17px;\n    color: gray;\n}\n\n.actual-price {\n    transform: translate(170px, -12px);\n    position: absolute;\n    font-size: 17px;\n    color: gray;\n}\n\n.new-price {\n    transform: translate(186px, 4px);\n}\n\n.product-price {\n    font-size: 23px;\n}\n", ""]);
 
 // exports
 
@@ -78333,9 +78333,9 @@ function (_Component) {
       });
     }
   }, {
-    key: "showOffer",
-    value: function showOffer(product) {
-      if (product.offer) {
+    key: "showOfferTitle",
+    value: function showOfferTitle(product) {
+      if (product.offer && product.offer_title !== null) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "offer-content"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -78344,6 +78344,55 @@ function (_Component) {
       }
 
       return undefined;
+    }
+  }, {
+    key: "showOfferPrice",
+    value: function showOfferPrice(product) {
+      if (product.offer && product.offer_price !== null) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          style: {
+            position: 'absolute'
+          }
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "actual-price text-center col-6"
+        }, "Ahora"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "product-price new-price"
+        }, product.offer_price, "$"));
+      }
+
+      return undefined;
+    }
+  }, {
+    key: "showPrice",
+    value: function showPrice(product) {
+      if (product.offer && product.offer_price !== null) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-6",
+          style: {
+            marginBottom: '6px',
+            marginTop: '4px'
+          }
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "before-price"
+        }, "Antes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strike", {
+          style: {
+            color: 'red'
+          }
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "product-price"
+        }, product.price, "$")));
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12",
+        style: {
+          textAlign: "center",
+          marginBottom: '6px',
+          marginTop: '4px'
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "product-price"
+      }, product.price, "$"));
     }
   }, {
     key: "showAllBannerProducts",
@@ -78355,11 +78404,12 @@ function (_Component) {
           className: "d-flex justify-content-center row"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "wrapper-image-carousel"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, _this5.showOfferTitle(product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "imageBanner col-12 d-flex justify-content-center",
           style: {
             minWidth: '225px',
-            minHeight: '309px'
+            minHeight: '309px',
+            marginTop: '40px'
           }
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
           to: "/product/".concat(product.id)
@@ -78384,16 +78434,7 @@ function (_Component) {
             fontSize: '22px',
             color: 'rgb(33, 150, 244)'
           }
-        }, product.title)), _this5.showOffer(product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col-12",
-          style: {
-            textAlign: "center"
-          }
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-          style: {
-            fontSize: '16px'
-          }
-        }, product.price, "$"))));
+        }, product.title)), _this5.showOfferPrice(product), _this5.showPrice(product)));
       });
     }
   }, {
