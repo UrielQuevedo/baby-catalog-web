@@ -27,7 +27,7 @@ class ProductController extends Controller
         if ($this->checkIfTheDataIsValid($request)){
 			return response()->json(['error'=>'Faltan datos necesarios para el proceso de alta.(Complete todos los campos)'],422);
         }
-        if ($request->input('offer') && !$request->input('offer_title') || !$request->input('offer_price')) {
+        if ($request->input('offer') && !($request->input('offer_title') || $request->input('offer_price'))) {
             return response()->json(['error'=>'Falta un titulo a la Promocion o un Precio Nuevo'],422);
         }
         $products=DB::table('products')->select('code')->where('code', $request->input('code'))->get();
@@ -126,7 +126,7 @@ class ProductController extends Controller
         if($this->checkIfTheDataIsValid($request)) {
             return response()->json(['error'=>'Faltan datos necesarios para el proceso de alta.(Complete todos los campos)'],422);
         }
-        if ($request->input('offer') && !$request->input('offer_title') || !$request->input('offer_price')) {
+        if ($request->input('offer') && !($request->input('offer_title') || $request->input('offer_price'))) {
             return response()->json(['error'=>'Falta un titulo a la Promocion o un Precio Nuevo'],422);
         }
         $products=DB::table('products')->select('code')->where('code', $request->input('code'))->where('id','!=',$request->input('id'))->get();

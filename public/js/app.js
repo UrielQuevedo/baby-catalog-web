@@ -76454,7 +76454,7 @@ function (_Component) {
       }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "mb-5",
+        className: "mb-5 container mt-3",
         style: {
           width: '959px',
           height: '383.6px'
@@ -76702,7 +76702,8 @@ function (_Component) {
         image_url: '',
         title: '',
         description: '',
-        title_offer: '',
+        offer_title: '',
+        offer_price: '',
         code: '',
         offer: false,
         price: 1,
@@ -76776,6 +76777,8 @@ function (_Component) {
           id: undefined,
           image_url: '',
           title: '',
+          offer_title: '',
+          offer_price: '',
           description: '',
           code: '',
           offer: false,
@@ -77110,7 +77113,10 @@ function (_Component) {
       var _this14 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-12 col-md-6 col-md-auto col-auto row pr-0 mb-3 checkbox-input"
+        className: "col-12 col-md-4 col-md-auto col-auto row pr-0 mb-3 checkbox-input",
+        style: {
+          marginRight: '-1px'
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "offer",
         className: "col-2 form-check-label"
@@ -77204,7 +77210,12 @@ function (_Component) {
           return _this17.saveImage(event);
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "file"
+        htmlFor: "file",
+        style: {
+          marginTop: '13px',
+          marginBottom: '13px',
+          left: '9px'
+        }
       }, "Seleccione una Imagen"));
     }
   }, {
@@ -77270,27 +77281,53 @@ function (_Component) {
       var _this20 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-12 col-md-6 col-md-auto row pr-0"
+        className: "col-12 col-md-8 col-md-auto row pr-0"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "offerTitle",
         className: "col-md-3 col-form-label"
-      }, "Titulo Promo:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-md-8 mb-3 pr-0"
+      }, "Titulo de Promocion:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-md-9 mb-3 pr-0"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "form-control",
         id: "offerTitle",
-        defaultValue: this.state.product.title_offer,
+        defaultValue: this.state.product.offer_title,
         placeholder: "Titulo de la Promo",
         onChange: function onChange(event) {
-          return _this20.abstractHandlerForAProduct('title_offer', event.target.value);
+          return _this20.abstractHandlerForAProduct('offer_title', event.target.value);
+        }
+      })));
+    }
+  }, {
+    key: "createOfferPriceInput",
+    value: function createOfferPriceInput() {
+      var _this21 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-md-8 col-md-auto row pr-0",
+        style: {
+          marginRight: '30px'
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "offerPrice",
+        className: "col-md-3 col-form-label"
+      }, "Precio de Promocion:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-md-9 mb-3 pr-0"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "number",
+        className: "form-control",
+        id: "offerPrice",
+        defaultValue: this.state.product.offer_price,
+        placeholder: "Precio de promocion",
+        onChange: function onChange(event) {
+          return _this21.abstractHandlerForAProduct('offer_price', event.target.value);
         }
       })));
     }
   }, {
     key: "createWrapperProductFrom",
     value: function createWrapperProductFrom() {
-      var _this21 = this;
+      var _this22 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "col-xs-12 mb-4",
@@ -77301,7 +77338,9 @@ function (_Component) {
         className: "lines-style"
       }, "Crear o Editar Producto"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
-      }, this.createCropper(), this.createImageProductInput(), this.createXProductInput('Titulo:', 'title', 'Ingrese un Titulo', 'text', 'mr-auto'), this.createXProductInput('Codigo:', 'code', 'Codigo del Producto', 'text'), this.createPriceProductInput(), this.createPriorityProductInput(), this.createXProductInput('Talle:', 'waist', 'Ingrese los Talles', 'text', 'mr-auto'), this.createCategoryProductInput(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.createCropper(), this.createImageProductInput(), this.createXProductInput('Titulo:', 'title', 'Ingrese un Titulo', 'text', 'mr-auto'), this.createXProductInput('Codigo:', 'code', 'Codigo del Producto', 'text'), this.createPriceProductInput(), this.createPriorityProductInput(), this.createXProductInput('Talle:', 'waist', 'Ingrese los Talles', 'text', 'mr-auto'), this.createCategoryProductInput(), this.createOfferInput(), this.createOfferTitleInput(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "d-flex justify-content-start justify-content-md-end p-0 col-12"
+      }, this.createOfferPriceInput()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12 row pr-0"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "description",
@@ -77315,9 +77354,9 @@ function (_Component) {
         defaultValue: this.state.product.description,
         placeholder: "Agregar una Descripcion",
         onChange: function onChange(event) {
-          return _this21.abstractHandlerForAProduct('description', event.target.value);
+          return _this22.abstractHandlerForAProduct('description', event.target.value);
         }
-      }))), this.createOfferInput(), this.createOfferTitleInput(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12"
       }, this.showErrors(this.state.errorCreateProduct)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12 row justify-content-around pr-0"
@@ -77326,7 +77365,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "col-12 col-md-6 btn btn-success",
         onClick: function onClick() {
-          return _this21.createProduct();
+          return _this22.createProduct();
         },
         type: "reset"
       }, "Crear")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -77335,7 +77374,7 @@ function (_Component) {
         type: "reset",
         className: "col-12 col-md-6 btn btn-primary",
         onClick: function onClick() {
-          return _this21.handlerEditProductSend();
+          return _this22.handlerEditProductSend();
         }
       }, "Aplicar")))));
     }

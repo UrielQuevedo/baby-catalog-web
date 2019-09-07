@@ -47,7 +47,7 @@ export default class ConfigCoverPageImage extends Component {
             );
         }
         return (
-            <div className="mb-5" style={{ width: '959px', height:'383.6px'}}>
+            <div className="mb-5 container mt-3" style={{ width: '959px', height:'383.6px'}}>
                 <img src={this.state.coverPageImage.image_url} alt="Imagen de Portada de Nala Kids" className="img-fluid" style={{ width: '100%', height: '100%'}}/>
             </div>
         );

@@ -22,7 +22,8 @@ export default class ConfigProduct extends Component {
                 image_url: '',
                 title: '',
                 description: '',
-                title_offer: '',
+                offer_title: '',
+                offer_price: '',
                 code: '',
                 offer: false,
                 price: 1,
@@ -75,6 +76,8 @@ export default class ConfigProduct extends Component {
                 id: undefined,
                 image_url: '',
                 title: '',
+                offer_title: '',
+                offer_price: '',
                 description: '',
                 code: '',
                 offer:false,
@@ -312,7 +315,7 @@ export default class ConfigProduct extends Component {
 
     createOfferInput() {
         return (
-            <div className="col-12 col-md-6 col-md-auto col-auto row pr-0 mb-3 checkbox-input">
+            <div className="col-12 col-md-4 col-md-auto col-auto row pr-0 mb-3 checkbox-input" style={{ marginRight: '-1px' }}>
                 <label htmlFor="offer" className="col-2 form-check-label">Promo:</label>
                 <div className="col-9 mb-3 pr-0 ">
                     <input 
@@ -367,10 +370,10 @@ export default class ConfigProduct extends Component {
         return (
             <div className="col-12 row d-flex justify-content-center">
                 <div className="col-12 pr-0 d-flex justify-content-center">
-                    {this.showImage()}    
+                    {this.showImage()}
                 </div>
                 <input type="file" name="photo" id="file" onChange={event => this.saveImage(event)}/>
-                <label htmlFor="file" >Seleccione una Imagen</label>
+                <label htmlFor="file" style={{ marginTop: '13px', marginBottom: '13px', left: '9px' }} >Seleccione una Imagen</label>
             </div>
         );
     }
@@ -423,16 +426,33 @@ export default class ConfigProduct extends Component {
 
     createOfferTitleInput() {
         return (
-            <div className="col-12 col-md-6 col-md-auto row pr-0">
-                <label htmlFor="offerTitle" className="col-md-3 col-form-label">Titulo Promo:</label>
-                <div className="col-md-8 mb-3 pr-0">
+            <div className="col-12 col-md-8 col-md-auto row pr-0">
+                <label htmlFor="offerTitle" className="col-md-3 col-form-label">Titulo de Promocion:</label>
+                <div className="col-md-9 mb-3 pr-0">
                     <input 
                         type="text"
                         className="form-control" 
                         id="offerTitle"
-                        defaultValue={this.state.product.title_offer}
+                        defaultValue={this.state.product.offer_title}
                         placeholder="Titulo de la Promo"
-                        onChange={event => this.abstractHandlerForAProduct('title_offer', event.target.value)} />
+                        onChange={event => this.abstractHandlerForAProduct('offer_title', event.target.value)} />
+                </div>
+            </div>
+        );
+    }
+
+    createOfferPriceInput() {
+        return (
+            <div className="col-12 col-md-8 col-md-auto row pr-0" style={{ marginRight: '30px' }}>
+                <label htmlFor="offerPrice" className="col-md-3 col-form-label">Precio de Promocion:</label>
+                <div className="col-md-9 mb-3 pr-0">
+                    <input 
+                        type="number"
+                        className="form-control" 
+                        id="offerPrice"
+                        defaultValue={this.state.product.offer_price}
+                        placeholder="Precio de promocion"
+                        onChange={event => this.abstractHandlerForAProduct('offer_price', event.target.value)} />
                 </div>
             </div>
         );
@@ -451,6 +471,11 @@ export default class ConfigProduct extends Component {
                     {this.createPriorityProductInput()}
                     {this.createXProductInput('Talle:', 'waist', 'Ingrese los Talles', 'text', 'mr-auto')}
                     {this.createCategoryProductInput()}
+                    {this.createOfferInput()}
+                    {this.createOfferTitleInput()}
+                    <div className="d-flex justify-content-start justify-content-md-end p-0 col-12">
+                        {this.createOfferPriceInput()}
+                    </div>
                     <div className="col-12 row pr-0">
                         <label htmlFor="description" className="col-md-1 col-form-label mr-3">Descripcion:</label>
                         <div className="col-md-10 mb-3 pr-0">
@@ -463,8 +488,6 @@ export default class ConfigProduct extends Component {
                                 onChange={event => this.abstractHandlerForAProduct('description', event.target.value)} />
                         </div>
                     </div>
-                    {this.createOfferInput()}
-                    {this.createOfferTitleInput()}
                     <div className="col-12">
                         {this.showErrors(this.state.errorCreateProduct)}
                     </div>
