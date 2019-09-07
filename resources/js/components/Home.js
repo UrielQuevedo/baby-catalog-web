@@ -161,7 +161,7 @@ export default class Home extends Component {
 
     showAllBannerProducts() {
         return this.state.banner.products.map((product, i) => (
-            <div className="d-flex justify-content-center row">
+            <div className="d-flex justify-content-center row ml-1">
                 <div className="wrapper-image-carousel">
                     {this.showOfferTitle(product)}
                     <div className="imageBanner col-12 d-flex justify-content-center" style={{ minWidth:'225px', minHeight:'309px', marginTop: '40px' }}>

@@ -13,6 +13,7 @@ class Product extends Component {
                 offer: '',
                 code: '',
                 description: '',
+                offer_title: '',
                 id: undefined,
                 image_url: '',
                 price: '',
@@ -31,8 +32,8 @@ class Product extends Component {
     showOffer() {
         if (this.state.product.offer) {
             return (
-                <div className="product-ribbon">
-                    <span className="ribbon-2">{this.state.product.title_offer}</span>
+                <div className="offer-content">
+                    <span className="offer-title-catalogue">{this.state.product.offer_title}</span>
                 </div>
             );
         }

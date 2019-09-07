@@ -8684,7 +8684,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".container-product-catalogue {\n    box-shadow: 0 5px 15px -5px #00000070;\n    height: 569px;\n    width: 328px;\n    border-radius: 16px;\n    cursor: pointer;\n}\n\n.title-card-product {\n    color: #2296f3;\n    margin-top: 20px;\n}\n\n.linear {\n    border-color: #72d69e;\n    width: 20px;\n    display: inline-block;\n    max-width: 100%;\n    margin: .5em;\n}\n\n.wrapper-categories {\n    box-shadow: 0 5px 15px -5px #00000070;\n    min-width: 205px;\n    position: -webkit-sticky; /* Safari */\n    position: sticky;\n    top: 75px;\n}\n\n.active-category {\n    background: #fbffcc;\n}\n\n.category-menu {\n    cursor: pointer;\n    font-size: 22px;\n    color: rgb(232, 67, 147);\n    transition: .6s;\n}\n\n.category-menu:hover {\n    background: #fbffcc;\n}\n\n.category-selected {\n    background: #95b5a363;\n}\n\n.icon-up {\n    font-size: 45px;\n    position: fixed;\n    color: #3f51b5;\n    box-shadow: 0 5px 15px -5px #00000070;\n    border-radius: 250px;\n    cursor: pointer;\n    bottom: 20px;\n    right: 2px;\n}\n\n.notProducts {\n    box-shadow: 0 5px 15px -5px #00000070;\n    border: 2px black;\n    border-style: dashed;\n    padding: 10px;  \n    transform: translate(8px, 10px);\n}\n", ""]);
+exports.push([module.i, ".container-product-catalogue {\n    box-shadow: 0 5px 15px -5px #00000070;\n    height: 569px;\n    width: 328px;\n    border-radius: 16px;\n    cursor: pointer;\n}\n\n.title-card-product {\n    color: #2296f3;\n    margin-top: 20px;\n}\n\n.linear {\n    border-color: #72d69e;\n    width: 20px;\n    display: inline-block;\n    max-width: 100%;\n    margin: .5em;\n}\n\n.wrapper-categories {\n    box-shadow: 0 5px 15px -5px #00000070;\n    min-width: 205px;\n    position: -webkit-sticky; /* Safari */\n    position: sticky;\n    top: 75px;\n}\n\n.active-category {\n    background: #fbffcc;\n}\n\n.category-menu {\n    cursor: pointer;\n    font-size: 22px;\n    color: rgb(232, 67, 147);\n    transition: .6s;\n}\n\n.category-menu:hover {\n    background: #fbffcc;\n}\n\n.category-selected {\n    background: #95b5a363;\n}\n\n.icon-up {\n    font-size: 45px;\n    position: fixed;\n    color: #3f51b5;\n    box-shadow: 0 5px 15px -5px #00000070;\n    border-radius: 250px;\n    cursor: pointer;\n    bottom: 20px;\n    right: 2px;\n}\n\n.notProducts {\n    box-shadow: 0 5px 15px -5px #00000070;\n    border: 2px black;\n    border-style: dashed;\n    padding: 10px;  \n    transform: translate(8px, 10px);\n}\n\n.offer-title-catalogue {\n    min-width: 53px;\n    min-height: 24px;\n    padding: 12px 16px;\n    position: absolute;\n    color: black;\n    top: -38px;\n    left: 15px;\n    font-size: 24px;\n    line-height: 5px;\n    text-align: center;\n    border-radius: 3px;\n    background: #d6bc9c;\n}", ""]);
 
 // exports
 
@@ -75345,10 +75345,10 @@ function (_Component) {
     value: function showOffer(product) {
       if (product.offer) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "product-ribbon"
+          className: "offer-content"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-          className: "ribbon-2"
-        }, product.title_offer));
+          className: "offer-title-catalogue"
+        }, product.offer_title));
       }
 
       return undefined;
@@ -78401,7 +78401,7 @@ function (_Component) {
 
       return this.state.banner.products.map(function (product, i) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "d-flex justify-content-center row"
+          className: "d-flex justify-content-center row ml-1"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "wrapper-image-carousel"
         }, _this5.showOfferTitle(product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -79106,6 +79106,7 @@ function (_Component) {
         offer: '',
         code: '',
         description: '',
+        offer_title: '',
         id: undefined,
         image_url: '',
         price: '',
@@ -79134,10 +79135,10 @@ function (_Component) {
     value: function showOffer() {
       if (this.state.product.offer) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "product-ribbon"
+          className: "offer-content"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-          className: "ribbon-2"
-        }, this.state.product.title_offer));
+          className: "offer-title-catalogue"
+        }, this.state.product.offer_title));
       }
 
       return undefined;

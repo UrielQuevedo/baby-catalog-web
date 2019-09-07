@@ -67,8 +67,8 @@ class Catalogue extends Component {
     showOffer(product) {
         if (product.offer) {
             return (
-                <div className="product-ribbon">
-                    <span className="ribbon-2">{product.title_offer}</span>
+                <div className="offer-content">
+                    <span className="offer-title-catalogue">{product.offer_title}</span>
                 </div>
             );
         }
