@@ -8684,7 +8684,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".container-product-catalogue {\n    box-shadow: 0 5px 15px -5px #00000070;\n    height: 459px;\n    width: 328px;\n    border-radius: 16px;\n    cursor: pointer;\n}\n\n.title-card-product {\n    color: #2296f3;\n    margin-top: 20px;\n}\n\n.linear {\n    border-color: #72d69e;\n    width: 20px;\n    display: inline-block;\n    max-width: 100%;\n    margin: .5em;\n}\n\n.wrapper-categories {\n    box-shadow: 0 5px 15px -5px #00000070;\n    min-width: 205px;\n    position: -webkit-sticky; /* Safari */\n    position: sticky;\n    top: 75px;\n}\n\n.active-category {\n    background: #fbffcc;\n}\n\n.category-menu {\n    cursor: pointer;\n    font-size: 22px;\n    color: rgb(232, 67, 147);\n    transition: .6s;\n}\n\n.category-menu:hover {\n    background: #fbffcc;\n}\n\n.category-selected {\n    background: #95b5a363;\n}\n\n.icon-up {\n    font-size: 45px;\n    position: fixed;\n    color: #3f51b5;\n    box-shadow: 0 5px 15px -5px #00000070;\n    border-radius: 250px;\n    cursor: pointer;\n    bottom: 20px;\n    right: 2px;\n}\n\n.notProducts {\n    box-shadow: 0 5px 15px -5px #00000070;\n    border: 2px black;\n    border-style: dashed;\n    padding: 10px;  \n    transform: translate(8px, 10px);\n}\n", ""]);
+exports.push([module.i, ".container-product-catalogue {\n    box-shadow: 0 5px 15px -5px #00000070;\n    height: 569px;\n    width: 328px;\n    border-radius: 16px;\n    cursor: pointer;\n}\n\n.title-card-product {\n    color: #2296f3;\n    margin-top: 20px;\n}\n\n.linear {\n    border-color: #72d69e;\n    width: 20px;\n    display: inline-block;\n    max-width: 100%;\n    margin: .5em;\n}\n\n.wrapper-categories {\n    box-shadow: 0 5px 15px -5px #00000070;\n    min-width: 205px;\n    position: -webkit-sticky; /* Safari */\n    position: sticky;\n    top: 75px;\n}\n\n.active-category {\n    background: #fbffcc;\n}\n\n.category-menu {\n    cursor: pointer;\n    font-size: 22px;\n    color: rgb(232, 67, 147);\n    transition: .6s;\n}\n\n.category-menu:hover {\n    background: #fbffcc;\n}\n\n.category-selected {\n    background: #95b5a363;\n}\n\n.icon-up {\n    font-size: 45px;\n    position: fixed;\n    color: #3f51b5;\n    box-shadow: 0 5px 15px -5px #00000070;\n    border-radius: 250px;\n    cursor: pointer;\n    bottom: 20px;\n    right: 2px;\n}\n\n.notProducts {\n    box-shadow: 0 5px 15px -5px #00000070;\n    border: 2px black;\n    border-style: dashed;\n    padding: 10px;  \n    transform: translate(8px, 10px);\n}\n", ""]);
 
 // exports
 
@@ -75385,13 +75385,13 @@ function (_Component) {
         }, _this7.showOffer(product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "container image-container-product",
           style: {
-            height: '300px',
-            width: '300px'
+            minWidth: '225px',
+            minHeight: '309px'
           }
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           src: product.image_url,
           alt: "",
-          className: "img-fluid rounded image-product",
+          className: "rounded image-product",
           style: {
             width: '100%',
             height: '100%'
@@ -77179,7 +77179,7 @@ function (_Component) {
           className: "rounded img-thumbnail img-fluid",
           style: {
             width: '225px',
-            height: '309.275px'
+            height: '309px'
           }
         });
       }
@@ -77189,7 +77189,7 @@ function (_Component) {
         className: "rounded img-thumbnail img-fluid",
         style: {
           width: '225px',
-          height: '309.275px'
+          height: '309px'
         }
       });
     }
@@ -78356,7 +78356,11 @@ function (_Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "wrapper-image-carousel"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "imageBanner col-12 d-flex justify-content-center"
+          className: "imageBanner col-12 d-flex justify-content-center",
+          style: {
+            minWidth: '225px',
+            minHeight: '309px'
+          }
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
           to: "/product/".concat(product.id)
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -79119,7 +79123,8 @@ function (_Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row pt-5",
         style: {
-          boxShadow: '0 5px 15px -5px #00000070'
+          boxShadow: '0 5px 15px -5px #00000070',
+          paddingBottom: '110px'
         }
       }, this.showOffer(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12 col-md-6 d-flex justify-content-center mb-5"

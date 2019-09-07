@@ -98,8 +98,8 @@ class Catalogue extends Component {
                 <Link to={`/product/${product.id}`}>
                     <div className="container-product-catalogue pt-5">
                         {this.showOffer(product)}
-                        <div className="container image-container-product" style={{ height: '300px', width: '300px'}}>
-                            <img src={product.image_url} alt="" className="img-fluid rounded image-product" style={{ width:'100%', height:'100%'}} />
+                        <div className="container image-container-product" style={{ minWidth:'225px', minHeight:'309px'}}>
+                            <img src={product.image_url} alt="" className="rounded image-product" style={{ width:'100%', height:'100%'}} />
                         </div>
                         <h4 className="title-card-product">
                             {product.title}

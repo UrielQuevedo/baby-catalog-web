@@ -45,7 +45,7 @@ class Product extends Component {
                 <div className="d-flex justify-content-center mb-3 mt-3">
                     <i class="fas fa-arrow-circle-left" style={{ fontSize:'78px', color:'#f6982e', cursor:'pointer', boxShadow: '0 5px 15px -5px #00000070', borderRadius: '50px'}} onClick={() => history.back()}></i>
                 </div>
-                <div className="row pt-5" style={{boxShadow: '0 5px 15px -5px #00000070'}}>
+                <div className="row pt-5" style={{boxShadow: '0 5px 15px -5px #00000070', paddingBottom: '110px' }}>
                     {this.showOffer()}
                     <div className="col-12 col-md-6 d-flex justify-content-center mb-5">
                         <div style={{ maxHeight: '500px', maxWidth:'450px'}}>

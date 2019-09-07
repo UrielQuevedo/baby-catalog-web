@@ -129,7 +129,7 @@ export default class Home extends Component {
         return this.state.banner.products.map((product, i) => (
             <div className="d-flex justify-content-center row">
                 <div className="wrapper-image-carousel">
-                    <div className="imageBanner col-12 d-flex justify-content-center">
+                    <div className="imageBanner col-12 d-flex justify-content-center" style={{ minWidth:'225px', minHeight:'309px'}}>
                         <Link to={`/product/${product.id}`}>
                             <img className="img-fluid rounded image-product" src={product.image_url} style={{ height:'100%'}} alt={product.description} />
                             <div className="middle">
