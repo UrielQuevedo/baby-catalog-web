@@ -14,6 +14,7 @@ class Product extends Component {
                 code: '',
                 description: '',
                 offer_title: '',
+                offer_price: '',
                 id: undefined,
                 image_url: '',
                 price: '',
@@ -30,7 +31,7 @@ class Product extends Component {
     }
 
     showOffer() {
-        if (this.state.product.offer) {
+        if (this.state.product.offer && this.state.product.offer_title !== null) {
             return (
                 <div className="offer-content">
                     <span className="offer-title-catalogue">{this.state.product.offer_title}</span>
@@ -38,6 +39,21 @@ class Product extends Component {
             );
         }
         return undefined;
+    }
+
+    showPrice() {
+        if (this.state.product.offer && this.state.product.offer_price !== null) {
+            return (
+                <div style={{ fontSize: '31px', color: 'red' }}>
+                    <strike>{this.state.product.price}$</strike>
+                    <span style={{ fontSize: '14px', color: 'grey', position: 'absolute' }}>Ahora</span>
+                    <strong><span style={{ fontSize: '22px', color: 'black'}}>{this.state.product.offer_price}$</span></strong>
+                </div>
+            );
+        }
+        return (
+            <div style={{ fontSize: '31px'}}>{this.state.product.price}$</div>
+        );
     }
 
     render() {
@@ -56,7 +72,7 @@ class Product extends Component {
                     <div className="col-12 col-md-6 text-center">
                         <div style={{ color: '#e84393', fontSize:'49px'}}>{this.state.product.title}</div>
                         <div style={{ color: '#463219', fontSize:'18px'}}>{this.state.product.code}</div>
-                        <div style={{ fontSize: '31px'}}>{this.state.product.price}$</div>
+                        {this.showPrice()}
                         <div className="mt-1">Talle: {this.state.product.waist}</div>
                         <div className="mt-4 mb-3">{this.state.product.description}</div>
                         Cualquier consulta la puede realizar directamente por <a href={`https://wa.me/5491162743761?text=Queria%20consultar%20sobre%20la%20prenda%20${this.state.product.code}`} target="_blank" style={{ color: 'red'}}>
