@@ -111,7 +111,7 @@ class Catalogue extends Component {
         }
         return this.state.products_category.map( product => (
             <div className="text-center pr-0 mb-5 mr-3 ml-4">
-                <Link to={`/product/${product.id}`}>
+                <Link to={`/product/${product.id}`} title={product.title}>
                     <div className="container-product-catalogue pt-5">
                         {this.showOffer(product)}
                         <div className="container image-container-product" style={{ minWidth:'225px', minHeight:'309px'}}>
@@ -134,12 +134,12 @@ class Catalogue extends Component {
         return (
             <div className="container-fluid" >
                 <div className="d-flex justify-content-center mb-5 mt-5">
-                    <h1> <span style={{ color: '#e84393', fontSize: '54px' }}>CATALOGO</span></h1>
+                    <h1> <span style={{ color: '#F1622c', fontSize: '54px' }}>CATALOGO</span></h1>
                 </div>
                 <div className="row">
                     <div className="col-12 col-lg-2 text-center">
                         <div className="wrapper-categories mb-5">
-                            <h3 className="pt-4" style={{ fontSize: '34px' }}>Categorias</h3>
+                            <h3 className="pt-4" style={{ fontSize: '34px', color: 'blue' }}>Categorias</h3>
                             <div className="mt-4 pb-4">
                                 {this.createCategoryMenu()}
                                 {this.createIfExistOffer()}

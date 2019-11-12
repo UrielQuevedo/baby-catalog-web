@@ -28,18 +28,18 @@
 }
 
 .active-category {
-    background: #fbffcc;
+    background: yellow;
 }
 
 .category-menu {
     cursor: pointer;
     font-size: 22px;
-    color: rgb(232, 67, 147);
+    color: rgb(241, 98, 44);
     transition: .6s;
 }
 
 .category-menu:hover {
-    background: #fbffcc;
+    background: yellow;
 }
 
 .category-selected {
@@ -70,12 +70,12 @@
     min-height: 24px;
     padding: 12px 16px;
     position: absolute;
-    color: black;
+    color: white;
     top: -38px;
     left: 15px;
     font-size: 24px;
     line-height: 5px;
     text-align: center;
     border-radius: 3px;
-    background: #d6bc9c;
+    background: red;
 }

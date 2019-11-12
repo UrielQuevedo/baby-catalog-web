@@ -12,6 +12,18 @@
     transition: .2s;
 }
 
+.icon-contact-wp {
+    color: rgb(37, 211, 102);
+}
+
+.icon-contact-f {
+    color: rgb(46, 64, 110);
+}
+
+.icon-contact-i {
+    color: #ff7f10;
+}
+
 .icon-contact:hover {
     color: blue;
 }

@@ -14,7 +14,7 @@ export default class AboutUs extends Component {
         return (
             <div className="container-fluid">
                 <div className="d-flex justify-content-center mb-5 mt-5 text-center">
-                    <h1> <span style={{ color: '#e84393', fontSize: '54px' }}>QUIENES SOMOS</span></h1>
+                    <h1> <span style={{ color: '#F1622c', fontSize: '54px' }}>QUIENES SOMOS</span></h1>
                 </div>
                 <div className="container">
                 <div className="row d-flex justify-content-center text-center mb-5">
@@ -29,7 +29,7 @@ export default class AboutUs extends Component {
                             La integridad de la oferta, la coordinación entre artículos, el correcto equilibrio entre el contenido creativo y la practicidad, acompañado de un precio competitivo son las características principales de Nala kids.
                         </p>
                         <p>
-                            Visitá nuestro <a href="/catalogue" style={{ color: '#ea5a93' }}>Catalogo</a> online.
+                            Visitá nuestro <a href="/catalogue" style={{ color: 'rgb(240, 97, 44)' }}>Catalogo</a> online.
                         </p>
                     </div>
                 </div>

@@ -14,7 +14,7 @@ export default class Contact extends Component {
         return (
             <div className="container-fluid">
                 <div className="d-flex justify-content-center mb-4 mt-5">
-                    <h1> <span style={{ color: '#e84393', fontSize: '54px' }}>CONTACTO</span></h1>
+                    <h1> <span style={{ color: '#F1622c', fontSize: '54px' }}>CONTACTO</span></h1>
                 </div> 
                 <div className="row">
                     <div className="col-md-6">
@@ -25,8 +25,8 @@ export default class Contact extends Component {
                             <div className="row box-info">
                                 <div className="col-12 col-md-4 text-center mb-4">
                                     <h5 className="mt-4 mb-2">Horarios</h5>
-                                    <div>Lunes-Viernes: 9am - 8pm</div>
-                                    <div>Sabados: 9am - 8pm</div>
+                                    <div>Lunes-Viernes: 9 - 20.30</div>
+                                    <div>Sabados: 9 - 20.30</div>
                                     Domingos: <span style={{ color: 'red' }}>Cerrado</span>
                                 </div>
                                 <div className="col-12 col-md-4 text-center mb-4">
@@ -42,9 +42,9 @@ export default class Contact extends Component {
                                     <div>
                                         <div className="mb-2">Seguinos en nuestras redes y consultanos cualquier duda.</div>
                                         <div className="mb-2">
-                                            <a href="https://wa.me/5491162743761?text=Hola%20Nala%20queria%20realizar%20una%20consulta" target="_blank" className="mr-4"><i className="fab fa-whatsapp icon-contact"></i></a>
-                                            <a href="https://www.instagram.com/nalaquilmes/?fbclid=IwAR3Zy-k9ihYTBbi3DurzfMn8s_xQGcYcIZ0HOJ68knEjGVg4xVWybmd4kik" target="_blank" className="mr-4 icon-contact"><i className="fab fa-instagram"></i></a>
-                                            <a href="https://www.facebook.com/Nala-Quilmes-1096349540445839/?ref=br_rs" target="_blank"><i className="fab fa-facebook icon-contact"></i></a>
+                                            <a href="https://wa.me/5491162743761?text=Hola%20Nala%20queria%20realizar%20una%20consulta" target="_blank" className="mr-4 icon-contact-wp"><i className="fab fa-whatsapp"></i></a>
+                                            <a href="https://www.instagram.com/nalaquilmes/?fbclid=IwAR3Zy-k9ihYTBbi3DurzfMn8s_xQGcYcIZ0HOJ68knEjGVg4xVWybmd4kik" target="_blank" className="mr-4 icon-contact-i icon-contact"><i className="fab fa-instagram"></i></a>
+                                            <a href="https://www.facebook.com/Nala-Quilmes-1096349540445839/?ref=br_rs" target="_blank" className="icon-contact-f"><i className="fab fa-facebook"></i></a>
                                         </div>
                                         tel:. (+54 9 11) 6274.3761
                                     </div>
@@ -69,8 +69,8 @@ export default class Contact extends Component {
                             <div className="row box-info">
                                 <div className="col-12 col-md-4 text-center mb-4">
                                     <h5 className="mt-4 mb-2">Horarios</h5>
-                                    <div>Lunes-Viernes: 9am - 8pm</div>
-                                    <div>Sabados: 9am - 8pm</div>
+                                    <div>Lunes-Viernes: 9 - 13 y 15.30 - 20.30</div>
+                                    <div>Sabados: 9 - 14 y 15.30 - 20.30</div>
                                     Domingos: <span style={{ color: 'red' }}>Cerrado</span>
                                 </div>
                                 <div className="col-12 col-md-4 text-center mb-4">
@@ -86,9 +86,9 @@ export default class Contact extends Component {
                                     <div>
                                         <div className="mb-2">Seguinos en nuestras redes y consultanos cualquier duda.</div>
                                         <div className="mb-2">
-                                            <a href="https://wa.me/5491162743761?text=Hola%20Nala%20queria%20realizar%20una%20consulta" target="_blank" className="mr-4"><i className="fab fa-whatsapp icon-contact"></i></a>
-                                            <a href="https://www.instagram.com/nalasanfernando/" target="_blank" className="mr-4 icon-contact"><i className="fab fa-instagram"></i></a>
-                                            <a href="https://www.facebook.com/NALA-San-Fernando-1433390813376015/" target="_blank"><i className="fab fa-facebook icon-contact"></i></a>
+                                            <a href="https://wa.me/5491162743761?text=Hola%20Nala%20queria%20realizar%20una%20consulta" target="_blank" className="mr-4 icon-contact-wp"><i className="fab fa-whatsapp"></i></a>
+                                            <a href="https://www.instagram.com/nalasanfernando/" target="_blank" className="mr-4 icon-contact icon-contact-i"><i className="fab fa-instagram"></i></a>
+                                            <a href="https://www.facebook.com/NALA-San-Fernando-1433390813376015/" target="_blank" className="icon-contact-f"><i className="fab fa-facebook"></i></a>
                                         </div>
                                         tel:. (+54 9 11) 6274.3761
                                     </div>

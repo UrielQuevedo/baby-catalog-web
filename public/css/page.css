@@ -1,7 +1,7 @@
 @import "https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap";
 .header{
     height: 58px;
-    background: rgb(115, 214, 159);
+    background: rgba(139, 253, 139, 1);
     padding: 0 20px;
     color: #fff;
     box-shadow: 0 5px 15px -5px #00000070;
@@ -29,8 +29,9 @@ header, i {
 }
 
 .banner {
-    background-image: url("https://res.cloudinary.com/dddzzcrzg/image/upload/v1566573157/bannerbebe_u65gpb.jpg");
+    background-image: url("https://res.cloudinary.com/dddzzcrzg/image/upload/v1568431352/fab82dc4-a2ac-44cd-8a21-3850e8236e05_pwgdgy.png");
     background-attachment: fixed;
+    background-repeat: round;
 }
 
 nav {
@@ -38,7 +39,7 @@ nav {
 }
 
 .menu a{
-    color: #fefefe;
+    color: blue;
     text-transform: uppercase;
     text-decoration: none;
     padding: 0 10px;
@@ -61,7 +62,7 @@ nav {
 }
 
 .itemNavActive {
-    color: #3f51b5;
+    color: white;
 }
 
 .menu a:hover,
@@ -85,7 +86,7 @@ nav {
     font-size: 18px !important;
     width: 50%;
     position: relative;
-    background: #ea5a93;
+    background: rgb(240, 97, 44);;
     color: #fff;
     text-align: center;
     padding: 1em 2em;
@@ -96,7 +97,7 @@ nav {
     position: absolute;
     display: block;
     bottom: -1em;
-    border: 1.5em solid #d22f6f;
+    border: 1.5em solid #f0612c;
     z-index: -1;
    }
    .ribbon:before {
@@ -114,7 +115,7 @@ nav {
     position: absolute;
     display: block;
     border-style: solid;
-    border-color: #96214f transparent transparent transparent;
+    border-color: #af0909 transparent transparent transparent;
     bottom: -1em;
    }
    .ribbon .ribbon-content:before {
@@ -189,7 +190,7 @@ nav {
         position: fixed;
         width: 100%;
         height: 100vh;
-        background: rgb(156, 206, 179);
+        background: rgb(139, 253, 139);
         right: -100%;
         top: 0;
         text-align: center;
@@ -256,7 +257,7 @@ nav {
 
 .button-view {
     color: #fff; 
-    border: 2px solid #e84393;
+    border: 2px solid #f0612c;
     border-radius: 10px;
     background: none;
     padding: 10px 20px;
@@ -264,7 +265,7 @@ nav {
     margin: 10px;
     cursor: pointer;
     color: #fff;
-    color: #e84393;
+    color: #f0612c;
     position: relative;
     overflow: hidden;
 }
@@ -280,7 +281,7 @@ nav {
     width: 100%;
     height: 0%;
     color: #fff;
-    background: #e84393;
+    background: #f0612c;
     z-index: -1;
     transition: 0.8s; 
 }
@@ -336,14 +337,14 @@ nav {
     min-height: 24px;
     padding: 10px 9px;
     position: absolute;
-    color: black;
+    color: white;
     top: 8px;
     left: 15px;
     font-size: 17px;
     line-height: 6px;
     text-align: center;
     border-radius: 3px;
-    background: #d6bc9c;
+    background: red;
 }
 
 .before-price {
